@@ -41,6 +41,16 @@ export interface Resource {
   videoUrl?: string;
   externalUrl?: string;
   htmlPath?: string;
+  chapter?: string;
+  customComponent?: string;
+}
+
+export interface QuizLevel {
+  id: string;
+  name: string;
+  emoji: string;
+  description: string;
+  questions: QuizQuestion[];
 }
 
 export interface Quiz {
@@ -48,6 +58,7 @@ export interface Quiz {
   description: string;
   questions: QuizQuestion[];
   passingScore: number;
+  levels?: QuizLevel[];
 }
 
 export interface QuizQuestion {

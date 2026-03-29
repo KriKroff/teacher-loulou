@@ -6,13 +6,11 @@ import {
   type SchoolLevel,
   type Subject,
 } from "@/types";
-import {
-  getResourceBySlug,
-  getAllResources,
-} from "@/data/resources";
+import { getResourceBySlug, getAllResources } from "@/data/resources";
 import { CourseViewer } from "@/components/content/CourseViewer";
 import { QuizPlayer } from "@/components/content/QuizPlayer";
 import { ResourceTracker } from "@/components/content/ResourceTracker";
+import { SVTPuberteFiche } from "@/components/content/SVTPuberteFiche";
 
 interface Props {
   params: Promise<{ level: string; subject: string; slug: string }>;
@@ -56,16 +54,25 @@ export default async function ResourcePage({ params }: Props) {
           {subjectName}
         </Link>
         <span>/</span>
-        <span className="text-warm-700 truncate">{resource.title}</span>
+        <span className="truncate text-warm-700">{resource.title}</span>
       </nav>
 
       {/* Track this resource view */}
       <ResourceTracker resource={resource} />
 
-      {/* Render based on type */}
-      {(resource.type === "cours" ||
-        resource.type === "fiche") &&
-        resource.content && <CourseViewer resource={resource} />}
+      {/* Custom component rendering */}
+      {resource.customComponent === "SVTPuberteFiche" && (
+        <SVTPuberteFiche
+          quizSlug="svt-puberte-quiz"
+          level={resource.level}
+          subject={resource.subject}
+        />
+      )}
+
+      {/* Standard markdown fiche/cours — skip if customComponent handles it */}
+      {(resource.type === "cours" || resource.type === "fiche") &&
+        resource.content &&
+        !resource.customComponent && <CourseViewer resource={resource} />}
 
       {resource.type === "quiz" && resource.quizData && (
         <QuizPlayer resource={resource} />

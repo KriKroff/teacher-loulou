@@ -3,10 +3,146 @@
 import { useAccessibility } from "@/contexts/AccessibilityContext";
 import { Settings, RotateCcw, Type, MoveHorizontal, AlignJustify, Ruler, Eye, X } from "lucide-react";
 import { useState } from "react";
+import { createPortal } from "react-dom";
 
 export function AccessibilityPanel() {
   const { settings, updateSettings, resetSettings } = useAccessibility();
   const [isOpen, setIsOpen] = useState(false);
+
+  const modal = isOpen ? (
+    <div className="fixed inset-0 z-50 flex items-end justify-center sm:items-center sm:p-4">
+      <div
+        className="absolute inset-0 bg-black/40"
+        onClick={() => setIsOpen(false)}
+      />
+      <div className="relative w-full sm:max-w-md max-h-[85dvh] overflow-y-auto rounded-t-2xl sm:rounded-2xl bg-warm-50 shadow-xl">
+        <div className="sticky top-0 z-10 flex items-center justify-between bg-warm-50 px-6 pt-6 pb-4">
+          <h2 className="text-lg font-bold text-warm-900">
+            Réglages de lecture
+          </h2>
+          <button
+            onClick={() => setIsOpen(false)}
+            className="rounded-lg p-1 hover:bg-warm-200"
+            aria-label="Fermer"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        </div>
+
+        <div className="space-y-6 px-6 pb-6">
+          {/* Font toggle */}
+          <div>
+            <label className="mb-2 flex items-center gap-2 text-sm font-semibold text-warm-800">
+              <Type className="h-4 w-4" />
+              Police
+            </label>
+            <div className="flex gap-2">
+              <button
+                onClick={() => updateSettings({ font: "default" })}
+                className={`flex-1 rounded-xl px-4 py-3 text-sm font-medium transition-all ${
+                  settings.font === "default"
+                    ? "bg-accent-500 text-white shadow-md"
+                    : "bg-warm-100 text-warm-700 hover:bg-warm-200"
+                }`}
+              >
+                Lexend
+              </button>
+              <button
+                onClick={() => updateSettings({ font: "opendyslexic" })}
+                className={`flex-1 rounded-xl px-4 py-3 text-sm font-medium transition-all ${
+                  settings.font === "opendyslexic"
+                    ? "bg-accent-500 text-white shadow-md"
+                    : "bg-warm-100 text-warm-700 hover:bg-warm-200"
+                }`}
+                style={{ fontFamily: "OpenDyslexic, sans-serif" }}
+              >
+                OpenDyslexic
+              </button>
+            </div>
+          </div>
+
+          {/* Font size */}
+          <SliderSetting
+            icon={<Type className="h-4 w-4" />}
+            label="Taille du texte"
+            value={settings.fontSize}
+            min={0.9}
+            max={1.5}
+            step={0.05}
+            displayValue={`${Math.round(settings.fontSize * 100)}%`}
+            onChange={(v) => updateSettings({ fontSize: v })}
+          />
+
+          {/* Letter spacing */}
+          <SliderSetting
+            icon={<MoveHorizontal className="h-4 w-4" />}
+            label="Espacement des lettres"
+            value={settings.letterSpacing}
+            min={0}
+            max={0.2}
+            step={0.01}
+            displayValue={`${settings.letterSpacing.toFixed(2)}em`}
+            onChange={(v) => updateSettings({ letterSpacing: v })}
+          />
+
+          {/* Word spacing */}
+          <SliderSetting
+            icon={<MoveHorizontal className="h-4 w-4" />}
+            label="Espacement des mots"
+            value={settings.wordSpacing}
+            min={0}
+            max={0.4}
+            step={0.02}
+            displayValue={`${settings.wordSpacing.toFixed(2)}em`}
+            onChange={(v) => updateSettings({ wordSpacing: v })}
+          />
+
+          {/* Line height */}
+          <SliderSetting
+            icon={<AlignJustify className="h-4 w-4" />}
+            label="Interligne"
+            value={settings.lineHeight}
+            min={1.4}
+            max={2.8}
+            step={0.1}
+            displayValue={`${settings.lineHeight.toFixed(1)}`}
+            onChange={(v) => updateSettings({ lineHeight: v })}
+          />
+
+          {/* Toggles */}
+          <div className="space-y-3">
+            <ToggleSetting
+              icon={<Ruler className="h-4 w-4" />}
+              label="Règle de lecture"
+              checked={settings.readingRuler}
+              onChange={(v) => updateSettings({ readingRuler: v })}
+            />
+            <ToggleSetting
+              icon={<Eye className="h-4 w-4" />}
+              label="Contraste élevé"
+              checked={settings.highContrast}
+              onChange={(v) => updateSettings({ highContrast: v })}
+            />
+            <ToggleSetting
+              icon={<Type className="h-4 w-4" />}
+              label="Syllabes colorées"
+              checked={settings.syllableColors}
+              onChange={(v) => updateSettings({ syllableColors: v })}
+            />
+          </div>
+
+          {/* Reset */}
+          <button
+            onClick={resetSettings}
+            className="flex w-full items-center justify-center gap-2 rounded-xl border border-warm-300 px-4 py-3 text-sm font-medium text-warm-600 transition-colors hover:bg-warm-100"
+          >
+            <RotateCcw className="h-4 w-4" />
+            Réinitialiser
+          </button>
+        </div>
+      </div>
+    </div>
+  ) : null;
 
   return (
     <>
@@ -19,140 +155,8 @@ export function AccessibilityPanel() {
         <span className="hidden sm:inline">Réglages</span>
       </button>
 
-      {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center">
-          <div
-            className="absolute inset-0 bg-black/40"
-            onClick={() => setIsOpen(false)}
-          />
-          <div className="relative w-full max-w-md max-h-[85vh] overflow-y-auto rounded-t-2xl sm:rounded-2xl bg-warm-50 p-6 shadow-xl">
-            <div className="mb-6 flex items-center justify-between">
-              <h2 className="text-lg font-bold text-warm-900">
-                Réglages de lecture
-              </h2>
-              <button
-                onClick={() => setIsOpen(false)}
-                className="rounded-lg p-1 hover:bg-warm-200"
-                aria-label="Fermer"
-              >
-                <X className="h-5 w-5" />
-              </button>
-            </div>
-
-            <div className="space-y-6">
-              {/* Font toggle */}
-              <div>
-                <label className="mb-2 flex items-center gap-2 text-sm font-semibold text-warm-800">
-                  <Type className="h-4 w-4" />
-                  Police
-                </label>
-                <div className="flex gap-2">
-                  <button
-                    onClick={() => updateSettings({ font: "default" })}
-                    className={`flex-1 rounded-xl px-4 py-3 text-sm font-medium transition-all ${
-                      settings.font === "default"
-                        ? "bg-accent-500 text-white shadow-md"
-                        : "bg-warm-100 text-warm-700 hover:bg-warm-200"
-                    }`}
-                  >
-                    Lexend
-                  </button>
-                  <button
-                    onClick={() => updateSettings({ font: "opendyslexic" })}
-                    className={`flex-1 rounded-xl px-4 py-3 text-sm font-medium transition-all ${
-                      settings.font === "opendyslexic"
-                        ? "bg-accent-500 text-white shadow-md"
-                        : "bg-warm-100 text-warm-700 hover:bg-warm-200"
-                    }`}
-                    style={{ fontFamily: "OpenDyslexic, sans-serif" }}
-                  >
-                    OpenDyslexic
-                  </button>
-                </div>
-              </div>
-
-              {/* Font size */}
-              <SliderSetting
-                icon={<Type className="h-4 w-4" />}
-                label="Taille du texte"
-                value={settings.fontSize}
-                min={0.9}
-                max={1.5}
-                step={0.05}
-                displayValue={`${Math.round(settings.fontSize * 100)}%`}
-                onChange={(v) => updateSettings({ fontSize: v })}
-              />
-
-              {/* Letter spacing */}
-              <SliderSetting
-                icon={<MoveHorizontal className="h-4 w-4" />}
-                label="Espacement des lettres"
-                value={settings.letterSpacing}
-                min={0}
-                max={0.2}
-                step={0.01}
-                displayValue={`${settings.letterSpacing.toFixed(2)}em`}
-                onChange={(v) => updateSettings({ letterSpacing: v })}
-              />
-
-              {/* Word spacing */}
-              <SliderSetting
-                icon={<MoveHorizontal className="h-4 w-4" />}
-                label="Espacement des mots"
-                value={settings.wordSpacing}
-                min={0}
-                max={0.4}
-                step={0.02}
-                displayValue={`${settings.wordSpacing.toFixed(2)}em`}
-                onChange={(v) => updateSettings({ wordSpacing: v })}
-              />
-
-              {/* Line height */}
-              <SliderSetting
-                icon={<AlignJustify className="h-4 w-4" />}
-                label="Interligne"
-                value={settings.lineHeight}
-                min={1.4}
-                max={2.8}
-                step={0.1}
-                displayValue={`${settings.lineHeight.toFixed(1)}`}
-                onChange={(v) => updateSettings({ lineHeight: v })}
-              />
-
-              {/* Toggles */}
-              <div className="space-y-3">
-                <ToggleSetting
-                  icon={<Ruler className="h-4 w-4" />}
-                  label="Règle de lecture"
-                  checked={settings.readingRuler}
-                  onChange={(v) => updateSettings({ readingRuler: v })}
-                />
-                <ToggleSetting
-                  icon={<Eye className="h-4 w-4" />}
-                  label="Contraste élevé"
-                  checked={settings.highContrast}
-                  onChange={(v) => updateSettings({ highContrast: v })}
-                />
-                <ToggleSetting
-                  icon={<Type className="h-4 w-4" />}
-                  label="Syllabes colorées"
-                  checked={settings.syllableColors}
-                  onChange={(v) => updateSettings({ syllableColors: v })}
-                />
-              </div>
-
-              {/* Reset */}
-              <button
-                onClick={resetSettings}
-                className="flex w-full items-center justify-center gap-2 rounded-xl border border-warm-300 px-4 py-3 text-sm font-medium text-warm-600 transition-colors hover:bg-warm-100"
-              >
-                <RotateCcw className="h-4 w-4" />
-                Réinitialiser
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      {typeof document !== "undefined" &&
+        createPortal(modal, document.body)}
     </>
   );
 }
