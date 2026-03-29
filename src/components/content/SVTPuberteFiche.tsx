@@ -4,6 +4,7 @@ import { useState } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import Image from "next/image";
+import { assetPath } from "@/lib/asset-path";
 
 interface Props {
   quizSlug: string;
@@ -307,7 +308,7 @@ function Lightbox({ src, alt, onClose }: { src: string; alt: string; onClose: ()
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={src}
+        src={assetPath(src)}
         alt={alt}
         onClick={(e) => e.stopPropagation()}
         style={{
