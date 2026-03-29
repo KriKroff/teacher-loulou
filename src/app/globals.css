@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+/* ===== DYS-FRIENDLY CUSTOM THEME ===== */
+
+@theme {
+  /* Warm color palette - never pure white or pure black */
+  --color-warm-50: #FFF8F0;
+  --color-warm-100: #FFF0E0;
+  --color-warm-200: #FFE4C8;
+  --color-warm-300: #DACCB8;
+  --color-warm-400: #B8A898;
+  --color-warm-500: #8B7B6B;
+  --color-warm-600: #6B5E50;
+  --color-warm-700: #4A4038;
+  --color-warm-800: #352E28;
+  --color-warm-900: #2D2620;
+
+  /* Accent colors - soft and engaging for teens */
+  --color-accent-100: #E0EDFF;
+  --color-accent-200: #B8D4FF;
+  --color-accent-300: #85B8FF;
+  --color-accent-400: #5A9EFF;
+  --color-accent-500: #3B82F6;
+  --color-accent-600: #2563EB;
+  --color-accent-700: #1D4ED8;
+
+  /* Success/gamification colors */
+  --color-success-100: #DCFCE7;
+  --color-success-500: #22C55E;
+  --color-success-600: #16A34A;
+
+  /* Resource type colors */
+  --color-quiz: #A855F7;
+  --color-cours: #3B82F6;
+  --color-fiche: #F59E0B;
+  --color-exercice: #10B981;
+  --color-video: #EF4444;
+  --color-lien: #6366F1;
+}
+
+/* ===== FONTS ===== */
+
+@font-face {
+  font-family: "Lexend";
+  src: url("/fonts/Lexend-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("/fonts/OpenDyslexic-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("/fonts/OpenDyslexic-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===== BASE STYLES ===== */
+
+html {
+  /* Default DYS-friendly values, overridden by JS via CSS custom properties */
+  --dys-font-size: 1;
+  --dys-letter-spacing: 0.05em;
+  --dys-word-spacing: 0.1em;
+  --dys-line-height: 1.8;
+}
+
+body {
+  font-family: "Lexend", system-ui, sans-serif;
+  background-color: var(--color-warm-50);
+  color: var(--color-warm-900);
+  font-size: calc(1rem * var(--dys-font-size));
+  letter-spacing: var(--dys-letter-spacing);
+  word-spacing: var(--dys-word-spacing);
+  line-height: var(--dys-line-height);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* OpenDyslexic font mode */
+html[data-font="opendyslexic"] body {
+  font-family: "OpenDyslexic", system-ui, sans-serif;
+}
+
+/* High contrast mode */
+html[data-high-contrast="true"] body {
+  background-color: #FFFDF5;
+  color: #1A1A1A;
+}
+
+html[data-high-contrast="true"] .bg-warm-50 {
+  background-color: #FFFDF5;
+}
+
+/* ===== FOCUS STYLES - large and visible ===== */
+
+*:focus-visible {
+  outline: 3px solid var(--color-accent-500);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ===== SCROLLBAR STYLING ===== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-warm-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-warm-400);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-warm-500);
+}
+
+/* ===== TOUCH TARGETS ===== */
+
+@media (pointer: coarse) {
+  button,
+  a,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* ===== SELECTION ===== */
+
+::selection {
+  background-color: var(--color-accent-200);
+  color: var(--color-warm-900);
+}
+
+/* ===== REDUCED MOTION ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
