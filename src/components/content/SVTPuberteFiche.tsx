@@ -711,7 +711,7 @@ export function SVTPuberteFiche({ quizSlug, level, subject }: Props) {
                   }}
                 >
                   <Image
-                    src={img.src}
+                    src={assetPath(img.src)}
                     alt={img.caption}
                     fill
                     unoptimized
@@ -832,7 +832,7 @@ export function SVTPuberteFiche({ quizSlug, level, subject }: Props) {
                   }}
                 >
                   <Image
-                    src={img.src}
+                    src={assetPath(img.src)}
                     alt={img.caption}
                     fill
                     unoptimized
