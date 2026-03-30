@@ -64,11 +64,19 @@ export interface Quiz {
 export interface QuizQuestion {
   id: string;
   question: string;
-  type: "qcm" | "vrai-faux" | "texte-a-trous" | "association";
+  type: "qcm" | "vrai-faux" | "texte-a-trous" | "association" | "qcm-multiple" | "ordre";
   options?: string[];
   correctAnswer: string | string[];
   explanation: string;
   hint?: string;
+  pairs?: { left: string; right: string }[]; // for "association" type
+}
+
+export interface QuizQuestionHistory {
+  questionId: string;
+  lastResult: "correct" | "incorrect";
+  attempts: number;
+  lastSeenAt: string;
 }
 
 export interface UserProgress {
@@ -79,6 +87,8 @@ export interface UserProgress {
   completedAt?: string;
   quizScores?: number[];
   currentPosition?: number;
+  // keyed by quizLevelId ("facile", "intermediaire", "expert", or "__root__" for flat quizzes)
+  questionHistory?: Record<string, QuizQuestionHistory[]>;
 }
 
 export interface AccessibilitySettings {

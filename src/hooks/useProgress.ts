@@ -2,7 +2,7 @@
 
 import { useCallback } from "react";
 import { useLocalStorage } from "./useLocalStorage";
-import type { UserProgress, SchoolLevel, Subject } from "@/types";
+import type { UserProgress, SchoolLevel, Subject, QuizQuestionHistory } from "@/types";
 
 const PROGRESS_KEY = "teacher-loulou-progress";
 
@@ -86,6 +86,56 @@ export function useProgress() {
     [setProgressList]
   );
 
+  const recordQuizSession = useCallback(
+    (
+      resourceSlug: string,
+      level: SchoolLevel,
+      subject: Subject,
+      quizLevelId: string,
+      results: { questionId: string; correct: boolean }[],
+      finalScore: number
+    ) => {
+      setProgressList((prev) => {
+        const now = new Date().toISOString();
+        const existing = prev.find((p) => p.resourceSlug === resourceSlug);
+        const existingHistory = existing?.questionHistory ?? {};
+        const levelHistory: QuizQuestionHistory[] = existingHistory[quizLevelId] ?? [];
+
+        const updatedLevelHistory: QuizQuestionHistory[] = results.reduce<QuizQuestionHistory[]>(
+          (acc, { questionId, correct }) => {
+            const existingEntry = acc.find((h) => h.questionId === questionId);
+            const lastResult: "correct" | "incorrect" = correct ? "correct" : "incorrect";
+            if (existingEntry) {
+              return acc.map((h) =>
+                h.questionId === questionId
+                  ? { ...h, lastResult, attempts: h.attempts + 1, lastSeenAt: now }
+                  : h
+              );
+            }
+            return [...acc, { questionId, lastResult, attempts: 1, lastSeenAt: now }];
+          },
+          levelHistory
+        );
+
+        const updatedHistory: Record<string, QuizQuestionHistory[]> = {
+          ...existingHistory,
+          [quizLevelId]: updatedLevelHistory,
+        };
+        const quizScores = [...(existing?.quizScores ?? []), finalScore];
+
+        if (existing) {
+          return prev.map((p) =>
+            p.resourceSlug === resourceSlug
+              ? { ...p, quizScores, questionHistory: updatedHistory, lastAccessedAt: now }
+              : p
+          );
+        }
+        return [...prev, { resourceSlug, level, subject, quizScores, questionHistory: updatedHistory, lastAccessedAt: now }];
+      });
+    },
+    [setProgressList]
+  );
+
   const getCompletedCount = useCallback(
     (level?: SchoolLevel, subject?: Subject): number => {
       return progressList.filter(
@@ -103,6 +153,7 @@ export function useProgress() {
     getProgress,
     updateProgress,
     addQuizScore,
+    recordQuizSession,
     getCompletedCount,
   };
 }
