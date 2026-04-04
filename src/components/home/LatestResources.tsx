@@ -1,5 +1,3 @@
-"use client";
-
 import { getRecentlyAdded } from "@/data/resources";
 import { ResourceCard } from "@/components/resources/ResourceCard";
 import { Sparkles } from "lucide-react";
