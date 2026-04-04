@@ -145,7 +145,7 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
   const [showHint, setShowHint] = useState(false);
   const [score, setScore] = useState(0);
   const [questionResults, setQuestionResults] = useState<{ questionId: string; correct: boolean }[]>([]);
-  // Selected answer for qcm/vrai-faux/texte-a-trous (for visual feedback)
+  // Selected answer for qcm/vrai-faux/texte-a-trous/intrus (for visual feedback)
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   // qcm-multiple
   const [multiSelected, setMultiSelected] = useState<Set<string>>(new Set());
@@ -154,6 +154,12 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
   const [assocMatches, setAssocMatches] = useState<Record<string, string>>({});
   // ordre
   const [ordreItems, setOrdreItems] = useState<string[]>([]);
+  // nombre (free text input for a number/year)
+  const [nombreValue, setNombreValue] = useState<string>("");
+  // slider
+  const [sliderValue, setSliderValue] = useState<number>(0);
+  // texte-a-trous-select (Duolingo style): array of chosen words per blank slot
+  const [tatsChosen, setTatsChosen] = useState<(string | null)[]>([]);
 
   const sensors = useSensors(
     // distance: 8px prevents accidental drag activation on tap/scroll on mobile
@@ -170,8 +176,19 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
     setAssocSelected(null);
     setAssocMatches({});
     setShowHint(false);
+    setNombreValue("");
+    setTatsChosen([]);
     if (question?.type === "ordre" && question.options) {
       setOrdreItems(shuffle(question.options));
+    }
+    if (question?.type === "slider" && question.options) {
+      const min = parseFloat(question.options[0] ?? "0");
+      const max = parseFloat(question.options[1] ?? "100");
+      setSliderValue(Math.round((min + max) / 2));
+    }
+    if (question?.type === "texte-a-trous-select" && question.correctAnswer) {
+      const blanksCount = Array.isArray(question.correctAnswer) ? question.correctAnswer.length : 1;
+      setTatsChosen(Array(blanksCount).fill(null));
     }
   }, [currentIndex, sessionQuestions]); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -186,6 +203,14 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
 
   const totalQuestions = sessionQuestions.length;
   const progress = totalQuestions > 0 ? ((currentIndex + 1) / totalQuestions) * 100 : 0;
+
+  // Fiche link for top of quiz screens
+  const ficheResource = getResourcesByLevelAndSubject(resource.level, resource.subject).find(
+    (r) => r.type === "fiche"
+  );
+  const ficheHrefTop = ficheResource
+    ? `/${resource.level}/${resource.subject}/${ficheResource.slug}`
+    : null;
 
   // ── Helpers ───────────────────────────────────────────────────────────────
   const startSession = (levelId: string, questions: QuizQuestion[]) => {
@@ -256,6 +281,15 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
   if (state === "level-select" && hasLevels) {
     return (
       <div className="space-y-4">
+        {ficheHrefTop && (
+          <Link
+            href={ficheHrefTop}
+            className="flex items-center justify-center gap-2 rounded-2xl border-2 border-accent-300 bg-accent-50 px-6 py-3 text-sm font-bold text-accent-700 transition-all hover:bg-accent-100 active:scale-95"
+          >
+            <BookOpen className="h-4 w-4" />
+            Revoir la fiche avant de commencer →
+          </Link>
+        )}
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-100 text-purple-600">
             <HelpCircle className="h-5 w-5" />
@@ -303,6 +337,15 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
     const levelColors = selectedLevel ? getLevelColors(selectedLevel.id) : null;
     return (
       <div className="space-y-4">
+        {ficheHrefTop && (
+          <Link
+            href={ficheHrefTop}
+            className="flex items-center justify-center gap-2 rounded-2xl border-2 border-accent-300 bg-accent-50 px-6 py-3 text-sm font-bold text-accent-700 transition-all hover:bg-accent-100 active:scale-95"
+          >
+            <BookOpen className="h-4 w-4" />
+            Revoir la fiche avant de commencer →
+          </Link>
+        )}
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-100 text-purple-600">
             <HelpCircle className="h-5 w-5" />
@@ -358,12 +401,6 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
     const finalScore = totalQuestions > 0 ? Math.round((score / totalQuestions) * 100) : 0;
     const passed = finalScore >= quiz.passingScore;
     const levelColors = selectedLevel ? getLevelColors(selectedLevel.id) : null;
-    const ficheResource = getResourcesByLevelAndSubject(resource.level, resource.subject).find(
-      (r) => r.type === "fiche"
-    );
-    const ficheHref = ficheResource
-      ? `/${resource.level}/${resource.subject}/${ficheResource.slug}`
-      : null;
 
     return (
       <div className="space-y-4">
@@ -404,9 +441,9 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
             >
               {hasLevels ? "Choisir un niveau" : "Recommencer"}
             </button>
-            {ficheHref && (
+            {ficheHrefTop && (
               <Link
-                href={ficheHref}
+                href={ficheHrefTop}
                 className="flex items-center gap-1.5 text-sm text-warm-600 hover:text-accent-600"
               >
                 <BookOpen className="h-4 w-4" />
@@ -532,19 +569,19 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
     const matchedRights = new Set(Object.values(assocMatches));
 
     // Assign a stable color per pair (by index in question.pairs)
-    const getPairColor = (leftKey: string) => {
+    const getPairColorByLeft = (leftKey: string) => {
       const idx = question.pairs!.findIndex((p) => p.left === leftKey);
       return idx >= 0 ? PAIR_COLORS[idx % PAIR_COLORS.length] : null;
     };
-    const getRightPairColor = (rightValue: string) => {
-      const leftKey = Object.keys(assocMatches).find((k) => assocMatches[k] === rightValue);
-      return leftKey ? getPairColor(leftKey) : null;
-    };
-    const getPairNumber = (leftKey: string) =>
+    const getLeftKeyForRight = (rightValue: string) =>
+      Object.keys(assocMatches).find((k) => assocMatches[k] === rightValue);
+    // Correct pair number (index + 1 in question.pairs) — only shown after submit
+    const getCorrectPairNumber = (leftKey: string) =>
       question.pairs!.findIndex((p) => p.left === leftKey) + 1;
 
     const handleLeftClick = (left: string) => {
       if (showFeedback) return;
+      // If clicking an already-matched left: allow re-selecting it to re-match
       setAssocSelected((prev) => (prev === left ? null : left));
     };
 
@@ -560,10 +597,18 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
       handleQuestionResult(correct, question.id);
     };
 
+    // After submit: show which pairs were supposed to go together using correct pair numbers
+    const correctPairNumberForLeft = (left: string) =>
+      question.pairs!.findIndex((p) => p.left === left) + 1;
+    const correctPairNumberForRight = (right: string) =>
+      question.pairs!.findIndex((p) => p.right === right) + 1;
+
     return (
       <div className="space-y-3">
         <p className="text-xs text-warm-500">
-          Tape un élément à gauche, puis son correspondant à droite.
+          {showFeedback
+            ? "Les numéros montrent les paires correctes."
+            : "Tape un élément à gauche, puis son correspondant à droite."}
         </p>
         <div className="grid grid-cols-2 gap-2">
           {/* Left column */}
@@ -571,17 +616,20 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
             {question.pairs.map((p) => {
               const isMatched = p.left in assocMatches;
               const isSelected = assocSelected === p.left;
-              const color = isMatched ? getPairColor(p.left) : null;
-              const pairNum = isMatched ? getPairNumber(p.left) : null;
+              const color = isMatched ? getPairColorByLeft(p.left) : null;
+              const isCorrect = showFeedback && assocMatches[p.left] === p.right;
+              const isWrong = showFeedback && assocMatches[p.left] !== p.right;
+              const correctNum = correctPairNumberForLeft(p.left);
 
               let style = "border-warm-200 bg-warm-50 text-warm-800";
-              if (showFeedback) {
-                style = assocMatches[p.left] === p.right
-                  ? "border-success-500 bg-success-100 text-success-700"
-                  : "border-red-400 bg-red-50 text-red-700";
+              if (isCorrect) {
+                style = "border-success-500 bg-success-100 text-success-700";
+              } else if (isWrong) {
+                style = "border-red-400 bg-red-50 text-red-700";
               } else if (isSelected) {
                 style = "border-accent-400 bg-accent-50 text-accent-700 ring-2 ring-accent-300";
               } else if (isMatched && color) {
+                // Color only (no number) before submit
                 style = `${color.border} ${color.bg} ${color.text}`;
               }
 
@@ -597,14 +645,15 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
                   )}
                 >
                   <span className="flex items-center gap-1.5">
+                    {isCorrect && <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-success-500" />}
+                    {isWrong && <XCircle className="h-3.5 w-3.5 shrink-0 text-red-500" />}
+                    {/* Correct pair number — shown after submit */}
                     {showFeedback && (
-                      assocMatches[p.left] === p.right
-                        ? <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-success-500" />
-                        : <XCircle className="h-3.5 w-3.5 shrink-0 text-red-500" />
-                    )}
-                    {isMatched && !showFeedback && color && pairNum && (
-                      <span className={cn("flex h-4 w-4 shrink-0 items-center justify-center rounded-full text-[10px] font-bold text-white", color.badge)}>
-                        {pairNum}
+                      <span className={cn(
+                        "flex h-4 w-4 shrink-0 items-center justify-center rounded-full text-[10px] font-bold text-white",
+                        isCorrect ? "bg-success-500" : "bg-red-400"
+                      )}>
+                        {correctNum}
                       </span>
                     )}
                     <span>{p.left}</span>
@@ -619,16 +668,22 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
             {shuffledRightItems.map((right) => {
               const isUsed = matchedRights.has(right);
               const correctLeft = question.pairs?.find((p) => p.right === right)?.left;
-              const color = isUsed ? getRightPairColor(right) : null;
-              const pairNum = isUsed && correctLeft ? getPairNumber(correctLeft) : null;
+              const leftKey = getLeftKeyForRight(right);
+              const color = isUsed && leftKey ? getPairColorByLeft(leftKey) : null;
+              const matchedCorrectly = showFeedback && correctLeft !== undefined && assocMatches[correctLeft] === right;
+              const matchedWrong = showFeedback && isUsed && !matchedCorrectly;
+              const correctNum = correctPairNumberForRight(right);
 
               let style = "border-warm-200 bg-warm-50 text-warm-800";
-              if (showFeedback) {
-                const matchedCorrectly = correctLeft !== undefined && assocMatches[correctLeft] === right;
-                style = matchedCorrectly
-                  ? "border-success-500 bg-success-100 text-success-700"
-                  : "border-red-400 bg-red-50 text-red-700";
+              if (matchedCorrectly) {
+                style = "border-success-500 bg-success-100 text-success-700";
+              } else if (matchedWrong) {
+                style = "border-red-400 bg-red-50 text-red-700";
+              } else if (showFeedback && !isUsed) {
+                // Unmatched right item after submit
+                style = "border-red-400 bg-red-50 text-red-700";
               } else if (isUsed && color) {
+                // Color only (no number) before submit
                 style = `${color.border} ${color.bg} ${color.text}`;
               } else if (assocSelected) {
                 style = "border-accent-200 bg-accent-50 hover:border-accent-400 hover:bg-accent-100 cursor-pointer";
@@ -638,22 +693,23 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
                 <button
                   key={right}
                   onClick={() => handleRightClick(right)}
-                  disabled={showFeedback || isUsed || !assocSelected}
+                  disabled={showFeedback || (isUsed && !assocSelected) || (!isUsed && !assocSelected)}
                   className={cn(
                     "w-full rounded-xl border-2 px-3 py-2 text-left text-xs font-medium transition-all leading-tight",
                     style,
-                    !showFeedback && !isUsed && assocSelected && "active:scale-[0.98]"
+                    !showFeedback && assocSelected && "active:scale-[0.98]"
                   )}
                 >
                   <span className="flex items-center gap-1.5">
+                    {matchedCorrectly && <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-success-500" />}
+                    {(matchedWrong || (showFeedback && !isUsed)) && <XCircle className="h-3.5 w-3.5 shrink-0 text-red-500" />}
+                    {/* Correct pair number — shown after submit */}
                     {showFeedback && (
-                      correctLeft !== undefined && assocMatches[correctLeft] === right
-                        ? <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-success-500" />
-                        : <XCircle className="h-3.5 w-3.5 shrink-0 text-red-500" />
-                    )}
-                    {isUsed && !showFeedback && color && pairNum && (
-                      <span className={cn("flex h-4 w-4 shrink-0 items-center justify-center rounded-full text-[10px] font-bold text-white", color.badge)}>
-                        {pairNum}
+                      <span className={cn(
+                        "flex h-4 w-4 shrink-0 items-center justify-center rounded-full text-[10px] font-bold text-white",
+                        matchedCorrectly ? "bg-success-500" : "bg-red-400"
+                      )}>
+                        {correctNum}
                       </span>
                     )}
                     <span>{right}</span>
@@ -838,6 +894,283 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
     );
   };
 
+  // ── Nombre renderer (free numeric input) ─────────────────────────────────
+  const renderNombre = () => {
+    const correct = String(question.correctAnswer).trim();
+    const tolerance = question.tolerance ?? 0;
+
+    const handleValidate = () => {
+      if (showFeedback || !nombreValue.trim()) return;
+      const userVal = parseFloat(nombreValue.trim());
+      const correctVal = parseFloat(correct);
+      const isCorrect = !isNaN(userVal) && !isNaN(correctVal)
+        ? Math.abs(userVal - correctVal) <= tolerance
+        : nombreValue.trim() === correct;
+      setSelectedAnswer(nombreValue.trim());
+      handleQuestionResult(isCorrect, question.id);
+    };
+
+    return (
+      <div className="space-y-3">
+        <p className="text-xs text-warm-500">Tape ta réponse (nombre ou année).</p>
+        <div className="flex gap-2">
+          <input
+            type="number"
+            value={nombreValue}
+            onChange={(e) => setNombreValue(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && !showFeedback && handleValidate()}
+            disabled={showFeedback}
+            placeholder="Ex: 1848"
+            className={cn(
+              "flex-1 rounded-xl border-2 px-4 py-3 text-lg font-bold text-center transition-all outline-none",
+              showFeedback
+                ? selectedAnswer && Math.abs(parseFloat(selectedAnswer) - parseFloat(correct)) <= tolerance
+                  ? "border-success-500 bg-success-100 text-success-700"
+                  : "border-red-400 bg-red-50 text-red-700"
+                : "border-warm-300 bg-warm-50 focus:border-accent-400 focus:ring-2 focus:ring-accent-200"
+            )}
+          />
+        </div>
+        {showFeedback && (
+          <p className="text-sm text-warm-600">
+            Bonne réponse : <strong className="text-warm-800">{correct}</strong>
+          </p>
+        )}
+        {!showFeedback && (
+          <button
+            onClick={handleValidate}
+            disabled={!nombreValue.trim()}
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-accent-500 px-6 py-3 font-semibold text-white shadow-md transition-all hover:bg-accent-600 active:scale-95 disabled:opacity-50"
+          >
+            Valider
+          </button>
+        )}
+      </div>
+    );
+  };
+
+  // ── Slider renderer ───────────────────────────────────────────────────────
+  const renderSlider = () => {
+    if (!question.options || question.options.length < 2) return null;
+    const min = parseFloat(question.options[0]);
+    const max = parseFloat(question.options[1]);
+    const correct = parseFloat(String(question.correctAnswer));
+    const tolerance = question.tolerance ?? 0;
+    const step = question.options[2] ? parseFloat(question.options[2]) : 1;
+
+    const handleValidate = () => {
+      if (showFeedback) return;
+      const isCorrect = Math.abs(sliderValue - correct) <= tolerance;
+      setSelectedAnswer(String(sliderValue));
+      handleQuestionResult(isCorrect, question.id);
+    };
+
+    const pct = ((sliderValue - min) / (max - min)) * 100;
+
+    return (
+      <div className="space-y-4">
+        <p className="text-xs text-warm-500">Déplace le curseur pour choisir ta réponse.</p>
+
+        <div className="space-y-2">
+          <div className="flex justify-between text-xs text-warm-500">
+            <span>{min}</span>
+            <span className={cn(
+              "text-lg font-bold",
+              showFeedback
+                ? Math.abs(sliderValue - correct) <= tolerance ? "text-success-600" : "text-red-500"
+                : "text-accent-600"
+            )}>
+              {sliderValue}
+            </span>
+            <span>{max}</span>
+          </div>
+          <input
+            type="range"
+            min={min}
+            max={max}
+            step={step}
+            value={sliderValue}
+            onChange={(e) => !showFeedback && setSliderValue(parseFloat(e.target.value))}
+            disabled={showFeedback}
+            className="w-full h-3 rounded-full appearance-none cursor-pointer"
+            style={{
+              background: `linear-gradient(to right, ${showFeedback ? (Math.abs(sliderValue - correct) <= tolerance ? "#22c55e" : "#f87171") : "#6d28d9"} ${pct}%, #e8ddd0 ${pct}%)`,
+            }}
+          />
+        </div>
+
+        {showFeedback && Math.abs(sliderValue - correct) > tolerance && (
+          <p className="text-sm text-warm-600">
+            Bonne réponse : <strong className="text-warm-800">{correct}</strong>
+          </p>
+        )}
+
+        {!showFeedback && (
+          <button
+            onClick={handleValidate}
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-accent-500 px-6 py-3 font-semibold text-white shadow-md transition-all hover:bg-accent-600 active:scale-95"
+          >
+            Valider
+          </button>
+        )}
+      </div>
+    );
+  };
+
+  // ── Texte à trous select (Duolingo-style word tiles) ─────────────────────
+  const renderTexteATrousSelect = () => {
+    const correctAnswers = Array.isArray(question.correctAnswer)
+      ? (question.correctAnswer as string[])
+      : [String(question.correctAnswer)];
+    const blanksCount = correctAnswers.length;
+    const chosen = tatsChosen.length === blanksCount ? tatsChosen : Array(blanksCount).fill(null);
+    const usedWords = chosen.filter(Boolean) as string[];
+    const allFilled = chosen.every((v) => v !== null);
+
+    // Split question text on ___ markers
+    const parts = question.question.split("___");
+
+    const handleTileClick = (word: string) => {
+      if (showFeedback) return;
+      // Find first empty slot
+      setTatsChosen((prev) => {
+        const next = [...prev];
+        const firstEmpty = next.findIndex((v) => v === null);
+        if (firstEmpty !== -1) {
+          next[firstEmpty] = word;
+        }
+        return next;
+      });
+    };
+
+    const handleBlankClick = (blankIndex: number) => {
+      if (showFeedback) return;
+      // Return the word to the pool
+      setTatsChosen((prev) => {
+        const next = [...prev];
+        next[blankIndex] = null;
+        return next;
+      });
+    };
+
+    const handleValidate = () => {
+      if (showFeedback || !allFilled) return;
+      const isCorrect = correctAnswers.every((a, i) => chosen[i] === a);
+      handleQuestionResult(isCorrect, question.id);
+    };
+
+    return (
+      <div className="space-y-4">
+        <p className="text-xs text-warm-500">Complète la phrase en tapant les mots dans le bon ordre.</p>
+
+        {/* Phrase with inline blanks */}
+        <div className="rounded-xl bg-warm-50 border border-warm-200 px-4 py-3 text-sm font-medium text-warm-800 leading-loose">
+          {parts.map((part, i) => (
+            <span key={i}>
+              {part}
+              {i < parts.length - 1 && (
+                <button
+                  onClick={() => handleBlankClick(i)}
+                  disabled={showFeedback}
+                  className={cn(
+                    "inline-flex items-center mx-1 min-w-[6rem] rounded-lg border-2 px-2 py-0.5 text-sm font-bold transition-all",
+                    showFeedback
+                      ? chosen[i] === correctAnswers[i]
+                        ? "border-success-500 bg-success-100 text-success-700"
+                        : "border-red-400 bg-red-50 text-red-700"
+                      : chosen[i]
+                        ? "border-accent-400 bg-accent-50 text-accent-700"
+                        : "border-warm-300 bg-white text-warm-400 italic"
+                  )}
+                >
+                  {chosen[i] ?? "___"}
+                </button>
+              )}
+            </span>
+          ))}
+        </div>
+
+        {/* Word tile bank */}
+        {!showFeedback && (
+          <div className="flex flex-wrap gap-2">
+            {(question.options ?? []).map((word) => {
+              const isUsed = usedWords.includes(word);
+              return (
+                <button
+                  key={word}
+                  onClick={() => !isUsed && handleTileClick(word)}
+                  disabled={isUsed}
+                  className={cn(
+                    "rounded-full border-2 px-4 py-2 text-sm font-medium transition-all",
+                    isUsed
+                      ? "border-warm-200 bg-warm-50 text-warm-300 line-through cursor-default"
+                      : "border-accent-300 bg-white text-warm-700 hover:border-accent-500 hover:bg-accent-50 active:scale-95"
+                  )}
+                >
+                  {word}
+                </button>
+              );
+            })}
+          </div>
+        )}
+
+        {showFeedback && (
+          <div className="text-sm text-warm-600">
+            Bonne réponse : <strong className="text-warm-800">{correctAnswers.join(" / ")}</strong>
+          </div>
+        )}
+
+        {!showFeedback && allFilled && (
+          <button
+            onClick={handleValidate}
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-accent-500 px-6 py-3 font-semibold text-white shadow-md transition-all hover:bg-accent-600 active:scale-95"
+          >
+            Valider
+          </button>
+        )}
+      </div>
+    );
+  };
+
+  // ── Intrus renderer (find the odd one out) ────────────────────────────────
+  const renderIntrus = () => (
+    <div className="space-y-3">
+      <p className="text-xs text-warm-500">Un seul élément n&apos;est pas à sa place. Trouve l&apos;intrus !</p>
+      <div className="flex flex-wrap gap-2">
+        {question.options?.map((option) => {
+          const isSelected = selectedAnswer === option;
+          const isCorrect = question.correctAnswer === option;
+
+          let style = "border-warm-200 bg-warm-50 text-warm-700 hover:border-red-300 hover:bg-red-50";
+          if (showFeedback) {
+            if (isCorrect) style = "border-success-500 bg-success-100 text-success-700";
+            else if (isSelected && !isCorrect) style = "border-red-400 bg-red-50 text-red-600";
+            else style = "border-warm-200 bg-warm-50 opacity-50";
+          } else if (isSelected) {
+            style = "border-red-400 bg-red-50 text-red-700 ring-2 ring-red-200";
+          }
+
+          return (
+            <button
+              key={option}
+              onClick={() => handleAnswer(option)}
+              disabled={showFeedback}
+              className={cn(
+                "flex items-center gap-2 rounded-xl border-2 px-4 py-2.5 text-sm font-medium transition-all",
+                style,
+                !showFeedback && "active:scale-[0.97]"
+              )}
+            >
+              {showFeedback && isCorrect && <CheckCircle2 className="h-4 w-4 shrink-0 text-success-500" />}
+              {showFeedback && isSelected && !isCorrect && <XCircle className="h-4 w-4 shrink-0 text-red-500" />}
+              {option}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+
   return (
     <div className="space-y-4">
       {/* Progress bar */}
@@ -871,6 +1204,9 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
           {question.type === "texte-a-trous" && (
             <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-700">Complète la phrase</span>
           )}
+          {question.type === "texte-a-trous-select" && (
+            <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-700">Place les mots</span>
+          )}
           {question.type === "association" && (
             <span className="rounded-full bg-purple-100 px-2 py-0.5 text-xs font-medium text-purple-700">Association</span>
           )}
@@ -882,6 +1218,15 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
               Remets dans l&apos;ordre
             </span>
           )}
+          {question.type === "nombre" && (
+            <span className="rounded-full bg-sky-100 px-2 py-0.5 text-xs font-medium text-sky-700">Donne un nombre</span>
+          )}
+          {question.type === "slider" && (
+            <span className="rounded-full bg-indigo-100 px-2 py-0.5 text-xs font-medium text-indigo-700">Curseur</span>
+          )}
+          {question.type === "intrus" && (
+            <span className="rounded-full bg-rose-100 px-2 py-0.5 text-xs font-medium text-rose-700">Trouve l&apos;intrus</span>
+          )}
         </div>
 
         <h2 className="mb-5 text-lg font-semibold text-warm-800">
@@ -892,9 +1237,13 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
 
         {(question.type === "qcm" || question.type === "vrai-faux") && renderQcm()}
         {question.type === "texte-a-trous" && renderTexteATrous()}
+        {question.type === "texte-a-trous-select" && renderTexteATrousSelect()}
         {question.type === "association" && renderAssociation()}
         {question.type === "qcm-multiple" && renderQcmMultiple()}
         {question.type === "ordre" && renderOrdre()}
+        {question.type === "nombre" && renderNombre()}
+        {question.type === "slider" && renderSlider()}
+        {question.type === "intrus" && renderIntrus()}
 
         {/* Hint */}
         {!showFeedback && question.hint && (

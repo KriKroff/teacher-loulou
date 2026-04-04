@@ -6,7 +6,7 @@ import {
   type SchoolLevel,
   type Subject,
 } from "@/types";
-import { getResourceBySlug, getAllResources } from "@/data/resources";
+import { getResourceBySlug, getAllResources, getResourcesByLevelAndSubject } from "@/data/resources";
 import { CourseViewer } from "@/components/content/CourseViewer";
 import { QuizPlayer } from "@/components/content/QuizPlayer";
 import { ResourceTracker } from "@/components/content/ResourceTracker";
@@ -25,6 +25,28 @@ export function generateStaticParams() {
   }));
 }
 
+function QuizNavButton({ href }: { href: string }) {
+  return (
+    <Link
+      href={href}
+      className="flex w-full items-center justify-center gap-2 rounded-2xl bg-accent-600 px-6 py-3.5 text-base font-bold text-white shadow-md transition-all hover:bg-accent-700 hover:shadow-lg active:scale-95"
+    >
+      📝 Passer au quiz →
+    </Link>
+  );
+}
+
+function FicheNavButton({ href }: { href: string }) {
+  return (
+    <Link
+      href={href}
+      className="flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-accent-300 bg-accent-50 px-6 py-3.5 text-base font-bold text-accent-700 shadow-sm transition-all hover:bg-accent-100 hover:shadow-md active:scale-95"
+    >
+      📖 Revoir la fiche de révision →
+    </Link>
+  );
+}
+
 export default async function ResourcePage({ params }: Props) {
   const { level, subject, slug } = await params;
   const resource = getResourceBySlug(
@@ -39,6 +61,15 @@ export default async function ResourcePage({ params }: Props) {
 
   const levelName = LEVEL_NAMES[resource.level];
   const subjectName = SUBJECT_NAMES[resource.subject];
+
+  // Find related quiz (for fiche/cours pages) or fiche (for quiz pages)
+  const siblings = getResourcesByLevelAndSubject(resource.level, resource.subject);
+  const relatedQuiz = siblings.find((r) => r.type === "quiz");
+  const relatedFiche = siblings.find((r) => r.type === "fiche");
+  const isFicheOrCours = (resource.type === "cours" || resource.type === "fiche") && !resource.customComponent;
+  const isQuiz = resource.type === "quiz";
+  const quizHref = relatedQuiz ? `/${resource.level}/${resource.subject}/${relatedQuiz.slug}` : null;
+  const ficheHref = relatedFiche ? `/${resource.level}/${resource.subject}/${relatedFiche.slug}` : null;
 
   return (
     <div className="space-y-6">
@@ -61,6 +92,16 @@ export default async function ResourcePage({ params }: Props) {
       {/* Track this resource view */}
       <ResourceTracker resource={resource} />
 
+      {/* Quiz nav button — top of fiche/cours */}
+      {isFicheOrCours && resource.content && quizHref && (
+        <QuizNavButton href={quizHref} />
+      )}
+
+      {/* Fiche nav button — top of quiz */}
+      {isQuiz && ficheHref && (
+        <FicheNavButton href={ficheHref} />
+      )}
+
       {/* Custom component rendering */}
       {resource.customComponent === "SVTPuberteFiche" && (
         <SVTPuberteFiche
@@ -79,9 +120,12 @@ export default async function ResourcePage({ params }: Props) {
       )}
 
       {/* Standard markdown fiche/cours — skip if customComponent handles it */}
-      {(resource.type === "cours" || resource.type === "fiche") &&
-        resource.content &&
-        !resource.customComponent && <CourseViewer resource={resource} />}
+      {isFicheOrCours && resource.content && <CourseViewer resource={resource} />}
+
+      {/* Quiz nav button — bottom of fiche/cours */}
+      {isFicheOrCours && resource.content && quizHref && (
+        <QuizNavButton href={quizHref} />
+      )}
 
       {resource.type === "quiz" && resource.quizData && (
         <QuizPlayer resource={resource} />
@@ -102,3 +146,4 @@ export default async function ResourcePage({ params }: Props) {
     </div>
   );
 }
+

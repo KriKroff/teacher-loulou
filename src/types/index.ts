@@ -66,12 +66,24 @@ export interface Quiz {
 export interface QuizQuestion {
   id: string;
   question: string;
-  type: "qcm" | "vrai-faux" | "texte-a-trous" | "association" | "qcm-multiple" | "ordre";
+  type:
+    | "qcm"
+    | "vrai-faux"
+    | "texte-a-trous"
+    | "texte-a-trous-select"
+    | "association"
+    | "qcm-multiple"
+    | "ordre"
+    | "nombre"
+    | "slider"
+    | "intrus";
   options?: string[];
   correctAnswer: string | string[];
   explanation: string;
   hint?: string;
   pairs?: { left: string; right: string }[]; // for "association" type
+  /** Allowed tolerance for "slider" and "nombre" types (default: 0 — exact match) */
+  tolerance?: number;
 }
 
 export interface QuizQuestionHistory {
