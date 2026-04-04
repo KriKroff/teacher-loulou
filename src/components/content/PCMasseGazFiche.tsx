@@ -12,9 +12,11 @@ interface Props {
 const SECTION_COLORS = [
   { border: "#0E7490", bg: "#E0F5FA", text: "#0E7490", label: "cyan" },    // 1 – États matière
   { border: "#1A5FA8", bg: "#E3EEF9", text: "#1A5FA8", label: "blue" },    // 2 – Propriétés gaz
-  { border: "#6B3FA0", bg: "#EEE6F8", text: "#6B3FA0", label: "purple" },  // 3 – Masse d'un gaz
-  { border: "#1A7A52", bg: "#E2F4EC", text: "#1A7A52", label: "green" },   // 4 – Déplacement eau
-  { border: "#B85C00", bg: "#FDF0E3", text: "#B85C00", label: "orange" },  // 5 – Mots-clés
+  { border: "#6B3FA0", bg: "#EEE6F8", text: "#6B3FA0", label: "purple" },  // 3 – Composition de l'air
+  { border: "#1A7A52", bg: "#E2F4EC", text: "#1A7A52", label: "green" },   // 4 – Pression atmosphérique
+  { border: "#B85C00", bg: "#FDF0E3", text: "#B85C00", label: "orange" },  // 5 – Masse d'un gaz
+  { border: "#8B4A2B", bg: "#F8E9DC", text: "#8B4A2B", label: "brown" },   // 6 – Déplacement eau
+  { border: "#6E5A3D", bg: "#F6F0E4", text: "#6E5A3D", label: "sand" },     // 7 – Mots-clés
 ];
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
@@ -406,6 +408,133 @@ function DeplacementEauSchema() {
   );
 }
 
+function CompositionAirSchema() {
+  const parts = [
+    {
+      name: "Diazote (N₂)",
+      percent: "78 %",
+      width: "78%",
+      color: "#1A5FA8",
+      bg: "#E3EEF9",
+    },
+    {
+      name: "Dioxygène (O₂)",
+      percent: "21 %",
+      width: "21%",
+      color: "#1A7A52",
+      bg: "#E2F4EC",
+    },
+    {
+      name: "Autres gaz (argon, CO₂...)",
+      percent: "1 %",
+      width: "1%",
+      color: "#B85C00",
+      bg: "#FDF0E3",
+    },
+  ];
+
+  return (
+    <div style={{ marginBottom: "16px" }}>
+      <div
+        style={{
+          backgroundColor: "#FAFAFA",
+          borderRadius: "12px",
+          overflow: "hidden",
+          display: "flex",
+          height: "32px",
+          border: "1px solid #E8E0D8",
+        }}
+      >
+        {parts.map((p) => (
+          <div
+            key={p.name}
+            style={{
+              width: p.width,
+              backgroundColor: p.color,
+              minWidth: p.width === "1%" ? "8px" : undefined,
+            }}
+            aria-label={`${p.name}: ${p.percent}`}
+          />
+        ))}
+      </div>
+
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+          gap: "10px",
+          marginTop: "12px",
+        }}
+      >
+        {parts.map((p) => (
+          <div
+            key={`${p.name}-legend`}
+            style={{
+              backgroundColor: p.bg,
+              borderLeft: `4px solid ${p.color}`,
+              borderRadius: "0 10px 10px 0",
+              padding: "10px 12px",
+            }}
+          >
+            <div style={{ fontWeight: 800, color: p.color, fontSize: "14px" }}>
+              {p.percent}
+            </div>
+            <div style={{ fontSize: "13px", color: "#2D2D2D", lineHeight: 1.5 }}>
+              {p.name}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function PressionSchema() {
+  return (
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+        gap: "12px",
+        marginBottom: "16px",
+      }}
+    >
+      <div
+        style={{
+          backgroundColor: "#E2F4EC",
+          borderLeft: "4px solid #1A7A52",
+          borderRadius: "0 12px 12px 0",
+          padding: "14px 16px",
+        }}
+      >
+        <div style={{ fontSize: "24px", marginBottom: "6px" }}>🌍</div>
+        <div style={{ fontWeight: 800, color: "#1A7A52", fontSize: "15px", marginBottom: "6px" }}>
+          Pression atmosphérique
+        </div>
+        <p style={{ fontSize: "13px", margin: 0, lineHeight: 1.6 }}>
+          C&apos;est la force exercée par l&apos;air de l&apos;atmosphère sur toutes les surfaces.
+        </p>
+      </div>
+      <div
+        style={{
+          backgroundColor: "#FDF0E3",
+          borderLeft: "4px solid #B85C00",
+          borderRadius: "0 12px 12px 0",
+          padding: "14px 16px",
+        }}
+      >
+        <div style={{ fontSize: "24px", marginBottom: "6px" }}>📉</div>
+        <div style={{ fontWeight: 800, color: "#B85C00", fontSize: "15px", marginBottom: "6px" }}>
+          Variation avec l&apos;altitude
+        </div>
+        <p style={{ fontSize: "13px", margin: 0, lineHeight: 1.6 }}>
+          Plus on monte en altitude, plus la pression atmosphérique diminue car il y a moins d&apos;air au-dessus.
+        </p>
+      </div>
+    </div>
+  );
+}
+
 // ─── Main component ───────────────────────────────────────────────────────────
 
 export function PCMasseGazFiche({ quizSlug, level, subject }: Props) {
@@ -447,7 +576,7 @@ export function PCMasseGazFiche({ quizSlug, level, subject }: Props) {
           La masse d&apos;un gaz
         </h1>
         <p style={{ fontSize: "14px", color: "#666", marginTop: "6px" }}>
-          Fiche de révision complète — 5 parties
+          Fiche de révision complète — 7 parties
         </p>
       </div>
 
@@ -567,10 +696,87 @@ export function PCMasseGazFiche({ quizSlug, level, subject }: Props) {
       </section>
 
       {/* ══════════════════════════════════════════════════
-          PARTIE 3 — La masse d'un gaz
+          PARTIE 3 — Composition de l'air
       ══════════════════════════════════════════════════ */}
       <section style={{ marginBottom: "40px" }}>
-        <SectionHeader index={2} emoji="⚖️" title="La masse d'un gaz" />
+        <SectionHeader index={2} emoji="🌬️" title="La composition de l'air" />
+
+        <p style={{ fontSize: "15px", marginBottom: "12px" }}>
+          L&apos;air est un <strong>mélange de gaz</strong>. Il ne contient pas
+          que du dioxygène.
+        </p>
+
+        <CompositionAirSchema />
+
+        <ColoredTable
+          headerBg={SECTION_COLORS[2].bg}
+          headerText={SECTION_COLORS[2].text}
+          headers={["Gaz principal", "Proportion", "Rôle"]}
+          rows={[
+            [
+              "<strong>Diazote (N₂)</strong>",
+              "≈ 78 %",
+              "Gaz majoritaire de l'air, peu réactif.",
+            ],
+            [
+              "<strong>Dioxygène (O₂)</strong>",
+              "≈ 21 %",
+              "Indispensable à la respiration et à la combustion.",
+            ],
+            [
+              "<strong>Autres gaz</strong>",
+              "≈ 1 %",
+              "Argon, CO₂, vapeur d'eau... en petites quantités.",
+            ],
+          ]}
+        />
+
+        <Retenir color={SECTION_COLORS[2]}>
+          <strong>L&apos;air n&apos;est pas un corps pur.</strong>
+          <br />
+          C&apos;est un mélange composé surtout de diazote (78 %) et de
+          dioxygène (21 %).
+        </Retenir>
+      </section>
+
+      {/* ══════════════════════════════════════════════════
+          PARTIE 4 — La pression atmosphérique
+      ══════════════════════════════════════════════════ */}
+      <section style={{ marginBottom: "40px" }}>
+        <SectionHeader index={3} emoji="🧭" title="La pression atmosphérique" />
+
+        <p style={{ fontSize: "15px", marginBottom: "12px" }}>
+          La pression atmosphérique correspond à la force exercée par l&apos;air
+          sur les objets. Au niveau de la mer, elle vaut environ 1 bar.
+        </p>
+
+        <PressionSchema />
+
+        <ColoredTable
+          headerBg={SECTION_COLORS[3].bg}
+          headerText={SECTION_COLORS[3].text}
+          headers={["Unité", "Équivalence", "Utilisation courante"]}
+          rows={[
+            ["<strong>bar</strong>", "1 bar", "Valeur pratique en physique-chimie scolaire"],
+            ["<strong>pascal (Pa)</strong>", "1 bar = 100 000 Pa", "Unité SI de pression"],
+            ["<strong>hectopascal (hPa)</strong>", "1 bar = 1000 hPa", "Météo (pression atmosphérique)"],
+          ]}
+        />
+
+        <Retenir color={SECTION_COLORS[3]}>
+          <strong>Conversions à connaître :</strong>
+          <br />
+          1 bar = 100 000 Pa = 1000 hPa
+          <br />
+          1013 hPa ≈ 1,013 bar (pression atmosphérique moyenne)
+        </Retenir>
+      </section>
+
+      {/* ══════════════════════════════════════════════════
+          PARTIE 5 — La masse d'un gaz
+      ══════════════════════════════════════════════════ */}
+      <section style={{ marginBottom: "40px" }}>
+        <SectionHeader index={4} emoji="⚖️" title="La masse d'un gaz" />
 
         <p style={{ fontSize: "15px", marginBottom: "12px" }}>
           Comme toute la matière, <strong>l&apos;air est pesant</strong>. Dans
@@ -673,7 +879,7 @@ export function PCMasseGazFiche({ quizSlug, level, subject }: Props) {
           conditions données.
         </p>
 
-        <Retenir color={SECTION_COLORS[2]}>
+          <Retenir color={SECTION_COLORS[4]}>
           <strong>Formule :</strong> masse = masse volumique × volume
           <br />
           Exemple : 3 L d&apos;air = 3 × 1,3 g = <strong>3,9 g</strong>
@@ -684,8 +890,8 @@ export function PCMasseGazFiche({ quizSlug, level, subject }: Props) {
         </Retenir>
 
         <ColoredTable
-          headerBg={SECTION_COLORS[2].bg}
-          headerText={SECTION_COLORS[2].text}
+          headerBg={SECTION_COLORS[4].bg}
+          headerText={SECTION_COLORS[4].text}
           headers={["Volume d'air", "Calcul", "Masse"]}
           rows={[
             ["1 L", "1 × 1,3 g", "<strong>1,3 g</strong>"],
@@ -697,11 +903,11 @@ export function PCMasseGazFiche({ quizSlug, level, subject }: Props) {
       </section>
 
       {/* ══════════════════════════════════════════════════
-          PARTIE 4 — La technique du déplacement d'eau
+          PARTIE 6 — La technique du déplacement d'eau
       ══════════════════════════════════════════════════ */}
       <section style={{ marginBottom: "40px" }}>
         <SectionHeader
-          index={3}
+          index={5}
           emoji="🧪"
           title="La technique du déplacement d'eau"
         />
@@ -714,7 +920,7 @@ export function PCMasseGazFiche({ quizSlug, level, subject }: Props) {
 
         <DeplacementEauSchema />
 
-        <Retenir color={SECTION_COLORS[3]}>
+        <Retenir color={SECTION_COLORS[5]}>
           <strong>Technique du déplacement d&apos;eau :</strong> tube rempli d&apos;eau → retourné dans cuve → gaz entre par le bas → chasse l&apos;eau → gaz collecté dans le tube.
           <br />
           <br />
@@ -762,19 +968,19 @@ export function PCMasseGazFiche({ quizSlug, level, subject }: Props) {
       </section>
 
       {/* ══════════════════════════════════════════════════
-          PARTIE 5 — Mots-clés
+          PARTIE 7 — Mots-clés
       ══════════════════════════════════════════════════ */}
       <section style={{ marginBottom: "40px" }}>
-        <SectionHeader index={4} emoji="📖" title="Les mots-clés à connaître" />
+        <SectionHeader index={6} emoji="📖" title="Les mots-clés à connaître" />
 
-        <Retenir color={SECTION_COLORS[4]}>
+        <Retenir color={SECTION_COLORS[6]}>
           <strong>Masse volumique ≠ masse.</strong> La masse volumique est la
           masse <em>par litre</em>. La masse totale dépend du volume.
         </Retenir>
 
         <ColoredTable
-          headerBg={SECTION_COLORS[4].bg}
-          headerText={SECTION_COLORS[4].text}
+          headerBg={SECTION_COLORS[6].bg}
+          headerText={SECTION_COLORS[6].text}
           headers={["Mot-clé", "Définition"]}
           rows={[
             [

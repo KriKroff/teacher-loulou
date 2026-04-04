@@ -6,7 +6,7 @@ export const resources: Resource[] = [
     slug: "pc-masse-gaz-fiche",
     title: "La masse d'un gaz",
     description:
-      "Fiche de révision complète : états de la matière, propriétés des gaz, masse volumique, conditions standard et technique du déplacement d'eau.",
+      "Fiche de révision complète : états de la matière, composition de l'air, pression atmosphérique, unités de pression, masse volumique et technique du déplacement d'eau.",
     type: "fiche",
     level: "4e",
     subject: "physique-chimie",
@@ -14,7 +14,7 @@ export const resources: Resource[] = [
     customComponent: "PCMasseGazFiche",
     createdAt: "2026-04-04T12:00:00Z",
     updatedAt: "2026-04-04T12:00:00Z",
-    tags: ["gaz", "masse", "matière", "pression", "déplacement d'eau", "fiche"],
+    tags: ["gaz", "masse", "matière", "composition de l'air", "pression", "déplacement d'eau", "fiche"],
     content: "",
   },
 
@@ -23,14 +23,14 @@ export const resources: Resource[] = [
     slug: "pc-masse-gaz-quiz",
     title: "Quiz — La masse d'un gaz",
     description:
-      "3 niveaux de difficulté : Facile, Intermédiaire, Expert. 8 questions par session tirées d'une banque de 30 questions.",
+      "3 niveaux de difficulté : Facile, Intermédiaire, Expert. 8 questions par session tirées d'une banque de 30 questions sur les gaz, la composition de l'air et la pression.",
     type: "quiz",
     level: "4e",
     subject: "physique-chimie",
     chapter: "Chapitre IV — La masse d'un gaz",
     createdAt: "2026-04-04T12:30:00Z",
     updatedAt: "2026-04-04T12:30:00Z",
-    tags: ["gaz", "masse", "matière", "quiz"],
+    tags: ["gaz", "masse", "matière", "composition de l'air", "pression", "quiz"],
     quizData: {
       title: "Quiz — La masse d'un gaz",
       description:
@@ -66,12 +66,12 @@ export const resources: Resource[] = [
             },
             {
               id: "f3",
-              question: "La pression standard est :",
+              question: "La pression atmosphérique moyenne au niveau de la mer est proche de :",
               type: "qcm",
-              options: ["10 bar", "1 bar", "0,1 bar", "100 bar"],
+              options: ["0,1 bar", "1 bar", "10 bar", "100 bar"],
               correctAnswer: "1 bar",
               explanation:
-                "Les conditions standard de pression correspondent à 1 bar.",
+                "Au niveau de la mer, la pression atmosphérique est proche de 1 bar (environ 1013 hPa).",
             },
             {
               id: "f4",
@@ -102,12 +102,12 @@ export const resources: Resource[] = [
             },
             {
               id: "f7",
-              question: "La matière peut exister sous combien d'états physiques ?",
+              question: "Dans l'air, le gaz le plus abondant est :",
               type: "qcm",
-              options: ["1", "2", "3", "4"],
-              correctAnswer: "3",
+              options: ["Le dioxygène (O₂)", "Le diazote (N₂)", "Le dioxyde de carbone (CO₂)", "La vapeur d'eau"],
+              correctAnswer: "Le diazote (N₂)",
               explanation:
-                "La matière existe sous 3 états physiques : solide, liquide et gazeux (on dit aussi état gaz).",
+                "L'air contient environ 78 % de diazote (N₂), 21 % de dioxygène (O₂) et environ 1 % d'autres gaz.",
             },
             {
               id: "f8",
@@ -120,12 +120,12 @@ export const resources: Resource[] = [
             },
             {
               id: "f9",
-              question: "L'eau est un exemple de matière à l'état :",
+              question: "1 bar correspond à :",
               type: "qcm",
-              options: ["Solide seulement", "Liquide seulement", "Gazeux seulement", "Elle peut être dans les 3 états"],
-              correctAnswer: "Elle peut être dans les 3 états",
+              options: ["100 Pa", "1 000 Pa", "10 000 Pa", "100 000 Pa"],
+              correctAnswer: "100 000 Pa",
               explanation:
-                "L'eau peut exister sous forme de glace (solide), d'eau liquide et de vapeur d'eau (gazeux). La même molécule H₂O peut changer d'état selon la température.",
+                "Le pascal (Pa) est l'unité SI de pression : 1 bar = 100 000 Pa.",
             },
             {
               id: "f10",
@@ -171,17 +171,12 @@ export const resources: Resource[] = [
             },
             {
               id: "i3",
-              question: "Parmi ces propriétés, laquelle est propre aux gaz (pas aux liquides ni aux solides) ?",
+              question: "Dans l'air sec, quelle proportion de dioxygène est la plus proche de la réalité ?",
               type: "qcm",
-              options: [
-                "Avoir une masse",
-                "Occuper tout l'espace disponible",
-                "Être constitué de matière",
-                "Pouvoir être pesé",
-              ],
-              correctAnswer: "Occuper tout l'espace disponible",
+              options: ["2 %", "21 %", "50 %", "78 %"],
+              correctAnswer: "21 %",
               explanation:
-                "Un gaz n'a pas de forme ni de volume propre : il occupe tout l'espace disponible. Un liquide a un volume propre mais pas de forme fixe. Un solide a une forme et un volume fixes.",
+                "La proportion de dioxygène dans l'air est d'environ 21 % (le diazote représente environ 78 %).",
             },
             {
               id: "i4",
@@ -213,31 +208,31 @@ export const resources: Resource[] = [
             },
             {
               id: "i6",
-              question: "Les conditions standard correspondent à :",
+              question: "Quelle conversion est correcte ?",
               type: "qcm",
               options: [
-                "0 °C et 1 bar",
-                "25 °C et 1 bar",
-                "25 °C et 10 bar",
-                "100 °C et 1 bar",
+                "1 bar = 100 hPa",
+                "1 bar = 1 000 hPa",
+                "1 bar = 10 000 hPa",
+                "1 bar = 100 000 hPa",
               ],
-              correctAnswer: "25 °C et 1 bar",
+              correctAnswer: "1 bar = 1 000 hPa",
               explanation:
-                "Les conditions standard (IUPAC modernes) correspondent à 25 °C (298 K) et 1 bar de pression. Ne pas confondre avec les conditions normales (0 °C et 1 bar).",
+                "Les unités de pression à connaître : 1 bar = 100 000 Pa = 1 000 hPa.",
             },
             {
               id: "i7",
-              question: "La balance est un instrument qui mesure :",
+              question: "1013 hPa correspond environ à :",
               type: "qcm",
               options: [
-                "Le volume d'un gaz",
-                "La pression d'un gaz",
-                "La masse d'un objet",
-                "La température d'un objet",
+                "0,1013 bar",
+                "1,013 bar",
+                "10,13 bar",
+                "101,3 bar",
               ],
-              correctAnswer: "La masse d'un objet",
+              correctAnswer: "1,013 bar",
               explanation:
-                "La balance mesure la masse d'un objet (en grammes ou kilogrammes). Pour mesurer le volume d'un gaz, on utilise une éprouvette graduée ou un tube gradué.",
+                "Pour passer des hPa aux bar, on divise par 1000 : 1013 hPa = 1,013 bar.",
             },
             {
               id: "i8",
@@ -283,22 +278,23 @@ export const resources: Resource[] = [
           questions: [
             {
               id: "e1",
-              question: "Parmi ces affirmations sur les gaz, lesquelles sont VRAIES ?",
+              question: "Parmi ces affirmations sur l'air et les gaz, lesquelles sont VRAIES ?",
               type: "qcm-multiple",
               options: [
                 "Un gaz est compressible",
                 "Un gaz a une masse nulle",
                 "Un gaz occupe tout le volume disponible",
-                "Un gaz est toujours incolore",
+                "L'air contient environ 78 % de diazote",
                 "La masse d'un gaz dépend des conditions de T et P",
               ],
               correctAnswer: [
                 "Un gaz est compressible",
                 "Un gaz occupe tout le volume disponible",
+                "L'air contient environ 78 % de diazote",
                 "La masse d'un gaz dépend des conditions de T et P",
               ],
               explanation:
-                "Un gaz est compressible et occupe tout l'espace disponible. Sa masse volumique dépend des conditions de T et P. Les gaz ont bien une masse (non nulle), et certains gaz sont colorés (dioxyde d'azote est brun-orangé par exemple).",
+                "Un gaz est compressible et occupe l'espace disponible. L'air contient majoritairement du diazote (≈ 78 %). La masse volumique dépend de T et P. Les gaz n'ont pas une masse nulle.",
             },
             {
               id: "e2",
@@ -353,12 +349,12 @@ export const resources: Resource[] = [
             },
             {
               id: "e6",
-              question: "La masse volumique de l'air à conditions standard est 1,3 g/L. Si la pression double (2 bar) à température constante, quelle est la nouvelle masse volumique (en g/L) ?",
+              question: "Tu lis 950 hPa sur une station météo. Quelle valeur en bar est la plus proche ?",
               type: "qcm",
-              options: ["0,65 g/L", "1,3 g/L", "2,6 g/L", "5,2 g/L"],
-              correctAnswer: "2,6 g/L",
+              options: ["0,95 bar", "9,5 bar", "95 bar", "950 bar"],
+              correctAnswer: "0,95 bar",
               explanation:
-                "En doublant la pression à température constante (loi de Boyle-Mariotte), le volume est divisé par 2 : il y a deux fois plus de masse par litre. Masse volumique = 2 × 1,3 = 2,6 g/L.",
+                "1 bar = 1000 hPa, donc 950 hPa = 950/1000 bar = 0,95 bar.",
             },
             {
               id: "e7",
@@ -399,17 +395,17 @@ export const resources: Resource[] = [
             },
             {
               id: "e10",
-              question: "Lors d'une expérience, on produit un gaz et on le recueille par déplacement d'eau. À la fin, le tube collecteur ne contient plus d'eau. Qu'est-ce que cela signifie ?",
+              question: "On mesure une pression de 120 000 Pa. Quelle conversion est correcte ?",
               type: "qcm",
               options: [
-                "La réaction n'a pas eu lieu",
-                "Toute l'eau s'est évaporée",
-                "Le tube s'est rempli entièrement de gaz",
-                "Le gaz s'est transformé en liquide",
+                "0,12 bar",
+                "1,2 bar",
+                "12 bar",
+                "120 bar",
               ],
-              correctAnswer: "Le tube s'est rempli entièrement de gaz",
+              correctAnswer: "1,2 bar",
               explanation:
-                "Quand tout le tube est rempli de gaz, il n'y a plus d'eau. Cela signifie que le volume de gaz produit est supérieur ou égal au volume du tube collecteur.",
+                "Comme 1 bar = 100 000 Pa, on fait 120 000 ÷ 100 000 = 1,2 bar.",
             },
           ],
         },
