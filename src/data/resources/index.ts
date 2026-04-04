@@ -4,9 +4,15 @@ import type { Resource, SchoolLevel, Subject } from "@/types";
 import { resources as francais4e } from "./4e/francais";
 import { resources as svt4e } from "./4e/svt";
 import { resources as physiqueChimie4e } from "./4e/physique-chimie";
+import { resources as histoireGeo4e } from "./4e/histoire-geo";
 
 // Master resource list
-const allResources: Resource[] = [...francais4e, ...svt4e, ...physiqueChimie4e];
+const allResources: Resource[] = [
+  ...francais4e,
+  ...svt4e,
+  ...physiqueChimie4e,
+  ...histoireGeo4e,
+];
 
 export function getAllResources(): Resource[] {
   return allResources.sort(
