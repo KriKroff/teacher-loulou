@@ -23,7 +23,7 @@ export const resources: Resource[] = [
     slug: "pc-masse-gaz-quiz",
     title: "Quiz — La masse d'un gaz",
     description:
-      "3 niveaux de difficulté : Facile, Intermédiaire, Expert. 8 questions par session tirées d'une banque de plus de 24 questions.",
+      "3 niveaux de difficulté : Facile, Intermédiaire, Expert. 8 questions par session tirées d'une banque de 30 questions.",
     type: "quiz",
     level: "4e",
     subject: "physique-chimie",
