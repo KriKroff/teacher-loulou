@@ -88,12 +88,21 @@ Quiz files are stored as JSON in `src/data/quizzes/` for reuse across resource e
 
 ## Quiz Rules
 
-- **10–20 distinct questions per pool**:
-  - For **leveled quizzes** (with `levels`): each level must have 10–20 questions
-  - For **flat quizzes** (no levels): the root `questions` array must have 10–20 questions
+- **15–20 distinct questions per pool (strict minimum)**:
+  - For **leveled quizzes** (with `levels`): each level must have **at least 15 questions** (20 is better)
+  - For **flat quizzes** (no levels): the root `questions` array must have at least 15 questions
 - **Use all available question types** — aim to cover as many as possible per quiz:
-  `qcm`, `vrai-faux`, `texte-a-trous`, `association`, `qcm-multiple`, `ordre`
-- **Session size: 8–10 questions** — set `sessionSize` explicitly on the quiz object (code default is 10)
+  - `qcm` — QCM classique (1 bonne réponse)
+  - `vrai-faux` — Vrai ou Faux
+  - `texte-a-trous` — cliquer la bonne option pour remplir un blanc
+  - `texte-a-trous-select` — style Duolingo : cliquer des tuiles de mots pour remplir plusieurs blancs (`___`). `correctAnswer` est un tableau ordonné, `options` la banque de mots (+ distracteurs)
+  - `association` — relier des paires gauche/droite
+  - `qcm-multiple` — plusieurs bonnes réponses
+  - `ordre` — remettre dans le bon ordre (drag-and-drop)
+  - `nombre` — saisir un nombre/une année. `correctAnswer` est une string numérique ; `tolerance` (optionnel) permet une marge
+  - `slider` — curseur entre min et max. `options: ["min", "max"]` ou `options: ["min", "max", "step"]` ; `correctAnswer` est la valeur exacte ; `tolerance` (optionnel) permet une marge
+  - `intrus` — trouver l'élément qui n'appartient pas au groupe (comme un QCM visuel)
+- **Session size: 10 questions** — set `sessionSize: 10` explicitly on the quiz object
 - **Smart selection**: prioritizes previously wrong answers, then unseen questions, then already-correct ones — implemented in `src/lib/selectQuizQuestions.ts`
 - **3 mandatory levels**: Easy 🟢, Intermediate 🟡, Expert 🔴
 - The `sessionSize` field on the `Quiz` object controls questions per session; `passingScore` is a percentage
@@ -104,7 +113,9 @@ Quiz files are stored as JSON in `src/data/quizzes/` for reuse across resource e
   ```markdown
   > 🎯 **Prêt(e) à te tester ?** → [Faire le quiz sur ce chapitre →](/level/subject/quiz-slug)
   ```
-- Every `quiz` resource links back to its fiche via the result screen automatically — `QuizPlayer` dynamically finds the first `fiche` resource in the same level/subject using `getResourcesByLevelAndSubject`.
+- `[slug]/page.tsx` automatically adds "Passer au quiz →" buttons at the **top and bottom** of every fiche/cours page by finding the first `quiz` resource in the same level/subject.
+- `QuizPlayer` automatically adds "Revoir la fiche" links at the **top of level-select/intro screens** and at the **bottom of the result screen** by finding the first `fiche` resource using `getResourcesByLevelAndSubject`.
+- **No hardcoded slugs** — always rely on these dynamic lookups.
 
 ## Commands
 

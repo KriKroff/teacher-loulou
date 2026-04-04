@@ -162,8 +162,8 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
   const [tatsChosen, setTatsChosen] = useState<(string | null)[]>([]);
 
   const sensors = useSensors(
-    // distance: 8px prevents accidental drag activation on tap/scroll on mobile
-    useSensor(PointerSensor, { activationConstraint: { distance: 8 } }),
+    // distance: 12px prevents accidental drag activation on tap/scroll on mobile while remaining accessible
+    useSensor(PointerSensor, { activationConstraint: { distance: 12 } }),
     useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates })
   );
 
@@ -899,15 +899,19 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
     const correct = String(question.correctAnswer).trim();
     const tolerance = question.tolerance ?? 0;
 
+    const isNombreCorrect = (value: string): boolean => {
+      const userVal = parseFloat(value.trim());
+      const correctVal = parseFloat(correct);
+      if (!isNaN(userVal) && !isNaN(correctVal)) {
+        return Math.abs(userVal - correctVal) <= tolerance;
+      }
+      return value.trim() === correct;
+    };
+
     const handleValidate = () => {
       if (showFeedback || !nombreValue.trim()) return;
-      const userVal = parseFloat(nombreValue.trim());
-      const correctVal = parseFloat(correct);
-      const isCorrect = !isNaN(userVal) && !isNaN(correctVal)
-        ? Math.abs(userVal - correctVal) <= tolerance
-        : nombreValue.trim() === correct;
       setSelectedAnswer(nombreValue.trim());
-      handleQuestionResult(isCorrect, question.id);
+      handleQuestionResult(isNombreCorrect(nombreValue), question.id);
     };
 
     return (
@@ -924,7 +928,7 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
             className={cn(
               "flex-1 rounded-xl border-2 px-4 py-3 text-lg font-bold text-center transition-all outline-none",
               showFeedback
-                ? selectedAnswer && Math.abs(parseFloat(selectedAnswer) - parseFloat(correct)) <= tolerance
+                ? selectedAnswer && isNombreCorrect(selectedAnswer)
                   ? "border-success-500 bg-success-100 text-success-700"
                   : "border-red-400 bg-red-50 text-red-700"
                 : "border-warm-300 bg-warm-50 focus:border-accent-400 focus:ring-2 focus:ring-accent-200"
@@ -957,15 +961,19 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
     const correct = parseFloat(String(question.correctAnswer));
     const tolerance = question.tolerance ?? 0;
     const step = question.options[2] ? parseFloat(question.options[2]) : 1;
+    const isSliderCorrect = Math.abs(sliderValue - correct) <= tolerance;
 
     const handleValidate = () => {
       if (showFeedback) return;
-      const isCorrect = Math.abs(sliderValue - correct) <= tolerance;
       setSelectedAnswer(String(sliderValue));
-      handleQuestionResult(isCorrect, question.id);
+      handleQuestionResult(isSliderCorrect, question.id);
     };
 
     const pct = ((sliderValue - min) / (max - min)) * 100;
+    // Use Tailwind-compatible CSS custom property values
+    const trackColor = showFeedback
+      ? isSliderCorrect ? "var(--color-success-500, #22c55e)" : "var(--color-red-400, #f87171)"
+      : "var(--color-accent-600, #6d28d9)";
 
     return (
       <div className="space-y-4">
@@ -977,7 +985,7 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
             <span className={cn(
               "text-lg font-bold",
               showFeedback
-                ? Math.abs(sliderValue - correct) <= tolerance ? "text-success-600" : "text-red-500"
+                ? isSliderCorrect ? "text-success-600" : "text-red-500"
                 : "text-accent-600"
             )}>
               {sliderValue}
@@ -994,12 +1002,12 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
             disabled={showFeedback}
             className="w-full h-3 rounded-full appearance-none cursor-pointer"
             style={{
-              background: `linear-gradient(to right, ${showFeedback ? (Math.abs(sliderValue - correct) <= tolerance ? "#22c55e" : "#f87171") : "#6d28d9"} ${pct}%, #e8ddd0 ${pct}%)`,
+              background: `linear-gradient(to right, ${trackColor} ${pct}%, #e8ddd0 ${pct}%)`,
             }}
           />
         </div>
 
-        {showFeedback && Math.abs(sliderValue - correct) > tolerance && (
+        {showFeedback && !isSliderCorrect && (
           <p className="text-sm text-warm-600">
             Bonne réponse : <strong className="text-warm-800">{correct}</strong>
           </p>
@@ -1135,7 +1143,9 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
   // ── Intrus renderer (find the odd one out) ────────────────────────────────
   const renderIntrus = () => (
     <div className="space-y-3">
-      <p className="text-xs text-warm-500">Un seul élément n&apos;est pas à sa place. Trouve l&apos;intrus !</p>
+      <p className="text-xs text-warm-500">
+        Tous les éléments ont un point commun… sauf un. Clique sur celui qui n&apos;appartient pas au même groupe que les autres.
+      </p>
       <div className="flex flex-wrap gap-2">
         {question.options?.map((option) => {
           const isSelected = selectedAnswer === option;

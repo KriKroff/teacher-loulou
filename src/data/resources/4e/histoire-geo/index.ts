@@ -334,6 +334,58 @@ export const resources: Resource[] = [
                 "La consommation de masse apparaît grâce à la révolution industrielle : les usines produisent plus vite et en plus grande quantité, ce qui rend les produits moins chers et accessibles à plus de gens.",
               hint: "C'est la conséquence directe de la production plus rapide et en plus grande quantité.",
             },
+            {
+              id: "f11",
+              type: "nombre",
+              question: "En quelle année James Watt a-t-il mis au point la machine à vapeur améliorée ?",
+              options: [],
+              correctAnswer: "1769",
+              explanation:
+                "James Watt brevète sa machine à vapeur améliorée en 1769. Cette invention est considérée comme le déclencheur de la révolution industrielle en Angleterre.",
+              hint: "C'est dans la deuxième moitié du 18e siècle.",
+            },
+            {
+              id: "f12",
+              type: "slider",
+              question: "La 1ère révolution industrielle a commencé vers quelle année ?",
+              options: ["1700", "1850", "10"],
+              correctAnswer: "1760",
+              tolerance: 10,
+              explanation:
+                "La 1ère révolution industrielle commence vers 1760 en Angleterre, avec le développement des machines à vapeur et l'essor du textile mécanisé.",
+              hint: "C'est juste avant la Révolution française (1789).",
+            },
+            {
+              id: "f13",
+              type: "intrus",
+              question:
+                "Lequel de ces éléments appartient à la 2ème révolution industrielle (1880-1914), et NON à la 1ère ?",
+              options: ["Charbon", "Machine à vapeur", "Électricité", "Textile"],
+              correctAnswer: "Électricité",
+              explanation:
+                "L'électricité est caractéristique de la 2ème révolution industrielle. Le charbon, la machine à vapeur et le textile appartiennent à la 1ère révolution (1760-1880).",
+              hint: "Quelle énergie NEW apparaît après 1880 ?",
+            },
+            {
+              id: "f14",
+              type: "texte-a-trous-select",
+              question:
+                "La révolution industrielle commence en ___ vers 1760, avant de se répandre en ___.",
+              options: ["Angleterre", "France", "Europe continentale", "Allemagne", "Russie"],
+              correctAnswer: ["Angleterre", "Europe continentale"],
+              explanation:
+                "La révolution industrielle débute en Angleterre vers 1760 grâce à ses ressources (charbon, fer) et son avance technologique. Elle se répand ensuite en Europe continentale au 19e siècle.",
+            },
+            {
+              id: "f15",
+              type: "vrai-faux",
+              question:
+                "La machine à vapeur utilise le pétrole comme source d'énergie.",
+              options: ["Vrai", "Faux"],
+              correctAnswer: "Faux",
+              explanation:
+                "La machine à vapeur fonctionne au charbon (combustion du charbon chauffe de l'eau, la vapeur produite entraîne un mouvement mécanique). Le pétrole est une énergie de la 2ème révolution industrielle.",
+            },
           ],
         },
         {
@@ -520,6 +572,70 @@ export const resources: Resource[] = [
               ],
               explanation:
                 "Prolétariat = ouvriers (que leur travail). Bourgeoisie = patrons/banquiers (riches, pouvoir). Syndicat = défend les travailleurs. Grève = arrêt du travail pour protester.",
+            },
+            {
+              id: "i11",
+              type: "nombre",
+              question:
+                "En quelle année Karl Marx publie-t-il le Manifeste du parti communiste ?",
+              options: [],
+              correctAnswer: "1848",
+              explanation:
+                "Karl Marx et Friedrich Engels publient le Manifeste du parti communiste en 1848, l'année des grandes révolutions européennes. Ce texte pose les bases de l'idéologie communiste.",
+              hint: "C'est l'année des révolutions en Europe.",
+            },
+            {
+              id: "i12",
+              type: "slider",
+              question: "En quelle année les syndicats ont-ils été autorisés en France ?",
+              options: ["1860", "1910", "2"],
+              correctAnswer: "1884",
+              tolerance: 0,
+              explanation:
+                "Les syndicats sont autorisés en France en 1884 par la loi Waldeck-Rousseau. C'est une avancée majeure pour le mouvement ouvrier, permettant une organisation collective légale.",
+              hint: "C'est 20 ans après le droit de grève (1864) et 22 ans avant la journée limitée (1906).",
+            },
+            {
+              id: "i13",
+              type: "intrus",
+              question:
+                "Laquelle de ces villes N'EST PAS un exemple typique de ville industrielle du 19e siècle en France ?",
+              options: ["Le Creusot", "Saint-Étienne", "Versailles", "Lille"],
+              correctAnswer: "Versailles",
+              explanation:
+                "Versailles est une ville royale et administrative, pas industrielle. Le Creusot (acier), Saint-Étienne (charbon, textile) et Lille (textile) sont des exemples typiques de villes industrielles françaises.",
+              hint: "L'une de ces villes est surtout connue pour son château royal.",
+            },
+            {
+              id: "i14",
+              type: "texte-a-trous-select",
+              question:
+                "Les canuts sont des ouvriers ___ de Lyon, spécialisés dans le travail de la ___.",
+              options: ["tisserands", "mineurs", "soie", "laine", "forgerons", "coton"],
+              correctAnswer: ["tisserands", "soie"],
+              explanation:
+                "Les canuts sont des ouvriers tisserands de Lyon qui fabriquent la soie. Ils sont parmi les premiers à se révolter contre leurs mauvaises conditions de travail, dans les années 1830.",
+            },
+            {
+              id: "i15",
+              type: "qcm-multiple",
+              question:
+                "Quelles sont les principales caractéristiques du libéralisme économique ? (Plusieurs réponses correctes)",
+              options: [
+                "L'État ne doit pas intervenir dans l'économie",
+                "Liberté d'entreprendre",
+                "Égalité totale des salaires",
+                "Libre concurrence sur le marché",
+                "L'État possède toutes les usines",
+                "Protection des travailleurs par l'État",
+              ],
+              correctAnswer: [
+                "L'État ne doit pas intervenir dans l'économie",
+                "Liberté d'entreprendre",
+                "Libre concurrence sur le marché",
+              ],
+              explanation:
+                "Le libéralisme défend la non-intervention de l'État, la liberté d'entreprendre et la libre concurrence. C'est le contraire du socialisme ou du communisme qui veulent l'intervention de l'État pour défendre les travailleurs.",
             },
           ],
         },
@@ -715,6 +831,76 @@ export const resources: Resource[] = [
               ],
               explanation:
                 "Dans l'ordre : Machine à vapeur (1769) → Manifeste communiste (1848) → Droit de grève (1864) → Syndicats autorisés (1884) → Journée limitée (1906). C'est la progression de la révolution industrielle vers les droits sociaux.",
+            },
+            {
+              id: "e11",
+              type: "nombre",
+              question:
+                "En quelle année la journée de travail a-t-elle été limitée en France (loi instaurant le repos hebdomadaire et limitant la durée du travail) ?",
+              options: [],
+              correctAnswer: "1906",
+              explanation:
+                "La loi de 1906 instaure le repos hebdomadaire obligatoire et commence à limiter la durée du travail. C'est une conquête sociale majeure du mouvement ouvrier après des décennies de luttes.",
+              hint: "C'est la dernière des trois grandes lois sociales du cours : 1864, 1884, 19??.",
+            },
+            {
+              id: "e12",
+              type: "slider",
+              question:
+                "Le Congrès de Vienne, qui restaure les monarchies après Napoléon, s'est déroulé en quelle année ?",
+              options: ["1800", "1830", "1"],
+              correctAnswer: "1815",
+              tolerance: 0,
+              explanation:
+                "Le Congrès de Vienne se tient en 1814-1815. Il redessine la carte de l'Europe après les guerres napoléoniennes et vise à restaurer les monarchies renversées par Napoléon.",
+              hint: "C'est l'année de la défaite de Napoléon à Waterloo.",
+            },
+            {
+              id: "e13",
+              type: "intrus",
+              question:
+                "Laquelle de ces idéologies défend les droits des travailleurs contre les patrons ?",
+              options: ["Libéralisme", "Socialisme", "Conservatisme", "Capitalisme"],
+              correctAnswer: "Socialisme",
+              explanation:
+                "Le socialisme est la seule idéologie de cette liste qui défend les travailleurs et veut réduire les inégalités. Le libéralisme et le capitalisme défendent la liberté économique des entrepreneurs. Le conservatisme défend l'ordre établi.",
+              hint: "L'une de ces idéologies s'oppose directement aux intérêts des patrons.",
+            },
+            {
+              id: "e14",
+              type: "texte-a-trous-select",
+              question:
+                "Selon Karl Marx, la société est divisée en deux classes : la ___ (les patrons) et le ___ (les ouvriers).",
+              options: ["bourgeoisie", "aristocratie", "prolétariat", "syndicat", "clergé", "noblesse"],
+              correctAnswer: ["bourgeoisie", "prolétariat"],
+              explanation:
+                "Marx identifie deux classes en conflit : la bourgeoisie (les propriétaires des moyens de production, les patrons) et le prolétariat (les ouvriers qui vendent leur force de travail). Ce conflit de classes est au cœur de sa théorie.",
+            },
+            {
+              id: "e15",
+              type: "association",
+              question:
+                "Associe chaque énergie/invention à sa révolution industrielle.",
+              pairs: [
+                { left: "Charbon + vapeur", right: "1ère révolution (1760-1880)" },
+                { left: "Électricité + pétrole", right: "2ème révolution (1880-1914)" },
+                { left: "Textile mécanisé", right: "1ère révolution (1760-1880)" },
+                { left: "Sidérurgie + chimie", right: "2ème révolution (1880-1914)" },
+              ],
+              options: [
+                "1ère révolution (1760-1880)",
+                "2ème révolution (1880-1914)",
+                "1ère révolution (1760-1880)",
+                "2ème révolution (1880-1914)",
+              ],
+              correctAnswer: [
+                "1ère révolution (1760-1880)",
+                "2ème révolution (1880-1914)",
+                "1ère révolution (1760-1880)",
+                "2ème révolution (1880-1914)",
+              ],
+              explanation:
+                "1ère révolution : charbon + vapeur + textile mécanisé. 2ème révolution : électricité + pétrole + sidérurgie + chimie. Ce tableau de comparaison est fondamental pour le cours.",
             },
           ],
         },
