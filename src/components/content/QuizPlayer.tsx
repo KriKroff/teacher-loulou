@@ -179,7 +179,7 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
   const startSession = (levelId: string, questions: QuizQuestion[]) => {
     const progressData = getProgress(resource.slug);
     const history = progressData?.questionHistory?.[levelId] ?? [];
-    const selected = selectQuizQuestions(questions, history, 10);
+    const selected = selectQuizQuestions(questions, history, quiz.sessionSize ?? 10);
     setSessionQuestions(selected);
     setCurrentIndex(0);
     setShowFeedback(false);
@@ -273,7 +273,7 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
                     <div className={cn("font-bold text-base", c.text)}>{level.name}</div>
                     <div className="mt-0.5 text-sm text-warm-600">{level.description}</div>
                     <div className="mt-1.5 text-xs text-warm-500">
-                      10 questions par session · {level.questions.length} au total
+                      {quiz.sessionSize ?? 10} questions par session · {level.questions.length} au total
                     </div>
                   </div>
                   <ChevronRight className={cn("mt-1 h-5 w-5 shrink-0", c.text)} />
@@ -313,7 +313,7 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
             {selectedLevel ? selectedLevel.description : quiz.description}
           </p>
           <p className="mb-6 text-sm text-warm-500">
-            10 questions · Score minimum : {quiz.passingScore}%
+            {quiz.sessionSize ?? 10} questions · Score minimum : {quiz.passingScore}%
           </p>
           <div className="flex flex-col items-center gap-3">
             <button

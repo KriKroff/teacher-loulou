@@ -89,6 +89,14 @@ Types de ressources : `cours`, `fiche`, `exercice`, `quiz`, `video`, `lien`, `ht
 
 Les quiz sont stockés en JSON dans `src/data/quizzes/` pour faciliter la réutilisation.
 
+## Règles des quiz
+
+- **Minimum 16 questions disponibles par quiz** (au total ou par niveau)
+- **Sessions de 8 questions** (`sessionSize: 8` dans `quizData`)
+- **Sélection intelligente** : on privilégie d'abord les erreurs précédentes, puis les questions non encore posées, puis les questions déjà réussies — implémenté dans `src/lib/selectQuizQuestions.ts`
+- **3 niveaux obligatoires** : Facile 🟢, Intermédiaire 🟡, Expert 🔴
+- Le champ `sessionSize` sur l'objet `Quiz` contrôle le nombre de questions par session (défaut : 10)
+
 ## Commandes
 
 ```bash
