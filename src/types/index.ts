@@ -59,6 +59,8 @@ export interface Quiz {
   questions: QuizQuestion[];
   passingScore: number;
   levels?: QuizLevel[];
+  /** Number of questions per session (default: 10) */
+  sessionSize?: number;
 }
 
 export interface QuizQuestion {

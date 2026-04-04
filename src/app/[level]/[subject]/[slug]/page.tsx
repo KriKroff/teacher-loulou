@@ -11,6 +11,7 @@ import { CourseViewer } from "@/components/content/CourseViewer";
 import { QuizPlayer } from "@/components/content/QuizPlayer";
 import { ResourceTracker } from "@/components/content/ResourceTracker";
 import { SVTPuberteFiche } from "@/components/content/SVTPuberteFiche";
+import { PCMasseGazFiche } from "@/components/content/PCMasseGazFiche";
 
 interface Props {
   params: Promise<{ level: string; subject: string; slug: string }>;
@@ -64,6 +65,14 @@ export default async function ResourcePage({ params }: Props) {
       {resource.customComponent === "SVTPuberteFiche" && (
         <SVTPuberteFiche
           quizSlug="svt-puberte-quiz"
+          level={resource.level}
+          subject={resource.subject}
+        />
+      )}
+
+      {resource.customComponent === "PCMasseGazFiche" && (
+        <PCMasseGazFiche
+          quizSlug="pc-masse-gaz-quiz"
           level={resource.level}
           subject={resource.subject}
         />
