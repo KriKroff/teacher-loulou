@@ -102,7 +102,7 @@ function SortableItem({ id, label, disabled }: { id: string; label: string; disa
       {...(!disabled ? { ...attributes, ...listeners } : {})}
     >
       {!disabled && (
-        <GripVertical className="h-4 w-4 shrink-0 text-warm-400 pointer-events-none" />
+        <GripVertical className="h-4 w-4 shrink-0 text-warm-400" />
       )}
       <span>{label}</span>
     </div>
@@ -156,6 +156,7 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
   const [ordreItems, setOrdreItems] = useState<string[]>([]);
 
   const sensors = useSensors(
+    // distance: 8px prevents accidental drag activation on tap/scroll on mobile
     useSensor(PointerSensor, { activationConstraint: { distance: 8 } }),
     useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates })
   );
