@@ -22,6 +22,7 @@ import { CSS } from "@dnd-kit/utilities";
 import type { Resource, QuizQuestion, QuizLevel } from "@/types";
 import { useProgress } from "@/hooks/useProgress";
 import { selectQuizQuestions } from "@/lib/selectQuizQuestions";
+import { getResourcesByLevelAndSubject } from "@/data/resources";
 import { RESOURCE_TYPE_NAMES } from "@/types";
 import {
   HelpCircle,
@@ -77,6 +78,15 @@ function shuffle<T>(arr: T[]): T[] {
   return copy;
 }
 
+// ── Pair colors for association questions ────────────────────────────────────
+const PAIR_COLORS = [
+  { bg: "bg-blue-50", border: "border-blue-400", text: "text-blue-800", badge: "bg-blue-400" },
+  { bg: "bg-violet-50", border: "border-violet-400", text: "text-violet-800", badge: "bg-violet-400" },
+  { bg: "bg-emerald-50", border: "border-emerald-400", text: "text-emerald-800", badge: "bg-emerald-400" },
+  { bg: "bg-amber-50", border: "border-amber-400", text: "text-amber-800", badge: "bg-amber-400" },
+  { bg: "bg-pink-50", border: "border-pink-400", text: "text-pink-800", badge: "bg-pink-400" },
+];
+
 // ── Drag & drop sortable item ─────────────────────────────────────────────────
 function SortableItem({ id, label, disabled }: { id: string; label: string; disabled: boolean }) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id, disabled });
@@ -85,13 +95,14 @@ function SortableItem({ id, label, disabled }: { id: string; label: string; disa
       ref={setNodeRef}
       style={{ transform: CSS.Transform.toString(transform), transition }}
       className={cn(
-        "flex items-center gap-3 rounded-xl border-2 px-4 py-3 text-sm font-medium bg-warm-50 border-warm-200 transition-all",
-        isDragging && "opacity-50 shadow-lg",
-        !disabled && "cursor-grab active:cursor-grabbing"
+        "flex items-center gap-3 rounded-xl border-2 px-4 py-3 text-sm font-medium bg-warm-50 border-warm-200 transition-all select-none",
+        isDragging ? "opacity-50 shadow-lg z-10" : "shadow-sm",
+        !disabled && "cursor-grab active:cursor-grabbing touch-none"
       )}
+      {...(!disabled ? { ...attributes, ...listeners } : {})}
     >
       {!disabled && (
-        <GripVertical className="h-4 w-4 shrink-0 text-warm-400" {...attributes} {...listeners} />
+        <GripVertical className="h-4 w-4 shrink-0 text-warm-400 pointer-events-none" />
       )}
       <span>{label}</span>
     </div>
@@ -145,7 +156,7 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
   const [ordreItems, setOrdreItems] = useState<string[]>([]);
 
   const sensors = useSensors(
-    useSensor(PointerSensor),
+    useSensor(PointerSensor, { activationConstraint: { distance: 8 } }),
     useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates })
   );
 
@@ -346,8 +357,12 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
     const finalScore = totalQuestions > 0 ? Math.round((score / totalQuestions) * 100) : 0;
     const passed = finalScore >= quiz.passingScore;
     const levelColors = selectedLevel ? getLevelColors(selectedLevel.id) : null;
-    const ficheSlug = "svt-puberte-reproduction-fiche";
-    const ficheHref = `/${resource.level}/${resource.subject}/${ficheSlug}`;
+    const ficheResource = getResourcesByLevelAndSubject(resource.level, resource.subject).find(
+      (r) => r.type === "fiche"
+    );
+    const ficheHref = ficheResource
+      ? `/${resource.level}/${resource.subject}/${ficheResource.slug}`
+      : null;
 
     return (
       <div className="space-y-4">
@@ -388,13 +403,15 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
             >
               {hasLevels ? "Choisir un niveau" : "Recommencer"}
             </button>
-            <Link
-              href={ficheHref}
-              className="flex items-center gap-1.5 text-sm text-warm-600 hover:text-accent-600"
-            >
-              <BookOpen className="h-4 w-4" />
-              Revoir la fiche de révision
-            </Link>
+            {ficheHref && (
+              <Link
+                href={ficheHref}
+                className="flex items-center gap-1.5 text-sm text-warm-600 hover:text-accent-600"
+              >
+                <BookOpen className="h-4 w-4" />
+                Revoir la fiche de révision
+              </Link>
+            )}
           </div>
         </div>
 
@@ -513,6 +530,18 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
     const allMatched = Object.keys(assocMatches).length === question.pairs.length;
     const matchedRights = new Set(Object.values(assocMatches));
 
+    // Assign a stable color per pair (by index in question.pairs)
+    const getPairColor = (leftKey: string) => {
+      const idx = question.pairs!.findIndex((p) => p.left === leftKey);
+      return idx >= 0 ? PAIR_COLORS[idx % PAIR_COLORS.length] : null;
+    };
+    const getRightPairColor = (rightValue: string) => {
+      const leftKey = Object.keys(assocMatches).find((k) => assocMatches[k] === rightValue);
+      return leftKey ? getPairColor(leftKey) : null;
+    };
+    const getPairNumber = (leftKey: string) =>
+      question.pairs!.findIndex((p) => p.left === leftKey) + 1;
+
     const handleLeftClick = (left: string) => {
       if (showFeedback) return;
       setAssocSelected((prev) => (prev === left ? null : left));
@@ -541,16 +570,20 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
             {question.pairs.map((p) => {
               const isMatched = p.left in assocMatches;
               const isSelected = assocSelected === p.left;
-              let style = "border-warm-200 bg-warm-50";
+              const color = isMatched ? getPairColor(p.left) : null;
+              const pairNum = isMatched ? getPairNumber(p.left) : null;
+
+              let style = "border-warm-200 bg-warm-50 text-warm-800";
               if (showFeedback) {
                 style = assocMatches[p.left] === p.right
                   ? "border-success-500 bg-success-100 text-success-700"
                   : "border-red-400 bg-red-50 text-red-700";
               } else if (isSelected) {
                 style = "border-accent-400 bg-accent-50 text-accent-700 ring-2 ring-accent-300";
-              } else if (isMatched) {
-                style = "border-warm-300 bg-warm-100 text-warm-600";
+              } else if (isMatched && color) {
+                style = `${color.border} ${color.bg} ${color.text}`;
               }
+
               return (
                 <button
                   key={p.left}
@@ -562,17 +595,19 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
                     !showFeedback && "active:scale-[0.98]"
                   )}
                 >
-                  <span className="flex items-start gap-1">
+                  <span className="flex items-center gap-1.5">
                     {showFeedback && (
                       assocMatches[p.left] === p.right
-                        ? <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-success-500" />
-                        : <XCircle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-red-500" />
+                        ? <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-success-500" />
+                        : <XCircle className="h-3.5 w-3.5 shrink-0 text-red-500" />
+                    )}
+                    {isMatched && !showFeedback && color && pairNum && (
+                      <span className={cn("flex h-4 w-4 shrink-0 items-center justify-center rounded-full text-[10px] font-bold text-white", color.badge)}>
+                        {pairNum}
+                      </span>
                     )}
                     <span>{p.left}</span>
                   </span>
-                  {isMatched && !showFeedback && (
-                    <span className="block mt-0.5 text-warm-400 text-xs">→ {assocMatches[p.left]}</span>
-                  )}
                 </button>
               );
             })}
@@ -583,17 +618,21 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
             {shuffledRightItems.map((right) => {
               const isUsed = matchedRights.has(right);
               const correctLeft = question.pairs?.find((p) => p.right === right)?.left;
-              let style = "border-warm-200 bg-warm-50";
+              const color = isUsed ? getRightPairColor(right) : null;
+              const pairNum = isUsed && correctLeft ? getPairNumber(correctLeft) : null;
+
+              let style = "border-warm-200 bg-warm-50 text-warm-800";
               if (showFeedback) {
                 const matchedCorrectly = correctLeft !== undefined && assocMatches[correctLeft] === right;
                 style = matchedCorrectly
                   ? "border-success-500 bg-success-100 text-success-700"
                   : "border-red-400 bg-red-50 text-red-700";
-              } else if (isUsed) {
-                style = "border-warm-300 bg-warm-100 text-warm-400 line-through";
+              } else if (isUsed && color) {
+                style = `${color.border} ${color.bg} ${color.text}`;
               } else if (assocSelected) {
                 style = "border-accent-200 bg-accent-50 hover:border-accent-400 hover:bg-accent-100 cursor-pointer";
               }
+
               return (
                 <button
                   key={right}
@@ -605,7 +644,19 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
                     !showFeedback && !isUsed && assocSelected && "active:scale-[0.98]"
                   )}
                 >
-                  {right}
+                  <span className="flex items-center gap-1.5">
+                    {showFeedback && (
+                      correctLeft !== undefined && assocMatches[correctLeft] === right
+                        ? <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-success-500" />
+                        : <XCircle className="h-3.5 w-3.5 shrink-0 text-red-500" />
+                    )}
+                    {isUsed && !showFeedback && color && pairNum && (
+                      <span className={cn("flex h-4 w-4 shrink-0 items-center justify-center rounded-full text-[10px] font-bold text-white", color.badge)}>
+                        {pairNum}
+                      </span>
+                    )}
+                    <span>{right}</span>
+                  </span>
                 </button>
               );
             })}

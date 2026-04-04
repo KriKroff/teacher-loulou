@@ -88,13 +88,23 @@ Quiz files are stored as JSON in `src/data/quizzes/` for reuse across resource e
 
 ## Quiz Rules
 
-- **10–20 distinct questions per quiz** (total, spread across levels or flat)
+- **10–20 distinct questions per pool**:
+  - For **leveled quizzes** (with `levels`): each level must have 10–20 questions
+  - For **flat quizzes** (no levels): the root `questions` array must have 10–20 questions
 - **Use all available question types** — aim to cover as many as possible per quiz:
   `qcm`, `vrai-faux`, `texte-a-trous`, `association`, `qcm-multiple`, `ordre`
 - **Session size: 8–10 questions** — set `sessionSize` explicitly on the quiz object (code default is 10)
 - **Smart selection**: prioritizes previously wrong answers, then unseen questions, then already-correct ones — implemented in `src/lib/selectQuizQuestions.ts`
 - **3 mandatory levels**: Easy 🟢, Intermediate 🟡, Expert 🔴
 - The `sessionSize` field on the `Quiz` object controls questions per session; `passingScore` is a percentage
+
+## Cross-linking resources
+
+- Every `fiche` or `cours` resource **MUST** include a link to its quiz at the bottom of the `content` field:
+  ```markdown
+  > 🎯 **Prêt(e) à te tester ?** → [Faire le quiz sur ce chapitre →](/level/subject/quiz-slug)
+  ```
+- Every `quiz` resource links back to its fiche via the result screen automatically — `QuizPlayer` dynamically finds the first `fiche` resource in the same level/subject using `getResourcesByLevelAndSubject`.
 
 ## Commands
 

@@ -46,7 +46,7 @@ export const resources: Resource[] = [
 
 > 💡 **À retenir** : **Industrialisation** = augmentation rapide de la production industrielle.
 
-| | **1ère révolution** (1760–1880) | **2ème révolution** (1880–1914) |
+| 📊 | **1ère révolution** (1760–1880) | **2ème révolution** (1880–1914) |
 |---|---|---|
 | ⚡ Énergie | Charbon + vapeur | Électricité + pétrole |
 | 🏭 Industries | Textile + métallurgie | Chimie + sidérurgie |
@@ -172,6 +172,10 @@ export const resources: Resource[] = [
 | **Communisme** | Société sans classes, égalitaire, décisions collectives |
 | **Canuts** | Ouvriers tisserands de Lyon (soie) |
 | **Consommation de masse** | Production et achat de biens en grande quantité |
+
+---
+
+> 🎯 **Prêt(e) à te tester ?** → [Faire le quiz sur ce chapitre →](/4e/histoire-geo/histoire-revolution-industrielle-quiz)
 `,
   },
 
@@ -280,6 +284,55 @@ export const resources: Resource[] = [
               explanation:
                 "Le prolétariat désigne la classe sociale des ouvriers qui vendent leur force de travail pour survivre, sans posséder de capital ou d'usine.",
               hint: "Pro-létariat vient du latin 'proles' (descendance). Ce sont des gens qui n'ont que leurs enfants comme richesse.",
+            },
+            {
+              id: "f7",
+              type: "vrai-faux",
+              question:
+                "Le train a favorisé le développement du commerce pendant la révolution industrielle.",
+              options: ["Vrai", "Faux"],
+              correctAnswer: "Vrai",
+              explanation:
+                "Le train et les locomotives ont permis de transporter des marchandises plus rapidement et sur de plus longues distances, ce qui a considérablement développé le commerce national et international.",
+            },
+            {
+              id: "f8",
+              type: "qcm",
+              question:
+                "En quelle année le droit de grève a-t-il été reconnu en France ?",
+              options: ["1848", "1864", "1884", "1906"],
+              correctAnswer: "1864",
+              explanation:
+                "Le droit de grève est reconnu en France en 1864. C'est une avancée importante pour les ouvriers qui peuvent désormais arrêter légalement le travail pour protester.",
+              hint: "C'est la première des trois lois sociales importantes du cours.",
+            },
+            {
+              id: "f9",
+              type: "texte-a-trous",
+              question:
+                "Une ___ est un arrêt collectif du travail pour protester contre de mauvaises conditions.",
+              options: ["grève", "révolution", "manifestation", "syndicat"],
+              correctAnswer: "grève",
+              explanation:
+                "Une grève est un arrêt collectif et organisé du travail pour obtenir de meilleures conditions (salaires, horaires, sécurité). C'est un outil de pression utilisé par les ouvriers.",
+              hint: "C'est l'action collective des ouvriers pour protester en arrêtant de travailler.",
+            },
+            {
+              id: "f10",
+              type: "qcm",
+              question:
+                "Qu'est-ce que la « consommation de masse » ?",
+              options: [
+                "La production d'une seule usine géante",
+                "L'achat et la production de biens en grande quantité par la population",
+                "La consommation de charbon dans les usines",
+                "Le transport de marchandises par train",
+              ],
+              correctAnswer:
+                "L'achat et la production de biens en grande quantité par la population",
+              explanation:
+                "La consommation de masse apparaît grâce à la révolution industrielle : les usines produisent plus vite et en plus grande quantité, ce qui rend les produits moins chers et accessibles à plus de gens.",
+              hint: "C'est la conséquence directe de la production plus rapide et en plus grande quantité.",
             },
           ],
         },
@@ -393,6 +446,80 @@ export const resources: Resource[] = [
                 "Des ouvriers tisserands spécialisés dans la soie, à Lyon",
               explanation:
                 "Les canuts sont des ouvriers tisserands de Lyon qui fabriquent la soie. Ils se révoltent dans les années 1830 face à leurs mauvaises conditions de vie, devenant un symbole des premières luttes ouvrières.",
+            },
+            {
+              id: "i7",
+              type: "vrai-faux",
+              question:
+                "Le Congrès de Vienne en 1815 cherchait à établir un nouvel ordre industriel en Europe.",
+              options: ["Vrai", "Faux"],
+              correctAnswer: "Faux",
+              explanation:
+                "Non ! Le Congrès de Vienne en 1815 avait pour objectif de restaurer l'ordre politique en Europe après les guerres napoléoniennes : retour des rois au pouvoir et volonté de stabilité. Ce n'est pas lié à l'industrie.",
+              hint: "Le Congrès de Vienne concerne la politique, pas l'économie.",
+            },
+            {
+              id: "i8",
+              type: "qcm",
+              question:
+                "Quelles deux industries sont caractéristiques de la 1ère révolution industrielle ?",
+              options: [
+                "Chimie et sidérurgie",
+                "Textile et métallurgie",
+                "Pétrole et électronique",
+                "Automobile et aéronautique",
+              ],
+              correctAnswer: "Textile et métallurgie",
+              explanation:
+                "La 1ère révolution industrielle (1760–1880) se caractérise par le développement du textile (tissage mécanisé) et de la métallurgie (transformation des métaux grâce à la vapeur). La chimie et la sidérurgie appartiennent à la 2ème révolution.",
+              hint: "Pense à ce qu'on fabriquait au 18e siècle : des vêtements et des outils en métal.",
+            },
+            {
+              id: "i9",
+              type: "qcm-multiple",
+              question:
+                "Quelles sont les conditions de vie des ouvriers au début de la révolution industrielle ? (Plusieurs réponses correctes)",
+              options: [
+                "Journées de travail très longues",
+                "Salaires élevés",
+                "Conditions dangereuses",
+                "Bonne protection sociale",
+                "Aucune protection en cas de maladie",
+                "Travail en plein air",
+              ],
+              correctAnswer: [
+                "Journées de travail très longues",
+                "Conditions dangereuses",
+                "Aucune protection en cas de maladie",
+              ],
+              explanation:
+                "Au début de la révolution industrielle, les ouvriers travaillent de très longues heures (12–16h/jour), dans des conditions dangereuses, avec des salaires faibles et sans aucune protection sociale (maladie, accidents, chômage). Les syndicats n'existent pas encore.",
+            },
+            {
+              id: "i10",
+              type: "association",
+              question:
+                "Associe chaque terme à sa définition.",
+              pairs: [
+                { left: "Prolétariat", right: "Classe des ouvriers, n'ont que leur travail" },
+                { left: "Bourgeoisie", right: "Patrons et banquiers, pouvoir économique" },
+                { left: "Syndicat", right: "Organisation qui défend les travailleurs" },
+                { left: "Grève", right: "Arrêt collectif du travail pour protester" },
+              ],
+              options: [
+                "Classe des ouvriers, n'ont que leur travail",
+                "Patrons et banquiers, pouvoir économique",
+                "Organisation qui défend les travailleurs",
+                "Arrêt collectif du travail pour protester",
+              ],
+              correctAnswer: [
+                "Classe des ouvriers, n'ont que leur travail",
+                "Patrons et banquiers, pouvoir économique",
+                "Organisation qui défend les travailleurs",
+                "Arrêt collectif du travail pour protester",
+              ],
+              explanation:
+                "Prolétariat = ouvriers (que leur travail). Bourgeoisie = patrons/banquiers (riches, pouvoir). Syndicat = défend les travailleurs. Grève = arrêt du travail pour protester.",
             },
           ],
         },
@@ -511,6 +638,83 @@ export const resources: Resource[] = [
                 "Le socialisme veut réduire les inégalités ; le communisme veut supprimer toutes les classes sociales",
               explanation:
                 "Le socialisme cherche à corriger les inégalités dans un système existant. Le communisme est plus radical : il veut créer une société totalement sans classes, où tout appartient à tous et les décisions sont collectives.",
+            },
+            {
+              id: "e7",
+              type: "texte-a-trous",
+              question:
+                "Les canuts, ouvriers de Lyon, se révoltent dans les années ___ pour protester contre leurs mauvaises conditions.",
+              options: ["1830", "1848", "1864", "1880"],
+              correctAnswer: "1830",
+              explanation:
+                "Les canuts se révoltent dans les années 1830 (notamment en 1831 et 1834). Ces révoltes sont les premières grandes luttes ouvrières en France, bien avant la reconnaissance légale du droit de grève (1864).",
+              hint: "C'est AVANT la publication du Manifeste communiste (1848) et bien avant le droit de grève (1864).",
+            },
+            {
+              id: "e8",
+              type: "qcm-multiple",
+              question:
+                "Quelles sont les caractéristiques d'une société communiste selon le cours ? (Plusieurs réponses correctes)",
+              options: [
+                "Absence de classes sociales",
+                "Société égalitaire",
+                "Décisions prises collectivement",
+                "L'État possède tout le pouvoir économique",
+                "Les patrons dirigent librement",
+                "La propriété privée est encouragée",
+              ],
+              correctAnswer: [
+                "Absence de classes sociales",
+                "Société égalitaire",
+                "Décisions prises collectivement",
+              ],
+              explanation:
+                "Le communisme selon Marx prévoit une société sans classes, égalitaire, où les décisions sont collectives. Ce n'est pas une dictature d'État ni un renforcement du pouvoir des patrons — c'est l'inverse !",
+            },
+            {
+              id: "e9",
+              type: "association",
+              question:
+                "Associe chaque idéologie à sa position sur l'intervention de l'État.",
+              pairs: [
+                { left: "Libéralisme", right: "L'État ne doit PAS intervenir dans l'économie" },
+                { left: "Socialisme", right: "L'État doit intervenir pour réduire les inégalités" },
+                { left: "Communisme", right: "L'État disparaît dans une société sans classes" },
+              ],
+              options: [
+                "L'État ne doit PAS intervenir dans l'économie",
+                "L'État doit intervenir pour réduire les inégalités",
+                "L'État disparaît dans une société sans classes",
+              ],
+              correctAnswer: [
+                "L'État ne doit PAS intervenir dans l'économie",
+                "L'État doit intervenir pour réduire les inégalités",
+                "L'État disparaît dans une société sans classes",
+              ],
+              explanation:
+                "Le libéralisme défend la non-intervention de l'État. Le socialisme veut que l'État joue un rôle pour corriger les inégalités. Le communisme (théorie de Marx) prévoit à terme une société sans État ni classes.",
+            },
+            {
+              id: "e10",
+              type: "ordre",
+              question:
+                "Remets ces événements dans l'ordre chronologique (du plus ancien au plus récent).",
+              options: [
+                "Droit de grève reconnu en France",
+                "Machine à vapeur de James Watt",
+                "Journée de travail limitée",
+                "Syndicats autorisés en France",
+                "Manifeste du parti communiste",
+              ],
+              correctAnswer: [
+                "Machine à vapeur de James Watt",
+                "Manifeste du parti communiste",
+                "Droit de grève reconnu en France",
+                "Syndicats autorisés en France",
+                "Journée de travail limitée",
+              ],
+              explanation:
+                "Dans l'ordre : Machine à vapeur (1769) → Manifeste communiste (1848) → Droit de grève (1864) → Syndicats autorisés (1884) → Journée limitée (1906). C'est la progression de la révolution industrielle vers les droits sociaux.",
             },
           ],
         },
