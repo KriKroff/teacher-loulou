@@ -471,7 +471,7 @@ Attention au **double i** avec nous et vous !
     subject: "francais",
     chapter: "Conjugaison — L'imparfait de l'indicatif",
     createdAt: "2026-04-10T18:00:00Z",
-    updatedAt: "2026-04-10T18:00:00Z",
+    updatedAt: "2026-04-10T19:30:00Z",
     tags: ["conjugaison", "imparfait", "verbes", "quiz"],
     quizData: {
       title: "Quiz — L'imparfait de l'indicatif",
@@ -490,8 +490,35 @@ Attention au **double i** avec nous et vous !
           questions: [
             {
               id: "f1",
-              question: "Quelles sont les terminaisons de l'imparfait de l'indicatif ?",
+              type: "conjugaison",
+              question: "Conjugue « chanter » à l'imparfait (je, tu, il/elle).",
+              options: ["je", "tu", "il/elle"],
+              correctAnswer: ["chantais", "chantais", "chantait"],
+              explanation:
+                "Radical « chant- » (nous chantons → chant-) + les terminaisons -ais, -ais, -ait.",
+            },
+            {
+              id: "f2",
+              type: "vrai-faux",
+              question: "L'imparfait sert à exprimer une action passée qui dure ou se répète.",
+              options: ["Vrai", "Faux"],
+              correctAnswer: "Vrai",
+              explanation:
+                "L'imparfait présente une action passée dans la durée, sans préciser son début ni sa fin. Il sert aussi à exprimer des habitudes passées.",
+            },
+            {
+              id: "f3",
+              type: "conjugaison",
+              question: "Conjugue « finir » à l'imparfait (je, nous, ils/elles).",
+              options: ["je", "nous", "ils/elles"],
+              correctAnswer: ["finissais", "finissions", "finissaient"],
+              explanation:
+                "Radical « finiss- » (nous finissons → finiss-). Le -iss- est la marque du 2ème groupe, toujours présente à l'imparfait.",
+            },
+            {
+              id: "f4",
               type: "qcm",
+              question: "Quelles sont les terminaisons de l'imparfait de l'indicatif ?",
               options: [
                 "-ais, -ais, -ait, -ions, -iez, -aient",
                 "-e, -es, -e, -ons, -ez, -ent",
@@ -503,36 +530,9 @@ Attention au **double i** avec nous et vous !
                 "Les terminaisons de l'imparfait sont toujours : -ais, -ais, -ait, -ions, -iez, -aient. Elles sont les mêmes pour tous les groupes !",
             },
             {
-              id: "f2",
-              question: "L'imparfait sert à exprimer une action passée qui dure ou se répète.",
-              type: "vrai-faux",
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Vrai",
-              explanation:
-                "L'imparfait présente une action passée dans la durée, sans préciser son début ni sa fin. Il sert aussi à exprimer des habitudes passées.",
-            },
-            {
-              id: "f3",
-              question: "Comment conjugue-t-on « chanter » avec « je » à l'imparfait ?",
-              type: "qcm",
-              options: ["Je chantais", "Je chantai", "Je chanté", "Je chantois"],
-              correctAnswer: "Je chantais",
-              explanation:
-                "Radical « chant- » (nous chantons → chant-) + terminaison « -ais » = je chantais.",
-            },
-            {
-              id: "f4",
-              question: "Comment conjugue-t-on « finir » avec « tu » à l'imparfait ?",
-              type: "qcm",
-              options: ["Tu finissais", "Tu finisais", "Tu finais", "Tu finissait"],
-              correctAnswer: "Tu finissais",
-              explanation:
-                "Radical « finiss- » (nous finissons → finiss-) + « -ais » = tu finissais. Le -iss- est la marque du 2ème groupe.",
-            },
-            {
               id: "f5",
-              question: "« Il chantais » est correctement conjugué à l'imparfait.",
               type: "vrai-faux",
+              question: "« Il chantais » est correctement conjugué à l'imparfait.",
               options: ["Vrai", "Faux"],
               correctAnswer: "Faux",
               explanation:
@@ -540,8 +540,8 @@ Attention au **double i** avec nous et vous !
             },
             {
               id: "f6",
-              question: "Quel verbe n'est PAS conjugué à l'imparfait ?",
               type: "intrus",
+              question: "Quel verbe n'est PAS conjugué à l'imparfait ?",
               options: ["chantait", "finissais", "allons", "prenaient"],
               correctAnswer: "allons",
               explanation:
@@ -549,17 +549,17 @@ Attention au **double i** avec nous et vous !
             },
             {
               id: "f7",
-              question: "Comment conjugue-t-on « aller » avec « nous » à l'imparfait ?",
-              type: "qcm",
-              options: ["Nous allions", "Nous allons", "Nous alliions", "Nous allaient"],
-              correctAnswer: "Nous allions",
+              type: "conjugaison",
+              question: "Conjugue « avoir » à l'imparfait (j', tu, elle).",
+              options: ["j'", "tu", "elle"],
+              correctAnswer: ["avais", "avais", "avait"],
               explanation:
-                "Radical « all- » (nous allons → all-) + « -ions » = nous allions.",
+                "Avoir → nous avons → radical « av- ». J'avais, tu avais, elle avait.",
             },
             {
               id: "f8",
-              question: "Pour former l'imparfait, on utilise le radical du verbe conjugué avec « nous » au présent.",
               type: "vrai-faux",
+              question: "Pour former l'imparfait, on utilise le radical du verbe conjugué avec « nous » au présent.",
               options: ["Vrai", "Faux"],
               correctAnswer: "Vrai",
               explanation:
@@ -567,8 +567,8 @@ Attention au **double i** avec nous et vous !
             },
             {
               id: "f9",
-              question: "Je ___ (parler) avec mon ami hier.",
               type: "texte-a-trous",
+              question: "Je ___ (parler) avec mon ami hier.",
               options: ["parlais", "parlait", "parlai", "parle"],
               correctAnswer: "parlais",
               explanation:
@@ -576,26 +576,26 @@ Attention au **double i** avec nous et vous !
             },
             {
               id: "f10",
-              question: "Comment conjugue-t-on « être » avec « ils » à l'imparfait ?",
-              type: "qcm",
-              options: ["Ils étaient", "Ils étaients", "Ils sommaient", "Ils êtaient"],
-              correctAnswer: "Ils étaient",
+              type: "conjugaison",
+              question: "Conjugue « être » à l'imparfait (je, il/elle, ils/elles).",
+              options: ["je", "il/elle", "ils/elles"],
+              correctAnswer: ["étais", "était", "étaient"],
               explanation:
-                "« Être » a un radical irrégulier à l'imparfait : « ét- ». Ils étaient.",
+                "« Être » a un radical irrégulier à l'imparfait : « ét- ». C'est le seul verbe irrégulier à l'imparfait.",
             },
             {
               id: "f11",
-              question: "« Nous mangions » est correctement conjugué à l'imparfait.",
               type: "vrai-faux",
+              question: "À l'imparfait, « je » et « tu » ont la même terminaison (-ais).",
               options: ["Vrai", "Faux"],
               correctAnswer: "Vrai",
               explanation:
-                "Oui ! Manger → nous mangeons → radical « mange- ». Avec nous : mangions (le e disparaît car le g devant i est déjà doux).",
+                "Oui ! Je chantais, tu chantais. La terminaison -ais est identique pour je et tu.",
             },
             {
               id: "f12",
-              question: "Quelle est la terminaison de l'imparfait pour « vous » ?",
               type: "qcm",
+              question: "Quelle est la terminaison de l'imparfait pour « vous » ?",
               options: ["-iez", "-ez", "-ais", "-ions"],
               correctAnswer: "-iez",
               explanation:
@@ -603,8 +603,8 @@ Attention au **double i** avec nous et vous !
             },
             {
               id: "f13",
-              question: "Elle ___ (avoir) un chat quand elle était petite.",
               type: "texte-a-trous",
+              question: "Elle ___ (avoir) un chat quand elle était petite.",
               options: ["avait", "avais", "avaient", "a"],
               correctAnswer: "avait",
               explanation:
@@ -612,66 +612,66 @@ Attention au **double i** avec nous et vous !
             },
             {
               id: "f14",
-              question: "Quel verbe est au présent et non à l'imparfait ?",
+              type: "conjugaison",
+              question: "Conjugue « aller » à l'imparfait (nous, vous, ils/elles).",
+              options: ["nous", "vous", "ils/elles"],
+              correctAnswer: ["allions", "alliez", "allaient"],
+              explanation:
+                "Radical « all- » (nous allons → all-). Nous allions, vous alliez, ils allaient.",
+            },
+            {
+              id: "f15",
               type: "intrus",
+              question: "Quel verbe est au présent et non à l'imparfait ?",
               options: ["dansait", "courait", "mange", "lisait"],
               correctAnswer: "mange",
               explanation:
                 "« Mange » est au présent. Les autres (dansait, courait, lisait) se terminent par -ait, marque de l'imparfait.",
             },
             {
-              id: "f15",
-              question: "Comment conjugue-t-on « pouvoir » avec « il » à l'imparfait ?",
-              type: "qcm",
-              options: ["Il pouvait", "Il pouvais", "Il pouvai", "Il peuvait"],
-              correctAnswer: "Il pouvait",
-              explanation:
-                "Radical « pouv- » (nous pouvons → pouv-) + « -ait » = il pouvait.",
-            },
-            {
               id: "f16",
-              question: "À l'imparfait, « je » et « tu » ont la même terminaison (-ais).",
-              type: "vrai-faux",
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Vrai",
+              type: "conjugaison",
+              question: "Conjugue « faire » à l'imparfait (je, tu, vous).",
+              options: ["je", "tu", "vous"],
+              correctAnswer: ["faisais", "faisais", "faisiez"],
               explanation:
-                "Oui ! Je chantais, tu chantais. La terminaison -ais est identique pour je et tu.",
+                "Radical « fais- » (nous faisons → fais-). Je faisais, tu faisais, vous faisiez.",
             },
             {
               id: "f17",
-              question: "Comment conjugue-t-on « faire » avec « vous » à l'imparfait ?",
-              type: "qcm",
-              options: ["Vous faisiez", "Vous faisez", "Vous fesiez", "Vous faites"],
-              correctAnswer: "Vous faisiez",
-              explanation:
-                "Radical « fais- » (nous faisons → fais-) + « -iez » = vous faisiez.",
-            },
-            {
-              id: "f18",
-              question: "Tu ___ (être) en retard ce matin-là.",
               type: "texte-a-trous",
+              question: "Tu ___ (être) en retard ce matin-là.",
               options: ["étais", "était", "étaient", "es"],
               correctAnswer: "étais",
               explanation:
                 "Avec « tu », la terminaison est -ais : tu étais. Le radical irrégulier de « être » est « ét- ».",
             },
             {
-              id: "f19",
-              question: "L'imparfait sert à décrire un lieu ou un personnage dans un récit.",
+              id: "f18",
               type: "vrai-faux",
+              question: "L'imparfait sert à décrire un lieu ou un personnage dans un récit.",
               options: ["Vrai", "Faux"],
               correctAnswer: "Vrai",
               explanation:
                 "C'est la valeur de description de l'imparfait. Il sert à installer le cadre, décrire un lieu, un paysage ou un personnage.",
             },
             {
-              id: "f20",
-              question: "Quel est le radical de « finir » à l'imparfait ?",
+              id: "f19",
               type: "qcm",
+              question: "Quel est le radical de « finir » à l'imparfait ?",
               options: ["finiss-", "fin-", "fini-", "finis-"],
               correctAnswer: "finiss-",
               explanation:
                 "Nous finissons → on enlève -ons → radical = finiss-. Le -iss- est la marque du 2ème groupe, présente à l'imparfait.",
+            },
+            {
+              id: "f20",
+              type: "conjugaison",
+              question: "Conjugue « pouvoir » à l'imparfait (je, il/elle, nous).",
+              options: ["je", "il/elle", "nous"],
+              correctAnswer: ["pouvais", "pouvait", "pouvions"],
+              explanation:
+                "Radical « pouv- » (nous pouvons → pouv-). Je pouvais, il pouvait, nous pouvions.",
             },
           ],
         },
@@ -685,32 +685,27 @@ Attention au **double i** avec nous et vous !
           questions: [
             {
               id: "i1",
-              question: "Associe chaque pronom à la forme correcte de « manger » à l'imparfait.",
-              type: "association",
-              pairs: [
-                { left: "Je", right: "mangeais" },
-                { left: "Nous", right: "mangions" },
-                { left: "Ils", right: "mangeaient" },
-                { left: "Vous", right: "mangiez" },
-              ],
-              options: ["mangeais", "mangions", "mangeaient", "mangiez"],
-              correctAnswer: ["mangeais", "mangions", "mangeaient", "mangiez"],
+              type: "conjugaison",
+              question: "Conjugue « manger » à l'imparfait (je, nous, ils/elles).",
+              options: ["je", "nous", "ils/elles"],
+              correctAnswer: ["mangeais", "mangions", "mangeaient"],
               explanation:
-                "Attention au piège ! Je mangeais (e gardé devant a), mais nous mangions et vous mangiez (pas de e car g devant i est doux).",
+                "Attention ! Je mangeais (e gardé devant a), mais nous mangions (pas de e car g devant i est doux).",
+              hint: "Le « e » protège le son doux du « g » devant a.",
             },
             {
               id: "i2",
-              question: "Quand j'___ petit, je ___ souvent au parc et je ___ avec mes amis.",
               type: "texte-a-trous-select",
+              question: "Quand j'___ petit, je ___ souvent au parc et je ___ avec mes amis.",
               options: ["étais", "allais", "jouais", "suis", "vais", "joue", "était"],
               correctAnswer: ["étais", "allais", "jouais"],
               explanation:
-                "Les trois verbes sont à l'imparfait avec « je » : j'étais (être), j'allais (aller), je jouais (jouer). L'imparfait exprime ici une habitude passée.",
+                "Les trois verbes sont à l'imparfait avec « je » : j'étais, j'allais, je jouais. L'imparfait exprime ici une habitude passée.",
             },
             {
               id: "i3",
-              question: "Lesquelles de ces formes sont correctement conjuguées à l'imparfait ?",
               type: "qcm-multiple",
+              question: "Lesquelles de ces formes sont correctement conjuguées à l'imparfait ?",
               options: [
                 "je chantais",
                 "il finissait",
@@ -730,28 +725,28 @@ Attention au **double i** avec nous et vous !
             },
             {
               id: "i4",
-              question: "Comment conjugue-t-on « manger » avec « je » à l'imparfait ?",
-              type: "qcm",
-              options: ["Je mangeais", "Je mangais", "Je mangeai", "Je mangé"],
-              correctAnswer: "Je mangeais",
+              type: "conjugaison",
+              question: "Conjugue « commencer » à l'imparfait (tu, nous, vous).",
+              options: ["tu", "nous", "vous"],
+              correctAnswer: ["commençais", "commencions", "commenciez"],
               explanation:
-                "Les verbes en -ger gardent le « e » devant « a » pour conserver le son « j » : je mangeais.",
-              hint: "Le « e » protège le son doux du « g ».",
+                "Verbe en -cer : tu commençais (ç devant a), mais nous commencions, vous commenciez (c devant i est déjà doux, pas de ç).",
+              hint: "Le ç conserve le son « s » devant a, mais devant i il est inutile.",
             },
             {
               id: "i5",
-              question: "Nous ___ (crier) très fort pendant le match.",
-              type: "texte-a-trous",
-              options: ["criions", "crions", "criais", "criaient"],
-              correctAnswer: "criions",
+              type: "conjugaison",
+              question: "Conjugue « crier » à l'imparfait (nous, vous).",
+              options: ["nous", "vous"],
+              correctAnswer: ["criions", "criiez"],
               explanation:
-                "Verbe en -ier : radical « cri- » + « -ions » = criions. Il y a bien deux i : celui du radical et celui de la terminaison !",
+                "Verbe en -ier : radical « cri- » + « -ions » = criions, + « -iez » = criiez. Il y a bien deux i : celui du radical et celui de la terminaison !",
               hint: "Attention au double i !",
             },
             {
               id: "i6",
-              question: "Quelle est la valeur de l'imparfait dans : « Il pleuvait quand soudain la foudre tomba » ?",
               type: "qcm",
+              question: "Quelle est la valeur de l'imparfait dans : « Il pleuvait quand soudain la foudre tomba » ?",
               options: [
                 "Arrière-plan du récit",
                 "Description",
@@ -764,26 +759,8 @@ Attention au **double i** avec nous et vous !
             },
             {
               id: "i7",
-              question: "Comment conjugue-t-on « commencer » avec « tu » à l'imparfait ?",
-              type: "qcm",
-              options: ["Tu commençais", "Tu commencais", "Tu commenças", "Tu commencé"],
-              correctAnswer: "Tu commençais",
-              explanation:
-                "Les verbes en -cer gardent le « ç » devant « a » pour conserver le son « s » : tu commençais.",
-            },
-            {
-              id: "i8",
-              question: "Vous ___ (placer) les chaises dans la salle.",
-              type: "texte-a-trous",
-              options: ["placiez", "plaçiez", "placez", "plaçait"],
-              correctAnswer: "placiez",
-              explanation:
-                "Avec « vous » + terminaison « -iez » : le c devant i est naturellement doux, donc pas besoin de ç. On écrit « placiez ».",
-            },
-            {
-              id: "i9",
-              question: "Associe chaque verbe à son radical à l'imparfait.",
               type: "association",
+              question: "Associe chaque verbe à son radical à l'imparfait.",
               pairs: [
                 { left: "Faire", right: "fais-" },
                 { left: "Voir", right: "voy-" },
@@ -796,9 +773,27 @@ Attention au **double i** avec nous et vous !
                 "Faire → nous faisons → fais-. Voir → nous voyons → voy-. Prendre → nous prenons → pren-. Être est irrégulier → ét-.",
             },
             {
+              id: "i8",
+              type: "texte-a-trous",
+              question: "Vous ___ (placer) les chaises dans la salle.",
+              options: ["placiez", "plaçiez", "placez", "plaçait"],
+              correctAnswer: "placiez",
+              explanation:
+                "Avec « vous » + terminaison « -iez » : le c devant i est naturellement doux, donc pas besoin de ç. On écrit « placiez ».",
+            },
+            {
+              id: "i9",
+              type: "conjugaison",
+              question: "Conjugue « voir » à l'imparfait (je, tu, ils/elles).",
+              options: ["je", "tu", "ils/elles"],
+              correctAnswer: ["voyais", "voyais", "voyaient"],
+              explanation:
+                "Radical « voy- » (nous voyons → voy-). Je voyais, tu voyais, ils voyaient.",
+            },
+            {
               id: "i10",
-              question: "Remets les formes de « finir » à l'imparfait dans l'ordre des pronoms (je, tu, il, nous, vous, ils).",
               type: "ordre",
+              question: "Remets les formes de « finir » à l'imparfait dans l'ordre des pronoms (je, tu, il, nous, vous, ils).",
               options: [
                 "finissais (je)",
                 "finissais (tu)",
@@ -820,35 +815,26 @@ Attention au **double i** avec nous et vous !
             },
             {
               id: "i11",
-              question: "Comment conjugue-t-on « voir » avec « tu » à l'imparfait ?",
-              type: "qcm",
-              options: ["Tu voyais", "Tu voiyais", "Tu vois", "Tu voirait"],
-              correctAnswer: "Tu voyais",
-              explanation:
-                "Radical « voy- » (nous voyons → voy-) + « -ais » = tu voyais.",
-            },
-            {
-              id: "i12",
-              question: "Autrefois, les enfants ___ à l'école à pied et ___ leur repas dans un panier.",
               type: "texte-a-trous-select",
+              question: "Autrefois, les enfants ___ à l'école à pied et ___ leur repas dans un panier.",
               options: ["allaient", "apportaient", "vont", "apportent", "allait", "iraient"],
               correctAnswer: ["allaient", "apportaient"],
               explanation:
                 "Les enfants (ils) → terminaison -aient. Allaient (aller) et apportaient (apporter) sont à l'imparfait, exprimant une habitude passée.",
             },
             {
-              id: "i13",
-              question: "Laquelle de ces formes est INCORRECTEMENT conjuguée à l'imparfait ?",
+              id: "i12",
               type: "intrus",
+              question: "Laquelle de ces formes est INCORRECTEMENT conjuguée à l'imparfait ?",
               options: ["je voyais", "tu finissais", "il prenais", "nous allions"],
               correctAnswer: "il prenais",
               explanation:
                 "« Il prenais » est faux : avec il/elle/on, la terminaison est -ait, pas -ais. La forme correcte est « il prenait ».",
             },
             {
-              id: "i14",
-              question: "Quelle est la valeur de l'imparfait dans : « Chaque matin, il se levait à 7 heures » ?",
+              id: "i13",
               type: "qcm",
+              question: "Quelle est la valeur de l'imparfait dans : « Chaque matin, il se levait à 7 heures » ?",
               options: [
                 "L'habitude ou la répétition",
                 "L'arrière-plan du récit",
@@ -860,18 +846,18 @@ Attention au **double i** avec nous et vous !
                 "« Chaque matin » indique une habitude, une action qui se répète dans le passé. C'est la valeur d'habitude de l'imparfait.",
             },
             {
-              id: "i15",
-              question: "Ils ___ (prendre) le bus tous les jours.",
-              type: "texte-a-trous",
-              options: ["prenaient", "prendaient", "prenait", "prennaient"],
-              correctAnswer: "prenaient",
+              id: "i14",
+              type: "conjugaison",
+              question: "Conjugue « prendre » à l'imparfait (je, nous, ils/elles).",
+              options: ["je", "nous", "ils/elles"],
+              correctAnswer: ["prenais", "prenions", "prenaient"],
               explanation:
-                "Radical « pren- » (nous prenons → pren-) + « -aient » = ils prenaient.",
+                "Radical « pren- » (nous prenons → pren-). Je prenais, nous prenions, ils prenaient.",
             },
             {
-              id: "i16",
-              question: "Lesquelles de ces phrases utilisent l'imparfait pour exprimer une description ?",
+              id: "i15",
               type: "qcm-multiple",
+              question: "Lesquelles de ces phrases utilisent l'imparfait pour exprimer une description ?",
               options: [
                 "La maison était grande et blanche.",
                 "Chaque soir, elle lisait un livre.",
@@ -888,9 +874,9 @@ Attention au **double i** avec nous et vous !
                 "Les phrases descriptives peignent un tableau : la maison, le ciel, le château. « Chaque soir » indique une habitude, et la dernière phrase montre un arrière-plan.",
             },
             {
-              id: "i17",
-              question: "Associe chaque valeur de l'imparfait à la phrase qui l'illustre.",
+              id: "i16",
               type: "association",
+              question: "Associe chaque valeur de l'imparfait à la phrase qui l'illustre.",
               pairs: [
                 { left: "Description", right: "La forêt était sombre et silencieuse." },
                 { left: "Habitude", right: "Tous les étés, nous partions en vacances." },
@@ -910,27 +896,36 @@ Attention au **double i** avec nous et vous !
                 "Description = décor. Habitude = action répétée (tous les étés). Arrière-plan = action longue interrompue par le passé simple.",
             },
             {
-              id: "i18",
-              question: "Comment conjugue-t-on « nager » avec « je » à l'imparfait ?",
-              type: "qcm",
-              options: ["Je nageais", "Je nagais", "Je nageai", "Je nagé"],
-              correctAnswer: "Je nageais",
+              id: "i17",
+              type: "conjugaison",
+              question: "Conjugue « nager » à l'imparfait (je, nous, vous).",
+              options: ["je", "nous", "vous"],
+              correctAnswer: ["nageais", "nagions", "nagiez"],
               explanation:
-                "Comme « manger », les verbes en -ger gardent le « e » devant « a » : je nageais.",
+                "Verbe en -ger : je nageais (e gardé devant a), mais nous nagions, vous nagiez (pas de e car g devant i est doux).",
+            },
+            {
+              id: "i18",
+              type: "conjugaison",
+              question: "Conjugue « étudier » à l'imparfait (nous, vous).",
+              options: ["nous", "vous"],
+              correctAnswer: ["étudiions", "étudiiez"],
+              explanation:
+                "Verbe en -ier : radical « étudi- » + « -ions » = étudiions, + « -iez » = étudiiez. Attention au double i !",
             },
             {
               id: "i19",
-              question: "Nous ___ (étudier) le français avec passion.",
-              type: "texte-a-trous",
-              options: ["étudiions", "étudions", "étudiez", "étudiaient"],
-              correctAnswer: "étudiions",
+              type: "conjugaison",
+              question: "Conjugue « vouloir » à l'imparfait (je, il/elle, vous).",
+              options: ["je", "il/elle", "vous"],
+              correctAnswer: ["voulais", "voulait", "vouliez"],
               explanation:
-                "Verbe en -ier : radical « étudi- » + « -ions » = étudiions. Attention au double i !",
+                "Radical « voul- » (nous voulons → voul-). Je voulais, il voulait, vous vouliez.",
             },
             {
               id: "i20",
-              question: "Quel est le radical de « pouvoir » à l'imparfait ?",
               type: "qcm",
+              question: "Quel est le radical de « pouvoir » à l'imparfait ?",
               options: ["pouv-", "pouvoi-", "peuv-", "peut-"],
               correctAnswer: "pouv-",
               explanation:
@@ -948,17 +943,26 @@ Attention au **double i** avec nous et vous !
           questions: [
             {
               id: "e1",
-              question: "Le soir ___, les étoiles ___ dans le ciel et une brise légère ___ les arbres.",
+              type: "conjugaison",
+              question: "Conjugue « craindre » à l'imparfait (je, tu, il/elle, nous, vous, ils/elles).",
+              options: ["je", "tu", "il/elle", "nous", "vous", "ils/elles"],
+              correctAnswer: ["craignais", "craignais", "craignait", "craignions", "craigniez", "craignaient"],
+              explanation:
+                "Craindre → nous craignons → radical « craign- ». Les 6 formes suivent les terminaisons régulières de l'imparfait.",
+            },
+            {
+              id: "e2",
               type: "texte-a-trous-select",
+              question: "Le soir ___, les étoiles ___ dans le ciel et une brise légère ___ les arbres.",
               options: ["tombait", "brillaient", "agitait", "tombe", "brille", "agite", "tombaient", "brillait"],
               correctAnswer: ["tombait", "brillaient", "agitait"],
               explanation:
                 "Le soir tombait (il → -ait), les étoiles brillaient (elles → -aient), une brise agitait (elle → -ait). Trois imparfaits de description.",
             },
             {
-              id: "e2",
-              question: "Lesquelles de ces formes sont correctement conjuguées à l'imparfait ?",
+              id: "e3",
               type: "qcm-multiple",
+              question: "Lesquelles de ces formes sont correctement conjuguées à l'imparfait ?",
               options: [
                 "je mangeais",
                 "tu commençais",
@@ -980,33 +984,18 @@ Attention au **double i** avec nous et vous !
                 "« Vous nagez » est au présent. « Ils finissait » → finissaient. « Tu voyait » → voyais. Les 5 autres sont correctes, y compris les pièges avec double i (criions, étudiions).",
             },
             {
-              id: "e3",
-              question: "Associe chaque phrase à la valeur de l'imparfait qu'elle illustre.",
-              type: "association",
-              pairs: [
-                { left: "Le village était calme sous la neige.", right: "Description" },
-                { left: "Chaque dimanche, nous rendions visite à nos grands-parents.", right: "Habitude" },
-                { left: "Elle marchait tranquillement quand un chien surgit.", right: "Arrière-plan" },
-                { left: "Les murs de la classe étaient couverts de dessins.", right: "Description" },
-              ],
-              options: ["Description", "Habitude", "Arrière-plan", "Description"],
-              correctAnswer: ["Description", "Habitude", "Arrière-plan", "Description"],
-              explanation:
-                "La 1ère et la 4ème décrivent un lieu (description). La 2ème montre une habitude (chaque dimanche). La 3ème pose un arrière-plan interrompu par le passé simple (surgit).",
-            },
-            {
               id: "e4",
-              question: "Comment conjugue-t-on « payer » avec « nous » à l'imparfait ?",
-              type: "qcm",
-              options: ["Nous payions", "Nous payons", "Nous paiions", "Nous payaient"],
-              correctAnswer: "Nous payions",
+              type: "conjugaison",
+              question: "Conjugue « peindre » à l'imparfait (je, nous, ils/elles).",
+              options: ["je", "nous", "ils/elles"],
+              correctAnswer: ["peignais", "peignions", "peignaient"],
               explanation:
-                "Nous payons → radical « pay- » + « -ions » = nous payions. Le y se maintient devant i.",
+                "Peindre → nous peignons → radical « peign- ». Je peignais, nous peignions, ils peignaient.",
             },
             {
               id: "e5",
-              question: "Quel verbe est au passé simple et non à l'imparfait ?",
               type: "intrus",
+              question: "Quel verbe est au passé simple et non à l'imparfait ?",
               options: ["chantait", "finissais", "prit", "voyaient"],
               correctAnswer: "prit",
               explanation:
@@ -1014,42 +1003,41 @@ Attention au **double i** avec nous et vous !
             },
             {
               id: "e6",
-              question: "Tu ___ (résoudre) l'exercice de maths.",
-              type: "texte-a-trous",
-              options: ["résolvais", "résoudais", "résolvait", "résoudrais"],
-              correctAnswer: "résolvais",
+              type: "conjugaison",
+              question: "Conjugue « résoudre » à l'imparfait (tu, il/elle, nous).",
+              options: ["tu", "il/elle", "nous"],
+              correctAnswer: ["résolvais", "résolvait", "résolvions"],
               explanation:
-                "Résoudre → nous résolvons → radical « résolv- » + « -ais » = tu résolvais.",
+                "Résoudre → nous résolvons → radical « résolv- ». Tu résolvais, il résolvait, nous résolvions.",
             },
             {
               id: "e7",
-              question: "Remets les mots dans l'ordre pour former une phrase correcte à l'imparfait.",
-              type: "ordre",
-              options: [
-                "Les enfants",
-                "jouaient",
-                "dans le jardin",
-                "pendant que",
-                "leurs parents",
-                "préparaient",
-                "le repas",
+              type: "association",
+              question: "Associe chaque phrase à la valeur de l'imparfait qu'elle illustre.",
+              pairs: [
+                { left: "Le village était calme sous la neige.", right: "Description" },
+                { left: "Chaque dimanche, nous rendions visite.", right: "Habitude" },
+                { left: "Elle marchait quand un chien surgit.", right: "Arrière-plan" },
+                { left: "Les murs étaient couverts de dessins.", right: "Description" },
               ],
-              correctAnswer: [
-                "Les enfants",
-                "jouaient",
-                "dans le jardin",
-                "pendant que",
-                "leurs parents",
-                "préparaient",
-                "le repas",
-              ],
+              options: ["Description", "Habitude", "Arrière-plan", "Description"],
+              correctAnswer: ["Description", "Habitude", "Arrière-plan", "Description"],
               explanation:
-                "« Les enfants jouaient dans le jardin pendant que leurs parents préparaient le repas. » Deux actions simultanées à l'imparfait.",
+                "La 1ère et la 4ème décrivent un lieu. La 2ème montre une habitude (chaque dimanche). La 3ème pose un arrière-plan interrompu par le passé simple.",
             },
             {
               id: "e8",
-              question: "Dans la phrase « Le soleil brillait quand soudain un orage éclata », quel verbe est à l'imparfait et quel verbe est au passé simple ?",
+              type: "conjugaison",
+              question: "Conjugue « payer » à l'imparfait (je, nous, vous).",
+              options: ["je", "nous", "vous"],
+              correctAnswer: ["payais", "payions", "payiez"],
+              explanation:
+                "Nous payons → radical « pay- ». Je payais, nous payions (le y se maintient devant i), vous payiez.",
+            },
+            {
+              id: "e9",
               type: "qcm",
+              question: "Dans « Le soleil brillait quand soudain un orage éclata », quel verbe est à l'imparfait ?",
               options: [
                 "Brillait = imparfait, éclata = passé simple",
                 "Brillait = passé simple, éclata = imparfait",
@@ -1061,9 +1049,18 @@ Attention au **double i** avec nous et vous !
                 "« Brillait » (-ait) est à l'imparfait et pose le décor. « Éclata » (-a) est au passé simple et marque l'action soudaine.",
             },
             {
-              id: "e9",
-              question: "Quels verbes ont une particularité orthographique à l'imparfait ?",
+              id: "e10",
+              type: "conjugaison",
+              question: "Conjugue « conduire » à l'imparfait (je, tu, ils/elles).",
+              options: ["je", "tu", "ils/elles"],
+              correctAnswer: ["conduisais", "conduisais", "conduisaient"],
+              explanation:
+                "Conduire → nous conduisons → radical « conduis- ». Je conduisais, tu conduisais, ils conduisaient.",
+            },
+            {
+              id: "e11",
               type: "qcm-multiple",
+              question: "Quels verbes ont une particularité orthographique à l'imparfait ?",
               options: [
                 "Manger (e devant a)",
                 "Commencer (ç devant a)",
@@ -1079,91 +1076,57 @@ Attention au **double i** avec nous et vous !
                 "Être (radical irrégulier)",
               ],
               explanation:
-                "Les verbes en -ger gardent le e, ceux en -cer gardent le ç, ceux en -ier ont un double i, et « être » a un radical irrégulier (ét-). Chanter et finir suivent la règle normale.",
-            },
-            {
-              id: "e10",
-              question: "Ma grand-mère ___ des histoires, mon grand-père ___ le feu et nous ___ en silence.",
-              type: "texte-a-trous-select",
-              options: ["racontait", "attisait", "écoutions", "raconte", "attise", "écoutons", "racontaient", "écoutaient"],
-              correctAnswer: ["racontait", "attisait", "écoutions"],
-              explanation:
-                "Ma grand-mère racontait (elle → -ait), mon grand-père attisait (il → -ait), nous écoutions (nous → -ions). Trois imparfaits d'habitude.",
-            },
-            {
-              id: "e11",
-              question: "Associe chaque groupe de verbe à sa règle de formation du radical à l'imparfait.",
-              type: "association",
-              pairs: [
-                { left: "1er groupe (chanter)", right: "Radical simple (chant-)" },
-                { left: "2ème groupe (finir)", right: "Radical en -iss- (finiss-)" },
-                { left: "3ème groupe (prendre)", right: "Radical de « nous » au présent (pren-)" },
-                { left: "Être", right: "Radical irrégulier (ét-)" },
-              ],
-              options: [
-                "Radical simple (chant-)",
-                "Radical en -iss- (finiss-)",
-                "Radical de « nous » au présent (pren-)",
-                "Radical irrégulier (ét-)",
-              ],
-              correctAnswer: [
-                "Radical simple (chant-)",
-                "Radical en -iss- (finiss-)",
-                "Radical de « nous » au présent (pren-)",
-                "Radical irrégulier (ét-)",
-              ],
-              explanation:
-                "Le 1er groupe a un radical simple, le 2ème garde le -iss-, le 3ème suit la règle « nous au présent », et « être » est le seul irrégulier.",
+                "Les verbes en -ger gardent le e, ceux en -cer gardent le ç, ceux en -ier ont un double i, et « être » a un radical irrégulier (ét-).",
             },
             {
               id: "e12",
-              question: "Comment conjugue-t-on « craindre » avec « ils » à l'imparfait ?",
-              type: "qcm",
-              options: ["Ils craignaient", "Ils craindraient", "Ils craindaient", "Ils craignait"],
-              correctAnswer: "Ils craignaient",
+              type: "texte-a-trous-select",
+              question: "Ma grand-mère ___ des histoires, mon grand-père ___ le feu et nous ___ en silence.",
+              options: ["racontait", "attisait", "écoutions", "raconte", "attise", "écoutons", "racontaient", "écoutaient"],
+              correctAnswer: ["racontait", "attisait", "écoutions"],
               explanation:
-                "Craindre → nous craignons → radical « craign- » + « -aient » = ils craignaient.",
+                "Ma grand-mère racontait (elle → -ait), mon grand-père attisait (il → -ait), nous écoutions (nous → -ions).",
             },
             {
               id: "e13",
-              question: "« Être » est le seul verbe dont le radical à l'imparfait ne vient pas de la forme « nous » au présent.",
               type: "vrai-faux",
+              question: "« Être » est le seul verbe dont le radical à l'imparfait ne vient pas de « nous » au présent.",
               options: ["Vrai", "Faux"],
               correctAnswer: "Vrai",
               explanation:
-                "Nous sommes → le radical serait « somm- » (je sommais ?). Non ! « Être » utilise le radical irrégulier « ét- » : j'étais, tu étais...",
+                "Nous sommes → le radical serait « somm- ». Non ! « Être » utilise le radical irrégulier « ét- » : j'étais, tu étais...",
             },
             {
               id: "e14",
-              question: "Comment conjugue-t-on « nager » avec « vous » à l'imparfait ?",
-              type: "qcm",
-              options: ["Vous nagiez", "Vous nagetiez", "Vous nageiez", "Vous nagez"],
-              correctAnswer: "Vous nagiez",
+              type: "conjugaison",
+              question: "Conjugue « éteindre » à l'imparfait (je, nous, ils/elles).",
+              options: ["je", "nous", "ils/elles"],
+              correctAnswer: ["éteignais", "éteignions", "éteignaient"],
               explanation:
-                "Nager → radical « nage- ». Avec « -iez » : le e disparaît car le g devant i est déjà doux. On écrit : vous nagiez.",
+                "Éteindre → nous éteignons → radical « éteign- ». Je éteignais, nous éteignions, ils éteignaient.",
             },
             {
               id: "e15",
-              question: "Comment conjugue-t-on « balayer » avec « nous » à l'imparfait ?",
-              type: "qcm",
-              options: ["Nous balayions", "Nous balayons", "Nous balaiyions", "Nous balaiions"],
-              correctAnswer: "Nous balayions",
+              type: "conjugaison",
+              question: "Conjugue « balayer » à l'imparfait (je, nous, ils/elles).",
+              options: ["je", "nous", "ils/elles"],
+              correctAnswer: ["balayais", "balayions", "balayaient"],
               explanation:
-                "Nous balayons → radical « balay- » + « -ions » = nous balayions.",
+                "Nous balayons → radical « balay- ». Je balayais, nous balayions, ils balayaient.",
             },
             {
               id: "e16",
-              question: "Avant, les gens ___ à cheval, ils n'___ pas de voitures et les routes ___ en terre.",
               type: "texte-a-trous-select",
+              question: "Avant, les gens ___ à cheval, ils n'___ pas de voitures et les routes ___ en terre.",
               options: ["voyageaient", "avaient", "étaient", "voyage", "ont", "sont", "voyageait", "avait"],
               correctAnswer: ["voyageaient", "avaient", "étaient"],
               explanation:
-                "Les gens voyageaient (ils → -aient), ils n'avaient pas (ils → -aient), les routes étaient (elles → -aient). Trois imparfaits exprimant une époque passée.",
+                "Les gens voyageaient (ils → -aient), ils n'avaient pas (ils → -aient), les routes étaient (elles → -aient).",
             },
             {
               id: "e17",
-              question: "Lesquelles de ces phrases alternent correctement imparfait et passé simple ?",
               type: "qcm-multiple",
+              question: "Lesquelles de ces phrases alternent correctement imparfait et passé simple ?",
               options: [
                 "Il dormait quand le réveil sonna.",
                 "Il dormit quand le réveil sonnait.",
@@ -1177,48 +1140,34 @@ Attention au **double i** avec nous et vous !
                 "Nous chantions lorsqu'un bruit retentit.",
               ],
               explanation:
-                "L'imparfait pose le décor (action longue) et le passé simple introduit l'événement soudain. La 2ème inverse les rôles. La 5ème n'a que des imparfaits.",
+                "L'imparfait pose le décor (action longue) et le passé simple introduit l'événement soudain.",
             },
             {
               id: "e18",
-              question: "Remets les formes de « aller » à l'imparfait dans l'ordre des pronoms (je, tu, il, nous, vous, ils).",
-              type: "ordre",
-              options: [
-                "allais (je)",
-                "allais (tu)",
-                "allait (il)",
-                "allions (nous)",
-                "alliez (vous)",
-                "allaient (ils)",
-              ],
-              correctAnswer: [
-                "allais (je)",
-                "allais (tu)",
-                "allait (il)",
-                "allions (nous)",
-                "alliez (vous)",
-                "allaient (ils)",
-              ],
-              explanation:
-                "Aller → nous allons → radical « all- ». Les terminaisons sont régulières : -ais, -ais, -ait, -ions, -iez, -aient.",
-            },
-            {
-              id: "e19",
-              question: "Quel verbe est au conditionnel et non à l'imparfait ?",
               type: "intrus",
+              question: "Quel verbe est au conditionnel et non à l'imparfait ?",
               options: ["parlait", "chanterais", "voyaient", "finissions"],
               correctAnswer: "chanterais",
               explanation:
-                "« Chanterais » est au conditionnel présent (je chanterais). Les autres sont bien à l'imparfait. Attention : les terminaisons se ressemblent (-ais/-ais) mais le radical est différent !",
+                "« Chanterais » est au conditionnel présent (je chanterais). Les terminaisons se ressemblent (-ais/-ais) mais le radical est différent !",
+            },
+            {
+              id: "e19",
+              type: "conjugaison",
+              question: "Conjugue « connaître » à l'imparfait (je, tu, il/elle, nous, vous, ils/elles).",
+              options: ["je", "tu", "il/elle", "nous", "vous", "ils/elles"],
+              correctAnswer: ["connaissais", "connaissais", "connaissait", "connaissions", "connaissiez", "connaissaient"],
+              explanation:
+                "Connaître → nous connaissons → radical « connaiss- ». Les 6 formes suivent les terminaisons régulières.",
             },
             {
               id: "e20",
-              question: "Ils ___ (peindre) le mur en bleu pendant que nous ___ (choisir) les meubles.",
-              type: "texte-a-trous-select",
-              options: ["peignaient", "choisissions", "peignait", "choisissiez", "peindaient", "choisissaient"],
-              correctAnswer: ["peignaient", "choisissions"],
+              type: "conjugaison",
+              question: "Conjugue « devoir » à l'imparfait (je, il/elle, ils/elles).",
+              options: ["je", "il/elle", "ils/elles"],
+              correctAnswer: ["devais", "devait", "devaient"],
               explanation:
-                "Peindre → nous peignons → radical « peign- » + -aient = peignaient. Choisir → nous choisissons → radical « choisiss- » + -ions = choisissions.",
+                "Devoir → nous devons → radical « dev- ». Je devais, il devait, ils devaient.",
             },
           ],
         },
