@@ -11,14 +11,8 @@ export const resources: Resource[] = [
     subject: "espagnol",
     chapter: "Chapitre — Le subjonctif présent",
     createdAt: "2026-04-10T18:00:00Z",
-    updatedAt: "2026-04-10T18:00:00Z",
-    tags: [
-      "espagnol",
-      "subjonctif",
-      "subjuntivo",
-      "conjugaison",
-      "fiche",
-    ],
+    updatedAt: "2026-04-10T19:30:00Z",
+    tags: ["espagnol", "subjonctif", "subjuntivo", "conjugaison", "fiche"],
     content: `
 # 🇪🇸 Le subjonctif présent (el presente de subjuntivo)
 
@@ -36,7 +30,7 @@ On l'utilise très souvent avec :
 - **Me alegra que...** (ça me fait plaisir que...)
 - **Ojalá (que)...** (pourvu que...)
 
-> ⚠️ Dans ce chapitre, pense au réflexe : **déclencheur + que + subjonctif**.
+> ⚠️ Réflexe : **déclencheur + que + subjonctif**.
 
 ---
 
@@ -50,7 +44,7 @@ Exemple avec **hablar** : yo habl**o** → habl- → **hable, hables, hable, hab
 
 ---
 
-## ✨ Les terminaisons à connaître par cœur
+## ✨ Les terminaisons à connaître
 
 ### Verbes en **-AR**
 Terminaisons : **-e, -es, -e, -emos, -éis, -en**
@@ -76,7 +70,7 @@ Terminaisons : **-a, -as, -a, -amos, -áis, -an**
 | vosotros | com**áis** | viv**áis** |
 | ellos/ellas | com**an** | viv**an** |
 
-> 🎯 Astuce : au subjonctif, les terminaisons sont **inversées** par rapport au présent de l'indicatif.
+> 🎯 Astuce : au subjonctif, les terminaisons sont **inversées** par rapport au présent.
 
 ---
 
@@ -91,7 +85,7 @@ Terminaisons : **-a, -as, -a, -amos, -áis, -an**
 | **saber** | s**epa**, s**epas**, s**epa**, s**epamos**, s**epáis**, s**epan** |
 | **dar** | d**é**, d**es**, d**é**, d**emos**, d**eis**, d**en** |
 
-> ⚠️ Lettres à surveiller : **vay-**, **hay-**, **sep-**, **esté/dé** (accent).
+> ⚠️ Lettres à surveiller : **vay-**, **hay-**, **sep-**, **esté/dé**.
 
 ---
 
@@ -106,36 +100,15 @@ Terminaisons : **-a, -as, -a, -amos, -áis, -an**
 ### e → i (sauf nosotros/vosotros)
 **pedir** → pida, pidas, pida, **pidamos**, **pidáis**, pidan
 
-> ✅ Important : pour **nosotros/vosotros**, on revient souvent à une base différente du radical diphtongué.
-
----
-
-## 🧩 Exemples prêts à l'emploi
-
-- Quiero que tú **estudies** más.
-- Es necesario que nosotros **hagamos** los ejercicios.
-- Dudo que ellos **puedan** venir.
-- Ojalá que mañana **haga** buen tiempo.
-
 ---
 
 ## ❌ Erreurs fréquentes
 
-- **Quiero que tú vienes** ❌  
-  → **Quiero que tú vengas** ✅
-- **Es importante que estudiamos** ❌  
-  → **Es importante que estudiemos** ✅
-- **Dudo que él tiene razón** ❌  
-  → **Dudo que él tenga razón** ✅
+- **Quiero que tú vienes** ❌ → **Quiero que tú vengas** ✅
+- **Es importante que estudiamos** ❌ → **Es importante que estudiemos** ✅
+- **Dudo que él tiene razón** ❌ → **Dudo que él tenga razón** ✅
 
 ---
-
-## ✅ Mini-check avant le contrôle
-
-- Je repère le **déclencheur** (souhait, émotion, doute, obligation)
-- Je mets **que**
-- Je conjugue au **subjonctif**
-- Je vérifie les **terminaisons** et les **changements de radical**
 
 > 🎯 **Prêt(e) à te tester ?** → [Faire le quiz sur ce chapitre →](/4e/espagnol/espagnol-subjonctif-present-quiz)
 `,
@@ -144,18 +117,18 @@ Terminaisons : **-a, -as, -a, -amos, -áis, -an**
     slug: "espagnol-subjonctif-present-quiz",
     title: "Quiz — Le subjonctif présent (espagnol)",
     description:
-      "Révise le subjonctif présent en espagnol avec 3 niveaux progressifs et des questions variées.",
+      "Révise le subjonctif présent en espagnol avec 3 niveaux progressifs.",
     type: "quiz",
     level: "4e",
     subject: "espagnol",
     chapter: "Chapitre — Le subjonctif présent",
     createdAt: "2026-04-10T18:00:00Z",
-    updatedAt: "2026-04-10T18:00:00Z",
+    updatedAt: "2026-04-10T19:30:00Z",
     tags: ["espagnol", "subjonctif", "quiz", "conjugaison"],
     quizData: {
       title: "Le subjonctif présent",
       description:
-        "10 questions par session pour consolider conjugaison, irréguliers et usages du subjonctif.",
+        "10 questions par session pour consolider conjugaison, irréguliers et usages.",
       passingScore: 70,
       sessionSize: 10,
       levels: [
@@ -167,172 +140,141 @@ Terminaisons : **-a, -as, -a, -amos, -áis, -an**
           questions: [
             {
               id: "f1",
-              type: "qcm",
-              question: 'Comment conjuguer "hablar" avec "nosotros" au subjonctif présent ?',
-              options: ["hablamos", "hablemos", "habléis", "hablaremos"],
-              correctAnswer: "hablemos",
-              explanation:
-                'Pour les verbes en -AR, "nosotros" prend la terminaison **-emos** au subjonctif.',
+              type: "conjugaison",
+              question: 'Conjugue "hablar" au subjonctif (yo, tú, él).',
+              options: ["yo", "tú", "él/ella"],
+              correctAnswer: ["hable", "hables", "hable"],
+              explanation: "Pour -AR : e, es, e.",
             },
             {
               id: "f2",
               type: "qcm",
-              question: 'Comment conjuguer "comer" avec "yo" au subjonctif présent ?',
-              options: ["como", "coma", "come", "comaís"],
-              correctAnswer: "coma",
-              explanation:
-                "Pour les verbes en -ER/-IR, on utilise **-a** avec yo : coma.",
+              question: 'Quelle est la forme correcte : "Espero que nosotros..."',
+              options: ["hablamos", "hablemos", "hablar", "habléis"],
+              correctAnswer: "hablemos",
+              explanation: "Pour nosotros avec -AR : -emos.",
             },
             {
               id: "f3",
               type: "vrai-faux",
-              question: 'Après "Quiero que...", on met normalement le subjonctif.',
+              question: 'Après "Quiero que...", on utilise le subjonctif.',
               options: ["Vrai", "Faux"],
               correctAnswer: "Vrai",
-              explanation:
-                "Quiero que exprime un souhait : cela déclenche le subjonctif.",
+              explanation: "Souhait = subjonctif.",
             },
             {
               id: "f4",
               type: "texte-a-trous",
-              question: 'Espero que tú ___ (llegar) a tiempo.',
-              options: ["llegas", "llegues", "llegueses", "llegarás"],
-              correctAnswer: "llegues",
-              explanation:
-                "llegar → yo llego → lleg- + terminaisons du subjonctif (-e, -es...) : tú llegues.",
+              question: "Es importante que tú ___ (comer) bien.",
+              options: ["comes", "comas", "comerás", "comiste"],
+              correctAnswer: "comas",
+              explanation: "comer → coma, comas, coma...",
             },
             {
               id: "f5",
-              type: "qcm",
-              question: 'Comment conjuguer "ser" avec "nosotros" au subjonctif présent ?',
-              options: ["somos", "seamos", "seremos", "seéis"],
-              correctAnswer: "seamos",
-              explanation: 'Le verbe irrégulier "ser" donne : seamos avec nosotros.',
+              type: "conjugaison",
+              question: 'Conjugue "vivir" au subjonctif (yo, nosotros, vosotros).',
+              options: ["yo", "nosotros", "vosotros"],
+              correctAnswer: ["viva", "vivamos", "viváis"],
+              explanation: "Pour -IR : a, as, a, amos, áis, an.",
             },
             {
               id: "f6",
-              type: "intrus",
-              question:
-                "Trouve l'intrus : une seule de ces formes n'est PAS au subjonctif présent.",
-              options: ["hable", "comas", "vive", "estudien"],
-              correctAnswer: "vive",
-              explanation:
-                '"vive" est au présent de l\'indicatif, pas au subjonctif (on attendrait "viva").',
-            },
-            {
-              id: "f7",
-              type: "nombre",
-              question:
-                "Combien de personnes grammaticales y a-t-il dans un tableau complet de conjugaison ?",
-              options: [],
-              correctAnswer: "6",
-              explanation:
-                "yo, tú, él/ella, nosotros, vosotros, ellos/ellas : cela fait 6 personnes.",
-            },
-            {
-              id: "f8",
-              type: "slider",
-              question:
-                "Déplace le curseur : combien de terminaisons utilise-t-on dans une conjugaison complète au subjonctif ?",
-              options: ["0", "6", "1"],
-              correctAnswer: "6",
-              explanation:
-                "Une conjugaison complète contient 6 formes (une par personne).",
-            },
-            {
-              id: "f9",
-              type: "texte-a-trous-select",
-              question:
-                "Complète : que yo ___, que tú ___, que él ___ (hablar).",
-              options: [
-                "hable",
-                "hables",
-                "hable",
-                "habla",
-                "hablo",
-                "hablese",
-              ],
-              correctAnswer: ["hable", "hables", "hable"],
-              explanation:
-                "Pour -AR : yo hable, tú hables, él/ella hable.",
-            },
-            {
-              id: "f10",
-              type: "qcm-multiple",
-              question:
-                "Quels déclencheurs appellent généralement le subjonctif ? (plusieurs réponses)",
-              options: [
-                "Quiero que...",
-                "Es importante que...",
-                "Dudo que...",
-                "Ayer fui al cine.",
-                "Tengo dos hermanos.",
-              ],
-              correctAnswer: [
-                "Quiero que...",
-                "Es importante que...",
-                "Dudo que...",
-              ],
-              explanation:
-                "Souhait, nécessité et doute appellent le subjonctif ; les phrases purement factuelles non.",
-            },
-            {
-              id: "f11",
               type: "association",
-              question: "Associe les pronoms aux terminaisons des verbes en -AR.",
+              question: "Associe les pronoms aux terminaisons du subjonctif pour un verbe en -AR.",
               pairs: [
                 { left: "yo", right: "-e" },
                 { left: "tú", right: "-es" },
+                { left: "él/ella", right: "-e" },
                 { left: "nosotros", right: "-emos" },
-                { left: "vosotros", right: "-éis" },
               ],
-              options: ["-e", "-es", "-emos", "-éis"],
-              correctAnswer: ["-e", "-es", "-emos", "-éis"],
-              explanation:
-                "Au subjonctif, les verbes en -AR prennent -e, -es, -e, -emos, -éis, -en.",
+              options: ["-e", "-es", "-e", "-emos"],
+              correctAnswer: "association",
+              explanation: "Attention : -e apparaît deux fois (yo et él/ella).",
+            },
+            {
+              id: "f7",
+              type: "texte-a-trous-select",
+              question: "Complète : que yo ___, que tú ___, que él ___ (hablar).",
+              options: ["hable", "hables", "hable", "habla", "hablo"],
+              correctAnswer: ["hable", "hables", "hable"],
+              explanation: "yo hable, tú hables, él hable.",
+            },
+            {
+              id: "f8",
+              type: "qcm-multiple",
+              question:
+                "Quelles expressions déclenchent le subjonctif ? (plusieurs réponses)",
+              options: [
+                "Quiero que...",
+                "Dudo que...",
+                "Me alegra que...",
+                "Hoy es lunes.",
+                "Tengo dos gatos.",
+              ],
+              correctAnswer: ["Quiero que...", "Dudo que...", "Me alegra que..."],
+              explanation: "Souhait, doute et émotion déclenchent le subjonctif.",
+            },
+            {
+              id: "f9",
+              type: "conjugaison",
+              question: 'Conjugue "ser" au subjonctif (yo, tú, nosotros).',
+              options: ["yo", "tú", "nosotros"],
+              correctAnswer: ["sea", "seas", "seamos"],
+              explanation: "Verbe irrégulier : sea, seas, sea, seamos...",
+            },
+            {
+              id: "f10",
+              type: "intrus",
+              question: "Trouve l'intrus (pas au subjonctif).",
+              options: ["coma", "comas", "comes", "comamos"],
+              correctAnswer: "comes",
+              explanation: "comes est à l'indicatif.",
+            },
+            {
+              id: "f11",
+              type: "texte-a-trous",
+              question: "No creo que él ___ (tener) razón.",
+              options: ["tiene", "tenga", "tenía", "tendrá"],
+              correctAnswer: "tenga",
+              explanation: "tener → yo tengo → teng- + terminaison.",
             },
             {
               id: "f12",
-              type: "ordre",
-              question:
-                "Remets les éléments dans l'ordre pour former le schéma type d'une phrase au subjonctif.",
-              options: ["déclencheur", "que", "sujet", "verbe au subjonctif"],
-              correctAnswer: [
-                "déclencheur",
-                "que",
-                "sujet",
-                "verbe au subjonctif",
-              ],
-              explanation:
-                "Structure classique : déclencheur + que + sujet + verbe au subjonctif.",
+              type: "conjugaison",
+              question: 'Conjugue "ir" au subjonctif (yo, vosotros, ellos).',
+              options: ["yo", "vosotros", "ellos/ellas"],
+              correctAnswer: ["vaya", "vayáis", "vayan"],
+              explanation: "ir : vaya, vayas, vaya, vayamos, vayáis, vayan.",
             },
             {
               id: "f13",
-              type: "vrai-faux",
-              question:
-                "Avec les verbes à diphtongue, nosotros et vosotros gardent toujours la diphtongue complète.",
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Faux",
-              explanation:
-                "Souvent, nosotros/vosotros prennent une base différente (ex. dormir → durmamos).",
+              type: "ordre",
+              question: "Remets l'ordre de la structure d'une phrase au subjonctif.",
+              options: ["déclencheur", "que", "sujet", "verbe au subjonctif"],
+              correctAnswer: ["déclencheur", "que", "sujet", "verbe au subjonctif"],
+              explanation: "La structure est très régulière.",
             },
             {
               id: "f14",
               type: "qcm",
-              question: 'Le subjonctif de "tener" à la 3e personne du singulier est :',
-              options: ["tiene", "tenga", "tene", "tendrá"],
-              correctAnswer: "tenga",
-              explanation:
-                'Base de "yo tengo" → teng- + terminaisons du subjonctif : él/ella tenga.',
+              question: "Quelle phrase est correcte ?",
+              options: [
+                "Quiero que tú vienes.",
+                "Quiero que tú vengas.",
+                "Quiero que tú vendrás.",
+                "Quiero tú que vengas.",
+              ],
+              correctAnswer: "Quiero que tú vengas.",
+              explanation: "Quiero que + subjonctif.",
             },
             {
               id: "f15",
-              type: "texte-a-trous",
-              question: 'Es importante que vosotros ___ (estudiar).',
-              options: ["estudiáis", "estudiéis", "estudien", "estudiaran"],
-              correctAnswer: "estudiéis",
-              explanation:
-                'Pour un verbe en -AR avec vosotros au subjonctif : terminaison **-éis**.',
+              type: "conjugaison",
+              question: 'Conjugue "estar" au subjonctif (yo, tú, ellos).',
+              options: ["yo", "tú", "ellos/ellas"],
+              correctAnswer: ["esté", "estés", "estén"],
+              explanation: "estar est irrégulier avec accent : esté, estés, esté...",
             },
           ],
         },
@@ -344,192 +286,152 @@ Terminaisons : **-a, -as, -a, -amos, -áis, -an**
           questions: [
             {
               id: "i1",
-              type: "qcm",
-              question: 'Quelle est la forme de "elegir" avec nosotros au subjonctif ?',
-              options: ["elegemos", "elijamos", "eligamos", "elegimos"],
-              correctAnswer: "elijamos",
-              explanation:
-                "elegir suit la base de yo elijo → elij- + -amos : elijamos.",
+              type: "conjugaison",
+              question: 'Conjugue "tener" au subjonctif (yo, tú, ellos).',
+              options: ["yo", "tú", "ellos/ellas"],
+              correctAnswer: ["tenga", "tengas", "tengan"],
+              explanation: "Base teng-.",
             },
             {
               id: "i2",
-              type: "qcm",
-              question: 'Quelle est la forme correcte de "dormir" avec nosotros au subjonctif ?',
-              options: ["duermamos", "dormamos", "durmamos", "durmimos"],
-              correctAnswer: "durmamos",
-              explanation:
-                "dormir (o→ue) devient **u** à nosotros/vosotros : durmamos, durmáis.",
+              type: "conjugaison",
+              question: 'Conjugue "hacer" au subjonctif (yo, nosotros, vosotros).',
+              options: ["yo", "nosotros", "vosotros"],
+              correctAnswer: ["haga", "hagamos", "hagáis"],
+              explanation: "Base hag-.",
             },
             {
               id: "i3",
-              type: "association",
-              question:
-                "Associe chaque infinitif à sa forme yo au présent (utile pour former le subjonctif).",
-              pairs: [
-                { left: "tener", right: "tengo" },
-                { left: "hacer", right: "hago" },
-                { left: "poner", right: "pongo" },
-                { left: "venir", right: "vengo" },
-              ],
-              options: ["tengo", "hago", "pongo", "vengo"],
-              correctAnswer: ["tengo", "hago", "pongo", "vengo"],
-              explanation:
-                "Le subjonctif se forme à partir de la 1re personne du présent : yo tengo/hago/pongo/vengo.",
+              type: "qcm",
+              question: 'Quelle forme est correcte pour "dormir" avec nosotros ?',
+              options: ["duermamos", "dormamos", "durmamos", "dormimos"],
+              correctAnswer: "durmamos",
+              explanation: "dormir (o→ue) devient u avec nosotros.",
             },
             {
               id: "i4",
-              type: "texte-a-trous-select",
-              question:
-                "Complète : Me alegra que tú ___ y que nosotros ___ más tiempo juntos.",
-              options: [
-                "vengas",
-                "pasemos",
-                "vienes",
-                "pasamos",
-                "venga",
-                "paséis",
-              ],
-              correctAnswer: ["vengas", "pasemos"],
-              explanation:
-                '"Me alegra que" déclenche le subjonctif : vengas et pasemos.',
+              type: "conjugaison",
+              question: 'Conjugue "pedir" au subjonctif (yo, nosotros, vosotros).',
+              options: ["yo", "nosotros", "vosotros"],
+              correctAnswer: ["pida", "pidamos", "pidáis"],
+              explanation: "e→i, puis base particulière avec nosotros/vosotros.",
             },
             {
               id: "i5",
-              type: "qcm-multiple",
-              question:
-                "Sélectionne les phrases qui expriment une émotion (et peuvent déclencher le subjonctif).",
-              options: [
-                "Me alegra que estés aquí.",
-                "Me molesta que llegues tarde.",
-                "Vivo en Madrid.",
-                "Siento que no puedas venir.",
-                "Tengo un perro.",
-              ],
-              correctAnswer: [
-                "Me alegra que estés aquí.",
-                "Me molesta que llegues tarde.",
-                "Siento que no puedas venir.",
-              ],
-              explanation:
-                "Les émotions (joie, gêne, regret...) déclenchent le subjonctif.",
+              type: "texte-a-trous-select",
+              question: "Complète : Me alegra que tú ___ y que nosotros ___ juntos.",
+              options: ["vengas", "pasemos", "vienes", "pasamos", "venga"],
+              correctAnswer: ["vengas", "pasemos"],
+              explanation: "Me alegra que + subjonctif.",
             },
             {
               id: "i6",
-              type: "intrus",
-              question: "Trouve l'intrus dans cette série autour du verbe ir au subjonctif.",
-              options: ["vaya", "vayas", "vamos", "vayan"],
-              correctAnswer: "vamos",
-              explanation:
-                '"vamos" est indicatif ; au subjonctif on a vaya, vayas, vayamos, vayáis, vayan.',
+              type: "association",
+              question: "Associe chaque verbe irrégulier à sa base de subjonctif.",
+              pairs: [
+                { left: "tener", right: "teng-" },
+                { left: "hacer", right: "hag-" },
+                { left: "venir", right: "veng-" },
+                { left: "poner", right: "pong-" },
+              ],
+              options: ["teng-", "hag-", "veng-", "pong-"],
+              correctAnswer: "association",
+              explanation: "Ces bases viennent de la forme yo du présent.",
             },
             {
               id: "i7",
-              type: "ordre",
-              question: "Remets dans l'ordre les étapes de formation de " +
-                '"tomar" au subjonctif (forme yo).',
-              options: [
-                "ajouter la terminaison -e",
-                "partir de yo tomo",
-                "enlever le -o",
-                "obtenir tome",
-              ],
-              correctAnswer: [
-                "partir de yo tomo",
-                "enlever le -o",
-                "ajouter la terminaison -e",
-                "obtenir tome",
-              ],
-              explanation:
-                "Méthode standard : yo tomo → tom- → tome.",
+              type: "conjugaison",
+              question: 'Conjugue "venir" au subjonctif (yo, tú, nosotros).',
+              options: ["yo", "tú", "nosotros"],
+              correctAnswer: ["venga", "vengas", "vengamos"],
+              explanation: "venir → vengo → veng-.",
             },
             {
               id: "i8",
-              type: "nombre",
-              question:
-                "Combien de verbes totalement irréguliers du subjonctif présent dois-tu connaître dans cette fiche (ser, ir, haber, estar, saber, dar) ?",
-              options: [],
-              correctAnswer: "6",
-              explanation:
-                "La fiche en présente 6 : ser, ir, haber, estar, saber, dar.",
+              type: "qcm-multiple",
+              question: "Choisis toutes les phrases correctes.",
+              options: [
+                "Dudo que él tenga tiempo.",
+                "Es necesario que estudiemos.",
+                "Me alegra que vienes.",
+                "Ojalá que haga sol.",
+                "No creo que podemos ir.",
+              ],
+              correctAnswer: [
+                "Dudo que él tenga tiempo.",
+                "Es necesario que estudiemos.",
+                "Ojalá que haga sol.",
+              ],
+              explanation: "Avec doute/nécessité/souhait → subjonctif.",
             },
             {
               id: "i9",
-              type: "slider",
-              question:
-                "Combien de lettres contient la terminaison " +
-                '"-áis" (accent inclus) ?',
-              options: ["1", "5", "1"],
-              correctAnswer: "3",
-              explanation:
-                "La terminaison -áis contient 3 lettres : a, í, s.",
+              type: "conjugaison",
+              question: 'Conjugue "dar" au subjonctif (yo, él, nosotros).',
+              options: ["yo", "él/ella", "nosotros"],
+              correctAnswer: ["dé", "dé", "demos"],
+              explanation: "Accent à yo/él : dé.",
             },
             {
               id: "i10",
               type: "vrai-faux",
-              question: 'Après "No creo que...", on met généralement le subjonctif.',
+              question:
+                "Dans 'No creo que...', on met en général l'indicatif.",
               options: ["Vrai", "Faux"],
-              correctAnswer: "Vrai",
-              explanation:
-                '"No creo que" exprime le doute/la non-certitude, donc subjonctif.',
+              correctAnswer: "Faux",
+              explanation: "No creo que exprime le doute, donc subjonctif.",
             },
             {
               id: "i11",
               type: "texte-a-trous",
-              question: 'Dudo que ellos ___ (tener) tiempo.',
-              options: ["tienen", "tengan", "tenían", "tendrán"],
-              correctAnswer: "tengan",
-              explanation:
-                "tener → yo tengo → teng- + -an : ellos tengan.",
+              question: "Es mejor que vosotros ___ (estudiar) hoy.",
+              options: ["estudiáis", "estudiéis", "estudien", "estudiaran"],
+              correctAnswer: "estudiéis",
+              explanation: "vosotros en -AR : -éis.",
             },
             {
               id: "i12",
-              type: "qcm",
-              question: 'Para que nosotros ___ mejor, necesitamos un plan.',
-              options: ["podemos", "podamos", "podríamos", "pudimos"],
-              correctAnswer: "podamos",
-              explanation:
-                '"Para que" exprime un but et déclenche le subjonctif : podamos.',
+              type: "conjugaison",
+              question: 'Conjugue "saber" au subjonctif (yo, tú, ellos).',
+              options: ["yo", "tú", "ellos/ellas"],
+              correctAnswer: ["sepa", "sepas", "sepan"],
+              explanation: "saber est irrégulier : sepa...",
             },
             {
               id: "i13",
-              type: "association",
-              question: 'Associe les pronoms aux formes de "ir" au subjonctif.',
-              pairs: [
-                { left: "yo", right: "vaya" },
-                { left: "tú", right: "vayas" },
-                { left: "nosotros", right: "vayamos" },
-                { left: "ellos", right: "vayan" },
-              ],
-              options: ["vaya", "vayas", "vayamos", "vayan"],
-              correctAnswer: ["vaya", "vayas", "vayamos", "vayan"],
-              explanation:
-                "Conjugaison de ir au subjonctif : vaya, vayas, vaya, vayamos, vayáis, vayan.",
+              type: "intrus",
+              question: "Trouve l'intrus autour du verbe ir.",
+              options: ["vaya", "vayas", "vamos", "vayan"],
+              correctAnswer: "vamos",
+              explanation: "vamos est à l'indicatif.",
             },
             {
               id: "i14",
-              type: "qcm-multiple",
-              question: "Quelles formes portent un accent écrit ? (plusieurs réponses)",
-              options: ["dé", "esté", "sea", "haya", "sepa"],
-              correctAnswer: ["dé", "esté"],
-              explanation:
-                "Dans cette liste, seules dé et esté portent un accent graphique.",
+              type: "conjugaison",
+              question: 'Conjugue "pensar" au subjonctif (yo, nosotros, vosotros).',
+              options: ["yo", "nosotros", "vosotros"],
+              correctAnswer: ["piense", "pensemos", "penséis"],
+              explanation: "e→ie sauf nosotros/vosotros.",
             },
             {
               id: "i15",
-              type: "texte-a-trous-select",
-              question:
-                "Complète : Ojalá que ella ___ bien y que vosotros también ___ bien.",
+              type: "ordre",
+              question: "Remets les mots dans l'ordre.",
               options: [
-                "esté",
-                "estéis",
-                "está",
-                "estáis",
-                "estén",
-                "estemos",
+                "Es importante",
+                "que",
+                "nosotros",
+                "hagamos",
+                "los ejercicios",
               ],
-              correctAnswer: ["esté", "estéis"],
-              explanation:
-                'Le verbe estar au subjonctif donne "esté" (elle) et "estéis" (vosotros).',
+              correctAnswer: [
+                "Es importante",
+                "que",
+                "nosotros",
+                "hagamos",
+                "los ejercicios",
+              ],
+              explanation: "La forme correcte est 'hagamos'.",
             },
           ],
         },
@@ -537,186 +439,145 @@ Terminaisons : **-a, -as, -a, -amos, -áis, -an**
           id: "expert",
           name: "Expert",
           emoji: "🔴",
-          description: "Nuances, pièges et automatisation en phrase complète.",
+          description: "Automatisation et pièges de conjugaison en contexte.",
           questions: [
             {
               id: "e1",
-              type: "qcm",
-              question: "Choisis la phrase correcte.",
-              options: [
-                "Quiero que tú vienes temprano.",
-                "Quiero que tú vengas temprano.",
-                "Quiero que tú vendrás temprano.",
-                "Quiero que tú venir temprano.",
-              ],
-              correctAnswer: "Quiero que tú vengas temprano.",
-              explanation:
-                '"Quiero que" appelle le subjonctif : vengas.',
+              type: "conjugaison",
+              question: 'Conjugue "haber" au subjonctif (yo, tú, nosotros).',
+              options: ["yo", "tú", "nosotros"],
+              correctAnswer: ["haya", "hayas", "hayamos"],
+              explanation: "haber : haya, hayas, haya, hayamos...",
             },
             {
               id: "e2",
-              type: "qcm-multiple",
-              question:
-                "Quels verbes appliquent un changement orthographique pour garder le son ? (plusieurs réponses)",
-              options: ["buscar", "llegar", "empezar", "comer", "vivir"],
-              correctAnswer: ["buscar", "llegar", "empezar"],
-              explanation:
-                "Au subjonctif : buscar→busque (c→qu), llegar→llegue (g→gu), empezar→empiece/empiecemos (z→c).",
+              type: "conjugaison",
+              question: 'Conjugue "elegir" au subjonctif (yo, nosotros, vosotros).',
+              options: ["yo", "nosotros", "vosotros"],
+              correctAnswer: ["elija", "elijamos", "elijáis"],
+              explanation: "elegir suit la base de yo elijo → elij-.",
             },
             {
               id: "e3",
-              type: "association",
-              question: "Associe chaque déclencheur à son idée dominante.",
-              pairs: [
-                { left: "Es necesario que...", right: "obligation / nécessité" },
-                { left: "Dudo que...", right: "doute" },
-                { left: "Me alegra que...", right: "émotion" },
-                { left: "Ojalá (que)...", right: "souhait" },
-              ],
+              type: "qcm",
+              question: "Choisis la phrase correcte.",
               options: [
-                "obligation / nécessité",
-                "doute",
-                "émotion",
-                "souhait",
+                "No creo que ellos pueden venir.",
+                "No creo que ellos puedan venir.",
+                "No creo que ellos podrán venir.",
+                "No creo ellos que puedan venir.",
               ],
-              correctAnswer: [
-                "obligation / nécessité",
-                "doute",
-                "émotion",
-                "souhait",
-              ],
-              explanation:
-                "Repérer l'idée portée par le déclencheur aide à choisir vite le subjonctif.",
+              correctAnswer: "No creo que ellos puedan venir.",
+              explanation: "No creo que + subjonctif.",
             },
             {
               id: "e4",
-              type: "ordre",
-              question: "Remets dans l'ordre cette phrase correcte.",
-              options: ["No creo", "que", "ellos", "puedan", "venir hoy"],
-              correctAnswer: ["No creo", "que", "ellos", "puedan", "venir hoy"],
-              explanation:
-                "Structure : déclencheur + que + sujet + verbe au subjonctif + complément.",
+              type: "conjugaison",
+              question: 'Conjugue "poner" au subjonctif (yo, tú, ellos).',
+              options: ["yo", "tú", "ellos/ellas"],
+              correctAnswer: ["ponga", "pongas", "pongan"],
+              explanation: "poner → pongo → pong-.",
             },
             {
               id: "e5",
-              type: "intrus",
-              question:
-                "Trouve l'intrus : une forme n'est pas correcte pour nosotros dans ces verbes à radical changeant.",
-              options: ["pensemos", "durmamos", "piensamos", "pidamos"],
-              correctAnswer: "piensamos",
-              explanation:
-                '"piensamos" est incorrect ; on dit "pensemos" (sans ie) avec nosotros.',
+              type: "association",
+              question: "Associe ces déclencheurs à leur idée.",
+              pairs: [
+                { left: "Dudo que...", right: "doute" },
+                { left: "Me alegra que...", right: "émotion" },
+                { left: "Es necesario que...", right: "obligation" },
+                { left: "Ojalá (que)...", right: "souhait" },
+              ],
+              options: ["doute", "émotion", "obligation", "souhait"],
+              correctAnswer: "association",
+              explanation: "Identifier la valeur aide à choisir le mode.",
             },
             {
               id: "e6",
-              type: "nombre",
-              question:
-                "Combien de niveaux (🟢 🟡 🔴) compose ce quiz de subjonctif ?",
-              options: [],
-              correctAnswer: "3",
-              explanation:
-                "Le quiz contient 3 niveaux : facile, intermédiaire et expert.",
+              type: "conjugaison",
+              question: 'Conjugue "estar" au subjonctif (yo, nosotros, vosotros).',
+              options: ["yo", "nosotros", "vosotros"],
+              correctAnswer: ["esté", "estemos", "estéis"],
+              explanation: "Accent à yo : esté.",
             },
             {
               id: "e7",
-              type: "slider",
+              type: "texte-a-trous-select",
               question:
-                "Régle le curseur : quel est le score minimum pour valider ce quiz ?",
-              options: ["0", "100", "1"],
-              correctAnswer: "70",
-              explanation:
-                "Le passingScore du quiz est de 70%.",
+                "Complète : Ojalá que ella ___ y que nosotros también ___ listos.",
+              options: ["esté", "estemos", "está", "estamos", "estén"],
+              correctAnswer: ["esté", "estemos"],
+              explanation: "Ojalá que + subjonctif.",
             },
             {
               id: "e8",
-              type: "texte-a-trous",
-              question: 'Es mejor que tú ___ (hacer) los deberes ahora.',
-              options: ["haces", "hagas", "hacerás", "hiciste"],
-              correctAnswer: "hagas",
-              explanation:
-                "hacer → yo hago → hag- + -as : tú hagas.",
+              type: "qcm-multiple",
+              question: "Quelles formes sont au subjonctif présent ?",
+              options: ["venga", "hagamos", "tengo", "puedan", "estudiáis"],
+              correctAnswer: ["venga", "hagamos", "puedan"],
+              explanation: "tengo et estudiáis ne sont pas au subjonctif.",
             },
             {
               id: "e9",
-              type: "texte-a-trous-select",
-              question:
-                "Complète la mini-conjugaison de ser : que yo ___, que nosotros ___, que vosotros ___.",
-              options: ["sea", "seamos", "seáis", "somos", "sois", "seremos"],
-              correctAnswer: ["sea", "seamos", "seáis"],
-              explanation:
-                "ser au subjonctif : sea, seas, sea, seamos, seáis, sean.",
+              type: "conjugaison",
+              question: 'Conjugue "poder" au subjonctif (yo, nosotros, vosotros).',
+              options: ["yo", "nosotros", "vosotros"],
+              correctAnswer: ["pueda", "podamos", "podáis"],
+              explanation: "o→ue sauf nosotros/vosotros.",
             },
             {
               id: "e10",
-              type: "qcm",
-              question: 'Quelle est la forme de "pedir" avec nosotros au subjonctif ?',
-              options: ["pedemos", "pidamos", "pidiemos", "pedimos"],
-              correctAnswer: "pidamos",
-              explanation:
-                "pedir (e→i) donne pidamos avec nosotros.",
+              type: "intrus",
+              question: "Trouve l'intrus.",
+              options: ["tenga", "tengas", "tenemos", "tengan"],
+              correctAnswer: "tenemos",
+              explanation: "tenemos est à l'indicatif.",
             },
             {
               id: "e11",
-              type: "vrai-faux",
-              question: 'La phrase "Quiero que tú vienes" est correcte.',
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Faux",
-              explanation:
-                'Après "quiero que", on attend le subjonctif : "vengas".',
+              type: "conjugaison",
+              question: 'Conjugue "salir" au subjonctif (yo, tú, nosotros).',
+              options: ["yo", "tú", "nosotros"],
+              correctAnswer: ["salga", "salgas", "salgamos"],
+              explanation: "salir → yo salgo → salg-.",
             },
             {
               id: "e12",
-              type: "qcm-multiple",
-              question:
-                "Parmi ces expressions, lesquelles peuvent déclencher le subjonctif ? (plusieurs réponses)",
-              options: [
-                "Es necesario que...",
-                "No creo que...",
-                "Ojalá (que)...",
-                "Mañana es lunes.",
-                "Tengo quince años.",
-              ],
-              correctAnswer: [
-                "Es necesario que...",
-                "No creo que...",
-                "Ojalá (que)...",
-              ],
-              explanation:
-                "Nécessité, doute et souhait déclenchent le subjonctif ; les constats factuels non.",
+              type: "texte-a-trous",
+              question: "Antes de que nosotros ___ (salir), cerramos la puerta.",
+              options: ["salimos", "salgamos", "saldríamos", "saldremos"],
+              correctAnswer: "salgamos",
+              explanation: "Antes de que déclenche le subjonctif.",
             },
             {
               id: "e13",
-              type: "association",
-              question: 'Associe les pronoms aux formes de "dar" au subjonctif.',
-              pairs: [
-                { left: "yo", right: "dé" },
-                { left: "tú", right: "des" },
-                { left: "nosotros", right: "demos" },
-                { left: "ellos", right: "den" },
-              ],
-              options: ["dé", "des", "demos", "den"],
-              correctAnswer: ["dé", "des", "demos", "den"],
-              explanation:
-                "dar au subjonctif : dé, des, dé, demos, deis, den.",
+              type: "conjugaison",
+              question: 'Conjugue "decir" au subjonctif (yo, nosotros, vosotros).',
+              options: ["yo", "nosotros", "vosotros"],
+              correctAnswer: ["diga", "digamos", "digáis"],
+              explanation: "decir → yo digo → dig-.",
             },
             {
               id: "e14",
-              type: "qcm",
-              question: 'Antes de que nosotros ___, hay que préparer tout.',
-              options: ["salimos", "salgamos", "saldríamos", "saldremos"],
-              correctAnswer: "salgamos",
-              explanation:
-                '"Antes de que" appelle le subjonctif : salgamos.',
+              type: "vrai-faux",
+              question: 'La phrase "Es mejor que tú estudias más" est correcte.',
+              options: ["Vrai", "Faux"],
+              correctAnswer: "Faux",
+              explanation: "On doit dire : Es mejor que tú estudies más.",
             },
             {
               id: "e15",
-              type: "texte-a-trous-select",
-              question:
-                "Complète : Dudo que él ___ razón, pero quiero que tú lo ___.",
-              options: ["tenga", "entiendas", "tiene", "entiendes", "tenía", "entenderás"],
-              correctAnswer: ["tenga", "entiendas"],
-              explanation:
-                "Dudo que... → tenga ; quiero que... → entiendas : deux subjonctifs dans la même phrase.",
+              type: "ordre",
+              question: "Remets la phrase correcte dans l'ordre.",
+              options: [
+                "Dudo",
+                "que",
+                "ellos",
+                "tengan",
+                "razón",
+              ],
+              correctAnswer: ["Dudo", "que", "ellos", "tengan", "razón"],
+              explanation: "Avec dudo que, on met tengan.",
             },
           ],
         },

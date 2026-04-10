@@ -160,6 +160,8 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
   const [sliderValue, setSliderValue] = useState<number>(0);
   // texte-a-trous-select (Duolingo style): array of chosen words per blank slot
   const [tatsChosen, setTatsChosen] = useState<(string | null)[]>([]);
+  // conjugaison: free-text inputs (single or multiple)
+  const [conjugaisonValues, setConjugaisonValues] = useState<string[]>([]);
 
   const sensors = useSensors(
     // distance: 12px prevents accidental drag activation on tap/scroll on mobile while remaining accessible
@@ -178,6 +180,7 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
     setShowHint(false);
     setNombreValue("");
     setTatsChosen([]);
+    setConjugaisonValues([]);
     if (question?.type === "ordre" && question.options) {
       setOrdreItems(shuffle(question.options));
     }
@@ -190,12 +193,23 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
       const blanksCount = Array.isArray(question.correctAnswer) ? question.correctAnswer.length : 1;
       setTatsChosen(Array(blanksCount).fill(null));
     }
+    if (question?.type === "conjugaison" && question.correctAnswer) {
+      const fieldsCount = Array.isArray(question.correctAnswer) ? question.correctAnswer.length : 1;
+      setConjugaisonValues(Array(fieldsCount).fill(""));
+    }
   }, [currentIndex, sessionQuestions]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Shuffled right column for association (stable per question, recomputed on question change)
   const shuffledRightItems = useMemo(() => {
     if (!question?.pairs) return [];
-    return shuffle(question.pairs.map((p) => p.right));
+    return shuffle(
+      question.pairs.map((p, index) => ({
+        id: `pair-${index}-${p.right}`,
+        right: p.right,
+        correctLeft: p.left,
+        pairIndex: index,
+      }))
+    );
   }, [currentIndex, sessionQuestions]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // ── Early return (after all hooks) ────────────────────────────────────────
@@ -566,18 +580,15 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
   const renderAssociation = () => {
     if (!question.pairs) return null;
     const allMatched = Object.keys(assocMatches).length === question.pairs.length;
-    const matchedRights = new Set(Object.values(assocMatches));
+    const matchedRightIds = new Set(Object.values(assocMatches));
 
     // Assign a stable color per pair (by index in question.pairs)
     const getPairColorByLeft = (leftKey: string) => {
       const idx = question.pairs!.findIndex((p) => p.left === leftKey);
       return idx >= 0 ? PAIR_COLORS[idx % PAIR_COLORS.length] : null;
     };
-    const getLeftKeyForRight = (rightValue: string) =>
-      Object.keys(assocMatches).find((k) => assocMatches[k] === rightValue);
-    // Correct pair number (index + 1 in question.pairs) — only shown after submit
-    const getCorrectPairNumber = (leftKey: string) =>
-      question.pairs!.findIndex((p) => p.left === leftKey) + 1;
+    const getLeftKeyForRightId = (rightId: string) =>
+      Object.keys(assocMatches).find((k) => assocMatches[k] === rightId);
 
     const handleLeftClick = (left: string) => {
       if (showFeedback) return;
@@ -585,23 +596,33 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
       setAssocSelected((prev) => (prev === left ? null : left));
     };
 
-    const handleRightClick = (right: string) => {
+    const handleRightClick = (rightId: string) => {
       if (showFeedback || !assocSelected) return;
-      setAssocMatches((prev) => ({ ...prev, [assocSelected]: right }));
+      setAssocMatches((prev) => {
+        const next = { ...prev };
+        // If this right tile is already assigned, release previous left first
+        const previousLeft = Object.keys(next).find((left) => next[left] === rightId);
+        if (previousLeft) delete next[previousLeft];
+        next[assocSelected] = rightId;
+        return next;
+      });
       setAssocSelected(null);
     };
 
     const handleValidate = () => {
       if (!question.pairs) return;
-      const correct = question.pairs.every((p) => assocMatches[p.left] === p.right);
+      const correct = question.pairs.every((p) => {
+        const matchedRightId = assocMatches[p.left];
+        const matchedTile = shuffledRightItems.find((item) => item.id === matchedRightId);
+        return matchedTile?.correctLeft === p.left;
+      });
       handleQuestionResult(correct, question.id);
     };
 
     // After submit: show which pairs were supposed to go together using correct pair numbers
     const correctPairNumberForLeft = (left: string) =>
       question.pairs!.findIndex((p) => p.left === left) + 1;
-    const correctPairNumberForRight = (right: string) =>
-      question.pairs!.findIndex((p) => p.right === right) + 1;
+    const correctPairNumberForRight = (pairIndex: number) => pairIndex + 1;
 
     return (
       <div className="space-y-3">
@@ -665,14 +686,16 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
 
           {/* Right column */}
           <div className="space-y-2">
-            {shuffledRightItems.map((right) => {
-              const isUsed = matchedRights.has(right);
-              const correctLeft = question.pairs?.find((p) => p.right === right)?.left;
-              const leftKey = getLeftKeyForRight(right);
+            {shuffledRightItems.map((rightItem) => {
+              const isUsed = matchedRightIds.has(rightItem.id);
+              const leftKey = getLeftKeyForRightId(rightItem.id);
               const color = isUsed && leftKey ? getPairColorByLeft(leftKey) : null;
-              const matchedCorrectly = showFeedback && correctLeft !== undefined && assocMatches[correctLeft] === right;
+              const matchedCorrectly =
+                showFeedback &&
+                leftKey !== undefined &&
+                rightItem.correctLeft === leftKey;
               const matchedWrong = showFeedback && isUsed && !matchedCorrectly;
-              const correctNum = correctPairNumberForRight(right);
+              const correctNum = correctPairNumberForRight(rightItem.pairIndex);
 
               let style = "border-warm-200 bg-warm-50 text-warm-800";
               if (matchedCorrectly) {
@@ -691,8 +714,8 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
 
               return (
                 <button
-                  key={right}
-                  onClick={() => handleRightClick(right)}
+                  key={rightItem.id}
+                  onClick={() => handleRightClick(rightItem.id)}
                   disabled={showFeedback || (isUsed && !assocSelected) || (!isUsed && !assocSelected)}
                   className={cn(
                     "w-full rounded-xl border-2 px-3 py-2 text-left text-xs font-medium transition-all leading-tight",
@@ -712,7 +735,7 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
                         {correctNum}
                       </span>
                     )}
-                    <span>{right}</span>
+                    <span>{rightItem.right}</span>
                   </span>
                 </button>
               );
@@ -1032,20 +1055,26 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
       : [String(question.correctAnswer)];
     const blanksCount = correctAnswers.length;
     const chosen = tatsChosen.length === blanksCount ? tatsChosen : Array(blanksCount).fill(null);
-    const usedWords = chosen.filter(Boolean) as string[];
+    const tileBank = (question.options ?? []).map((word, index) => ({
+      id: `tile-${index}-${word}`,
+      word,
+    }));
+    const wordById = new Map(tileBank.map((tile) => [tile.id, tile.word]));
+    const chosenWords = chosen.map((tileId) => (tileId ? wordById.get(tileId) ?? null : null));
+    const usedTileIds = new Set(chosen.filter(Boolean) as string[]);
     const allFilled = chosen.every((v) => v !== null);
 
     // Split question text on ___ markers
     const parts = question.question.split("___");
 
-    const handleTileClick = (word: string) => {
+    const handleTileClick = (tileId: string) => {
       if (showFeedback) return;
       // Find first empty slot
       setTatsChosen((prev) => {
         const next = [...prev];
         const firstEmpty = next.findIndex((v) => v === null);
         if (firstEmpty !== -1) {
-          next[firstEmpty] = word;
+          next[firstEmpty] = tileId;
         }
         return next;
       });
@@ -1063,7 +1092,7 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
 
     const handleValidate = () => {
       if (showFeedback || !allFilled) return;
-      const isCorrect = correctAnswers.every((a, i) => chosen[i] === a);
+      const isCorrect = correctAnswers.every((a, i) => chosenWords[i] === a);
       handleQuestionResult(isCorrect, question.id);
     };
 
@@ -1080,18 +1109,18 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
                 <button
                   onClick={() => handleBlankClick(i)}
                   disabled={showFeedback}
-                  className={cn(
-                    "inline-flex items-center mx-1 min-w-[6rem] rounded-lg border-2 px-2 py-0.5 text-sm font-bold transition-all",
-                    showFeedback
-                      ? chosen[i] === correctAnswers[i]
-                        ? "border-success-500 bg-success-100 text-success-700"
-                        : "border-red-400 bg-red-50 text-red-700"
-                      : chosen[i]
-                        ? "border-accent-400 bg-accent-50 text-accent-700"
-                        : "border-warm-300 bg-white text-warm-400 italic"
-                  )}
+                    className={cn(
+                      "inline-flex items-center mx-1 min-w-[6rem] rounded-lg border-2 px-2 py-0.5 text-sm font-bold transition-all",
+                      showFeedback
+                        ? chosenWords[i] === correctAnswers[i]
+                          ? "border-success-500 bg-success-100 text-success-700"
+                          : "border-red-400 bg-red-50 text-red-700"
+                        : chosenWords[i]
+                          ? "border-accent-400 bg-accent-50 text-accent-700"
+                          : "border-warm-300 bg-white text-warm-400 italic"
+                    )}
                 >
-                  {chosen[i] ?? "___"}
+                  {chosenWords[i] ?? "___"}
                 </button>
               )}
             </span>
@@ -1101,12 +1130,12 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
         {/* Word tile bank */}
         {!showFeedback && (
           <div className="flex flex-wrap gap-2">
-            {(question.options ?? []).map((word) => {
-              const isUsed = usedWords.includes(word);
+            {tileBank.map((tile) => {
+              const isUsed = usedTileIds.has(tile.id);
               return (
                 <button
-                  key={word}
-                  onClick={() => !isUsed && handleTileClick(word)}
+                  key={tile.id}
+                  onClick={() => !isUsed && handleTileClick(tile.id)}
                   disabled={isUsed}
                   className={cn(
                     "rounded-full border-2 px-4 py-2 text-sm font-medium transition-all",
@@ -1115,7 +1144,7 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
                       : "border-accent-300 bg-white text-warm-700 hover:border-accent-500 hover:bg-accent-50 active:scale-95"
                   )}
                 >
-                  {word}
+                  {tile.word}
                 </button>
               );
             })}
@@ -1132,6 +1161,103 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
           <button
             onClick={handleValidate}
             className="flex w-full items-center justify-center gap-2 rounded-xl bg-accent-500 px-6 py-3 font-semibold text-white shadow-md transition-all hover:bg-accent-600 active:scale-95"
+          >
+            Valider
+          </button>
+        )}
+      </div>
+    );
+  };
+
+  // ── Conjugaison renderer (free text fields) ────────────────────────────────
+  const renderConjugaison = () => {
+    const correctAnswers = Array.isArray(question.correctAnswer)
+      ? (question.correctAnswer as string[])
+      : [String(question.correctAnswer)];
+    const values =
+      conjugaisonValues.length === correctAnswers.length
+        ? conjugaisonValues
+        : Array(correctAnswers.length).fill("");
+    const fieldLabels =
+      question.options && question.options.length === correctAnswers.length
+        ? question.options
+        : correctAnswers.map((_, index) => `Forme ${index + 1}`);
+    const allFilled = values.every((value) => value.trim().length > 0);
+
+    const normalize = (value: string) =>
+      value
+        .trim()
+        .toLowerCase()
+        .replace(/\s+/g, " ")
+        .normalize("NFC");
+
+    const handleChange = (index: number, value: string) => {
+      if (showFeedback) return;
+      setConjugaisonValues((prev) => {
+        const next = [...prev];
+        next[index] = value;
+        return next;
+      });
+    };
+
+    const handleValidate = () => {
+      if (showFeedback || !allFilled) return;
+      const isCorrect = correctAnswers.every(
+        (answer, index) => normalize(values[index] ?? "") === normalize(answer)
+      );
+      setSelectedAnswer(values.join("|||"));
+      handleQuestionResult(isCorrect, question.id);
+    };
+
+    return (
+      <div className="space-y-3">
+        <p className="text-xs text-warm-500">
+          Tape la/les forme(s) au subjonctif. Accents acceptés selon l&apos;orthographe attendue.
+        </p>
+        <div className="space-y-2">
+          {fieldLabels.map((label, index) => {
+            const current = values[index] ?? "";
+            const expected = correctAnswers[index] ?? "";
+            const isCorrect = normalize(current) === normalize(expected);
+            return (
+              <label key={`${label}-${index}`} className="flex flex-col gap-1">
+                <span className="text-xs font-medium text-warm-600">{label}</span>
+                <input
+                  type="text"
+                  value={current}
+                  onChange={(e) => handleChange(index, e.target.value)}
+                  disabled={showFeedback}
+                  className={cn(
+                    "w-full rounded-xl border-2 px-3 py-2 text-sm outline-none transition-colors",
+                    showFeedback
+                      ? isCorrect
+                        ? "border-success-500 bg-success-50 text-success-700"
+                        : "border-red-400 bg-red-50 text-red-700"
+                      : "border-warm-300 bg-white text-warm-800 focus:border-accent-400"
+                  )}
+                  placeholder="Écris ta réponse"
+                  autoComplete="off"
+                />
+              </label>
+            );
+          })}
+        </div>
+        {showFeedback && (
+          <p className="text-sm text-warm-600">
+            Réponses attendues :{" "}
+            <strong className="text-warm-800">{correctAnswers.join(" • ")}</strong>
+          </p>
+        )}
+        {!showFeedback && (
+          <button
+            onClick={handleValidate}
+            disabled={!allFilled}
+            className={cn(
+              "flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3 font-semibold text-white shadow-md transition-all",
+              allFilled
+                ? "bg-accent-500 hover:bg-accent-600 active:scale-95"
+                : "bg-warm-300 cursor-not-allowed"
+            )}
           >
             Valider
           </button>
@@ -1217,6 +1343,9 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
           {question.type === "texte-a-trous-select" && (
             <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-700">Place les mots</span>
           )}
+          {question.type === "conjugaison" && (
+            <span className="rounded-full bg-cyan-100 px-2 py-0.5 text-xs font-medium text-cyan-700">Conjugaison écrite</span>
+          )}
           {question.type === "association" && (
             <span className="rounded-full bg-purple-100 px-2 py-0.5 text-xs font-medium text-purple-700">Association</span>
           )}
@@ -1248,6 +1377,7 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
         {(question.type === "qcm" || question.type === "vrai-faux") && renderQcm()}
         {question.type === "texte-a-trous" && renderTexteATrous()}
         {question.type === "texte-a-trous-select" && renderTexteATrousSelect()}
+        {question.type === "conjugaison" && renderConjugaison()}
         {question.type === "association" && renderAssociation()}
         {question.type === "qcm-multiple" && renderQcmMultiple()}
         {question.type === "ordre" && renderOrdre()}
