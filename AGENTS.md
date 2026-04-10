@@ -91,7 +91,7 @@ Quiz files are stored as JSON in `src/data/quizzes/` for reuse across resource e
 - **15–20 distinct questions per pool (strict minimum)**:
   - For **leveled quizzes** (with `levels`): each level must have **at least 15 questions** (20 is better)
   - For **flat quizzes** (no levels): the root `questions` array must have at least 15 questions
-- **Use all available question types** — aim to cover as many as possible per quiz:
+- **Use question types that fit the learning goal** — variety is encouraged, but not mandatory for every quiz:
   - `qcm` — QCM classique (1 bonne réponse)
   - `vrai-faux` — Vrai ou Faux
   - `texte-a-trous` — cliquer la bonne option pour remplir un blanc
