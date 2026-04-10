@@ -71,6 +71,7 @@ export interface QuizQuestion {
     | "vrai-faux"
     | "texte-a-trous"
     | "texte-a-trous-select"
+    | "conjugaison"
     | "association"
     | "qcm-multiple"
     | "ordre"
