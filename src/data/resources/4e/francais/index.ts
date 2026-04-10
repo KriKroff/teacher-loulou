@@ -596,7 +596,7 @@ Attention au **double i** avec nous et vous !
               id: "f12",
               question: "Quelle est la terminaison de l'imparfait pour « vous » ?",
               type: "qcm",
-              options: ["-iez", "-ez", "-ais", "-iez"],
+              options: ["-iez", "-ez", "-ais", "-ions"],
               correctAnswer: "-iez",
               explanation:
                 "Avec « vous », la terminaison de l'imparfait est toujours -iez.",
@@ -732,7 +732,7 @@ Attention au **double i** avec nous et vous !
               id: "i4",
               question: "Comment conjugue-t-on « manger » avec « je » à l'imparfait ?",
               type: "qcm",
-              options: ["Je mangeais", "Je mangais", "Je mangeai", "Je mangais"],
+              options: ["Je mangeais", "Je mangais", "Je mangeai", "Je mangé"],
               correctAnswer: "Je mangeais",
               explanation:
                 "Les verbes en -ger gardent le « e » devant « a » pour conserver le son « j » : je mangeais.",
@@ -931,7 +931,7 @@ Attention au **double i** avec nous et vous !
               id: "i20",
               question: "Quel est le radical de « pouvoir » à l'imparfait ?",
               type: "qcm",
-              options: ["pouv-", "pouv-", "peuv-", "peut-"],
+              options: ["pouv-", "pouvoi-", "peuv-", "peut-"],
               correctAnswer: "pouv-",
               explanation:
                 "Nous pouvons → on enlève -ons → radical = pouv-. Je pouvais, tu pouvais, il pouvait…",
