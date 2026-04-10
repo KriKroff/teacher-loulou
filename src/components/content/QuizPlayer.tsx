@@ -204,7 +204,7 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
     if (!question?.pairs) return [];
     return shuffle(
       question.pairs.map((p, index) => ({
-        id: `pair-${index}-${p.right}`,
+        id: `pair-${index}`,
         right: p.right,
         correctLeft: p.left,
         pairIndex: index,
@@ -1056,7 +1056,7 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
     const blanksCount = correctAnswers.length;
     const chosen = tatsChosen.length === blanksCount ? tatsChosen : Array(blanksCount).fill(null);
     const tileBank = (question.options ?? []).map((word, index) => ({
-      id: `tile-${index}-${word}`,
+      id: `tile-${index}`,
       word,
     }));
     const wordById = new Map(tileBank.map((tile) => [tile.id, tile.word]));

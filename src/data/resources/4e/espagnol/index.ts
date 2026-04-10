@@ -189,7 +189,7 @@ Terminaisons : **-a, -as, -a, -amos, -áis, -an**
                 { left: "nosotros", right: "-emos" },
               ],
               options: ["-e", "-es", "-e", "-emos"],
-              correctAnswer: "association",
+              correctAnswer: ["-e", "-es", "-e", "-emos"],
               explanation: "Attention : -e apparaît deux fois (yo et él/ella).",
             },
             {
@@ -335,7 +335,7 @@ Terminaisons : **-a, -as, -a, -amos, -áis, -an**
                 { left: "poner", right: "pong-" },
               ],
               options: ["teng-", "hag-", "veng-", "pong-"],
-              correctAnswer: "association",
+              correctAnswer: ["teng-", "hag-", "veng-", "pong-"],
               explanation: "Ces bases viennent de la forme yo du présent.",
             },
             {
@@ -489,7 +489,7 @@ Terminaisons : **-a, -as, -a, -amos, -áis, -an**
                 { left: "Ojalá (que)...", right: "souhait" },
               ],
               options: ["doute", "émotion", "obligation", "souhait"],
-              correctAnswer: "association",
+              correctAnswer: ["doute", "émotion", "obligation", "souhait"],
               explanation: "Identifier la valeur aide à choisir le mode.",
             },
             {
