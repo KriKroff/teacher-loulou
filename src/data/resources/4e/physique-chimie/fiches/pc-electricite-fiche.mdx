@@ -1,0 +1,144 @@
+# Électricité — Circuits, courant, tension et résistance
+
+*Fiche de révision complète — 5 parties*
+
+---
+
+<Section color="purple" emoji="🔌" index={1} title="Les composants électriques et leurs symboles" />
+
+Un **circuit électrique** est formé de composants reliés par des fils conducteurs.
+
+| Composant | Symbole | Rôle |
+|-----------|---------|------|
+| **Générateur (pile)** | ─┤├─ (longue = +, courte = –) | Fournit l'énergie électrique |
+| **Interrupteur ouvert** | ─/ ─ | Coupe le circuit |
+| **Interrupteur fermé** | ─┤─ | Ferme le circuit |
+| **Lampe (ampoule)** | ─⊗─ | Convertit énergie électrique → lumière |
+| **Résistance** | ─⬜─ | Limite l'intensité du courant |
+| **LED / DEL (diode électroluminescente)** | ─▷\|─ | Émet de la lumière dans un seul sens |
+| **Moteur** | ─(M)─ | Convertit énergie électrique → mécanique |
+| **Ampèremètre** | ─(A)─ | Mesure l'intensité I (branché en série) |
+| **Voltmètre** | ─(V)─ | Mesure la tension U (branché en dérivation) |
+| **Fil conducteur** | ─────── | Relie les composants |
+
+<Retenir color="purple">
+**À retenir :** L'ampèremètre se branche **en série** (dans le circuit). Le voltmètre se branche **en dérivation** (aux bornes du composant à mesurer).
+</Retenir>
+
+---
+
+<Section color="blue" emoji="🔄" index={2} title="Les types de circuits" />
+
+**Circuit en série**
+
+Tous les composants sont reliés les uns à la suite des autres, sur une seule boucle. Si un composant est retiré ou défaillant, le circuit est interrompu : plus rien ne fonctionne.
+
+**Circuit en dérivation (parallèle)**
+
+Les composants sont reliés sur des branches parallèles. Si une branche est interrompue, les autres branches continuent de fonctionner. C'est le principe des installations électriques à la maison.
+
+<Retenir color="blue">
+**Série :** une seule boucle, tout s'arrête si un composant lâche.
+
+**Dérivation :** plusieurs branches, les autres fonctionnent si une branche est coupée.
+</Retenir>
+
+<CircuitComparisonDiagram />
+
+---
+
+<Section color="green" emoji="⚡" index={3} title="L'intensité du courant électrique (I)" />
+
+L'intensité du courant représente la quantité de charges électriques qui traverse un conducteur par seconde.
+
+- **Symbole :** I
+- **Unité :** ampère (A) — sous-multiple : milliampère (mA), 1 A = 1000 mA
+- **Instrument de mesure :** ampèremètre (branché **en série**)
+
+**Loi de l'unicité de l'intensité (circuit série)**
+
+Dans un circuit en série, l'intensité est la **même** en tout point du circuit.
+
+$$I_1 = I_2 = I_3 = \dots$$
+
+**Loi d'additivité des intensités (circuit en dérivation)**
+
+Dans un circuit en dérivation, l'intensité dans la branche principale est égale à la **somme** des intensités dans les branches dérivées.
+
+$$I = I_1 + I_2$$
+
+<Retenir color="green">
+**Série :** I identique partout.
+
+**Dérivation :** $I_{total} = I_1 + I_2$ (les intensités s'additionnent).
+</Retenir>
+
+---
+
+<Section color="orange" emoji="🔋" index={4} title="La tension électrique (U)" />
+
+La tension électrique représente la « poussée » qui fait circuler les charges électriques dans le circuit.
+
+- **Symbole :** U
+- **Unité :** volt (V)
+- **Instrument de mesure :** voltmètre (branché **en dérivation**, aux bornes du composant)
+
+**Loi d'additivité des tensions (circuit série)**
+
+Dans un circuit en série, la tension du générateur est égale à la **somme** des tensions aux bornes de chaque composant.
+
+$$U_{générateur} = U_1 + U_2 + U_3$$
+
+**Loi de l'égalité des tensions (circuit en dérivation)**
+
+Dans un circuit en dérivation, la tension est **identique** aux bornes de toutes les branches.
+
+$$U_1 = U_2 = U_{générateur}$$
+
+<Retenir color="orange">
+**Série :** les tensions s'additionnent.
+
+**Dérivation :** la tension est la même sur chaque branche.
+</Retenir>
+
+---
+
+<Section color="rose" emoji="🧮" index={5} title="La résistance et la loi d'Ohm" />
+
+La résistance d'un dipôle est la grandeur qui caractérise sa capacité à s'opposer au passage du courant.
+
+- **Symbole :** R
+- **Unité :** ohm (Ω)
+- **Composant :** résistance (symbole : rectangle)
+
+**La loi d'Ohm**
+
+La tension aux bornes d'une résistance est proportionnelle à l'intensité du courant qui la traverse.
+
+<Formule>
+$$U = R \times I$$
+
+où U est en volts (V), R en ohms (Ω) et I en ampères (A).
+</Formule>
+
+On peut dériver :
+
+$$R = \frac{U}{I} \quad \text{et} \quad I = \frac{U}{R}$$
+
+<Astuce title="Astuce mémo">
+Le triangle magique : mets **U** en haut, **R** et **I** en bas. Cache la grandeur à calculer pour trouver la formule.
+</Astuce>
+
+<OhmsTriangleDiagram />
+
+| Trouver | Formule |
+|---------|---------|
+| U | $U = R \times I$ |
+| R | $R = U \div I$ |
+| I | $I = U \div R$ |
+
+<Erreur title="Erreur fréquente">
+Ne pas confondre l'ampèremètre (en série, mesure I) et le voltmètre (en dérivation, mesure U). Brancher un voltmètre en série peut endommager le circuit.
+</Erreur>
+
+<QuizLink level="4e" subject="physique-chimie" slug="pc-electricite-quiz" />

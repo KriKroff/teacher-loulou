@@ -12,9 +12,10 @@ export const resources: Resource[] = [
     subject: "svt",
     chapter: "Chapitre 6 — Puberté et reproduction",
     createdAt: "2026-03-29T10:00:00Z",
-    updatedAt: "2026-03-29T10:00:00Z",
+    updatedAt: "2026-04-25T00:00:00Z",
     tags: ["puberté", "reproduction", "hormones", "cycle", "fiche"],
     mdxPath: "4e/svt/fiches/svt-puberte-reproduction-fiche.mdx",
+    relatedResourceSlug: "svt-puberte-quiz",
   },
 
   // ─── QUIZ UNIFIÉ (3 niveaux) ────────────────────────────────────────────────
@@ -30,6 +31,7 @@ export const resources: Resource[] = [
     createdAt: "2026-03-29T11:00:00Z",
     updatedAt: "2026-03-29T11:00:00Z",
     tags: ["puberté", "reproduction", "quiz"],
+    relatedResourceSlug: "svt-puberte-reproduction-fiche",
     quizData: {
       title: "Quiz — Puberté et reproduction",
       description:
@@ -308,6 +310,70 @@ export const resources: Resource[] = [
               correctAnswer: ["Ovaire", "Trompe de Fallope", "Utérus"],
               explanation:
                 "L'ovule est libéré par l'ovaire, puis captée par la trompe de Fallope (où peut avoir lieu la fécondation), puis migre vers l'utérus.",
+            },
+            {
+              id: "f23",
+              question: "L'hypophyse est une glande située dans le cerveau.",
+              type: "vrai-faux",
+              options: ["Vrai", "Faux"],
+              correctAnswer: "Vrai",
+              explanation:
+                "L'hypophyse est bien une glande du cerveau. Elle contrôle la production des hormones sexuelles en commandant les gonades (testicules et ovaires).",
+            },
+            {
+              id: "f24",
+              question:
+                "Quelle glande du cerveau contrôle la production de testostérone ?",
+              type: "qcm",
+              options: ["Hypophyse", "Thyroïde", "Épiphyse", "Prostate"],
+              correctAnswer: "Hypophyse",
+              explanation:
+                "L'hypophyse est la glande du cerveau qui envoie des hormones aux testicules pour déclencher la production de testostérone.",
+              hint: "C'est une glande dans le cerveau, pas dans les organes sexuels.",
+            },
+            {
+              id: "f25",
+              question:
+                "Dans une FIV, la fécondation a lieu dans l'utérus de la femme.",
+              type: "vrai-faux",
+              options: ["Vrai", "Faux"],
+              correctAnswer: "Faux",
+              explanation:
+                "Dans une FIV (Fécondation In Vitro), la fécondation a lieu en laboratoire, hors de l'organisme. L'embryon est ensuite transféré dans l'utérus.",
+            },
+            {
+              id: "f26",
+              question: "Que signifie FIV ?",
+              type: "qcm",
+              options: [
+                "Fécondation In Vitro",
+                "Fertilisation Interne Vaginale",
+                "Fécondation Interne Variée",
+                "Fœtus Implanté Vivant",
+              ],
+              correctAnswer: "Fécondation In Vitro",
+              explanation:
+                "FIV = Fécondation In Vitro. « In vitro » signifie « en verre » en latin — la fécondation est réalisée en laboratoire (dans une boîte de Petri).",
+            },
+            {
+              id: "f27",
+              question:
+                "L'hypophyse envoie des hormones aux ___ pour déclencher la puberté.",
+              type: "texte-a-trous",
+              options: ["gonades", "reins", "poumons", "intestins"],
+              correctAnswer: "gonades",
+              explanation:
+                "L'hypophyse envoie des hormones aux gonades (testicules chez le garçon, ovaires chez la fille) pour déclencher la puberté.",
+            },
+            {
+              id: "f28",
+              question:
+                "La PMA peut aider aussi bien en cas de stérilité masculine que féminine.",
+              type: "vrai-faux",
+              options: ["Vrai", "Faux"],
+              correctAnswer: "Vrai",
+              explanation:
+                "La PMA peut aider dans les deux cas : stérilité masculine (spermatozoïdes absents ou anormaux) et stérilité féminine (ovules absents ou trompes bouchées).",
             },
           ],
         },
@@ -662,6 +728,120 @@ export const resources: Resource[] = [
                 "Les testicules fabriquent les spermatozoïdes. L'épididyme les stocke et les rend mobiles. Le canal déférent les transporte vers la prostate. L'urètre les expulse.",
               hint: "Les testicules sont dans le scrotum, en bas du schéma.",
             },
+            {
+              id: "m23",
+              question:
+                "Quel est le rôle principal de l'hypophyse dans la reproduction ?",
+              type: "qcm",
+              options: [
+                "Produire des spermatozoïdes",
+                "Contrôler les hormones sexuelles via les gonades",
+                "Fabriquer le liquide séminal",
+                "Stocker les ovules",
+              ],
+              correctAnswer: "Contrôler les hormones sexuelles via les gonades",
+              explanation:
+                "L'hypophyse ne produit pas directement les gamètes ni les hormones sexuelles. Elle envoie des hormones aux gonades (testicules/ovaires) qui, elles, produisent testostérone et œstrogènes.",
+            },
+            {
+              id: "m24",
+              question:
+                "Chez la fille, l'hypophyse stimule les ___ pour produire des œstrogènes.",
+              type: "texte-a-trous",
+              options: ["ovaires", "trompes", "reins", "glandes surrénales"],
+              correctAnswer: "ovaires",
+              explanation:
+                "L'hypophyse commande les ovaires. Les ovaires répondent en produisant des œstrogènes, qui déclenchent les transformations de la puberté féminine et contrôlent le cycle menstruel.",
+            },
+            {
+              id: "m25",
+              question: "Dans une FIV, où est réalisée la fécondation ?",
+              type: "qcm",
+              options: [
+                "Dans les trompes de Fallope",
+                "Dans l'utérus",
+                "En laboratoire",
+                "Dans l'ovaire",
+              ],
+              correctAnswer: "En laboratoire",
+              explanation:
+                "FIV = Fécondation In Vitro. La fécondation se déroule en laboratoire (hors de l'organisme). C'est justement l'intérêt de cette technique quand les trompes sont bouchées.",
+            },
+            {
+              id: "m26",
+              question:
+                "Après une FIV, que fait-on de l'embryon obtenu en laboratoire ?",
+              type: "qcm",
+              options: [
+                "On le congèle définitivement",
+                "On le transfère dans l'utérus de la femme",
+                "On le laisse se développer en laboratoire",
+                "On le réimplante dans l'ovaire",
+              ],
+              correctAnswer: "On le transfère dans l'utérus de la femme",
+              explanation:
+                "Après la fécondation en laboratoire, l'embryon est transféré dans l'utérus de la femme pour s'y implanter et se développer normalement.",
+            },
+            {
+              id: "m27",
+              question:
+                "La PMA ne peut aider qu'en cas de stérilité féminine.",
+              type: "vrai-faux",
+              options: ["Vrai", "Faux"],
+              correctAnswer: "Faux",
+              explanation:
+                "La PMA peut aider dans les deux cas : stérilité féminine (ovules ou trompes) ET stérilité masculine (spermatozoïdes absents ou anormaux). La FIV contourne les deux problèmes.",
+            },
+            {
+              id: "m28",
+              question:
+                "Classe chaque élément dans la bonne catégorie : chez le garçon ou chez la fille.",
+              type: "tri-categories",
+              categories: [
+                {
+                  id: "garcon",
+                  label: "Chez le garçon",
+                  correctItemIds: [
+                    "testosteroneItem",
+                    "testiculeItem",
+                    "spermatogeneseItem",
+                  ],
+                },
+                {
+                  id: "fille",
+                  label: "Chez la fille",
+                  correctItemIds: ["oestrogeItem", "ovaireItem", "cycleItem"],
+                },
+              ],
+              items: [
+                { id: "testosteroneItem", label: "Testostérone" },
+                { id: "oestrogeItem", label: "Œstrogènes" },
+                { id: "testiculeItem", label: "Testicules" },
+                { id: "ovaireItem", label: "Ovaires" },
+                { id: "spermatogeneseItem", label: "Spermatogenèse" },
+                { id: "cycleItem", label: "Cycle menstruel" },
+              ],
+              correctAnswer: "tri-categories",
+              explanation:
+                "Chez le garçon : testicules → testostérone → spermatogenèse. Chez la fille : ovaires → œstrogènes → cycle menstruel. Dans les deux cas, tout est contrôlé par l'hypophyse.",
+            },
+            {
+              id: "m29",
+              question: "Remets dans l'ordre les étapes d'une FIV.",
+              type: "ordre",
+              options: [
+                "Fécondation en laboratoire",
+                "Transfert de l'embryon dans l'utérus",
+                "Prélèvement des gamètes",
+              ],
+              correctAnswer: [
+                "Prélèvement des gamètes",
+                "Fécondation en laboratoire",
+                "Transfert de l'embryon dans l'utérus",
+              ],
+              explanation:
+                "Une FIV se déroule en 3 étapes : 1) prélèvement des ovules et spermatozoïdes, 2) fécondation en laboratoire pour obtenir un embryon, 3) transfert de l'embryon dans l'utérus.",
+            },
           ],
         },
         {
@@ -955,6 +1135,124 @@ export const resources: Resource[] = [
               ],
               explanation:
                 "La méthode suit toujours cet ordre : 1. Présenter le document → 2. Je vois que (observation chiffrée) → 3. Or je sais que (connaissance de cours) → 4. J'en conclus que (conclusion).",
+            },
+            {
+              id: "e21",
+              question:
+                "Un couple consulte un médecin : les spermatozoïdes de l'homme sont anormaux et peu mobiles. Quelle technique de PMA peut les aider ?",
+              type: "qcm",
+              options: [
+                "FIV (Fécondation In Vitro)",
+                "Transplantation d'ovaires",
+                "Greffe de testicules",
+                "Hormonothérapie seule",
+              ],
+              correctAnswer: "FIV (Fécondation In Vitro)",
+              explanation:
+                "La FIV permet de réaliser la fécondation en laboratoire même avec des spermatozoïdes peu mobiles ou anormaux. C'est précisément l'un des cas où la PMA est indiquée.",
+            },
+            {
+              id: "e22",
+              question:
+                "Les trompes de Fallope d'une femme sont obstruées. Quel problème cela pose-t-il pour une fécondation naturelle ?",
+              type: "qcm",
+              options: [
+                "L'ovule ne peut pas rejoindre les spermatozoïdes : pas de fécondation possible",
+                "Les spermatozoïdes ne peuvent pas être produits",
+                "L'utérus ne peut pas accueillir l'embryon",
+                "L'hypophyse ne peut plus envoyer d'hormones",
+              ],
+              correctAnswer:
+                "L'ovule ne peut pas rejoindre les spermatozoïdes : pas de fécondation possible",
+              explanation:
+                "La fécondation naturelle se déroule dans les trompes. Si elles sont bouchées, l'ovule et les spermatozoïdes ne peuvent pas se rencontrer. Une FIV contourne ce problème en réalisant la fécondation en laboratoire.",
+            },
+            {
+              id: "e23",
+              question:
+                "Quelle hormone, produite par les ovaires sous contrôle de l'hypophyse, déclenche les caractères sexuels féminins ?",
+              type: "qcm",
+              options: ["Testostérone", "Œstrogènes", "Insuline", "Adrénaline"],
+              correctAnswer: "Œstrogènes",
+              explanation:
+                "Les œstrogènes sont les hormones sexuelles féminines. Produites par les ovaires sous contrôle de l'hypophyse, elles déclenchent la puberté féminine (poitrine, hanches…) et régulent le cycle menstruel.",
+            },
+            {
+              id: "e24",
+              question:
+                "Complète le tableau de la chaîne de contrôle hormonal.",
+              type: "completion-tableau",
+              table: {
+                headers: [
+                  "Organe de commande",
+                  "Organe cible",
+                  "Hormone produite",
+                  "Effet principal",
+                ],
+                rows: [
+                  [
+                    { value: "Hypophyse" },
+                    { value: "Testicules" },
+                    { blank: true, correctAnswer: "Testostérone" },
+                    { value: "Puberté masculine + spermatogenèse" },
+                  ],
+                  [
+                    { value: "Hypophyse" },
+                    { blank: true, correctAnswer: "Ovaires" },
+                    { value: "Œstrogènes" },
+                    {
+                      blank: true,
+                      correctAnswer: "Puberté féminine + cycle menstruel",
+                    },
+                  ],
+                ],
+              },
+              correctAnswer: "completion-tableau",
+              explanation:
+                "L'hypophyse commande les gonades : les testicules produisent la testostérone (puberté masculine), les ovaires produisent les œstrogènes (puberté féminine + cycle menstruel).",
+            },
+            {
+              id: "e25",
+              question: "Remets dans l'ordre les 3 étapes d'une FIV.",
+              type: "ordre",
+              options: [
+                "Fécondation en laboratoire",
+                "Prélèvement des ovules et spermatozoïdes",
+                "Transfert de l'embryon dans l'utérus de la femme",
+              ],
+              correctAnswer: [
+                "Prélèvement des ovules et spermatozoïdes",
+                "Fécondation en laboratoire",
+                "Transfert de l'embryon dans l'utérus de la femme",
+              ],
+              explanation:
+                "FIV = 3 étapes : prélèvement des gamètes → fécondation in vitro → transfert de l'embryon. C'est la technique de PMA la plus fréquente.",
+            },
+            {
+              id: "e26",
+              question:
+                "Une FIV peut permettre une grossesse même si les trompes de Fallope sont non fonctionnelles.",
+              type: "vrai-faux",
+              options: ["Vrai", "Faux"],
+              correctAnswer: "Vrai",
+              explanation:
+                "C'est vrai : la FIV contourne complètement les trompes en réalisant la fécondation en laboratoire. L'embryon est ensuite implanté directement dans l'utérus.",
+            },
+            {
+              id: "e27",
+              question:
+                "Quelle est la bonne définition de la stérilité masculine ?",
+              type: "qcm",
+              options: [
+                "Spermatozoïdes absents ou anormaux empêchant la fécondation",
+                "Ovules absents ou ne pouvant pas migrer normalement",
+                "Absence totale d'hormones sexuelles",
+                "Utérus incapable d'accueillir un embryon",
+              ],
+              correctAnswer:
+                "Spermatozoïdes absents ou anormaux empêchant la fécondation",
+              explanation:
+                "La stérilité masculine concerne les spermatozoïdes : absents ou anormaux (trop peu mobiles, forme anormale…). La stérilité féminine concerne les ovules ou leur migration (ex : trompes bouchées).",
             },
           ],
         },

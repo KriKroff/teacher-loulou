@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import type { Resource, QuizLevel, QuizQuestion } from "@/types";
 import { useProgress } from "@/hooks/useProgress";
 import { selectQuizQuestions } from "@/lib/selectQuizQuestions";
-import { getResourcesByLevelAndSubject } from "@/data/resources";
+import { getRelatedResource } from "@/data/resources";
 import { QuizLevelSelect } from "./QuizLevelSelect";
 import { QuizIntro } from "./QuizIntro";
 import { QuizSession } from "./QuizSession";
@@ -55,10 +55,9 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
   if (!quiz) return null;
 
   // Fiche link for navigation between quiz and fiche
-  const ficheResource = getResourcesByLevelAndSubject(resource.level, resource.subject).find(
-    (r) => r.type === "fiche"
-  );
+  const ficheResource = getRelatedResource(resource);
   const ficheHref = ficheResource
+    && ficheResource.type === "fiche"
     ? `/${resource.level}/${resource.subject}/${ficheResource.slug}`
     : null;
 
@@ -133,7 +132,6 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
         quiz={quiz}
         selectedLevel={selectedLevel}
         hasLevels={hasLevels}
-        ficheHref={ficheHref}
         onStart={handleStart}
         onChangeLevel={() => setState("level-select")}
       />

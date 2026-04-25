@@ -43,6 +43,8 @@ export interface Resource {
   externalUrl?: string;
   htmlPath?: string;
   chapter?: string;
+  /** Explicit cross-link to the related fiche/quiz for the same topic */
+  relatedResourceSlug?: string;
 }
 
 export interface QuizLevel {

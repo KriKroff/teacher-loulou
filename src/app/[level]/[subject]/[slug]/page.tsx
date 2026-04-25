@@ -9,7 +9,7 @@ import {
   type SchoolLevel,
   type Subject,
 } from "@/types";
-import { getResourceBySlug, getAllResources, getResourcesByLevelAndSubject } from "@/data/resources";
+import { getResourceBySlug, getAllResources, getRelatedResource } from "@/data/resources";
 import { MdxRenderer } from "@/components/content/MdxRenderer";
 import { QuizPlayer } from "@/components/quiz/QuizPlayer";
 import { ResourceTracker } from "@/components/content/ResourceTracker";
@@ -68,14 +68,16 @@ export default async function ResourcePage({ params }: Props) {
   const levelName = LEVEL_NAMES[resource.level];
   const subjectName = SUBJECT_NAMES[resource.subject];
 
-  const siblings = getResourcesByLevelAndSubject(resource.level, resource.subject);
-  const relatedQuiz = siblings.find((r) => r.type === "quiz");
-  const relatedFiche = siblings.find((r) => r.type === "fiche");
   const isFicheOrCours = resource.type === "cours" || resource.type === "fiche";
   const isFicheOrCoursStandard = isFicheOrCours;
   const isQuiz = resource.type === "quiz";
-  const quizHref = relatedQuiz ? `/${resource.level}/${resource.subject}/${relatedQuiz.slug}` : null;
-  const ficheHref = relatedFiche ? `/${resource.level}/${resource.subject}/${relatedFiche.slug}` : null;
+  const relatedResource = getRelatedResource(resource);
+  const quizHref = relatedResource && relatedResource.type === "quiz"
+    ? `/${resource.level}/${resource.subject}/${relatedResource.slug}`
+    : null;
+  const ficheHref = relatedResource && relatedResource.type === "fiche"
+    ? `/${resource.level}/${resource.subject}/${relatedResource.slug}`
+    : null;
 
   let mdxSource: string | null = null;
   if (resource.mdxPath) {

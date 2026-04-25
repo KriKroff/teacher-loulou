@@ -45,6 +45,17 @@ export function getResourceBySlug(
   );
 }
 
+export function getRelatedResource(resource: Resource): Resource | undefined {
+  if (!resource.relatedResourceSlug) return undefined;
+
+  return allResources.find(
+    (candidate) =>
+      candidate.level === resource.level &&
+      candidate.subject === resource.subject &&
+      candidate.slug === resource.relatedResourceSlug
+  );
+}
+
 export function getAvailableLevels(): SchoolLevel[] {
   const levels = new Set(allResources.map((r) => r.level));
   return Array.from(levels);

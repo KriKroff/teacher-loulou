@@ -1,7 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import { HelpCircle, BookOpen } from "lucide-react";
+import { HelpCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { Quiz, QuizLevel } from "@/types";
 import { RESOURCE_TYPE_NAMES } from "@/types";
@@ -16,26 +15,15 @@ interface QuizIntroProps {
   quiz: Quiz;
   selectedLevel: QuizLevel | null;
   hasLevels: boolean;
-  ficheHref: string | null;
   onStart: () => void;
   onChangeLevel: () => void;
 }
 
-export function QuizIntro({ quiz, selectedLevel, hasLevels, ficheHref, onStart, onChangeLevel }: QuizIntroProps) {
+export function QuizIntro({ quiz, selectedLevel, hasLevels, onStart, onChangeLevel }: QuizIntroProps) {
   const levelBadgeClass = selectedLevel ? (LEVEL_BADGE[selectedLevel.id] ?? "bg-warm-100 text-warm-700") : null;
 
   return (
     <div className="space-y-4">
-      {ficheHref && (
-        <Link
-          href={ficheHref}
-          className="flex items-center justify-center gap-2 rounded-2xl border-2 border-accent-300 bg-accent-50 px-6 py-3 text-sm font-bold text-accent-700 transition-all hover:bg-accent-100 active:scale-95"
-        >
-          <BookOpen className="h-4 w-4" />
-          Revoir la fiche avant de commencer →
-        </Link>
-      )}
-
       <div className="flex items-center gap-3">
         <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-100 text-purple-600">
           <HelpCircle className="h-5 w-5" />

@@ -56,6 +56,24 @@ for (const r of resources) {
 // ── A. Quiz audits ────────────────────────────────────────────────────────────
 
 for (const r of resources) {
+  if (!r.relatedResourceSlug) continue;
+
+  const related = resources.find(
+    (candidate) =>
+      candidate.level === r.level &&
+      candidate.subject === r.subject &&
+      candidate.slug === r.relatedResourceSlug
+  );
+
+  if (!related) {
+    error(
+      `[${r.level}/${r.subject}/${r.slug}] relatedResourceSlug="${r.relatedResourceSlug}" does not resolve to a resource in the same level/subject`
+    );
+    continue;
+  }
+}
+
+for (const r of resources) {
   if (r.type !== "quiz") continue;
   const quiz = r.quizData;
   if (!quiz) {
