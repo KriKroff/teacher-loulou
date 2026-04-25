@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
   basePath: process.env.NEXT_PUBLIC_BASE_PATH || "",
   images: {
     unoptimized: true, // Required for static export
-  },
+  }
 };
 
 export default nextConfig;

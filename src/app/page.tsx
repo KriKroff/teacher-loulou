@@ -8,11 +8,10 @@ export default function HomePage() {
       {/* Hero */}
       <section className="rounded-2xl bg-gradient-to-br from-accent-500 to-accent-700 p-6 text-white shadow-lg sm:p-8">
         <h1 className="mb-2 text-2xl font-bold sm:text-3xl">
-          Bienvenue, Loulou ! 👋
+          Salut ! 👋
         </h1>
         <p className="text-accent-100 text-base sm:text-lg">
-          Prête à apprendre ? Choisis un niveau ou reprends là où tu
-          t&apos;étais arrêtée.
+          Choisis un niveau ou reprends là où tu t&apos;étais arrêté(e).
         </p>
       </section>
 

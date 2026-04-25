@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import type { Resource } from "@/types";
-import { RESOURCE_TYPE_NAMES, SUBJECT_COLORS } from "@/types";
+import { RESOURCE_TYPE_NAMES } from "@/types";
 import {
   BookOpen,
   FileText,

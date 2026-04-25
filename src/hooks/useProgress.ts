@@ -148,6 +148,41 @@ export function useProgress() {
     [progressList]
   );
 
+  /**
+   * Reset quiz progress for a given resource.
+   * If quizLevelId is provided, only that level's history is cleared.
+   * If not, all levels + quizScores are reset.
+   */
+  const resetQuizProgress = useCallback(
+    (resourceSlug: string, quizLevelId?: string) => {
+      setProgressList((prev) =>
+        prev.map((p) => {
+          if (p.resourceSlug !== resourceSlug) return p;
+          if (!quizLevelId) {
+            // Full reset
+            return {
+              ...p,
+              quizScores: [],
+              questionHistory: {},
+              lastAccessedAt: new Date().toISOString(),
+            };
+          }
+          // Level-specific reset
+          const updatedHistory = { ...(p.questionHistory ?? {}) };
+          delete updatedHistory[quizLevelId];
+          // Remove scores (no way to distinguish per-level, so we clear all when targeting a level)
+          return {
+            ...p,
+            quizScores: [],
+            questionHistory: updatedHistory,
+            lastAccessedAt: new Date().toISOString(),
+          };
+        })
+      );
+    },
+    [setProgressList]
+  );
+
   return {
     progressList,
     getProgress,
@@ -155,5 +190,6 @@ export function useProgress() {
     addQuizScore,
     recordQuizSession,
     getCompletedCount,
+    resetQuizProgress,
   };
 }

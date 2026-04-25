@@ -12,73 +12,7 @@ export const resources: Resource[] = [
     createdAt: "2026-03-28T10:00:00Z",
     updatedAt: "2026-03-28T10:00:00Z",
     tags: ["conjugaison", "présent", "verbes"],
-    content: `
-# Le présent de l'indicatif
-
-Le présent de l'indicatif est le temps le plus utilisé en français. Il sert à exprimer :
-
-- Une **action qui se passe maintenant** : *Je mange une pomme.*
-- Une **habitude** : *Je me lève à 7h tous les matins.*
-- Une **vérité générale** : *La Terre tourne autour du Soleil.*
-
----
-
-## Les verbes du 1er groupe (-er)
-
-Les terminaisons sont : **-e, -es, -e, -ons, -ez, -ent**
-
-| Pronom | Chanter |
-|--------|---------|
-| Je | chant**e** |
-| Tu | chant**es** |
-| Il/Elle | chant**e** |
-| Nous | chant**ons** |
-| Vous | chant**ez** |
-| Ils/Elles | chant**ent** |
-
-> **Astuce DYS** : Remarque que je, tu, il/elle ont presque la même terminaison (e, es, e). Retiens : "e, es, e" comme une petite chanson !
-
----
-
-## Les verbes du 2ème groupe (-ir → -issant)
-
-Les terminaisons sont : **-is, -is, -it, -issons, -issez, -issent**
-
-| Pronom | Finir |
-|--------|-------|
-| Je | fin**is** |
-| Tu | fin**is** |
-| Il/Elle | fin**it** |
-| Nous | fin**issons** |
-| Vous | fin**issez** |
-| Ils/Elles | fin**issent** |
-
-> **Astuce** : Au pluriel, on ajoute toujours **-iss-** avant la terminaison !
-
----
-
-## Les verbes du 3ème groupe (irréguliers)
-
-Ce sont les verbes "rebelles" ! Chacun a ses propres terminaisons. Voici les plus courants :
-
-### Être
-Je **suis**, tu **es**, il **est**, nous **sommes**, vous **êtes**, ils **sont**
-
-### Avoir
-J'**ai**, tu **as**, il **a**, nous **avons**, vous **avez**, ils **ont**
-
-### Aller
-Je **vais**, tu **vas**, il **va**, nous **allons**, vous **allez**, ils **vont**
-
----
-
-## Pour bien retenir
-
-1. **Lis à voix haute** les conjugaisons (ça aide beaucoup !)
-2. **Écris** chaque verbe 3 fois
-3. **Invente une phrase** pour chaque personne
-4. Fais le **quiz** associé pour tester tes connaissances !
-    `,
+    mdxPath: "4e/francais/fiches/conjugaison-present-indicatif.mdx",
   },
   {
     slug: "quiz-present-indicatif",
@@ -95,6 +29,7 @@ Je **vais**, tu **vas**, il **va**, nous **allons**, vous **allez**, ils **vont*
       title: "Le présent de l'indicatif",
       description: "10 questions pour maîtriser le présent !",
       passingScore: 60,
+      sessionSize: 10,
       questions: [
         {
           id: "q1",
@@ -189,74 +124,7 @@ Je **vais**, tu **vas**, il **va**, nous **allons**, vous **allez**, ils **vont*
     createdAt: "2026-03-27T14:00:00Z",
     updatedAt: "2026-03-27T14:00:00Z",
     tags: ["littérature", "figures de style", "fiche"],
-    content: `
-# Les figures de style
-
-Les figures de style, c'est comme des **super-pouvoirs** de l'écriture. Elles rendent un texte plus vivant, plus beau, plus fort.
-
----
-
-## La comparaison
-
-On compare deux choses avec un **mot-outil** : *comme, tel que, semblable à, pareil à...*
-
-> *Il est **fort comme** un lion.*
-
-Le mot-outil ici est **"comme"**.
-
----
-
-## La métaphore
-
-C'est une comparaison **sans mot-outil**. C'est plus direct !
-
-> *Cet homme est **un lion**.*
-
-Pas de "comme" → c'est une métaphore.
-
-> **Truc pour s'en souvenir** : Métaphore = comparaison invisible (pas de "comme")
-
----
-
-## La personnification
-
-On donne des **qualités humaines** à un objet ou un animal.
-
-> *Le vent **murmure** entre les arbres.*
-
-Le vent ne peut pas vraiment murmurer, c'est une action humaine !
-
----
-
-## L'hyperbole
-
-On **exagère** pour frapper l'imagination.
-
-> *Je meurs de faim !*
-> *Il pleut des cordes !*
-
-Tu ne meurs pas vraiment... c'est une hyperbole !
-
----
-
-## L'antithèse
-
-On rapproche deux idées **opposées** dans la même phrase.
-
-> *C'est un **petit** pas pour l'homme, un **grand** pas pour l'humanité.*
-
----
-
-## Pour retenir
-
-| Figure | Mot-clé | Exemple rapide |
-|--------|---------|----------------|
-| Comparaison | "comme" | Fort **comme** un lion |
-| Métaphore | Pas de "comme" | Il **est** un lion |
-| Personnification | Objet → humain | Le vent **chante** |
-| Hyperbole | Exagération | Je **meurs** de faim |
-| Antithèse | Opposés | Petit / Grand |
-    `,
+    mdxPath: "4e/francais/fiches/figures-de-style.mdx",
   },
 
   // ─── FICHE DE RÉVISION : L'IMPARFAIT ────────────────────────────────────────
@@ -272,192 +140,7 @@ On rapproche deux idées **opposées** dans la même phrase.
     createdAt: "2026-04-10T18:00:00Z",
     updatedAt: "2026-04-10T18:00:00Z",
     tags: ["conjugaison", "imparfait", "verbes", "fiche"],
-    content: `
-# 📝 L'imparfait de l'indicatif
-
----
-
-## 🔎 Définition
-
-L'imparfait est un **temps du passé**.
-
-Il présente une action passée **sans préciser ni le début ni la fin**.
-
-Il envisage l'action dans la **durée**, de façon étendue.
-
-> 💡 **À retenir** : Imparfait = action passée qui **dure** ou se **répète**.
-
----
-
-## 🎯 Les 3 valeurs de l'imparfait
-
-### Valeur 1 — La description 🏞️
-
-L'imparfait sert à **décrire** un lieu, un paysage ou un personnage.
-
-Il **installe le cadre** d'un récit.
-
-> *La maison **était** grande. Le jardin **s'étendait** à perte de vue.*
-
----
-
-### Valeur 2 — L'habitude ou la répétition 🔁
-
-L'imparfait sert à parler d'**habitudes** du quotidien dans le passé.
-
-On parle aussi de **répétition**, quand une action se répète.
-
-> *Chaque soir, il **fermait** ses volets et **allumait** la lampe.*
-
-Mots-indices : *chaque jour, tous les matins, souvent, d'habitude…*
-
----
-
-### Valeur 3 — L'arrière-plan du récit 🎬
-
-Dans un récit, l'imparfait pose le **décor** et exprime une action qui dure.
-
-Le **passé simple** peut venir **interrompre** l'action soudainement.
-
-> *Il **pleuvait** (imparfait) quand soudain un coup de tonnerre **retentit** (passé simple).*
-
-| Imparfait (décor qui dure) | Passé simple (action soudaine) |
-|---|---|
-| Il **pleuvait** | un coup de tonnerre **retentit** |
-| Les oiseaux **chantaient** | un cri **déchira** le silence |
-
----
-
-## ⚙️ Formation de l'imparfait
-
-### La règle d'or 🥇
-
-> 1. On prend le verbe conjugué avec **« nous »** au **présent**
-> 2. On enlève la terminaison **-ons**
-> 3. On ajoute les terminaisons de l'imparfait
-
-### Les terminaisons à connaître par cœur
-
-| Pronom | Terminaison |
-|--------|-------------|
-| Je | **-ais** |
-| Tu | **-ais** |
-| Il / Elle / On | **-ait** |
-| Nous | **-ions** |
-| Vous | **-iez** |
-| Ils / Elles | **-aient** |
-
-> **Astuce** 🧠 : *Je* et *Tu* ont la **même terminaison** (-ais). *Il/Elle* c'est presque pareil (-ait). Retiens : **« ais, ais, ait »** — ça se prononce pareil !
-
-> **Astuce** 🧠 : Au pluriel, pense à **-ions** pour *nous* et **-iez** pour *vous*. On entend bien le son « i » !
-
----
-
-## 📋 Conjugaisons par groupe
-
-### 1er groupe (-er) : Chanter
-
-Nous chant**ons** au présent → radical = **chant-**
-
-| Pronom | Conjugaison |
-|--------|-------------|
-| Je | chant**ais** |
-| Tu | chant**ais** |
-| Il/Elle | chant**ait** |
-| Nous | chant**ions** |
-| Vous | chant**iez** |
-| Ils/Elles | chant**aient** |
-
----
-
-### 2ème groupe (-ir → -issant) : Finir
-
-Nous fin**issons** au présent → radical = **finiss-**
-
-| Pronom | Conjugaison |
-|--------|-------------|
-| Je | finiss**ais** |
-| Tu | finiss**ais** |
-| Il/Elle | finiss**ait** |
-| Nous | finiss**ions** |
-| Vous | finiss**iez** |
-| Ils/Elles | finiss**aient** |
-
-> **Astuce** 💡 : Le **-iss-** du 2ème groupe est toujours là à l'imparfait ! C'est la marque du 2ème groupe.
-
----
-
-### 3ème groupe : Prendre, Faire, Voir, Pouvoir
-
-| Pronom | Prendre | Faire | Voir | Pouvoir |
-|--------|---------|-------|------|---------|
-| Je | pren**ais** | fais**ais** | voy**ais** | pouv**ais** |
-| Tu | pren**ais** | fais**ais** | voy**ais** | pouv**ais** |
-| Il/Elle | pren**ait** | fais**ait** | voy**ait** | pouv**ait** |
-| Nous | pren**ions** | fais**ions** | voy**ions** | pouv**ions** |
-| Vous | pren**iez** | fais**iez** | voy**iez** | pouv**iez** |
-| Ils/Elles | pren**aient** | fais**aient** | voy**aient** | pouv**aient** |
-
----
-
-### Être et Avoir
-
-| Pronom | Être | Avoir |
-|--------|------|-------|
-| Je/J' | **étais** | av**ais** |
-| Tu | **étais** | av**ais** |
-| Il/Elle | **était** | av**ait** |
-| Nous | **étions** | av**ions** |
-| Vous | **étiez** | av**iez** |
-| Ils/Elles | **étaient** | av**aient** |
-
-> ⚠️ **Attention** : **Être** est le seul verbe avec un radical irrégulier à l'imparfait : **ét-** (on ne dit pas « je sommais » !).
-
-> **Avoir** suit la règle normale : nous av**ons** → radical **av-**.
-
----
-
-## ⚠️ Les pièges à éviter
-
-### Verbes en -ger (manger, nager, voyager…)
-
-On garde le **e** devant **a** pour garder le son « j » :
-
-> Je mang**e**ais, tu mang**e**ais, il mang**e**ait, ils mang**e**aient
-
-> **Mais** : nous mang**ions**, vous mang**iez** *(pas de e car le g devant i est déjà doux)*
-
----
-
-### Verbes en -cer (placer, commencer, lancer…)
-
-On met un **ç** devant **a** pour garder le son « s » :
-
-> Je pla**ç**ais, tu pla**ç**ais, il pla**ç**ait, ils pla**ç**aient
-
-> **Mais** : nous pla**c**ions, vous pla**c**iez *(pas de ç car le c devant i est déjà doux)*
-
----
-
-### Verbes en -ier (crier, étudier, oublier…)
-
-Attention au **double i** avec nous et vous !
-
-> Nous cri**ions** (cri + ions), vous cri**iez** (cri + iez)
-
-> **Astuce** 🧠 : Le premier *i* vient du radical, le deuxième de la terminaison. On ne peut pas en supprimer un !
-
----
-
-## 📝 Pour bien retenir
-
-1. **Lis à voix haute** les conjugaisons — les terminaisons du singulier se prononcent pareil !
-2. **Écris** les terminaisons **-ais, -ais, -ait, -ions, -iez, -aient** plusieurs fois
-3. **Invente des phrases** à l'imparfait pour chaque personne
-4. Fais le **quiz** pour tester tes connaissances !
-
-> 🎯 **Prêt(e) à te tester ?** → [Faire le quiz sur l'imparfait →](/4e/francais/imparfait-indicatif-quiz)
-    `,
+    mdxPath: "4e/francais/fiches/imparfait-indicatif.mdx",
   },
 
   // ─── QUIZ : L'IMPARFAIT DE L'INDICATIF (3 niveaux) ─────────────────────────
@@ -1168,6 +851,133 @@ Attention au **double i** avec nous et vous !
               correctAnswer: ["devais", "devait", "devaient"],
               explanation:
                 "Devoir → nous devons → radical « dev- ». Je devais, il devait, ils devaient.",
+            },
+            // ── tri-categories — figures de style ─────────────────────────────
+            {
+              id: "e-tc-1",
+              type: "tri-categories",
+              question: "Classe chaque phrase dans la bonne figure de style.",
+              items: [
+                { id: "tc1-a", label: "Il pleurait des larmes grosses comme des balles de golf." },
+                { id: "tc1-b", label: "Sa voix était douce comme du miel." },
+                { id: "tc1-c", label: "Le vent chantait dans les arbres." },
+                { id: "tc1-d", label: "Elle avait un cœur de pierre." },
+                { id: "tc1-e", label: "J'ai failli mourir de rire." },
+                { id: "tc1-f", label: "La mer rugissait de colère." },
+              ],
+              categories: [
+                {
+                  id: "comparaison",
+                  label: "Comparaison",
+                  correctItemIds: ["tc1-b"],
+                },
+                {
+                  id: "metaphore",
+                  label: "Métaphore",
+                  correctItemIds: ["tc1-d"],
+                },
+                {
+                  id: "personnification",
+                  label: "Personnification",
+                  correctItemIds: ["tc1-c", "tc1-f"],
+                },
+                {
+                  id: "hyperbole",
+                  label: "Hyperbole",
+                  correctItemIds: ["tc1-a", "tc1-e"],
+                },
+              ],
+              correctAnswer: "tri-categories",
+              explanation:
+                "Comparaison : outil de comparaison (comme, tel). Métaphore : assimilation directe sans outil. Personnification : objet ou nature qui agit comme un humain. Hyperbole : exagération volontaire.",
+              hint: "La comparaison utilise toujours 'comme', 'tel que' ou 'ainsi que'.",
+            },
+            {
+              id: "e-tc-2",
+              type: "tri-categories",
+              question: "Identifie la figure de style dans chaque exemple.",
+              items: [
+                { id: "tc2-a", label: "Je t'ai dit mille fois de ranger ta chambre !" },
+                { id: "tc2-b", label: "Ses yeux étaient deux étoiles brillantes." },
+                { id: "tc2-c", label: "Le temps est un voleur." },
+                { id: "tc2-d", label: "La forêt respirait sous la brise." },
+                { id: "tc2-e", label: "Il courait aussi vite qu'une gazelle." },
+                { id: "tc2-f", label: "Cette valise pèse une tonne !" },
+              ],
+              categories: [
+                {
+                  id: "comparaison",
+                  label: "Comparaison",
+                  correctItemIds: ["tc2-e"],
+                },
+                {
+                  id: "metaphore",
+                  label: "Métaphore",
+                  correctItemIds: ["tc2-b", "tc2-c"],
+                },
+                {
+                  id: "personnification",
+                  label: "Personnification",
+                  correctItemIds: ["tc2-d"],
+                },
+                {
+                  id: "hyperbole",
+                  label: "Hyperbole",
+                  correctItemIds: ["tc2-a", "tc2-f"],
+                },
+              ],
+              correctAnswer: "tri-categories",
+              explanation:
+                "Métaphore : « deux étoiles » et « voleur » assimilent directement. Comparaison : « aussi vite qu'une gazelle » utilise aussi vite que. Personnification : la forêt respire. Hyperbole : mille fois, une tonne.",
+              hint: "S'il y a 'comme', 'tel' ou 'aussi… que', c'est une comparaison.",
+            },
+            // ── completion-tableau — conjugaison imparfait ────────────────────
+            {
+              id: "e-ctab-1",
+              type: "completion-tableau",
+              question: "Complète le tableau de conjugaison de « chanter » à l'imparfait de l'indicatif.",
+              table: {
+                headers: ["Pronom", "Chanter (imparfait)"],
+                rows: [
+                  [{ value: "je" }, { blank: true, correctAnswer: "chantais" }],
+                  [{ value: "tu" }, { blank: true, correctAnswer: "chantais" }],
+                  [{ value: "il / elle" }, { blank: true, correctAnswer: "chantait" }],
+                  [{ value: "nous" }, { blank: true, correctAnswer: "chantions" }],
+                  [{ value: "vous" }, { blank: true, correctAnswer: "chantiez" }],
+                  [{ value: "ils / elles" }, { blank: true, correctAnswer: "chantaient" }],
+                ],
+              },
+              correctAnswer: ["chantais", "chantais", "chantait", "chantions", "chantiez", "chantaient"],
+              explanation:
+                "Imparfait de l'indicatif, 1er groupe : radical chanT- + terminaisons -ais, -ais, -ait, -ions, -iez, -aient.",
+              hint: "Les terminaisons de l'imparfait sont toujours les mêmes pour tous les groupes.",
+            },
+            {
+              id: "e-ctab-2",
+              type: "completion-tableau",
+              question: "Complète le tableau comparatif de l'imparfait pour les trois groupes.",
+              table: {
+                headers: ["Pronom", "Parler (1er)", "Finir (2e)", "Vendre (3e)"],
+                rows: [
+                  [{ value: "je" }, { blank: true, correctAnswer: "parlais" }, { blank: true, correctAnswer: "finissais" }, { blank: true, correctAnswer: "vendais" }],
+                  [{ value: "tu" }, { blank: true, correctAnswer: "parlais" }, { blank: true, correctAnswer: "finissais" }, { blank: true, correctAnswer: "vendais" }],
+                  [{ value: "il / elle" }, { blank: true, correctAnswer: "parlait" }, { blank: true, correctAnswer: "finissait" }, { blank: true, correctAnswer: "vendait" }],
+                  [{ value: "nous" }, { blank: true, correctAnswer: "parlions" }, { blank: true, correctAnswer: "finissions" }, { blank: true, correctAnswer: "vendions" }],
+                  [{ value: "vous" }, { blank: true, correctAnswer: "parliez" }, { blank: true, correctAnswer: "finissiez" }, { blank: true, correctAnswer: "vendiez" }],
+                  [{ value: "ils / elles" }, { blank: true, correctAnswer: "parlaient" }, { blank: true, correctAnswer: "finissaient" }, { blank: true, correctAnswer: "vendaient" }],
+                ],
+              },
+              correctAnswer: [
+                "parlais", "finissais", "vendais",
+                "parlais", "finissais", "vendais",
+                "parlait", "finissait", "vendait",
+                "parlions", "finissions", "vendions",
+                "parliez", "finissiez", "vendiez",
+                "parlaient", "finissaient", "vendaient",
+              ],
+              explanation:
+                "Les terminaisons de l'imparfait sont identiques pour tous les groupes. Seul le radical change : parl-, finiss- (2e groupe ajoute -iss-), vend-.",
+              hint: "Pense aux radicaux : je finissais car le 2e groupe ajoute -iss- à la base.",
             },
           ],
         },

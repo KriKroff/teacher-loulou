@@ -22,161 +22,7 @@ export const resources: Resource[] = [
       "idéologies",
       "fiche",
     ],
-    content: `
-# 🌍 L'Europe et la révolution industrielle
-
----
-
-## ⏱️ Les repères chronologiques
-
-| 📅 Date | 🗺️ Événement |
-|--------|-------------|
-| **1769** | Machine à vapeur — James Watt |
-| **1815** | Congrès de Vienne — retour des rois |
-| **1830s** | Révolte des canuts à Lyon |
-| **1848** | Manifeste du parti communiste (Karl Marx) |
-| **1864** | Droit de grève reconnu |
-| **1880** | Début de la 2ème révolution industrielle |
-| **1884** | Syndicats autorisés |
-| **1906** | Journée de travail limitée |
-
----
-
-## ⚙️ La révolution industrielle — Les 2 phases
-
-> 💡 **À retenir** : **Industrialisation** = augmentation rapide de la production industrielle.
-
-| 📊 | **1ère révolution** (1760–1880) | **2ème révolution** (1880–1914) |
-|---|---|---|
-| ⚡ Énergie | Charbon + vapeur | Électricité + pétrole |
-| 🏭 Industries | Textile + métallurgie | Chimie + sidérurgie |
-
-> 📝 **Métallurgie** = transformer les métaux.
-> **Sidérurgie** = fabriquer de l'acier à partir du fer.
-
----
-
-## 🔄 Les grandes transformations
-
-### 🏭 Production
-- Production **plus rapide** et en **grande quantité**
-- → **Consommation de masse** (les gens achètent plus)
-
-### 🚆 Transports
-- Train + locomotives → déplacements plus rapides
-- → Développement du **commerce** national et international
-
-### ⛏️ Énergie
-- Le **charbon** est la ressource essentielle pour faire fonctionner les machines
-
-### 👷 Travail
-- Apparition des **ouvriers** : personnes qui travaillent en usine
-- Conditions de travail difficiles dès le départ
-
----
-
-## ❗ Conditions de vie des ouvriers
-
-> ⚠️ Au départ, les ouvriers ne sont **pas du tout protégés**.
-
-### Situation difficile
-- ⏰ Journées très longues (12 à 16 heures/jour)
-- 💸 Salaires très faibles
-- ⚠️ Conditions dangereuses (accidents, maladies)
-- 🚫 Aucune protection : pas d'arrêt maladie, pas d'allocations chômage
-
-### ✅ Améliorations progressives
-
-| 📅 Date | 📜 Loi |
-|--------|--------|
-| **1864** | Droit de **grève** (arrêter le travail pour protester) |
-| **1884** | **Syndicats** autorisés (organisations qui défendent les ouvriers) |
-| **1906** | Journée de travail **limitée** |
-
-> 💡 **Grève** = les ouvriers arrêtent de travailler pour protester et obtenir de meilleures conditions.
-> **Syndicat** = organisation qui défend les droits des travailleurs.
-
----
-
-## 👥 Les nouvelles classes sociales
-
-| 👷 **Prolétariat** | 💼 **Bourgeoisie** |
-|---|---|
-| Personnes qui n'ont que leur travail pour vivre | Patrons, banquiers |
-| Salaires faibles, peu de pouvoir | Riches, pouvoir économique ET politique |
-| Ouvriers d'usine | Possèdent les usines |
-
----
-
-## 💭 Les idéologies
-
-> 💡 Une **idéologie** = un ensemble d'idées sur comment organiser la société.
-
-### 💰 Libéralisme
-- Les patrons sont **libres** de diriger leurs entreprises
-- L'État **n'intervient pas** dans l'économie
-- **Contre** les lois sociales
-
-### ⚖️ Socialisme
-- Veut **réduire les inégalités**
-- Défend les ouvriers
-- **Karl Marx** → *Manifeste du parti communiste* (1848)
-  - Les ouvriers doivent **prendre le pouvoir**
-  - Créer une société **plus égalitaire**
-
-### 🟥 Communisme
-- Société **sans classes** sociales
-- Tout le monde est **égal**
-- **Décisions collectives**
-
----
-
-## 🏭 Exemples concrets
-
-### Le Creusot — Une ville industrielle
-
-> C'est l'exemple **typique** de la révolution industrielle en France.
-
-- ✅ Usines installées près du **charbon** et du **minerai de fer**
-- ✅ On y fabrique du **fer** et de l'**acier**
-- Fonctionnement :
-  1. On extrait les matières premières (charbon, fer)
-  2. On les transforme dans l'usine
-  3. On transporte les produits par le **train**
-
-### Les canuts — Les ouvriers tisserands de Lyon
-
-> Les canuts sont parmi les **premiers ouvriers à se révolter** en France.
-
-- Ils travaillent la **soie** à Lyon
-- Problèmes : salaires très faibles, conditions difficiles
-- **Se révoltent dans les années 1830**
-- → Premières grandes révoltes ouvrières de l'histoire française
-
----
-
-## 📝 Vocabulaire essentiel
-
-| Terme | Définition |
-|-------|-----------|
-| **Industrialisation** | Augmentation rapide de la production industrielle |
-| **Machine à vapeur** | Machine qui transforme la chaleur (charbon) en mouvement |
-| **Métallurgie** | Transformation des métaux |
-| **Sidérurgie** | Fabrication d'acier à partir du fer |
-| **Prolétariat** | Classe sociale des ouvriers qui n'ont que leur travail |
-| **Bourgeoisie** | Classe sociale des patrons et banquiers (riches) |
-| **Syndicat** | Organisation qui défend les droits des travailleurs |
-| **Grève** | Arrêt collectif du travail pour protester |
-| **Libéralisme** | Liberté économique, État ne s'implique pas |
-| **Socialisme** | Réduction des inégalités, défense des ouvriers |
-| **Communisme** | Société sans classes, égalitaire, décisions collectives |
-| **Canuts** | Ouvriers tisserands de Lyon (soie) |
-| **Consommation de masse** | Production et achat de biens en grande quantité |
-
----
-
-> 🎯 **Prêt(e) à te tester ?** → [Faire le quiz sur ce chapitre →](/4e/histoire-geo/histoire-revolution-industrielle-quiz)
-`,
+    mdxPath: "4e/histoire-geo/fiches/histoire-revolution-industrielle-fiche.mdx",
   },
 
   // ─── QUIZ ──────────────────────────────────────────────────────────────────
@@ -901,6 +747,45 @@ export const resources: Resource[] = [
               ],
               explanation:
                 "1ère révolution : charbon + vapeur + textile mécanisé. 2ème révolution : électricité + pétrole + sidérurgie + chimie. Ce tableau de comparaison est fondamental pour le cours.",
+            },
+            // ── click-on-image ────────────────────────────────────────────────
+            {
+              id: "e-coi-1",
+              type: "click-on-image",
+              question: "Sur cette carte d'Europe, clique sur le berceau de la révolution industrielle (pays où elle a commencé).",
+              imageSrc: "/images/histoire/europe-revolution-industrielle.svg",
+              imageAlt: "Carte simplifiée de l'Europe au XIXe siècle",
+              clickZones: [
+                { id: "uk", x: 7.5, y: 13, w: 19, h: 34, isCorrect: true, label: "Royaume-Uni ✓" },
+                { id: "france", x: 31, y: 31, w: 22, h: 31, isCorrect: false, label: "France" },
+                { id: "belgique", x: 42, y: 23, w: 12, h: 14, isCorrect: false, label: "Belgique" },
+                { id: "allemagne", x: 57, y: 21, w: 22, h: 37, isCorrect: false, label: "Allemagne" },
+                { id: "italie", x: 56, y: 64, w: 19, h: 29, isCorrect: false, label: "Italie" },
+                { id: "espagne", x: 9, y: 67, w: 22, h: 26, isCorrect: false, label: "Espagne" },
+              ],
+              correctAnswer: "uk",
+              explanation:
+                "C'est le Royaume-Uni (Angleterre) qui a été le berceau de la révolution industrielle, à partir des années 1760. La machine à vapeur de Watt et les filatures mécanisées y sont nés.",
+              hint: "Ce pays est une île dans le nord-ouest de l'Europe.",
+            },
+            {
+              id: "e-coi-2",
+              type: "click-on-image",
+              question: "Clique sur le pays qui, avec le Royaume-Uni, a été le premier à s'industrialiser en Europe continentale grâce à ses bassins houillers.",
+              imageSrc: "/images/histoire/europe-revolution-industrielle.svg",
+              imageAlt: "Carte simplifiée de l'Europe au XIXe siècle",
+              clickZones: [
+                { id: "uk", x: 7.5, y: 13, w: 19, h: 34, isCorrect: false, label: "Royaume-Uni" },
+                { id: "france", x: 31, y: 31, w: 22, h: 31, isCorrect: false, label: "France" },
+                { id: "belgique", x: 42, y: 23, w: 12, h: 14, isCorrect: true, label: "Belgique ✓" },
+                { id: "allemagne", x: 57, y: 21, w: 22, h: 37, isCorrect: false, label: "Allemagne" },
+                { id: "italie", x: 56, y: 64, w: 19, h: 29, isCorrect: false, label: "Italie" },
+                { id: "espagne", x: 9, y: 67, w: 22, h: 26, isCorrect: false, label: "Espagne" },
+              ],
+              correctAnswer: "belgique",
+              explanation:
+                "La Belgique, grâce à ses riches bassins houillers (Liège, Charleroi), a été le premier pays continental à s'industrialiser, dès les années 1820-1830.",
+              hint: "C'est un petit pays entre la France et l'Allemagne.",
             },
           ],
         },

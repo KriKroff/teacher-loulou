@@ -13,105 +13,7 @@ export const resources: Resource[] = [
     createdAt: "2026-04-10T18:00:00Z",
     updatedAt: "2026-04-10T19:30:00Z",
     tags: ["espagnol", "subjonctif", "subjuntivo", "conjugaison", "fiche"],
-    content: `
-# 🇪🇸 Le subjonctif présent (el presente de subjuntivo)
-
-Le subjonctif sert à exprimer : **le doute, le souhait, l'émotion, la nécessité**.
-
----
-
-## 🧠 Quand l'utiliser ?
-
-On l'utilise très souvent avec :
-
-- **Quiero que...** (je veux que...)
-- **Es importante que...** (il est important que...)
-- **Dudo que...** (je doute que...)
-- **Me alegra que...** (ça me fait plaisir que...)
-- **Ojalá (que)...** (pourvu que...)
-
-> ⚠️ Réflexe : **déclencheur + que + subjonctif**.
-
----
-
-## ⚙️ Formation : la méthode en 3 étapes
-
-1. Prendre la forme **yo** au présent de l'indicatif  
-2. Enlever le **-o** final  
-3. Ajouter les terminaisons du subjonctif
-
-Exemple avec **hablar** : yo habl**o** → habl- → **hable, hables, hable, hablemos, habléis, hablen**
-
----
-
-## ✨ Les terminaisons à connaître
-
-### Verbes en **-AR**
-Terminaisons : **-e, -es, -e, -emos, -éis, -en**
-
-| Pronom | Hablar |
-|---|---|
-| yo | habl**e** |
-| tú | habl**es** |
-| él/ella | habl**e** |
-| nosotros | habl**emos** |
-| vosotros | habl**éis** |
-| ellos/ellas | habl**en** |
-
-### Verbes en **-ER / -IR**
-Terminaisons : **-a, -as, -a, -amos, -áis, -an**
-
-| Pronom | Comer | Vivir |
-|---|---|---|
-| yo | com**a** | viv**a** |
-| tú | com**as** | viv**as** |
-| él/ella | com**a** | viv**a** |
-| nosotros | com**amos** | viv**amos** |
-| vosotros | com**áis** | viv**áis** |
-| ellos/ellas | com**an** | viv**an** |
-
-> 🎯 Astuce : au subjonctif, les terminaisons sont **inversées** par rapport au présent.
-
----
-
-## 🔥 Verbes irréguliers indispensables
-
-| Verbe | Formes clés |
-|---|---|
-| **ser** | s**ea**, s**eas**, s**ea**, s**eamos**, s**eáis**, s**ean** |
-| **ir** | v**aya**, v**ayas**, v**aya**, v**ayamos**, v**ayáis**, v**ayan** |
-| **haber** | h**aya**, h**ayas**, h**aya**, h**ayamos**, h**ayáis**, h**ayan** |
-| **estar** | est**é**, est**és**, est**é**, est**emos**, est**éis**, est**én** |
-| **saber** | s**epa**, s**epas**, s**epa**, s**epamos**, s**epáis**, s**epan** |
-| **dar** | d**é**, d**es**, d**é**, d**emos**, d**eis**, d**en** |
-
-> ⚠️ Lettres à surveiller : **vay-**, **hay-**, **sep-**, **esté/dé**.
-
----
-
-## 🔄 Verbes à changement de radical
-
-### e → ie (sauf nosotros/vosotros)
-**pensar** → piense, pienses, piense, **pensemos**, **penséis**, piensen
-
-### o → ue (sauf nosotros/vosotros)
-**dormir** → duerma, duermas, duerma, **durmamos**, **durmáis**, duerman
-
-### e → i (sauf nosotros/vosotros)
-**pedir** → pida, pidas, pida, **pidamos**, **pidáis**, pidan
-
----
-
-## ❌ Erreurs fréquentes
-
-- **Quiero que tú vienes** ❌ → **Quiero que tú vengas** ✅
-- **Es importante que estudiamos** ❌ → **Es importante que estudiemos** ✅
-- **Dudo que él tiene razón** ❌ → **Dudo que él tenga razón** ✅
-
----
-
-> 🎯 **Prêt(e) à te tester ?** → [Faire le quiz sur ce chapitre →](/4e/espagnol/espagnol-subjonctif-present-quiz)
-`,
+    mdxPath: "4e/espagnol/fiches/espagnol-subjonctif-present-fiche.mdx",
   },
   {
     slug: "espagnol-subjonctif-present-quiz",
@@ -578,6 +480,41 @@ Terminaisons : **-a, -as, -a, -amos, -áis, -an**
               ],
               correctAnswer: ["Dudo", "que", "ellos", "tengan", "razón"],
               explanation: "Avec dudo que, on met tengan.",
+            },
+            // ── audio-listen ──────────────────────────────────────────────────
+            {
+              id: "e-al-1",
+              type: "audio-listen",
+              question: "Écoute la phrase et choisis ce que dit le locuteur.",
+              // TODO: enregistrer un audio réel — "Quiero que vengas a mi casa"
+              audioSrc: "/sounds/exemple-es.mp3",
+              options: [
+                "Quiero que vengas a mi casa",
+                "Quiero que vayas a tu casa",
+                "Quiero que vengas a tu casa",
+                "Quiero que vayas a mi casa",
+              ],
+              correctAnswer: "Quiero que vengas a mi casa",
+              explanation:
+                "La phrase complète est : « Quiero que vengas a mi casa » — Je veux que tu viennes chez moi. Venir → vengas (subjonctif, tú).",
+              hint: "Le verbe est venir (to come), conjugué au subjonctif avec tú.",
+            },
+            {
+              id: "e-al-2",
+              type: "audio-listen",
+              question: "Écoute et choisis la traduction correcte de la phrase.",
+              // TODO: enregistrer un audio réel — "Es importante que estudies todos los días"
+              audioSrc: "/sounds/exemple-es.mp3",
+              options: [
+                "Il est important que tu étudies tous les jours",
+                "Il est important que j'étudie tous les jours",
+                "Il est important que tu étudies tous les ans",
+                "Il est possible que tu étudies tous les jours",
+              ],
+              correctAnswer: "Il est important que tu étudies tous les jours",
+              explanation:
+                "« Es importante que estudies todos los días » = Il est important que tu étudies tous les jours. Estudiar → estudies (subjonctif, tú). Todos los días = tous les jours.",
+              hint: "Es importante que... → subjonctif. Estudies → tu étudies.",
             },
           ],
         },

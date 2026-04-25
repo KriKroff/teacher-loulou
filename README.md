@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Teacher Loulou
 
-## Getting Started
+Site d'apprentissage adapté aux troubles **DYS** (dyslexie, dysphasie, dyspraxie) et au **TDAH**, pensé pour les collégien·nes et lycéen·nes français·es.
 
-First, run the development server:
+Né pour aider Loulou (4ème) à réviser, ouvert à tout·e élève qui en a besoin.
+
+## Fonctionnalités
+
+- **Adaptations DYS** : police OpenDyslexic, espacements ajustables, fond crème, syllabes colorées, règle de lecture
+- **Adaptations TDAH** : interface épurée, navigation prévisible, sessions courtes, gamification mesurée
+- **Quiz intelligents** : 3 niveaux de difficulté, sélection adaptative qui priorise les questions ratées
+- **Mobile-first** : la majorité des élèves consultent depuis un smartphone
+- **Pas de compte** : tout est stocké localement dans le navigateur
+
+## Stack
+
+- Next.js 16 (App Router, TypeScript, export statique)
+- Tailwind CSS v4
+- MDX pour le contenu pédagogique riche
+- Déploiement GitHub Pages via GitHub Actions
+
+## Démarrage
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev    # http://localhost:3000
+npm run build  # build statique dans out/
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Pour tester en local avec le `basePath` de production :
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+NEXT_PUBLIC_BASE_PATH=/teacher-loulou npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Contribuer
 
-## Learn More
+Les conventions du projet (structure, format des ressources, règles d'accessibilité, format des quiz) sont décrites dans [`AGENTS.md`](./AGENTS.md). À lire avant d'ajouter une fiche ou un quiz.
 
-To learn more about Next.js, take a look at the following resources:
+## Licence
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Projet personnel, pas de licence formelle pour le moment.
