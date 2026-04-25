@@ -111,7 +111,7 @@ export function CircuitComparisonDiagram() {
         <text x="204" y="60" textAnchor="middle" fontSize="26" fontWeight="700" fill="#6D28D9">Circuit en serie</text>
         <text x="616" y="60" textAnchor="middle" fontSize="26" fontWeight="700" fill="#0F766E">Circuit en derivation</text>
 
-        <path d="M 88 278 H 118 V 110 H 150 M 182 110 H 228 M 270 110 H 324 V 278 H 88" fill="none" stroke="#44403C" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M 128 278 H 100 V 110 H 150 M 172 110 H 228 M 270 110 H 324 V 278 H 100" fill="none" stroke="#44403C" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
         <line x1="150" y1="90" x2="150" y2="130" stroke="#44403C" strokeWidth="4" />
         <line x1="168" y1="82" x2="168" y2="138" stroke="#44403C" strokeWidth="6" />
         <circle cx="249" cy="110" r="22" fill="white" stroke="#7C3AED" strokeWidth="4" />
@@ -121,19 +121,22 @@ export function CircuitComparisonDiagram() {
         <text x="204" y="338" textAnchor="middle" fontSize="16" fill="#5B21B6">{"Si un element s'arrete,"}</text>
         <text x="204" y="358" textAnchor="middle" fontSize="16" fill="#5B21B6">{"tout le circuit s'arrete"}</text>
 
-        <path d="M 500 278 H 530 V 110 H 562 M 594 110 H 678 V 278 H 500" fill="none" stroke="#44403C" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
-        <line x1="562" y1="90" x2="562" y2="130" stroke="#44403C" strokeWidth="4" />
-        <line x1="580" y1="82" x2="580" y2="138" stroke="#44403C" strokeWidth="6" />
-        <path d="M 612 110 V 155 H 678" fill="none" stroke="#44403C" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M 612 110 V 220 H 678" fill="none" stroke="#44403C" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
-        <circle cx="639" cy="155" r="22" fill="white" stroke="#0891B2" strokeWidth="4" />
-        <path d="M 625 169 L 653 141 M 625 141 L 653 169" stroke="#0891B2" strokeWidth="4" strokeLinecap="round" />
-        <circle cx="639" cy="220" r="22" fill="white" stroke="#0891B2" strokeWidth="4" />
-        <path d="M 625 234 L 653 206 M 625 206 L 653 234" stroke="#0891B2" strokeWidth="4" strokeLinecap="round" />
+        <path d="M 530 220 H 530 V 110 H 558" fill="none" stroke="#44403C" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
+        <line x1="558" y1="90" x2="558" y2="130" stroke="#44403C" strokeWidth="4" />
+        <line x1="578" y1="82" x2="578" y2="138" stroke="#44403C" strokeWidth="6" />
+        <path d="M 578 110 H 700 V 220" fill="none" stroke="#44403C" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M 530 155 H 600" fill="none" stroke="#44403C" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M 644 155 H 700" fill="none" stroke="#44403C" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M 530 220 H 600" fill="none" stroke="#44403C" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M 644 220 H 700" fill="none" stroke="#44403C" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="622" cy="155" r="22" fill="white" stroke="#0891B2" strokeWidth="4" />
+        <path d="M 608 169 L 636 141 M 608 141 L 636 169" stroke="#0891B2" strokeWidth="4" strokeLinecap="round" />
+        <circle cx="622" cy="220" r="22" fill="white" stroke="#0891B2" strokeWidth="4" />
+        <path d="M 608 234 L 636 206 M 608 206 L 636 234" stroke="#0891B2" strokeWidth="4" strokeLinecap="round" />
 
-        <text x="616" y="316" textAnchor="middle" fontSize="18" fontWeight="700" fill="#115E59">Plusieurs branches</text>
-        <text x="616" y="338" textAnchor="middle" fontSize="16" fill="#115E59">{"Une branche peut s'arreter"}</text>
-        <text x="616" y="358" textAnchor="middle" fontSize="16" fill="#115E59">sans couper les autres</text>
+        <text x="616" y="270" textAnchor="middle" fontSize="18" fontWeight="700" fill="#115E59">Plusieurs branches</text>
+        <text x="616" y="300" textAnchor="middle" fontSize="16" fill="#115E59">{"Une branche peut s'arreter"}</text>
+        <text x="616" y="320" textAnchor="middle" fontSize="16" fill="#115E59">sans couper les autres</text>
       </svg>
     </DiagramFrame>
   );
