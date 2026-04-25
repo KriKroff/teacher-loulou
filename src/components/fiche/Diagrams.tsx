@@ -47,7 +47,7 @@ export function StateChangesDiagram() {
       title="Les changements d'etat"
       caption="Les fleches rouges correspondent a un chauffage, les bleues a un refroidissement."
     >
-      <svg viewBox="0 0 760 360" className="h-auto w-full" role="img" aria-label="Schema des changements d'etat entre solide, liquide et gaz">
+      <svg viewBox="0 0 860 420" className="h-auto w-full" role="img" aria-label="Schema des changements d'etat entre solide, liquide et gaz">
         <defs>
           <marker id="arrow-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
             <path d="M 0 0 L 10 5 L 0 10 z" fill="#F97316" />
@@ -57,39 +57,40 @@ export function StateChangesDiagram() {
           </marker>
         </defs>
 
-        <rect x="40" y="120" width="170" height="100" rx="28" fill="#DBEAFE" stroke="#60A5FA" strokeWidth="3" />
-        <rect x="295" y="120" width="170" height="100" rx="28" fill="#DCFCE7" stroke="#34D399" strokeWidth="3" />
-        <rect x="550" y="120" width="170" height="100" rx="28" fill="#FED7AA" stroke="#FB923C" strokeWidth="3" />
+        <rect x="50" y="135" width="190" height="116" rx="30" fill="#DBEAFE" stroke="#60A5FA" strokeWidth="3" />
+        <rect x="335" y="135" width="190" height="116" rx="30" fill="#DCFCE7" stroke="#34D399" strokeWidth="3" />
+        <rect x="620" y="135" width="190" height="116" rx="30" fill="#FED7AA" stroke="#FB923C" strokeWidth="3" />
 
-        <text x="125" y="164" textAnchor="middle" fontSize="28" fontWeight="700" fill="#1E3A8A">Solide</text>
-        <text x="125" y="195" textAnchor="middle" fontSize="16" fill="#1E40AF">forme fixe</text>
-        <text x="125" y="215" textAnchor="middle" fontSize="16" fill="#1E40AF">volume fixe</text>
+        <text x="145" y="187" textAnchor="middle" fontSize="32" fontWeight="700" fill="#1E3A8A">Solide</text>
+        <text x="145" y="220" textAnchor="middle" fontSize="18" fill="#1E40AF">forme fixe</text>
+        <text x="145" y="244" textAnchor="middle" fontSize="18" fill="#1E40AF">volume fixe</text>
 
-        <text x="380" y="164" textAnchor="middle" fontSize="28" fontWeight="700" fill="#166534">Liquide</text>
-        <text x="380" y="195" textAnchor="middle" fontSize="16" fill="#15803D">forme variable</text>
-        <text x="380" y="215" textAnchor="middle" fontSize="16" fill="#15803D">volume fixe</text>
+        <text x="430" y="187" textAnchor="middle" fontSize="32" fontWeight="700" fill="#166534">Liquide</text>
+        <text x="430" y="220" textAnchor="middle" fontSize="18" fill="#15803D">forme variable</text>
+        <text x="430" y="244" textAnchor="middle" fontSize="18" fill="#15803D">volume fixe</text>
 
-        <text x="635" y="164" textAnchor="middle" fontSize="28" fontWeight="700" fill="#9A3412">Gaz</text>
-        <text x="635" y="195" textAnchor="middle" fontSize="16" fill="#C2410C">forme variable</text>
-        <text x="635" y="215" textAnchor="middle" fontSize="16" fill="#C2410C">volume variable</text>
+        <text x="715" y="187" textAnchor="middle" fontSize="32" fontWeight="700" fill="#9A3412">Gaz</text>
+        <text x="715" y="220" textAnchor="middle" fontSize="18" fill="#C2410C">forme variable</text>
+        <text x="715" y="244" textAnchor="middle" fontSize="18" fill="#C2410C">volume variable</text>
 
-        <line x1="210" y1="145" x2="295" y2="145" stroke="#F97316" strokeWidth="5" markerEnd="url(#arrow-red)" />
-        <ArrowLabel x={252} y={130}>Fusion</ArrowLabel>
-        <line x1="295" y1="195" x2="210" y2="195" stroke="#0EA5E9" strokeWidth="5" markerEnd="url(#arrow-blue)" />
-        <ArrowLabel x={252} y={235}>Solidification</ArrowLabel>
+        <line x1="240" y1="165" x2="335" y2="165" stroke="#F97316" strokeWidth="6" markerEnd="url(#arrow-red)" />
+        <ArrowLabel x={287} y={148}>Fusion</ArrowLabel>
+        <line x1="335" y1="215" x2="240" y2="215" stroke="#0EA5E9" strokeWidth="6" markerEnd="url(#arrow-blue)" />
+        <ArrowLabel x={287} y={268}>Solidification</ArrowLabel>
 
-        <line x1="465" y1="145" x2="550" y2="145" stroke="#F97316" strokeWidth="5" markerEnd="url(#arrow-red)" />
-        <ArrowLabel x={507} y={130}>Vaporisation</ArrowLabel>
-        <line x1="550" y1="195" x2="465" y2="195" stroke="#0EA5E9" strokeWidth="5" markerEnd="url(#arrow-blue)" />
-        <ArrowLabel x={507} y={235}>Liquefaction</ArrowLabel>
+        <line x1="525" y1="165" x2="620" y2="165" stroke="#F97316" strokeWidth="6" markerEnd="url(#arrow-red)" />
+        <ArrowLabel x={572} y={148}>Vaporisation</ArrowLabel>
+        <line x1="620" y1="215" x2="525" y2="215" stroke="#0EA5E9" strokeWidth="6" markerEnd="url(#arrow-blue)" />
+        <ArrowLabel x={572} y={268}>Liquefaction</ArrowLabel>
 
-        <path d="M 145 115 C 165 35, 595 35, 615 115" fill="none" stroke="#F97316" strokeWidth="5" markerEnd="url(#arrow-red)" />
-        <ArrowLabel x={380} y={42}>Sublimation</ArrowLabel>
-        <path d="M 615 225 C 590 315, 170 315, 145 225" fill="none" stroke="#0EA5E9" strokeWidth="5" markerEnd="url(#arrow-blue)" />
-        <ArrowLabel x={380} y={335}>Condensation solide</ArrowLabel>
+        <path d="M 170 128 C 200 40, 670 40, 710 128" fill="none" stroke="#F97316" strokeWidth="6" markerEnd="url(#arrow-red)" />
+        <ArrowLabel x={440} y={52}>Sublimation</ArrowLabel>
 
-        <rect x="250" y="265" width="260" height="44" rx="18" fill="#FFF7ED" stroke="#FDBA74" strokeWidth="2" />
-        <text x="380" y="292" textAnchor="middle" fontSize="16" fontWeight="700" fill="#9A3412">
+        <path d="M 705 255 C 690 332, 220 332, 155 255" fill="none" stroke="#0EA5E9" strokeWidth="6" markerEnd="url(#arrow-blue)" />
+        <ArrowLabel x={440} y={396}>Condensation solide</ArrowLabel>
+
+        <rect x="250" y="300" width="380" height="50" rx="22" fill="#FFF7ED" stroke="#FDBA74" strokeWidth="2.5" />
+        <text x="440" y="331" textAnchor="middle" fontSize="16" fontWeight="700" fill="#9A3412">
           A retenir en priorite : fusion, solidification, vaporisation, liquefaction
         </text>
       </svg>
@@ -103,39 +104,36 @@ export function CircuitComparisonDiagram() {
       title="Circuits electriques"
       caption="En serie, tout est sur une seule boucle. En derivation, chaque branche a son propre chemin."
     >
-      <svg viewBox="0 0 760 330" className="h-auto w-full" role="img" aria-label="Comparaison entre un circuit en serie et un circuit en derivation">
-        <rect x="18" y="18" width="324" height="294" rx="24" fill="#F5F3FF" stroke="#C4B5FD" strokeWidth="3" />
-        <rect x="418" y="18" width="324" height="294" rx="24" fill="#ECFEFF" stroke="#67E8F9" strokeWidth="3" />
+      <svg viewBox="0 0 820 380" className="h-auto w-full" role="img" aria-label="Comparaison entre un circuit en serie et un circuit en derivation">
+        <rect x="24" y="20" width="360" height="336" rx="28" fill="#F5F3FF" stroke="#C4B5FD" strokeWidth="3" />
+        <rect x="436" y="20" width="360" height="336" rx="28" fill="#ECFEFF" stroke="#67E8F9" strokeWidth="3" />
 
-        <text x="180" y="52" textAnchor="middle" fontSize="24" fontWeight="700" fill="#6D28D9">Circuit en serie</text>
-        <text x="580" y="52" textAnchor="middle" fontSize="24" fontWeight="700" fill="#0F766E">Circuit en derivation</text>
+        <text x="204" y="60" textAnchor="middle" fontSize="26" fontWeight="700" fill="#6D28D9">Circuit en serie</text>
+        <text x="616" y="60" textAnchor="middle" fontSize="26" fontWeight="700" fill="#0F766E">Circuit en derivation</text>
 
-        <path d="M 70 240 H 90 V 95 H 125 M 155 95 H 215 M 245 95 H 305 V 240 H 70" fill="none" stroke="#44403C" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
-        <line x1="125" y1="78" x2="125" y2="112" stroke="#44403C" strokeWidth="4" />
-        <line x1="140" y1="70" x2="140" y2="120" stroke="#44403C" strokeWidth="6" />
-        <circle cx="230" cy="95" r="20" fill="white" stroke="#7C3AED" strokeWidth="4" />
-        <path d="M 217 108 L 243 82 M 217 82 L 243 108" stroke="#7C3AED" strokeWidth="4" strokeLinecap="round" />
-        <circle cx="180" cy="95" r="7" fill="#F59E0B" />
-        <circle cx="195" cy="95" r="7" fill="#F59E0B" />
+        <path d="M 88 278 H 118 V 110 H 150 M 182 110 H 228 M 270 110 H 324 V 278 H 88" fill="none" stroke="#44403C" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
+        <line x1="150" y1="90" x2="150" y2="130" stroke="#44403C" strokeWidth="4" />
+        <line x1="168" y1="82" x2="168" y2="138" stroke="#44403C" strokeWidth="6" />
+        <circle cx="249" cy="110" r="22" fill="white" stroke="#7C3AED" strokeWidth="4" />
+        <path d="M 235 124 L 263 96 M 235 96 L 263 124" stroke="#7C3AED" strokeWidth="4" strokeLinecap="round" />
 
-        <text x="180" y="272" textAnchor="middle" fontSize="16" fill="#5B21B6">Une seule boucle</text>
-        <text x="180" y="294" textAnchor="middle" fontSize="16" fill="#5B21B6">
-          {"Si la lampe s'arrete, tout s'arrete"}
-        </text>
+        <text x="204" y="316" textAnchor="middle" fontSize="18" fontWeight="700" fill="#5B21B6">Une seule boucle</text>
+        <text x="204" y="338" textAnchor="middle" fontSize="16" fill="#5B21B6">{"Si un element s'arrete,"}</text>
+        <text x="204" y="358" textAnchor="middle" fontSize="16" fill="#5B21B6">{"tout le circuit s'arrete"}</text>
 
-        <path d="M 470 240 H 490 V 95 H 525 M 555 95 H 640 V 240 H 470" fill="none" stroke="#44403C" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
-        <line x1="525" y1="78" x2="525" y2="112" stroke="#44403C" strokeWidth="4" />
-        <line x1="540" y1="70" x2="540" y2="120" stroke="#44403C" strokeWidth="6" />
-        <path d="M 555 95 V 140 H 640 M 555 190 H 640 V 95" fill="none" stroke="#44403C" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
-        <circle cx="597" cy="140" r="18" fill="white" stroke="#0891B2" strokeWidth="4" />
-        <path d="M 585 151 L 609 129 M 585 129 L 609 151" stroke="#0891B2" strokeWidth="4" strokeLinecap="round" />
-        <circle cx="597" cy="190" r="18" fill="white" stroke="#0891B2" strokeWidth="4" />
-        <path d="M 585 201 L 609 179 M 585 179 L 609 201" stroke="#0891B2" strokeWidth="4" strokeLinecap="round" />
+        <path d="M 500 278 H 530 V 110 H 562 M 594 110 H 678 V 278 H 500" fill="none" stroke="#44403C" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
+        <line x1="562" y1="90" x2="562" y2="130" stroke="#44403C" strokeWidth="4" />
+        <line x1="580" y1="82" x2="580" y2="138" stroke="#44403C" strokeWidth="6" />
+        <path d="M 612 110 V 155 H 678" fill="none" stroke="#44403C" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M 612 110 V 220 H 678" fill="none" stroke="#44403C" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="639" cy="155" r="22" fill="white" stroke="#0891B2" strokeWidth="4" />
+        <path d="M 625 169 L 653 141 M 625 141 L 653 169" stroke="#0891B2" strokeWidth="4" strokeLinecap="round" />
+        <circle cx="639" cy="220" r="22" fill="white" stroke="#0891B2" strokeWidth="4" />
+        <path d="M 625 234 L 653 206 M 625 206 L 653 234" stroke="#0891B2" strokeWidth="4" strokeLinecap="round" />
 
-        <text x="580" y="272" textAnchor="middle" fontSize="16" fill="#115E59">Plusieurs branches</text>
-        <text x="580" y="294" textAnchor="middle" fontSize="16" fill="#115E59">
-          {"Une branche peut s'arreter sans couper les autres"}
-        </text>
+        <text x="616" y="316" textAnchor="middle" fontSize="18" fontWeight="700" fill="#115E59">Plusieurs branches</text>
+        <text x="616" y="338" textAnchor="middle" fontSize="16" fill="#115E59">{"Une branche peut s'arreter"}</text>
+        <text x="616" y="358" textAnchor="middle" fontSize="16" fill="#115E59">sans couper les autres</text>
       </svg>
     </DiagramFrame>
   );
@@ -171,44 +169,49 @@ export function HormonalControlDiagram() {
       title="Controle hormonal"
       caption="Le cerveau commande les gonades. Les gonades produisent ensuite les hormones qui agissent sur le corps."
     >
-      <svg viewBox="0 0 760 330" className="h-auto w-full" role="img" aria-label="Schema du controle hormonal de la reproduction">
+      <svg viewBox="0 0 860 380" className="h-auto w-full" role="img" aria-label="Schema du controle hormonal de la reproduction">
         <defs>
           <marker id="arrow-dark" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
             <path d="M 0 0 L 10 5 L 0 10 z" fill="#57534E" />
           </marker>
         </defs>
 
-        <rect x="255" y="24" width="250" height="72" rx="24" fill="#FEF3C7" stroke="#F59E0B" strokeWidth="3" />
-        <text x="380" y="58" textAnchor="middle" fontSize="30" fontWeight="700" fill="#92400E">Hypophyse</text>
-        <text x="380" y="82" textAnchor="middle" fontSize="16" fill="#B45309">glande du cerveau</text>
+        <rect x="305" y="28" width="250" height="82" rx="26" fill="#FEF3C7" stroke="#F59E0B" strokeWidth="3" />
+        <text x="430" y="68" textAnchor="middle" fontSize="32" fontWeight="700" fill="#92400E">Hypophyse</text>
+        <text x="430" y="93" textAnchor="middle" fontSize="17" fill="#B45309">glande du cerveau</text>
 
-        <path d="M 380 96 V 130" stroke="#57534E" strokeWidth="5" markerEnd="url(#arrow-dark)" />
+        <path d="M 430 110 V 145" stroke="#57534E" strokeWidth="6" markerEnd="url(#arrow-dark)" />
+        <path d="M 430 145 H 220" stroke="#57534E" strokeWidth="6" markerEnd="url(#arrow-dark)" />
+        <path d="M 430 145 H 640" stroke="#57534E" strokeWidth="6" markerEnd="url(#arrow-dark)" />
 
-        <rect x="60" y="145" width="260" height="72" rx="24" fill="#DBEAFE" stroke="#60A5FA" strokeWidth="3" />
-        <rect x="440" y="145" width="260" height="72" rx="24" fill="#FCE7F3" stroke="#F472B6" strokeWidth="3" />
-
-        <text x="190" y="178" textAnchor="middle" fontSize="28" fontWeight="700" fill="#1D4ED8">Testicules</text>
-        <text x="190" y="200" textAnchor="middle" fontSize="16" fill="#2563EB">garcon</text>
-        <text x="570" y="178" textAnchor="middle" fontSize="28" fontWeight="700" fill="#BE185D">Ovaires</text>
-        <text x="570" y="200" textAnchor="middle" fontSize="16" fill="#DB2777">fille</text>
-
-        <path d="M 320 182 H 440" stroke="#57534E" strokeWidth="5" markerEnd="url(#arrow-dark)" />
-        <path d="M 440 182 H 320" stroke="#57534E" strokeWidth="5" markerEnd="url(#arrow-dark)" />
-
-        <text x="380" y="170" textAnchor="middle" fontSize="15" fontWeight="700" fill="#44403C">
-          {"hormones envoyees par l'hypophyse"}
+        <text x="430" y="135" textAnchor="middle" fontSize="16" fontWeight="700" fill="#44403C">
+          {"Hormones envoyees par l'hypophyse"}
         </text>
 
-        <path d="M 190 217 V 254" stroke="#2563EB" strokeWidth="5" markerEnd="url(#arrow-dark)" />
-        <path d="M 570 217 V 254" stroke="#DB2777" strokeWidth="5" markerEnd="url(#arrow-dark)" />
+        <rect x="70" y="165" width="300" height="84" rx="28" fill="#DBEAFE" stroke="#60A5FA" strokeWidth="3" />
+        <rect x="490" y="165" width="300" height="84" rx="28" fill="#FCE7F3" stroke="#F472B6" strokeWidth="3" />
 
-        <rect x="45" y="255" width="290" height="48" rx="20" fill="#EFF6FF" stroke="#93C5FD" strokeWidth="2" />
-        <rect x="425" y="255" width="290" height="48" rx="20" fill="#FFF1F2" stroke="#FDA4AF" strokeWidth="2" />
-        <text x="190" y="284" textAnchor="middle" fontSize="18" fontWeight="700" fill="#1D4ED8">
-          {"Testosterone -> puberte masculine"}
+        <text x="220" y="206" textAnchor="middle" fontSize="30" fontWeight="700" fill="#1D4ED8">Testicules</text>
+        <text x="220" y="230" textAnchor="middle" fontSize="18" fill="#2563EB">garcon</text>
+        <text x="640" y="206" textAnchor="middle" fontSize="30" fontWeight="700" fill="#BE185D">Ovaires</text>
+        <text x="640" y="230" textAnchor="middle" fontSize="18" fill="#DB2777">fille</text>
+
+        <path d="M 220 249 V 286" stroke="#2563EB" strokeWidth="6" markerEnd="url(#arrow-dark)" />
+        <path d="M 640 249 V 286" stroke="#DB2777" strokeWidth="6" markerEnd="url(#arrow-dark)" />
+
+        <rect x="50" y="292" width="340" height="58" rx="22" fill="#EFF6FF" stroke="#93C5FD" strokeWidth="2.5" />
+        <rect x="470" y="292" width="340" height="58" rx="22" fill="#FFF1F2" stroke="#FDA4AF" strokeWidth="2.5" />
+        <text x="220" y="319" textAnchor="middle" fontSize="17" fontWeight="700" fill="#1D4ED8">
+          Testosterone
         </text>
-        <text x="570" y="284" textAnchor="middle" fontSize="18" fontWeight="700" fill="#BE185D">
-          {"Oestrogenes -> puberte feminine + cycle"}
+        <text x="220" y="340" textAnchor="middle" fontSize="17" fontWeight="700" fill="#1D4ED8">
+          puberte masculine
+        </text>
+        <text x="640" y="319" textAnchor="middle" fontSize="17" fontWeight="700" fill="#BE185D">
+          Oestrogenes
+        </text>
+        <text x="640" y="340" textAnchor="middle" fontSize="17" fontWeight="700" fill="#BE185D">
+          puberte feminine + cycle
         </text>
       </svg>
     </DiagramFrame>
@@ -221,29 +224,32 @@ export function FemaleCycleDiagram() {
       title="Cycle feminin"
       caption="Jour 1 = debut des regles. L'ovulation arrive environ 14 jours avant les prochaines regles."
     >
-      <svg viewBox="0 0 760 320" className="h-auto w-full" role="img" aria-label="Frise simple du cycle feminin sur 28 jours">
-        <line x1="70" y1="210" x2="690" y2="210" stroke="#78716C" strokeWidth="6" strokeLinecap="round" />
+      <svg viewBox="0 0 920 360" className="h-auto w-full" role="img" aria-label="Frise simple du cycle feminin sur 28 jours">
+        <line x1="90" y1="245" x2="830" y2="245" stroke="#78716C" strokeWidth="7" strokeLinecap="round" />
 
-        <rect x="70" y="135" width="110" height="50" rx="18" fill="#FFE4E6" stroke="#FB7185" strokeWidth="3" />
-        <rect x="190" y="135" width="210" height="50" rx="18" fill="#FEF3C7" stroke="#FBBF24" strokeWidth="3" />
-        <rect x="410" y="120" width="95" height="80" rx="22" fill="#DCFCE7" stroke="#4ADE80" strokeWidth="3" />
-        <rect x="515" y="135" width="175" height="50" rx="18" fill="#DBEAFE" stroke="#60A5FA" strokeWidth="3" />
+        <rect x="80" y="155" width="135" height="60" rx="22" fill="#FFE4E6" stroke="#FB7185" strokeWidth="3" />
+        <rect x="240" y="155" width="260" height="60" rx="22" fill="#FEF3C7" stroke="#FBBF24" strokeWidth="3" />
+        <rect x="520" y="140" width="120" height="90" rx="24" fill="#DCFCE7" stroke="#4ADE80" strokeWidth="3" />
+        <rect x="660" y="155" width="180" height="60" rx="22" fill="#DBEAFE" stroke="#60A5FA" strokeWidth="3" />
 
-        <text x="125" y="166" textAnchor="middle" fontSize="18" fontWeight="700" fill="#BE123C">J1-J5 Regles</text>
-        <text x="295" y="166" textAnchor="middle" fontSize="18" fontWeight="700" fill="#92400E">J6-J13 Endometre se reforme</text>
-        <text x="458" y="167" textAnchor="middle" fontSize="18" fontWeight="700" fill="#166534">J14 Ovulation</text>
-        <text x="603" y="166" textAnchor="middle" fontSize="18" fontWeight="700" fill="#1D4ED8">J15-J28 Attente</text>
+        <text x="148" y="191" textAnchor="middle" fontSize="18" fontWeight="700" fill="#BE123C">J1-J5 Regles</text>
+        <text x="370" y="186" textAnchor="middle" fontSize="17" fontWeight="700" fill="#92400E">J6-J13</text>
+        <text x="370" y="208" textAnchor="middle" fontSize="17" fontWeight="700" fill="#92400E">Endometre se reforme</text>
+        <text x="580" y="183" textAnchor="middle" fontSize="18" fontWeight="700" fill="#166534">J14</text>
+        <text x="580" y="206" textAnchor="middle" fontSize="18" fontWeight="700" fill="#166534">Ovulation</text>
+        <text x="750" y="186" textAnchor="middle" fontSize="17" fontWeight="700" fill="#1D4ED8">J15-J28</text>
+        <text x="750" y="208" textAnchor="middle" fontSize="17" fontWeight="700" fill="#1D4ED8">Attente</text>
 
-        <circle cx="70" cy="210" r="10" fill="#E11D48" />
-        <circle cx="458" cy="210" r="10" fill="#16A34A" />
-        <circle cx="690" cy="210" r="10" fill="#2563EB" />
+        <circle cx="90" cy="245" r="12" fill="#E11D48" />
+        <circle cx="580" cy="245" r="12" fill="#16A34A" />
+        <circle cx="830" cy="245" r="12" fill="#2563EB" />
 
-        <text x="70" y="240" textAnchor="middle" fontSize="15" fontWeight="700" fill="#9F1239">Jour 1</text>
-        <text x="458" y="240" textAnchor="middle" fontSize="15" fontWeight="700" fill="#166534">Jour 14 env.</text>
-        <text x="690" y="240" textAnchor="middle" fontSize="15" fontWeight="700" fill="#1D4ED8">Jour 28</text>
+        <text x="90" y="282" textAnchor="middle" fontSize="16" fontWeight="700" fill="#9F1239">Jour 1</text>
+        <text x="580" y="282" textAnchor="middle" fontSize="16" fontWeight="700" fill="#166534">Jour 14 env.</text>
+        <text x="830" y="282" textAnchor="middle" fontSize="16" fontWeight="700" fill="#1D4ED8">Jour 28</text>
 
-        <path d="M 458 96 C 520 48, 620 48, 675 96" fill="none" stroke="#FB7185" strokeWidth="4" strokeDasharray="8 6" />
-        <text x="570" y="62" textAnchor="middle" fontSize="16" fontWeight="700" fill="#BE123C">
+        <path d="M 580 120 C 650 50, 760 50, 820 110" fill="none" stroke="#FB7185" strokeWidth="4" strokeDasharray="8 6" />
+        <text x="630" y="58" fontSize="16" fontWeight="700" fill="#BE123C">
           Ovulation = environ 14 jours avant les prochaines regles
         </text>
       </svg>
@@ -257,36 +263,36 @@ export function SpermPathDiagram() {
       title="Trajet des spermatozoides"
       caption="Le sperme n'est pas un organe : c'est le melange des spermatozoides avec le liquide seminal."
     >
-      <svg viewBox="0 0 760 240" className="h-auto w-full" role="img" aria-label="Schema du trajet des spermatozoides de la fabrication a la sortie">
+      <svg viewBox="0 0 980 270" className="h-auto w-full" role="img" aria-label="Schema du trajet des spermatozoides de la fabrication a la sortie">
         <defs>
           <marker id="arrow-flow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
             <path d="M 0 0 L 10 5 L 0 10 z" fill="#0F766E" />
           </marker>
         </defs>
 
-        <rect x="20" y="75" width="125" height="72" rx="24" fill="#DBEAFE" stroke="#60A5FA" strokeWidth="3" />
-        <rect x="165" y="75" width="125" height="72" rx="24" fill="#E0F2FE" stroke="#38BDF8" strokeWidth="3" />
-        <rect x="310" y="75" width="125" height="72" rx="24" fill="#DCFCE7" stroke="#4ADE80" strokeWidth="3" />
-        <rect x="455" y="75" width="145" height="72" rx="24" fill="#FEF3C7" stroke="#FBBF24" strokeWidth="3" />
-        <rect x="620" y="75" width="120" height="72" rx="24" fill="#FCE7F3" stroke="#F472B6" strokeWidth="3" />
+        <rect x="30" y="88" width="150" height="82" rx="28" fill="#DBEAFE" stroke="#60A5FA" strokeWidth="3" />
+        <rect x="220" y="88" width="150" height="82" rx="28" fill="#E0F2FE" stroke="#38BDF8" strokeWidth="3" />
+        <rect x="410" y="88" width="150" height="82" rx="28" fill="#DCFCE7" stroke="#4ADE80" strokeWidth="3" />
+        <rect x="600" y="88" width="180" height="82" rx="28" fill="#FEF3C7" stroke="#FBBF24" strokeWidth="3" />
+        <rect x="820" y="88" width="130" height="82" rx="28" fill="#FCE7F3" stroke="#F472B6" strokeWidth="3" />
 
-        <text x="82" y="107" textAnchor="middle" fontSize="18" fontWeight="700" fill="#1D4ED8">Testicule</text>
-        <text x="82" y="128" textAnchor="middle" fontSize="13" fill="#2563EB">fabrication</text>
-        <text x="227" y="107" textAnchor="middle" fontSize="18" fontWeight="700" fill="#0369A1">Epididyme</text>
-        <text x="227" y="128" textAnchor="middle" fontSize="13" fill="#0284C7">maturation</text>
-        <text x="372" y="107" textAnchor="middle" fontSize="18" fontWeight="700" fill="#15803D">Canal deferent</text>
-        <text x="372" y="128" textAnchor="middle" fontSize="13" fill="#16A34A">transport</text>
-        <text x="527" y="107" textAnchor="middle" fontSize="18" fontWeight="700" fill="#B45309">Prostate +</text>
-        <text x="527" y="128" textAnchor="middle" fontSize="18" fontWeight="700" fill="#B45309">vesicules</text>
-        <text x="680" y="107" textAnchor="middle" fontSize="18" fontWeight="700" fill="#BE185D">Uretre</text>
-        <text x="680" y="128" textAnchor="middle" fontSize="13" fill="#DB2777">sortie</text>
+        <text x="105" y="122" textAnchor="middle" fontSize="20" fontWeight="700" fill="#1D4ED8">Testicule</text>
+        <text x="105" y="145" textAnchor="middle" fontSize="14" fill="#2563EB">fabrication</text>
+        <text x="295" y="122" textAnchor="middle" fontSize="20" fontWeight="700" fill="#0369A1">Epididyme</text>
+        <text x="295" y="145" textAnchor="middle" fontSize="14" fill="#0284C7">maturation</text>
+        <text x="485" y="122" textAnchor="middle" fontSize="20" fontWeight="700" fill="#15803D">Canal deferent</text>
+        <text x="485" y="145" textAnchor="middle" fontSize="14" fill="#16A34A">transport</text>
+        <text x="690" y="119" textAnchor="middle" fontSize="20" fontWeight="700" fill="#B45309">Prostate +</text>
+        <text x="690" y="143" textAnchor="middle" fontSize="20" fontWeight="700" fill="#B45309">vesicules</text>
+        <text x="885" y="122" textAnchor="middle" fontSize="20" fontWeight="700" fill="#BE185D">Uretre</text>
+        <text x="885" y="145" textAnchor="middle" fontSize="14" fill="#DB2777">sortie</text>
 
-        <path d="M 145 111 H 165" stroke="#0F766E" strokeWidth="5" markerEnd="url(#arrow-flow)" />
-        <path d="M 290 111 H 310" stroke="#0F766E" strokeWidth="5" markerEnd="url(#arrow-flow)" />
-        <path d="M 435 111 H 455" stroke="#0F766E" strokeWidth="5" markerEnd="url(#arrow-flow)" />
-        <path d="M 600 111 H 620" stroke="#0F766E" strokeWidth="5" markerEnd="url(#arrow-flow)" />
+        <path d="M 180 129 H 220" stroke="#0F766E" strokeWidth="6" markerEnd="url(#arrow-flow)" />
+        <path d="M 370 129 H 410" stroke="#0F766E" strokeWidth="6" markerEnd="url(#arrow-flow)" />
+        <path d="M 560 129 H 600" stroke="#0F766E" strokeWidth="6" markerEnd="url(#arrow-flow)" />
+        <path d="M 780 129 H 820" stroke="#0F766E" strokeWidth="6" markerEnd="url(#arrow-flow)" />
 
-        <text x="380" y="192" textAnchor="middle" fontSize="18" fontWeight="700" fill="#0F766E">
+        <text x="490" y="225" textAnchor="middle" fontSize="18" fontWeight="700" fill="#0F766E">
           Sperme = spermatozoides + liquide seminal
         </text>
       </svg>
