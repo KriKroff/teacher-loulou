@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" width="600" height="420" style="background:#e8f4f8;font-family:sans-serif">
+  <!-- Background ocean -->
+  <rect width="600" height="420" fill="#c8dff0"/>
+
+  <!-- ROYAUME-UNI (UK) — top left island group -->
+  <rect x="45" y="55" width="115" height="145" rx="18" fill="#e8c86a" stroke="#8a7030" stroke-width="2"/>
+  <text x="103" y="120" text-anchor="middle" fill="#5a4a10" font-size="13" font-weight="bold">Royaume-</text>
+  <text x="103" y="136" text-anchor="middle" fill="#5a4a10" font-size="13" font-weight="bold">Uni</text>
+
+  <!-- FRANCE — center-left -->
+  <rect x="185" y="130" width="130" height="130" rx="14" fill="#a8d8a8" stroke="#3a7a3a" stroke-width="2"/>
+  <text x="250" y="200" text-anchor="middle" fill="#1a4a1a" font-size="14" font-weight="bold">France</text>
+
+  <!-- BELGIQUE — small, between UK and Germany -->
+  <rect x="255" y="95" width="70" height="60" rx="10" fill="#f9c784" stroke="#b07030" stroke-width="2"/>
+  <text x="290" y="128" text-anchor="middle" fill="#7a4a10" font-size="11" font-weight="bold">Belgique</text>
+
+  <!-- ALLEMAGNE — right of France -->
+  <rect x="340" y="90" width="130" height="155" rx="14" fill="#d4a0d4" stroke="#7a407a" stroke-width="2"/>
+  <text x="405" y="172" text-anchor="middle" fill="#4a1a4a" font-size="13" font-weight="bold">Allemagne</text>
+
+  <!-- ITALIE — bottom right (long peninsula shape) -->
+  <rect x="335" y="270" width="115" height="120" rx="14" fill="#f4a4a4" stroke="#c04040" stroke-width="2"/>
+  <text x="393" y="337" text-anchor="middle" fill="#6a1a1a" font-size="13" font-weight="bold">Italie</text>
+
+  <!-- ESPAGNE — bottom left -->
+  <rect x="55" y="280" width="135" height="110" rx="14" fill="#f0c090" stroke="#905020" stroke-width="2"/>
+  <text x="123" y="342" text-anchor="middle" fill="#5a3010" font-size="13" font-weight="bold">Espagne</text>
+
+  <!-- Title -->
+  <text x="300" y="28" text-anchor="middle" fill="#1a3a5a" font-size="15" font-weight="bold">Europe — Révolution industrielle (XIX°)</text>
+
+  <!-- Legend hint -->
+  <text x="470" y="370" text-anchor="middle" fill="#3a5a7a" font-size="10">Clique sur un pays</text>
+</svg>

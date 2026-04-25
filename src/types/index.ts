@@ -36,13 +36,13 @@ export interface Resource {
   createdAt: string;
   updatedAt: string;
   tags: string[];
-  content?: string;
+  /** Path to .mdx file under src/data/, resolved at build time */
+  mdxPath?: string;
   quizData?: Quiz;
   videoUrl?: string;
   externalUrl?: string;
   htmlPath?: string;
   chapter?: string;
-  customComponent?: string;
 }
 
 export interface QuizLevel {
@@ -77,7 +77,13 @@ export interface QuizQuestion {
     | "ordre"
     | "nombre"
     | "slider"
-    | "intrus";
+    | "intrus"
+    // Phase 8 — new interactive types
+    | "drag-on-image"
+    | "click-on-image"
+    | "audio-listen"
+    | "tri-categories"
+    | "completion-tableau";
   options?: string[];
   correctAnswer: string | string[];
   explanation: string;
@@ -85,6 +91,47 @@ export interface QuizQuestion {
   pairs?: { left: string; right: string }[]; // for "association" type
   /** Allowed tolerance for "slider" and "nombre" types (default: 0 — exact match) */
   tolerance?: number;
+
+  // ── drag-on-image ──────────────────────────────────────────────────────────
+  /** Path under /public, e.g. /images/svt/appareil-feminin.jpg */
+  imageSrc?: string;
+  /** Alt text for the image */
+  imageAlt?: string;
+  /** Drop zones on the image. x/y in % of image dimensions (0-100). */
+  zones?: { id: string; x: number; y: number; correctLabel: string }[];
+  /** Label bank to drag onto zones (may include distractors). */
+  labels?: string[];
+
+  // ── click-on-image ─────────────────────────────────────────────────────────
+  // imageSrc and imageAlt are shared with drag-on-image
+  /** Clickable rectangular zones. x, y, w, h in % of image dimensions. */
+  clickZones?: {
+    id: string;
+    x: number;
+    y: number;
+    w: number;
+    h: number;
+    isCorrect: boolean;
+    label?: string;
+  }[];
+
+  // ── audio-listen ───────────────────────────────────────────────────────────
+  /** Path under /public/sounds/ or data: URI. Rendered as an <audio> element. */
+  audioSrc?: string;
+  // options + correctAnswer reuse the same fields as qcm
+
+  // ── tri-categories ─────────────────────────────────────────────────────────
+  /** Items to classify into categories. */
+  items?: { id: string; label: string }[];
+  /** Target categories. correctItemIds lists which item ids belong here. */
+  categories?: { id: string; label: string; correctItemIds: string[] }[];
+
+  // ── completion-tableau ─────────────────────────────────────────────────────
+  /** Table to complete. Cells are either fixed values or blanks with a correct answer. */
+  table?: {
+    headers: string[];
+    rows: ({ value: string } | { blank: true; correctAnswer: string })[][];
+  };
 }
 
 export interface QuizQuestionHistory {
@@ -115,6 +162,9 @@ export interface AccessibilitySettings {
   readingRuler: boolean;
   highContrast: boolean;
   syllableColors: boolean;
+  sounds: boolean;      // quiz sound effects via Web Audio API (default false — can distract ADHD)
+  vibration: boolean;   // haptic feedback on mobile (default true)
+  confetti: boolean;    // confetti animation on quiz success (default true)
 }
 
 export const DEFAULT_ACCESSIBILITY_SETTINGS: AccessibilitySettings = {
@@ -126,6 +176,9 @@ export const DEFAULT_ACCESSIBILITY_SETTINGS: AccessibilitySettings = {
   readingRuler: false,
   highContrast: false,
   syllableColors: false,
+  sounds: false,
+  vibration: true,
+  confetti: true,
 };
 
 // Display names for UI

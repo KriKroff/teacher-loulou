@@ -17,6 +17,12 @@
 /.next/
 /out/
 
+# idea
+.idea
+
+# local content drafts (photos, brouillons hors du site)
+/draft
+
 # production
 /build
 

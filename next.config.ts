@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import path from "node:path";
 
 const nextConfig: NextConfig = {
   output: "export",
@@ -7,6 +8,9 @@ const nextConfig: NextConfig = {
   basePath: process.env.NEXT_PUBLIC_BASE_PATH || "",
   images: {
     unoptimized: true, // Required for static export
+  },
+  turbopack: {
+    root: path.resolve(__dirname),
   },
 };
 

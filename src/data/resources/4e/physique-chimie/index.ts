@@ -11,11 +11,10 @@ export const resources: Resource[] = [
     level: "4e",
     subject: "physique-chimie",
     chapter: "Chapitre IV — La masse d'un gaz",
-    customComponent: "PCMasseGazFiche",
     createdAt: "2026-04-04T12:00:00Z",
     updatedAt: "2026-04-04T12:00:00Z",
     tags: ["gaz", "masse", "matière", "composition de l'air", "pression", "déplacement d'eau", "fiche"],
-    content: "",
+    mdxPath: "4e/physique-chimie/fiches/pc-masse-gaz-fiche.mdx",
   },
 
   // ─── QUIZ UNIFIÉ (3 niveaux) ────────────────────────────────────────────────
@@ -23,7 +22,7 @@ export const resources: Resource[] = [
     slug: "pc-masse-gaz-quiz",
     title: "Quiz — La masse d'un gaz",
     description:
-      "3 niveaux de difficulté : Facile, Intermédiaire, Expert. 8 questions par session tirées d'une banque de 30 questions sur les gaz, la composition de l'air et la pression.",
+      "3 niveaux de difficulté : Facile, Intermédiaire, Expert. 10 questions par session tirées d'une banque de 30 questions sur les gaz, la composition de l'air et la pression.",
     type: "quiz",
     level: "4e",
     subject: "physique-chimie",
@@ -36,7 +35,7 @@ export const resources: Resource[] = [
       description:
         "Choisis ton niveau pour commencer. Conseil : commence par Facile pour te chauffer !",
       passingScore: 60,
-      sessionSize: 8,
+      sessionSize: 10,
       questions: [],
       levels: [
         // ── NIVEAU FACILE ────────────────────────────────────────────────────

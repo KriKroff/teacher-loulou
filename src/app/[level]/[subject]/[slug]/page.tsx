@@ -1,5 +1,8 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { Suspense } from "react";
+import fs from "node:fs/promises";
+import path from "node:path";
 import {
   LEVEL_NAMES,
   SUBJECT_NAMES,
@@ -7,11 +10,9 @@ import {
   type Subject,
 } from "@/types";
 import { getResourceBySlug, getAllResources, getResourcesByLevelAndSubject } from "@/data/resources";
-import { CourseViewer } from "@/components/content/CourseViewer";
-import { QuizPlayer } from "@/components/content/QuizPlayer";
+import { MdxRenderer } from "@/components/content/MdxRenderer";
+import { QuizPlayer } from "@/components/quiz/QuizPlayer";
 import { ResourceTracker } from "@/components/content/ResourceTracker";
-import { SVTPuberteFiche } from "@/components/content/SVTPuberteFiche";
-import { PCMasseGazFiche } from "@/components/content/PCMasseGazFiche";
 
 interface Props {
   params: Promise<{ level: string; subject: string; slug: string }>;
@@ -47,6 +48,11 @@ function FicheNavButton({ href }: { href: string }) {
   );
 }
 
+async function readMdxSource(mdxPath: string): Promise<string> {
+  const absolute = path.join(process.cwd(), "src/data/resources", mdxPath);
+  return fs.readFile(absolute, "utf-8");
+}
+
 export default async function ResourcePage({ params }: Props) {
   const { level, subject, slug } = await params;
   const resource = getResourceBySlug(
@@ -62,14 +68,21 @@ export default async function ResourcePage({ params }: Props) {
   const levelName = LEVEL_NAMES[resource.level];
   const subjectName = SUBJECT_NAMES[resource.subject];
 
-  // Find related quiz (for fiche/cours pages) or fiche (for quiz pages)
   const siblings = getResourcesByLevelAndSubject(resource.level, resource.subject);
   const relatedQuiz = siblings.find((r) => r.type === "quiz");
   const relatedFiche = siblings.find((r) => r.type === "fiche");
-  const isFicheOrCours = (resource.type === "cours" || resource.type === "fiche") && !resource.customComponent;
+  const isFicheOrCours = resource.type === "cours" || resource.type === "fiche";
+  const isFicheOrCoursStandard = isFicheOrCours;
   const isQuiz = resource.type === "quiz";
   const quizHref = relatedQuiz ? `/${resource.level}/${resource.subject}/${relatedQuiz.slug}` : null;
   const ficheHref = relatedFiche ? `/${resource.level}/${resource.subject}/${relatedFiche.slug}` : null;
+
+  let mdxSource: string | null = null;
+  if (resource.mdxPath) {
+    mdxSource = await readMdxSource(resource.mdxPath);
+  }
+
+  const hasMdxOrLegacyContent = mdxSource !== null;
 
   return (
     <div className="space-y-6">
@@ -89,46 +102,30 @@ export default async function ResourcePage({ params }: Props) {
         <span className="truncate text-warm-700">{resource.title}</span>
       </nav>
 
-      {/* Track this resource view */}
       <ResourceTracker resource={resource} />
 
       {/* Quiz nav button — top of fiche/cours */}
-      {isFicheOrCours && resource.content && quizHref && (
+      {isFicheOrCoursStandard && hasMdxOrLegacyContent && quizHref && (
         <QuizNavButton href={quizHref} />
       )}
 
       {/* Fiche nav button — top of quiz */}
-      {isQuiz && ficheHref && (
-        <FicheNavButton href={ficheHref} />
-      )}
+      {isQuiz && ficheHref && <FicheNavButton href={ficheHref} />}
 
-      {/* Custom component rendering */}
-      {resource.customComponent === "SVTPuberteFiche" && (
-        <SVTPuberteFiche
-          quizSlug="svt-puberte-quiz"
-          level={resource.level}
-          subject={resource.subject}
-        />
+      {/* MDX content */}
+      {isFicheOrCoursStandard && mdxSource !== null && (
+        <MdxRenderer source={mdxSource} />
       )}
-
-      {resource.customComponent === "PCMasseGazFiche" && (
-        <PCMasseGazFiche
-          quizSlug="pc-masse-gaz-quiz"
-          level={resource.level}
-          subject={resource.subject}
-        />
-      )}
-
-      {/* Standard markdown fiche/cours — skip if customComponent handles it */}
-      {isFicheOrCours && resource.content && <CourseViewer resource={resource} />}
 
       {/* Quiz nav button — bottom of fiche/cours */}
-      {isFicheOrCours && resource.content && quizHref && (
+      {isFicheOrCoursStandard && hasMdxOrLegacyContent && quizHref && (
         <QuizNavButton href={quizHref} />
       )}
 
       {resource.type === "quiz" && resource.quizData && (
-        <QuizPlayer resource={resource} />
+        <Suspense fallback={null}>
+          <QuizPlayer resource={resource} />
+        </Suspense>
       )}
 
       {resource.type === "video" && resource.videoUrl && (
@@ -146,4 +143,3 @@ export default async function ResourcePage({ params }: Props) {
     </div>
   );
 }
-

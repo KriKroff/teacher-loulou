@@ -2,14 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, GraduationCap, Star, Settings } from "lucide-react";
+import { Home, GraduationCap, Clock, BarChart3 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
   { href: "/", icon: Home, label: "Accueil" },
   { href: "/niveaux", icon: GraduationCap, label: "Niveaux" },
-  { href: "/favoris", icon: Star, label: "Favoris" },
-  { href: "/reglages", icon: Settings, label: "Réglages" },
+  { href: "/historique", icon: Clock, label: "Historique" },
+  { href: "/progression", icon: BarChart3, label: "Progression" },
 ];
 
 export function MobileNav() {
@@ -19,9 +19,12 @@ export function MobileNav() {
     <nav className="fixed bottom-0 left-0 right-0 z-40 border-t border-warm-200 bg-warm-50/95 backdrop-blur-sm sm:hidden">
       <div className="flex items-center justify-around py-2">
         {navItems.map((item) => {
+          const levelPattern = /^\/(6e|5e|4e|3e|2nde|1ere|terminale)(\/|$)/;
           const isActive =
             item.href === "/"
               ? pathname === "/"
+              : item.href === "/niveaux"
+              ? pathname.startsWith("/niveaux") || levelPattern.test(pathname)
               : pathname.startsWith(item.href);
           return (
             <Link

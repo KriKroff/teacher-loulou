@@ -101,6 +101,16 @@ html[data-high-contrast="true"] .bg-warm-50 {
   background-color: #FFFDF5;
 }
 
+/* Syllable coloring — only applied when toggle is on.
+   Spans are emitted by lib/rehype-syllabify on every render so the toggle
+   can switch instantly without re-rendering the MDX tree. */
+html[data-syllable-colors="true"] .dys-content .syllable-a {
+  color: #1D4ED8;
+}
+html[data-syllable-colors="true"] .dys-content .syllable-b {
+  color: #B45309;
+}
+
 /* ===== FOCUS STYLES - large and visible ===== */
 
 *:focus-visible {

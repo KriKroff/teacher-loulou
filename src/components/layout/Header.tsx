@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { AccessibilityPanel } from "@/components/accessibility/AccessibilityPanel";
-import { BookOpen } from "lucide-react";
+import { BookOpen, Settings } from "lucide-react";
 
 export function Header() {
   return (
@@ -19,6 +19,14 @@ export function Header() {
         </Link>
 
         <div className="flex items-center gap-2">
+          <Link
+            href="/reglages"
+            className="flex h-9 w-9 items-center justify-center rounded-xl text-warm-500 transition-colors hover:bg-warm-100 hover:text-warm-700"
+            aria-label="Réglages d'accessibilité"
+            title="Réglages"
+          >
+            <Settings className="h-5 w-5" />
+          </Link>
           <AccessibilityPanel />
         </div>
       </div>

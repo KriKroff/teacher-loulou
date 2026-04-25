@@ -11,138 +11,10 @@ export const resources: Resource[] = [
     level: "4e",
     subject: "svt",
     chapter: "Chapitre 6 — Puberté et reproduction",
-    customComponent: "SVTPuberteFiche",
     createdAt: "2026-03-29T10:00:00Z",
     updatedAt: "2026-03-29T10:00:00Z",
     tags: ["puberté", "reproduction", "hormones", "cycle", "fiche"],
-    content: `
-# La puberté et la reproduction humaine
-
----
-
-## Partie 1 — La puberté
-
-La puberté, c'est la période où le corps change. L'appareil reproducteur devient fonctionnel. C'est déclenché par les **hormones**, vers 10–14 ans.
-
-### Changements chez le garçon
-- Poils, muscles, mue de la voix
-- Acné, poussée de croissance
-- Testicules et pénis grandissent
-- Production de sperme
-
-### Changements chez la fille
-- Poitrine, hanches s'élargissent
-- Poils, acné, poussée de croissance
-- Ovaires et utérus grandissent
-- Premières règles (ménarche)
-
-> **À retenir** : Puberté = hormones → corps change → appareil reproducteur fonctionnel.
-
-| Type | Quand ? | Exemples |
-|------|---------|----------|
-| Caractères primaires | Présents dès la naissance. Grandissent à la puberté. | Pénis, vagin, ovaires, testicules |
-| Caractères secondaires | Absents à la naissance. Apparaissent à la puberté. | Poitrine, pilosité, voix grave |
-
----
-
-## Partie 2 — L'appareil reproducteur masculin
-
-Les testicules fabriquent des spermatozoïdes toute la vie, à partir de la puberté.
-
-> **À retenir** : Sperme = spermatozoïdes + liquide séminal. Trajet : testicule → épididyme → canal déférent → prostate → urètre.
-
-| Organe | Rôle |
-|--------|------|
-| Testicule | Fabrique les spermatozoïdes (dans les tubes séminifères) |
-| Épididyme | Stockage + les spermatozoïdes deviennent mobiles |
-| Canal déférent | Transporte les spermatozoïdes vers l'urètre |
-| Vésicules séminales + Prostate | Produisent le liquide séminal → forme le sperme |
-| Urètre | Voie de sortie du sperme lors de l'éjaculation |
-
----
-
-## Partie 3 — L'appareil reproducteur féminin
-
-À partir de la puberté, un ovule est libéré environ tous les 28 jours : c'est l'**ovulation**. Ce fonctionnement s'arrête à la ménopause, vers 50 ans.
-
-> **À retenir** : Fécondation = dans les trompes. Pas de fécondation → endomètre éliminé = règles.
-
-| Organe | Rôle |
-|--------|------|
-| Ovaires | Produisent et libèrent un ovule par cycle (ovulation) |
-| Trompes de Fallope | Conduisent l'ovule vers l'utérus. Lieu de la fécondation. |
-| Utérus | Accueille l'embryon si fécondation. Sinon → règles. |
-| Col de l'utérus | Jonction utérus/vagin. Les spermatozoïdes passent par là. |
-| Vagin | Voie de copulation. Reçoit le sperme. |
-
----
-
-## Partie 4 — Le cycle féminin (~28 jours)
-
-Le cycle commence au **Jour 1** des règles. Il dure 28 jours en moyenne (entre 21 et 35 jours selon les personnes).
-
-> **À retenir** : Cycle = 28 jours. Jour 1 = règles. Ovulation = prochaines règles − 14 jours.
-
-| Durée du cycle | Calcul | Date de l'ovulation |
-|----------------|--------|---------------------|
-| 28 jours | J1 + 28 = J28 → J28 − 14 | Jour 14 |
-| 32 jours | J1 + 32 = J32 → J32 − 14 | Jour 18 |
-| 21 jours | J1 + 21 = J21 → J21 − 14 | Jour 7 |
-
----
-
-## Partie 5 — Les émotions à l'adolescence
-
-Les hormones changent aussi les émotions et les comportements. Ce n'est pas un choix — c'est biologique.
-
-> **À retenir** : Sautes d'humeur et agressivité à l'ado = causées par les hormones. C'est biologique, pas un défaut.
-
-| Ce qu'on ressent | Ce que ça provoque |
-|------------------|--------------------|
-| Gêne / inquiétude par rapport au corps | Importance de l'image de soi. L'opinion des autres compte beaucoup. |
-| Se sentir différent des autres | Sautes d'humeur, manque de confiance, émotivité. |
-| Envie d'être plus indépendant | Contestation des adultes, parfois agressivité. |
-| Peur de ne plus être protégé | Comportements risqués : alcool, conduite sans casque, rapports non protégés. |
-
----
-
-## Partie 6 — Les mots-clés
-
-> **À retenir** : Spermatozoïde ≠ sperme. Ovule ≠ ovulation. Ménarche = premières règles. Ménopause = fin des cycles.
-
-| Mot-clé | Définition |
-|---------|-----------|
-| Puberté | Période déclenchée par les hormones. Le corps change. L'appareil reproducteur devient fonctionnel. |
-| Hormone | Substance chimique produite par une glande. Elle transporte un message dans le sang. |
-| Caractères primaires | Organes reproducteurs présents dès la naissance (pénis, vagin, ovaires…). |
-| Caractères secondaires | Apparaissent seulement à la puberté (poitrine, pilosité, voix grave…). |
-| Spermatozoïde | Cellule reproductrice du garçon. Mobile grâce à un flagelle. Fabriquée dans les testicules. |
-| Sperme | Spermatozoïdes + liquide séminal. ≠ spermatozoïde seul. |
-| Épididyme | Organe sur le testicule. C'est là que les spermatozoïdes deviennent mobiles. |
-| Ovule | Cellule reproductrice de la fille. Libérée lors de l'ovulation. |
-| Ovulation | Libération d'un ovule par un ovaire. Environ 14 jours avant les prochaines règles. |
-| Endomètre | Muqueuse interne de l'utérus. S'épaissit chaque cycle. Si pas de fécondation → éliminée = règles. |
-| Fécondation | Union spermatozoïde + ovule. Se passe dans les trompes de Fallope. |
-| Règles (menstruations) | Élimination de l'endomètre si pas de fécondation. = Jour 1 du nouveau cycle. |
-| Ménarche | Premières règles. Signe que l'appareil féminin fonctionne. |
-| Ménopause | Arrêt définitif des cycles vers 50 ans. Fin de la fertilité. |
-
----
-
-## Partie 7 — La méthode pour analyser un document
-
-Quand tu as un graphique ou un tableau, tu suis toujours ces 4 étapes dans le même ordre.
-
-**1. Présenter le document.** Quel type ? Que représente-t-il ? Quelles unités ?
-
-**2. Je vois que…** Tu décris ce que tu observes avec des **chiffres et des unités**. Exemple : *"Le volume des testicules passe de 1 mL à 6,5 mL entre 10 et 17 ans."*
-
-**3. Or je sais que…** Tu rappelles une **connaissance du cours** qui explique ce que tu observes.
-
-**4. J'en conclus que…** Tu donnes ta **conclusion** en lien avec la question posée.
-
-> **À retenir** : Méthode scientifique : Je vois → Or je sais → J'en conclus. TOUJOURS des chiffres et des unités dans "Je vois que…".
-    `,
+    mdxPath: "4e/svt/fiches/svt-puberte-reproduction-fiche.mdx",
   },
 
   // ─── QUIZ UNIFIÉ (3 niveaux) ────────────────────────────────────────────────
@@ -163,6 +35,7 @@ Quand tu as un graphique ou un tableau, tu suis toujours ces 4 étapes dans le m
       description:
         "Choisis ton niveau pour commencer. Conseil : commence par Facile pour te chauffer !",
       passingScore: 60,
+      sessionSize: 10,
       questions: [],
       levels: [
         {
@@ -735,6 +608,59 @@ Quand tu as un graphique ou un tableau, tu suis toujours ces 4 étapes dans le m
               ],
               explanation:
                 "Trajet complet : Testicule (fabrication) → Épididyme (mobilité) → Canal déférent (transport) → Prostate + vésicules séminales (liquide séminal) → Urètre (sortie).",
+            },
+            // ── drag-on-image ─────────────────────────────────────────────────
+            {
+              id: "i-doi-1",
+              type: "drag-on-image",
+              question: "Place les noms des organes sur le schéma de l'appareil reproducteur féminin (vue de face).",
+              imageSrc: "/images/svt/appareil-reproducteur-feminin-face.jpg",
+              imageAlt: "Schéma de l'appareil reproducteur féminin, vue de face",
+              zones: [
+                { id: "zone-ovaire-g", x: 22, y: 42, correctLabel: "Ovaire gauche" },
+                { id: "zone-trompe-g", x: 32, y: 30, correctLabel: "Trompe de Fallope" },
+                { id: "zone-uterus", x: 50, y: 50, correctLabel: "Utérus" },
+                { id: "zone-vagin", x: 50, y: 72, correctLabel: "Vagin" },
+                { id: "zone-ovaire-d", x: 78, y: 42, correctLabel: "Ovaire droit" },
+              ],
+              labels: [
+                "Ovaire gauche",
+                "Trompe de Fallope",
+                "Utérus",
+                "Vagin",
+                "Ovaire droit",
+                "Col de l'utérus",
+              ],
+              correctAnswer: "drag-on-image",
+              explanation:
+                "L'appareil féminin comprend deux ovaires (fabrication des ovules), deux trompes de Fallope (transport), l'utérus (gestation) et le vagin (sortie).",
+              hint: "L'utérus est l'organe central, en forme de poire.",
+            },
+            {
+              id: "i-doi-2",
+              type: "drag-on-image",
+              question: "Place les noms des organes sur le schéma de l'appareil reproducteur masculin (vue de face).",
+              imageSrc: "/images/svt/appareil-reproducteur-masculin-face.jpg",
+              imageAlt: "Schéma de l'appareil reproducteur masculin, vue de face",
+              zones: [
+                { id: "zone-testicule", x: 40, y: 72, correctLabel: "Testicule" },
+                { id: "zone-epididyme", x: 60, y: 68, correctLabel: "Épididyme" },
+                { id: "zone-canal-deferent", x: 55, y: 45, correctLabel: "Canal déférent" },
+                { id: "zone-prostate", x: 50, y: 35, correctLabel: "Prostate" },
+                { id: "zone-uretre", x: 50, y: 58, correctLabel: "Urètre" },
+              ],
+              labels: [
+                "Testicule",
+                "Épididyme",
+                "Canal déférent",
+                "Prostate",
+                "Urètre",
+                "Vésicule séminale",
+              ],
+              correctAnswer: "drag-on-image",
+              explanation:
+                "Les testicules fabriquent les spermatozoïdes. L'épididyme les stocke et les rend mobiles. Le canal déférent les transporte vers la prostate. L'urètre les expulse.",
+              hint: "Les testicules sont dans le scrotum, en bas du schéma.",
             },
           ],
         },
