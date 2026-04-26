@@ -354,7 +354,7 @@ export const resources: Resource[] = [
               question:
                 "Pour démontrer qu'un triangle est rectangle par la réciproque de Pythagore, remettre dans l'ordre :",
               type: "ordre",
-              items: [
+              options: [
                 "Calculer le carré du plus grand côté",
                 "Calculer la somme des carrés des deux autres côtés",
                 "Comparer les deux résultats",
@@ -490,7 +490,7 @@ export const resources: Resource[] = [
               question:
                 "Pour utiliser le théorème de Thalès et trouver une longueur inconnue, remettre dans l'ordre :",
               type: "ordre",
-              items: [
+              options: [
                 "Identifier le point commun O et les droites sécantes",
                 "Vérifier ou poser le parallélisme (AB // MN)",
                 "Écrire l'égalité des rapports (OA/OM = OB/ON)",
@@ -836,7 +836,7 @@ export const resources: Resource[] = [
               id: "ai15",
               question: "Remettre dans l'ordre les étapes pour simplifier une fraction :",
               type: "ordre",
-              items: [
+              options: [
                 "Trouver le PGCD du numérateur et du dénominateur",
                 "Diviser le numérateur par le PGCD",
                 "Diviser le dénominateur par le PGCD",
@@ -1009,7 +1009,7 @@ export const resources: Resource[] = [
               question:
                 "Remettre dans l'ordre les étapes pour passer un nombre en écriture scientifique (ex: 0,0047) :",
               type: "ordre",
-              items: [
+              options: [
                 "Déplacer la virgule pour avoir un chiffre entre 1 et 9 avant la virgule",
                 "Compter le nombre de déplacements (= valeur absolue de l'exposant)",
                 "Si déplacement vers la droite : exposant négatif",
