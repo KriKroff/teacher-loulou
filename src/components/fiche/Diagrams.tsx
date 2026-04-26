@@ -1080,62 +1080,135 @@ export function PatronPyramideDiagram() {
 }
 
 export function PatronConeDiagram() {
-  // Sector: apex S at top-center, two radii of length g, arc at bottom labeled 2πr
-  // Base disk: circle of radius r
-  // Step-by-step angle formula with 3 colored steps
+  // Left: full dashed circle (radius g) with sector highlighted and θ angle
+  // Right: base disk (radius r), separate, clearly colored
   return (
     <DiagramFrame title="Patron d'un cône">
-      <svg viewBox="0 0 340 320" width="340" height="320">
-        {/* ── SECTOR (face latérale) ── */}
-        {/* Sector centered at S(108,18), radius 130, spanning ~100° */}
-        <path
-          d="M 108,18 L 8,148 A 130,130 0 0,0 208,148 Z"
-          fill="#FAE8FF"
-          stroke="#A855F7"
-          strokeWidth="2"
-        />
-        {/* Arc label: 2πr */}
-        <text x="108" y="172" textAnchor="middle" fontSize="11" fill="#A855F7" fontWeight="bold">arc = 2πr</text>
-        {/* Radius labels g */}
-        <text x="42" y="85" fontSize="12" fill="#7E22CE" fontWeight="bold" fontStyle="italic">g</text>
-        <text x="160" y="85" fontSize="12" fill="#7E22CE" fontWeight="bold" fontStyle="italic">g</text>
-        {/* S label */}
-        <circle cx="108" cy="18" r="3" fill="#7E22CE" />
-        <text x="114" y="16" fontSize="12" fontWeight="bold" fill="#7E22CE">S</text>
-        {/* Angle arc θ */}
-        <path d="M 108,18 m 30,0 A 30,30 0 0,0 108,48" fill="none" stroke="#9333EA" strokeWidth="1.5" />
-        <text x="118" y="48" fontSize="11" fill="#9333EA" fontWeight="bold">θ</text>
-        {/* Face label */}
-        <text x="108" y="135" textAnchor="middle" fontSize="11" fill="#7E22CE">Face latérale</text>
+      <svg viewBox="0 0 345 215" width="345" height="215">
+        {/* ── FULL CIRCLE (radius g) — dashed ── */}
+        <circle cx="100" cy="108" r="80" fill="none" stroke="#C084FC" strokeWidth="1.5" strokeDasharray="5,3" />
+
+        {/* ── SECTOR (face latérale, 120°, opens right) ── */}
+        {/* P1 = (140, 39), P2 = (140, 177), arc through (180, 108) */}
+        <path d="M 100,108 L 140,39 A 80,80 0 0,1 140,177 Z" fill="#FAE8FF" stroke="#A855F7" strokeWidth="2" />
+
+        {/* ── g radii (dashed) ── */}
+        <line x1="100" y1="108" x2="140" y2="39" stroke="#7E22CE" strokeWidth="1.5" strokeDasharray="5,3" />
+        <line x1="100" y1="108" x2="140" y2="177" stroke="#7E22CE" strokeWidth="1.5" strokeDasharray="5,3" />
+
+        {/* ── g labels ── */}
+        <text x="105" y="68" fontSize="12" fill="#7E22CE" fontWeight="bold" fontStyle="italic">g</text>
+        <text x="105" y="155" fontSize="12" fill="#7E22CE" fontWeight="bold" fontStyle="italic">g</text>
+
+        {/* ── Angle θ arc at center S, radius 22 ── */}
+        {/* arc from (-60°) to (+60°): P1_small=(111,89), P2_small=(111,127) */}
+        <path d="M 111,89 A 22,22 0 0,1 111,127" fill="none" stroke="#9333EA" strokeWidth="1.5" />
+        <text x="128" y="112" fontSize="12" fill="#9333EA" fontWeight="bold">θ</text>
+
+        {/* ── S dot and label ── */}
+        <circle cx="100" cy="108" r="3" fill="#7E22CE" />
+        <text x="84" y="105" fontSize="12" fontWeight="bold" fill="#7E22CE">S</text>
+
+        {/* ── "Face latérale" inside sector ── */}
+        <text x="152" y="103" textAnchor="middle" fontSize="10" fill="#7E22CE">Face</text>
+        <text x="152" y="116" textAnchor="middle" fontSize="10" fill="#7E22CE">latérale</text>
+
+        {/* ── "arc = 2πr" below the arc ── */}
+        <text x="100" y="200" textAnchor="middle" fontSize="10" fill="#A855F7" fontWeight="bold">arc = 2πr</text>
 
         {/* ── PLUS SIGN ── */}
-        <text x="222" y="95" textAnchor="middle" fontSize="18" fill="#374151" fontWeight="bold">+</text>
+        <text x="228" y="114" textAnchor="middle" fontSize="18" fill="#374151" fontWeight="bold">+</text>
 
-        {/* ── BASE DISK ── */}
-        <circle cx="290" cy="90" r="38" fill="#FDF4FF" stroke="#A855F7" strokeWidth="2" />
-        <line x1="290" y1="90" x2="328" y2="90" stroke="#7E22CE" strokeWidth="1.5" strokeDasharray="4,2" />
-        <text x="307" y="85" fontSize="11" fill="#7E22CE" fontWeight="bold">r</text>
-        <text x="290" y="95" textAnchor="middle" fontSize="11" fill="#7E22CE">Base</text>
-        <text x="290" y="109" textAnchor="middle" fontSize="10" fill="#7E22CE">(disque)</text>
+        {/* ── BASE DISK (radius r) ── */}
+        <circle cx="293" cy="108" r="40" fill="#CCFBF1" stroke="#0D9488" strokeWidth="2" />
+        {/* r line (dashed) */}
+        <line x1="293" y1="108" x2="333" y2="108" stroke="#0D9488" strokeWidth="1.5" strokeDasharray="4,2" />
+        <text x="310" y="103" fontSize="12" fill="#0D9488" fontWeight="bold">r</text>
+        {/* Labels */}
+        <text x="293" y="105" textAnchor="middle" fontSize="11" fill="#0D9488">Base</text>
+        <text x="293" y="119" textAnchor="middle" fontSize="10" fill="#0D9488">(disque)</text>
+      </svg>
+    </DiagramFrame>
+  );
+}
 
-        {/* ── STEP-BY-STEP ANGLE FORMULA ── */}
-        <rect x="8" y="190" width="324" height="118" fill="#F5F3FF" rx="6" stroke="#DDD6FE" strokeWidth="1" />
-        <text x="170" y="206" textAnchor="middle" fontSize="11" fontWeight="bold" fill="#4C1D95">Calculer l&apos;angle θ du secteur :</text>
+// ──────────────────────────────────────────────
+// MATHÉMATIQUES — Algèbre (Proportionnalité)
+// ──────────────────────────────────────────────
 
-        {/* Step 1 — orange */}
-        <rect x="16" y="212" width="8" height="28" fill="#F97316" rx="2" />
-        <text x="32" y="223" fontSize="10" fill="#F97316" fontWeight="bold">① Arc du secteur</text>
-        <text x="32" y="235" fontSize="10" fill="#F97316">= circonférence de la base = 2πr</text>
+export function ProportionnaliteGraphiquesDiagram() {
+  // Three small side-by-side graphs:
+  // 1. Green: proportional (straight line through origin)
+  // 2. Orange: not proportional (line NOT through origin, affine)
+  // 3. Red: not proportional (not a straight line, curve)
+  // Each graph has axes, label, and a colored tick or cross
 
-        {/* Step 2 — teal */}
-        <rect x="16" y="244" width="8" height="28" fill="#14B8A6" rx="2" />
-        <text x="32" y="255" fontSize="10" fill="#0D9488" fontWeight="bold">② Fraction du cercle complet</text>
-        <text x="32" y="267" fontSize="10" fill="#0D9488">= arc / périmètre du cercle de rayon g = 2πr / 2πg = r/g</text>
+  const W = 96; // width of each graph box
+  const H = 90; // height of each graph box
+  const gap = 14; // gap between graphs
+  const ox = 12; // origin x inside each box
+  const oy = H - 12; // origin y inside each box (bottom-left)
 
-        {/* Step 3 — purple */}
-        <rect x="16" y="276" width="8" height="28" fill="#7C3AED" rx="2" />
-        <text x="32" y="287" fontSize="10" fill="#7C3AED" fontWeight="bold">③ Angle du secteur</text>
-        <text x="32" y="299" fontSize="10" fill="#7C3AED">θ = (r / g) × 360°</text>
+  // Helper: translate to absolute coords for graph i (0,1,2)
+  const gx = (i: number, x: number) => i * (W + gap) + x;
+
+  return (
+    <DiagramFrame title="Situations proportionnelles">
+      <svg viewBox="0 0 340 140" width="340" height="140">
+        {/* ── Graph 1: Proportional ── */}
+        {/* Background */}
+        <rect x={gx(0,0)} y="0" width={W} height={H} fill="#F0FDF4" rx="4" stroke="#86EFAC" strokeWidth="1" />
+        {/* Axes */}
+        <line x1={gx(0,ox)} y1="4" x2={gx(0,ox)} y2={oy} stroke="#374151" strokeWidth="1.5" />
+        <line x1={gx(0,ox)} y1={oy} x2={gx(0,W-4)} y2={oy} stroke="#374151" strokeWidth="1.5" />
+        {/* Arrow tips */}
+        <polygon points={`${gx(0,ox)},4 ${gx(0,ox-3)},10 ${gx(0,ox+3)},10`} fill="#374151" />
+        <polygon points={`${gx(0,W-4)},${oy} ${gx(0,W-10)},${oy-3} ${gx(0,W-10)},${oy+3}`} fill="#374151" />
+        {/* Line through origin — proportional */}
+        <line x1={gx(0,ox)} y1={oy} x2={gx(0,W-8)} y2="12" stroke="#16A34A" strokeWidth="2.5" />
+        {/* Origin dot */}
+        <circle cx={gx(0,ox)} cy={oy} r="3" fill="#16A34A" />
+        {/* ✓ badge */}
+        <circle cx={gx(0,W-12)} cy="12" r="9" fill="#16A34A" />
+        <text x={gx(0,W-12)} y="16" textAnchor="middle" fontSize="10" fill="white" fontWeight="bold">✓</text>
+        {/* Label */}
+        <text x={gx(0,W/2)} y={H+14} textAnchor="middle" fontSize="10" fill="#15803D" fontWeight="bold">Proportionnel</text>
+        <text x={gx(0,W/2)} y={H+25} textAnchor="middle" fontSize="9" fill="#15803D">passe par (0;0)</text>
+
+        {/* ── Graph 2: Affine (not through origin) ── */}
+        <rect x={gx(1,0)} y="0" width={W} height={H} fill="#FFF7ED" rx="4" stroke="#FDBA74" strokeWidth="1" />
+        <line x1={gx(1,ox)} y1="4" x2={gx(1,ox)} y2={oy} stroke="#374151" strokeWidth="1.5" />
+        <line x1={gx(1,ox)} y1={oy} x2={gx(1,W-4)} y2={oy} stroke="#374151" strokeWidth="1.5" />
+        <polygon points={`${gx(1,ox)},4 ${gx(1,ox-3)},10 ${gx(1,ox+3)},10`} fill="#374151" />
+        <polygon points={`${gx(1,W-4)},${oy} ${gx(1,W-10)},${oy-3} ${gx(1,W-10)},${oy+3}`} fill="#374151" />
+        {/* Line NOT through origin (starts at y-intercept above origin) */}
+        <line x1={gx(1,ox)} y1={oy-22} x2={gx(1,W-8)} y2="14" stroke="#EA580C" strokeWidth="2.5" />
+        {/* Highlight: the line does NOT pass through origin */}
+        <circle cx={gx(1,ox)} cy={oy} r="4" fill="white" stroke="#EA580C" strokeWidth="2" />
+        {/* ✗ badge */}
+        <circle cx={gx(1,W-12)} cy="12" r="9" fill="#EA580C" />
+        <text x={gx(1,W-12)} y="16" textAnchor="middle" fontSize="10" fill="white" fontWeight="bold">✗</text>
+        <text x={gx(1,W/2)} y={H+14} textAnchor="middle" fontSize="10" fill="#C2410C" fontWeight="bold">Non proportionnel</text>
+        <text x={gx(1,W/2)} y={H+25} textAnchor="middle" fontSize="9" fill="#C2410C">ne passe pas par (0;0)</text>
+
+        {/* ── Graph 3: Curve (not a straight line) ── */}
+        <rect x={gx(2,0)} y="0" width={W} height={H} fill="#FFF1F2" rx="4" stroke="#FCA5A5" strokeWidth="1" />
+        <line x1={gx(2,ox)} y1="4" x2={gx(2,ox)} y2={oy} stroke="#374151" strokeWidth="1.5" />
+        <line x1={gx(2,ox)} y1={oy} x2={gx(2,W-4)} y2={oy} stroke="#374151" strokeWidth="1.5" />
+        <polygon points={`${gx(2,ox)},4 ${gx(2,ox-3)},10 ${gx(2,ox+3)},10`} fill="#374151" />
+        <polygon points={`${gx(2,W-4)},${oy} ${gx(2,W-10)},${oy-3} ${gx(2,W-10)},${oy+3}`} fill="#374151" />
+        {/* Curved line (quadratic — not straight) */}
+        <path
+          d={`M ${gx(2,ox)},${oy} Q ${gx(2,ox+20)},${oy-15} ${gx(2,ox+40)},${oy-45} T ${gx(2,W-8)},10`}
+          fill="none"
+          stroke="#DC2626"
+          strokeWidth="2.5"
+        />
+        {/* ✗ badge */}
+        <circle cx={gx(2,W-12)} cy="12" r="9" fill="#DC2626" />
+        <text x={gx(2,W-12)} y="16" textAnchor="middle" fontSize="10" fill="white" fontWeight="bold">✗</text>
+        <text x={gx(2,W/2)} y={H+14} textAnchor="middle" fontSize="10" fill="#B91C1C" fontWeight="bold">Non proportionnel</text>
+        <text x={gx(2,W/2)} y={H+25} textAnchor="middle" fontSize="9" fill="#B91C1C">pas une droite</text>
       </svg>
     </DiagramFrame>
   );

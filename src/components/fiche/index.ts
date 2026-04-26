@@ -25,5 +25,6 @@ export {
   ConeDiagram,
   PatronPyramideDiagram,
   PatronConeDiagram,
+  ProportionnaliteGraphiquesDiagram,
 } from "./Diagrams";
 export type { FicheColor } from "./colors";

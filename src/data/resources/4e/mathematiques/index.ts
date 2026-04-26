@@ -187,7 +187,7 @@ export const resources: Resource[] = [
             {
               id: "gi1",
               question:
-                "Dans un triangle rectangle, les deux cathètes mesurent 3 cm et 4 cm. Quelle est la longueur de l'hypoténuse ?",
+                "Dans un triangle rectangle, les deux côté de l'angle droit mesurent 3 cm et 4 cm. Quelle est la longueur de l'hypoténuse ?",
               type: "qcm",
               options: ["5 cm", "6 cm", "7 cm", "√7 cm"],
               correctAnswer: "5 cm",
@@ -218,7 +218,7 @@ export const resources: Resource[] = [
               options: ["AB²", "AC²", "BC²", "BC"],
               correctAnswer: "AB²",
               explanation:
-                "Dans un triangle rectangle en A : BC² = AB² + AC². BC est l'hypoténuse, AB et AC sont les cathètes.",
+                "Dans un triangle rectangle en A : BC² = AB² + AC². BC est l'hypoténuse, AB et AC sont les côtés de l'angle droit.",
             },
             {
               id: "gi5",
@@ -372,7 +372,7 @@ export const resources: Resource[] = [
             {
               id: "ge3",
               question:
-                "Dans un triangle rectangle, les cathètes mesurent 5 cm et 12 cm. Calculer l'hypoténuse.",
+                "Dans un triangle rectangle, les côtés de l'angle droit mesurent 5 cm et 12 cm. Calculer l'hypoténuse.",
               type: "nombre",
               correctAnswer: "13",
               tolerance: 0,

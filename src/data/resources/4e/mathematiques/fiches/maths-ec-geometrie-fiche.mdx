@@ -11,7 +11,6 @@ import {
   <GlossaireItem term="Volume">Espace intérieur d'un solide (en cm³, m³…).</GlossaireItem>
   <GlossaireItem term="Patron">Figure plane qu'on obtient en dépliant un solide. On peut le replier pour reconstituer le solide.</GlossaireItem>
   <GlossaireItem term="Hypoténuse">Côté le plus long d'un triangle rectangle, toujours opposé à l'angle droit.</GlossaireItem>
-  <GlossaireItem term="Cathète">Chacun des deux côtés qui forment l'angle droit d'un triangle rectangle.</GlossaireItem>
   <GlossaireItem term="Génératrice">Segment qui relie le sommet d'un cône à un point quelconque du cercle de base.</GlossaireItem>
   <GlossaireItem term="Droites parallèles">Droites dans le même plan qui ne se croisent jamais.</GlossaireItem>
 </Glossaire>
@@ -132,12 +131,31 @@ Un **patron** est la figure plane qu'on obtient en dépliant un solide. On peut 
 
 ### Patron d'un cône
 
-<Schema caption="1 secteur angulaire (face latérale) + 1 disque (base)" alt="Patron d'un cône déplié">
+<Schema caption="Patron d'un cône : secteur angulaire + disque de base" alt="Patron d'un cône déplié — cercle complet avec secteur et disque de base">
   <PatronConeDiagram />
 </Schema>
 
-- 1 **secteur angulaire** dont le rayon est la génératrice $g$
-- 1 **disque** de rayon $r$ (la base)
+- Le **cercle complet** (en pointillé) a pour rayon la génératrice $g$
+- Le **secteur angulaire** (face latérale) est découpé dans ce cercle, avec l'angle $\theta$ au centre
+- Le **disque** de rayon $r$ est la base du cône
+
+### Calculer l'angle θ du secteur
+
+L'arc du secteur = circonférence de la base du cône = $2\pi r$.
+
+Le secteur est une fraction du cercle complet (de rayon $g$, donc de périmètre $2\pi g$) :
+
+$$\frac{\theta}{360°} = \frac{\text{arc}}{2\pi g} = \frac{2\pi r}{2\pi g} = \frac{r}{g}$$
+
+<Formule>
+$$\theta = \frac{r}{g} \times 360°$$
+</Formule>
+
+<Exemple title="Angle du secteur">
+Cône de rayon $r = 3$ cm et génératrice $g = 5$ cm.
+
+$$\theta = \frac{3}{5} \times 360° = 0{,}6 \times 360° = 216°$$
+</Exemple>
 
 <Astuce>
 Pour construire un patron : trace chaque face à plat, en faisant attention que les faces partagent les mêmes arêtes. Tu peux plier ton dessin pour vérifier !
@@ -148,7 +166,7 @@ Pour construire un patron : trace chaque face à plat, en faisant attention que 
 <Section title="Théorème de Pythagore" color="orange" emoji="📏" index={4}>
 
 <Retenir color="orange">
-**Théorème de Pythagore :** Dans un triangle **rectangle**, le carré de l'hypoténuse est égal à la somme des carrés des deux autres côtés (les cathètes).
+**Théorème de Pythagore :** Dans un triangle **rectangle**, le carré de l'hypoténuse est égal à la somme des carrés des deux autres côtés.
 </Retenir>
 
 <Schema caption="Triangle ABC rectangle en A — BC est l'hypoténuse" alt="Triangle rectangle ABC avec angle droit en A">
@@ -167,7 +185,7 @@ Triangle rectangle en A, $AB = 3$ cm, $AC = 4$ cm.
 $$BC^2 = 3^2 + 4^2 = 9 + 16 = 25 \implies BC = \sqrt{25} = 5 \text{ cm}$$
 </Exemple>
 
-<Exemple title="Trouver une cathète">
+<Exemple title="Trouver un côté de l'angle droit">
 Triangle rectangle en A, $BC = 13$ cm (hypoténuse), $AB = 5$ cm.
 
 $$AC^2 = BC^2 - AB^2 = 169 - 25 = 144 \implies AC = \sqrt{144} = 12 \text{ cm}$$

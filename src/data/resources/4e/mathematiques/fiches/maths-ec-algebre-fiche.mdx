@@ -1,24 +1,24 @@
 import {
-  Section, Retenir, Definition, Formule, Tableau, Exemple, Astuce, Erreur,
+  Section, Retenir, Definition, Formule, Schema, Tableau, Exemple, Astuce, Erreur,
   Glossaire, GlossaireItem,
+  ProportionnaliteGraphiquesDiagram,
 } from "@/components/fiche";
 
 <Glossaire>
-  <GlossaireItem term="Fraction">Écriture de la forme numérateur/dénominateur. Ex : 3/4.</GlossaireItem>
   <GlossaireItem term="Numérateur">Le nombre du haut d'une fraction.</GlossaireItem>
   <GlossaireItem term="Dénominateur">Le nombre du bas d'une fraction. Il ne peut pas être nul.</GlossaireItem>
   <GlossaireItem term="PGCD">Plus Grand Commun Diviseur — le plus grand entier qui divise deux nombres.</GlossaireItem>
-  <GlossaireItem term="Puissance">Multiplication répétée. Ex : $10^3 = 10 \times 10 \times 10 = 1000$.</GlossaireItem>
-  <GlossaireItem term="Écriture scientifique">Forme $a \times 10^n$ avec $1 \leq a < 10$ et $n$ entier.</GlossaireItem>
-  <GlossaireItem term="Proportionnalité">Deux grandeurs sont proportionnelles si leurs rapports sont toujours égaux.</GlossaireItem>
-  <GlossaireItem term="Coefficient de proportionnalité">Le rapport constant qui relie deux grandeurs proportionnelles.</GlossaireItem>
+  <GlossaireItem term="Puissance">Multiplication répétée. Ex: $10^3 = 10 \times 10 \times 10 = 1000$.</GlossaireItem>
+  <GlossaireItem term="Écriture scientifique">Forme $a \times 10^n$ avec $1 \leq a < 10$ et $n$ entier. Ex: $2,3 \times 10^5$</GlossaireItem>
+  <GlossaireItem term="Proportionnalité">Deux grandeurs sont proportionnelles si leurs rapports sont toujours égaux. Ex: $$\frac{2}{6}  et  \frac{6}{18}$$</GlossaireItem>
+  <GlossaireItem term="Coefficient de proportionnalité">Le rapport constant qui relie deux grandeurs proportionnelles. Ex: ⬆, c'est 3 car $3 \times 2 = 6$ </GlossaireItem>
 </Glossaire>
 
 <Section title="Fractions" color="blue" emoji="➗" index={1}>
 
 ### Simplifier une fraction
 
-Pour simplifier, on divise le numérateur et le dénominateur par leur **PGCD**.
+Pour simplifier, on divise le numérateur et le dénominateur par leur **PGCD** (plus grand commun diviseur).
 
 <Retenir color="blue">
 Une fraction est **irréductible** quand le numérateur et le dénominateur n'ont aucun diviseur commun autre que 1.
@@ -182,10 +182,14 @@ Si $\dfrac{a}{b} = \dfrac{c}{d}$, alors $a \times d = b \times c$.
 <Exemple title="Trouver une valeur manquante">
 Pour $x = 5$, $y = 15$. Trouver $y$ pour $x = 8$.
 
-$$\frac{5}{15} = \frac{8}{y} \implies 5y = 15 \times 8 = 120 \implies y = 24$$
+$$\frac{5}{15} = \frac{8}{y} \implies 5y = 15 \times 8 \implies y = \frac{15 \times 8}{6} = \frac{3 \times \sout{5} \times 8}{\sout{5}} = 24$$
 </Exemple>
 
 ### Graphique d'une situation proportionnelle
+
+<Schema caption="Reconnaître une situation proportionnelle sur un graphique" alt="Trois graphiques : proportionnel (droite par l'origine), non proportionnel (droite ne passant pas par l'origine), non proportionnel (courbe)">
+  <ProportionnaliteGraphiquesDiagram />
+</Schema>
 
 <Retenir color="rose">
 Le graphique d'une situation proportionnelle est une **droite qui passe par l'origine** (point $(0\,;\,0)$). La pente de cette droite est le coefficient de proportionnalité $k$.
