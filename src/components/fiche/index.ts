@@ -14,5 +14,8 @@ export {
   FemaleCycleDiagram,
   SpermPathDiagram,
   MetropoleOrganisationDiagram,
+  FriseHistoire4eEC,
+  ChainesCausesHistoireEC,
+  CommerceTriangulaireDiagram,
 } from "./Diagrams";
 export type { FicheColor } from "./colors";

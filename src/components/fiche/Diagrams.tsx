@@ -393,3 +393,460 @@ export function MetropoleOrganisationDiagram() {
     </DiagramFrame>
   );
 }
+
+// ── Frise chronologique EC Histoire 4e ───────────────────────────────────────
+
+export function FriseHistoire4eEC() {
+  const VW = 1440;
+  const VH = 248;
+  const X0 = 80;
+  const X1 = 1390;
+  const SPAN_W = X1 - X0;
+  const MIN_YR = 1715;
+  const SPAN_YR = 199; // 1914 - 1715
+  const AX = 140; // axis y
+  const BAND_TOP = 8;
+  const BAND_H = 36;
+
+  const x = (yr: number) => X0 + ((yr - MIN_YR) / SPAN_YR) * SPAN_W;
+
+  const eras = [
+    { from: 1715, to: 1789, label: "Les Lumières", fill: "#DBEAFE", stroke: "#93C5FD", tx: "#1D4ED8" },
+    { from: 1789, to: 1815, label: "Révolution & Empire", fill: "#FED7AA", stroke: "#FDBA74", tx: "#9A3412" },
+    { from: 1815, to: 1820, label: null, fill: "#F5F5F4", stroke: "#D6D3D1", tx: "#78716C" },
+    { from: 1820, to: 1870, label: "1ʳᵉ Rév. industrielle", fill: "#EDE9FE", stroke: "#C4B5FD", tx: "#5B21B6" },
+    { from: 1870, to: 1914, label: "2ᵉ Rév. industrielle", fill: "#DCFCE7", stroke: "#86EFAC", tx: "#065F46" },
+  ];
+
+  // Events above axis — label appears ABOVE tick top
+  const above = [
+    { yr: 1750, label: "Encyclopédie", tickH: 50, dot: "#3B82F6" },
+    { yr: 1789, label: "🏰 Bastille · DDHC", tickH: 65, dot: "#F97316", bold: true },
+    { yr: 1804, label: "Empire napoléonien", tickH: 40, dot: "#78716C" },
+    { yr: 1815, label: "Waterloo", tickH: 26, dot: "#78716C" },
+  ];
+
+  // Events below axis — label appears BELOW tick bottom
+  const below = [
+    { yr: 1760, label: "Rév. Ind. Angleterre", tickH: 32, dot: "#8B5CF6" },
+    { yr: 1820, label: "Rév. Ind. France", tickH: 40, dot: "#8B5CF6" },
+    { yr: 1848, label: "Manifeste communiste", tickH: 50, dot: "#DC2626", bold: true },
+    { yr: 1864, label: "Droit de grève", tickH: 28, dot: "#065F46" },
+    { yr: 1884, label: "Syndicats légaux", tickH: 38, dot: "#065F46" },
+    { yr: 1906, label: "Repos hebdo", tickH: 26, dot: "#065F46" },
+  ];
+
+  const decades = [1720, 1740, 1760, 1780, 1800, 1820, 1840, 1860, 1880, 1900];
+  const eraEdges = [1715, 1789, 1815, 1870, 1914];
+
+  return (
+    <figure className="my-5 rounded-2xl border border-warm-200 bg-gradient-to-br from-white via-orange-50/30 to-cyan-50/40 p-3 sm:p-4">
+      <div className="mb-3 flex items-center justify-between gap-3">
+        <h3 className="text-sm font-bold text-warm-800 sm:text-base">Frise chronologique — XVIIIᵉ au XIXᵉ siècle</h3>
+        <span className="rounded-full bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-warm-500">
+          Scroll →
+        </span>
+      </div>
+      <div className="overflow-x-auto rounded-xl bg-white/80 pb-2 pt-3 px-1">
+        <svg
+          viewBox={`0 0 ${VW} ${VH}`}
+          width={VW}
+          height={VH}
+          style={{ minWidth: 900, display: "block" }}
+          role="img"
+          aria-label="Frise chronologique : des Lumières (1715) à la révolution industrielle (1914)"
+        >
+          {/* Era color bands */}
+          {eras.map((era) => {
+            const ex = x(era.from);
+            const ew = x(era.to) - ex;
+            const midX = ex + ew / 2;
+            const fontSize = ew > 160 ? 12 : ew > 80 ? 10 : 0;
+            return (
+              <g key={era.from}>
+                <rect x={ex} y={BAND_TOP} width={ew} height={BAND_H} fill={era.fill} stroke={era.stroke} strokeWidth="1.5" />
+                {era.label && fontSize > 0 && (
+                  <text x={midX} y={BAND_TOP + BAND_H / 2 + 4.5} textAnchor="middle" fontSize={fontSize} fontWeight="700" fill={era.tx}>
+                    {era.label}
+                  </text>
+                )}
+              </g>
+            );
+          })}
+
+          {/* Vertical era dividers (full height, subtle) */}
+          {[1789, 1815, 1820, 1870].map((yr) => (
+            <line key={yr} x1={x(yr)} y1={BAND_TOP} x2={x(yr)} y2={VH - 10} stroke="#D6D3D1" strokeWidth="1" strokeDasharray="4 3" />
+          ))}
+
+          {/* Main axis */}
+          <line x1={X0 - 4} y1={AX} x2={X1 - 8} y2={AX} stroke="#44403C" strokeWidth="3" strokeLinecap="round" />
+          {/* Arrow tip */}
+          <polygon points={`${X1},${AX} ${X1 - 11},${AX - 5} ${X1 - 11},${AX + 5}`} fill="#44403C" />
+
+          {/* Decade tick marks + labels */}
+          {decades.map((yr) => (
+            <g key={yr}>
+              <line x1={x(yr)} y1={AX - 5} x2={x(yr)} y2={AX + 5} stroke="#A8A29E" strokeWidth="1.5" />
+              <text x={x(yr)} y={AX + 17} textAnchor="middle" fontSize="10" fill="#A8A29E">{yr}</text>
+            </g>
+          ))}
+
+          {/* Era edge year labels (bold, on axis) */}
+          {eraEdges.map((yr) => (
+            <text key={yr} x={x(yr)} y={AX + 17} textAnchor="middle" fontSize="11.5" fontWeight="800" fill="#44403C">{yr}</text>
+          ))}
+
+          {/* Events ABOVE axis */}
+          {above.map((ev) => {
+            const ex = x(ev.yr);
+            const top = AX - ev.tickH;
+            return (
+              <g key={ev.yr}>
+                <line x1={ex} y1={top} x2={ex} y2={AX - 5} stroke={ev.dot} strokeWidth={ev.bold ? 2.2 : 1.8} />
+                <circle cx={ex} cy={AX} r={ev.bold ? 5 : 3.5} fill={ev.dot} />
+                {/* White bg behind label for legibility over era bands */}
+                <rect
+                  x={ex - 72}
+                  y={top - 17}
+                  width={144}
+                  height={16}
+                  rx={4}
+                  fill="white"
+                  opacity="0.85"
+                />
+                <text
+                  x={ex}
+                  y={top - 4}
+                  textAnchor="middle"
+                  fontSize={ev.bold ? 12.5 : 11.5}
+                  fontWeight={ev.bold ? "800" : "600"}
+                  fill="#1C1917"
+                >
+                  {ev.label}
+                </text>
+              </g>
+            );
+          })}
+
+          {/* Events BELOW axis */}
+          {below.map((ev) => {
+            const ex = x(ev.yr);
+            const bottom = AX + ev.tickH;
+            return (
+              <g key={ev.yr}>
+                <line x1={ex} y1={AX + 5} x2={ex} y2={bottom} stroke={ev.dot} strokeWidth={ev.bold ? 2.2 : 1.8} />
+                <circle cx={ex} cy={AX} r={ev.bold ? 5 : 3.5} fill={ev.dot} />
+                <rect
+                  x={ex - 72}
+                  y={bottom + 2}
+                  width={144}
+                  height={16}
+                  rx={4}
+                  fill="white"
+                  opacity="0.85"
+                />
+                <text
+                  x={ex}
+                  y={bottom + 15}
+                  textAnchor="middle"
+                  fontSize={ev.bold ? 12.5 : 11.5}
+                  fontWeight={ev.bold ? "800" : "600"}
+                  fill="#1C1917"
+                >
+                  {ev.label}
+                </text>
+              </g>
+            );
+          })}
+
+          {/* Year labels on the events themselves */}
+          {above.map((ev) => (
+            <text key={`yr-${ev.yr}`} x={x(ev.yr)} y={AX - ev.tickH - 20} textAnchor="middle" fontSize="10" fill="#78716C">{ev.yr}</text>
+          ))}
+          {below.map((ev) => (
+            <text key={`yr-${ev.yr}`} x={x(ev.yr)} y={AX + ev.tickH + 30} textAnchor="middle" fontSize="10" fill="#78716C">{ev.yr}</text>
+          ))}
+        </svg>
+      </div>
+    </figure>
+  );
+}
+
+export function CommerceTriangulaireDiagram() {
+  return (
+    <DiagramFrame
+      title="Le commerce triangulaire — XVIIIᵉ siècle"
+      caption="Trois flux commerciaux entre l'Europe, l'Afrique et les Amériques"
+    >
+      <svg
+        viewBox="0 0 800 500"
+        className="h-auto w-full"
+        role="img"
+        aria-label="Schéma du commerce triangulaire entre l'Europe, l'Afrique et les Amériques"
+      >
+        <defs>
+          <radialGradient id="ct-sea" cx="45%" cy="55%" r="70%">
+            <stop offset="0%" stopColor="#BAE6FD" />
+            <stop offset="100%" stopColor="#0369A1" stopOpacity="0.65" />
+          </radialGradient>
+          <linearGradient id="ct-eu-g" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#FEF9C3" />
+            <stop offset="100%" stopColor="#CA8A04" />
+          </linearGradient>
+          <linearGradient id="ct-af-g" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#D1FAE5" />
+            <stop offset="100%" stopColor="#065F46" />
+          </linearGradient>
+          <linearGradient id="ct-am-g" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#FFEDD5" />
+            <stop offset="100%" stopColor="#C2410C" />
+          </linearGradient>
+          <marker id="ct-m1" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+            <path d="M0,0 L9,3.5 L0,7 Z" fill="#92400E" />
+          </marker>
+          <marker id="ct-m2" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+            <path d="M0,0 L9,3.5 L0,7 Z" fill="#1E3A8A" />
+          </marker>
+          <marker id="ct-m3" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+            <path d="M0,0 L9,3.5 L0,7 Z" fill="#14532D" />
+          </marker>
+        </defs>
+
+        <style>{`
+          @media (prefers-reduced-motion: reduce) { .ct-boat { display: none; } }
+        `}</style>
+
+        {/* Ocean */}
+        <rect width="800" height="500" fill="url(#ct-sea)" rx="8" />
+        {/* Subtle wave lines */}
+        <path d="M240,235 Q295,223 350,235 Q405,247 460,235 Q510,223 560,235" fill="none" stroke="white" strokeWidth="1" opacity="0.2" />
+        <path d="M220,305 Q280,293 340,305 Q400,317 460,305 Q515,293 565,305" fill="none" stroke="white" strokeWidth="1" opacity="0.18" />
+        <path d="M240,385 Q295,373 350,385 Q405,397 450,385" fill="none" stroke="white" strokeWidth="1" opacity="0.14" />
+        <path d="M230,150 Q285,138 340,150 Q395,162 445,150" fill="none" stroke="white" strokeWidth="1" opacity="0.18" />
+
+        {/* ── AMERICAS (simplified silhouette, Atlantic coast facing right) ── */}
+        <path
+          d="M 196,72 C 210,65 220,82 218,108 C 216,130 205,150 192,168
+             C 180,185 165,200 155,218 C 143,235 133,252 127,268
+             C 115,285 105,312 104,342 C 104,372 110,400 120,425
+             C 130,445 143,460 155,460 C 168,458 182,446 186,425
+             C 192,400 192,370 185,342 C 178,315 168,288 158,268
+             C 148,248 140,228 138,212 C 136,198 138,182 145,168
+             C 152,154 162,142 170,128 C 178,115 184,98 184,82
+             C 184,72 190,67 196,72 Z"
+          fill="url(#ct-am-g)" stroke="#9A3412" strokeWidth="2"
+        />
+
+        {/* ── EUROPE (Western Europe + Iberian Peninsula) ── */}
+        <path
+          d="M 530,75 C 565,55 620,58 648,82
+             C 660,98 658,125 640,148
+             C 625,165 605,175 585,178
+             C 568,180 552,175 540,165
+             C 525,155 512,148 505,158
+             C 495,168 488,185 490,205
+             C 492,220 502,228 520,225
+             C 538,222 558,215 572,202
+             C 582,192 584,178 578,168
+             C 572,158 562,152 555,148
+             C 545,145 535,138 528,128
+             C 522,115 518,95 522,82
+             C 524,76 527,72 530,75 Z"
+          fill="url(#ct-eu-g)" stroke="#78350F" strokeWidth="2"
+        />
+
+        {/* ── AFRICA (triangular, widest at top, tip pointing south) ── */}
+        <path
+          d="M 490,218 C 555,202 610,202 658,228
+             C 668,250 666,280 650,310
+             C 638,335 622,358 608,380
+             C 592,402 575,425 560,448
+             C 545,460 530,462 518,455
+             C 502,445 488,425 480,398
+             C 472,368 472,335 476,305
+             C 480,278 483,255 485,235
+             C 487,225 488,220 490,218 Z"
+          fill="url(#ct-af-g)" stroke="#065F46" strokeWidth="2"
+        />
+
+        {/* ── Continent labels ── */}
+        <text x="153" y="184" textAnchor="middle" fontSize="12" fontWeight="800" fill="white">Amériques</text>
+        <text x="590" y="112" textAnchor="middle" fontSize="12" fontWeight="800" fill="#78350F">Europe</text>
+        <text x="572" y="320" textAnchor="middle" fontSize="12" fontWeight="800" fill="#052e16">Afrique</text>
+
+        {/* ── Port city markers ── */}
+        <circle cx="530" cy="142" r="4.5" fill="#DC2626" stroke="white" strokeWidth="1.5" />
+        <text x="520" y="134" textAnchor="end" fontSize="8.5" fontWeight="700" fill="white">Nantes</text>
+        <circle cx="480" cy="295" r="4.5" fill="#DC2626" stroke="white" strokeWidth="1.5" />
+        <text x="470" y="292" textAnchor="end" fontSize="8.5" fontWeight="700" fill="white">Gorée</text>
+        <circle cx="156" cy="218" r="4.5" fill="#DC2626" stroke="white" strokeWidth="1.5" />
+        <text x="168" y="214" textAnchor="start" fontSize="8.5" fontWeight="700" fill="white">Antilles</text>
+
+        {/* ── Trade routes ── */}
+
+        {/* Route ① Europe → Africa */}
+        <path id="ct-r1"
+          d="M 527,165 C 462,210 442,260 477,305"
+          fill="none" stroke="#92400E" strokeWidth="3" strokeDasharray="8 4"
+          markerEnd="url(#ct-m1)"
+        />
+
+        {/* Route ② Africa → Americas (Middle Passage) */}
+        <path id="ct-r2"
+          d="M 477,330 C 388,392 270,378 177,278"
+          fill="none" stroke="#1E3A8A" strokeWidth="3" strokeDasharray="8 4"
+          markerEnd="url(#ct-m2)"
+        />
+
+        {/* Route ③ Americas → Europe */}
+        <path id="ct-r3"
+          d="M 184,160 C 268,90 408,76 523,128"
+          fill="none" stroke="#14532D" strokeWidth="3" strokeDasharray="8 4"
+          markerEnd="url(#ct-m3)"
+        />
+
+        {/* ── Route labels ── */}
+        <rect x="382" y="218" width="155" height="34" rx="6" fill="#FEF3C7" stroke="#92400E" strokeWidth="1.2" opacity="0.96" />
+        <text x="460" y="232" textAnchor="middle" fontSize="9.5" fontWeight="700" fill="#92400E">① armes · textiles · alcool</text>
+        <text x="460" y="246" textAnchor="middle" fontSize="8.5" fill="#78350F">Europe → Afrique</text>
+
+        <rect x="268" y="388" width="172" height="34" rx="6" fill="#DBEAFE" stroke="#1E3A8A" strokeWidth="1.2" opacity="0.96" />
+        <text x="354" y="402" textAnchor="middle" fontSize="9.5" fontWeight="700" fill="#1E3A8A">② esclaves (~12 millions)</text>
+        <text x="354" y="416" textAnchor="middle" fontSize="8.5" fill="#1E3A8A">«Passage du milieu»</text>
+
+        <rect x="268" y="62" width="176" height="34" rx="6" fill="#DCFCE7" stroke="#14532D" strokeWidth="1.2" opacity="0.96" />
+        <text x="356" y="76" textAnchor="middle" fontSize="9.5" fontWeight="700" fill="#14532D">③ sucre · café · coton · tabac</text>
+        <text x="356" y="90" textAnchor="middle" fontSize="8.5" fill="#14532D">Amériques → Europe</text>
+
+        {/* ── Animated boats ── */}
+
+        {/* Boat ① Europe → Africa */}
+        <g className="ct-boat">
+          <animateMotion dur="7s" repeatCount="indefinite" begin="0s" rotate="auto">
+            <mpath href="#ct-r1" />
+          </animateMotion>
+          <path d="M -14,5 C -11,9 11,9 14,5 L 11,0 L -11,0 Z" fill="#92400E" />
+          <line x1="0" y1="0" x2="0" y2="-14" stroke="#5D4037" strokeWidth="1.5" />
+          <path d="M 1,0 L 1,-13 L 12,-5 Z" fill="#FEF9C3" stroke="#CA8A04" strokeWidth="0.6" />
+          <path d="M -1,0 L -1,-13 L -10,-5 Z" fill="#FFFBEB" stroke="#CA8A04" strokeWidth="0.6" />
+        </g>
+
+        {/* Boat ② Africa → Americas (slave ship, dark hull) */}
+        <g className="ct-boat">
+          <animateMotion dur="11s" repeatCount="indefinite" begin="3.5s" rotate="auto">
+            <mpath href="#ct-r2" />
+          </animateMotion>
+          <path d="M -14,5 C -11,9 11,9 14,5 L 11,0 L -11,0 Z" fill="#1E3A8A" />
+          <line x1="0" y1="0" x2="0" y2="-14" stroke="#1E40AF" strokeWidth="1.5" />
+          <path d="M 1,0 L 1,-13 L 12,-5 Z" fill="#DBEAFE" stroke="#3B82F6" strokeWidth="0.6" />
+          <path d="M -1,0 L -1,-13 L -10,-5 Z" fill="#EFF6FF" stroke="#3B82F6" strokeWidth="0.6" />
+        </g>
+
+        {/* Boat ③ Americas → Europe */}
+        <g className="ct-boat">
+          <animateMotion dur="11s" repeatCount="indefinite" begin="7s" rotate="auto">
+            <mpath href="#ct-r3" />
+          </animateMotion>
+          <path d="M -14,5 C -11,9 11,9 14,5 L 11,0 L -11,0 Z" fill="#14532D" />
+          <line x1="0" y1="0" x2="0" y2="-14" stroke="#166534" strokeWidth="1.5" />
+          <path d="M 1,0 L 1,-13 L 12,-5 Z" fill="#DCFCE7" stroke="#16A34A" strokeWidth="0.6" />
+          <path d="M -1,0 L -1,-13 L -10,-5 Z" fill="#F0FDF4" stroke="#16A34A" strokeWidth="0.6" />
+        </g>
+      </svg>
+    </DiagramFrame>
+  );
+}
+
+export function ChainesCausesHistoireEC() {
+  const nodes = [
+    {
+      title: "Lumières (XVIIIᵉ)",
+      consequence: "idées de liberté et d'égalité",
+      fill: "#DBEAFE", stroke: "#93C5FD", tx: "#1E3A8A", arrow: "#3B82F6",
+    },
+    {
+      title: "Révolution française (1789)",
+      consequence: "fin de l'Ancien Régime · droits civils",
+      fill: "#FED7AA", stroke: "#FB923C", tx: "#7C2D12", arrow: "#F97316",
+    },
+    {
+      title: "Empire napoléonien (1804–1815)",
+      consequence: "diffusion du Code civil en Europe",
+      fill: "#FEF3C7", stroke: "#FCD34D", tx: "#78350F", arrow: "#EAB308",
+    },
+    {
+      title: "Révolution industrielle (XIXᵉ)",
+      consequence: "nouvelle misère ouvrière",
+      fill: "#EDE9FE", stroke: "#C4B5FD", tx: "#4C1D95", arrow: "#8B5CF6",
+    },
+    {
+      title: "Luttes sociales (1864–1906)",
+      consequence: "premières lois sociales ✓",
+      fill: "#DCFCE7", stroke: "#6EE7B7", tx: "#064E3B", arrow: null,
+    },
+  ];
+
+  const NODE_H = 44;
+  const GAP = 20;
+  const STEP = NODE_H + GAP;
+  const VW = 360;
+  const NODE_X = 10;
+  const NODE_W = 340;
+  const VH = nodes.length * NODE_H + (nodes.length - 1) * GAP + 16;
+
+  return (
+    <figure className="my-5 rounded-2xl border border-warm-200 bg-gradient-to-br from-white via-orange-50/30 to-cyan-50/40 p-3 sm:p-4">
+      <div className="mb-3 flex items-center justify-between gap-3">
+        <h3 className="text-sm font-bold text-warm-800 sm:text-base">Chaîne de causalités — XVIIIᵉ au XIXᵉ siècle</h3>
+        <span className="rounded-full bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-warm-500">
+          Schéma
+        </span>
+      </div>
+      <div className="overflow-hidden rounded-xl bg-white/75 p-2 sm:p-3">
+        <svg
+          viewBox={`0 0 ${VW} ${VH}`}
+          className="h-auto w-full"
+          role="img"
+          aria-label="Chaîne de causalités : des Lumières aux luttes sociales"
+        >
+          <style>{`
+            @media (prefers-reduced-motion: reduce) { .caus-arr { animation: none !important; } }
+            .caus-arr { animation: caus-fade 2.4s ease-in-out infinite; }
+            @keyframes caus-fade { 0%,100%{opacity:.45} 50%{opacity:1} }
+          `}</style>
+
+          {nodes.map((n, i) => {
+            const ny = 10 + i * STEP;
+            const cx = VW / 2;
+            const nextTop = ny + STEP;
+
+            return (
+              <g key={i}>
+                <rect x={NODE_X} y={ny} width={NODE_W} height={NODE_H} rx={10}
+                  fill={n.fill} stroke={n.stroke} strokeWidth="1.8" />
+                <text x={cx} y={ny + 16} textAnchor="middle" fontSize="12.5" fontWeight="800" fill={n.tx}>
+                  {n.title}
+                </text>
+                <text x={cx} y={ny + 33} textAnchor="middle" fontSize="10" fill={n.tx} opacity="0.75" fontStyle="italic">
+                  ↳ {n.consequence}
+                </text>
+
+                {n.arrow && (
+                  <g className="caus-arr">
+                    <line x1={cx} y1={ny + NODE_H + 3} x2={cx} y2={nextTop - 9}
+                      stroke={n.arrow} strokeWidth="2" strokeLinecap="round" />
+                    <polygon
+                      points={`${cx},${nextTop - 2} ${cx - 6},${nextTop - 11} ${cx + 6},${nextTop - 11}`}
+                      fill={n.arrow}
+                    />
+                  </g>
+                )}
+              </g>
+            );
+          })}
+        </svg>
+      </div>
+    </figure>
+  );
+}
