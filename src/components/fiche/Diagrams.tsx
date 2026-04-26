@@ -302,3 +302,94 @@ export function SpermPathDiagram() {
     </DiagramFrame>
   );
 }
+
+export function MetropoleOrganisationDiagram() {
+  return (
+    <DiagramFrame
+      title="Organisation d'une métropole"
+      caption="Trois zones concentriques reliées au monde par des axes de communication"
+    >
+      <svg
+        viewBox="0 0 800 680"
+        className="h-auto w-full"
+        role="img"
+        aria-label="Schéma de l'organisation d'une métropole : CBD au centre, centre-ville autour, périphéries à l'extérieur, reliées au monde par des axes de communication"
+      >
+        <defs>
+          {/* Zone gradients */}
+          <radialGradient id="gPeri" cx="50%" cy="38%" r="65%">
+            <stop offset="0%" stopColor="#d1fae5" />
+            <stop offset="100%" stopColor="#6ee7b7" />
+          </radialGradient>
+          <radialGradient id="gCentre" cx="50%" cy="38%" r="65%">
+            <stop offset="0%" stopColor="#fff7ed" />
+            <stop offset="100%" stopColor="#fdba74" />
+          </radialGradient>
+          <radialGradient id="gCBD" cx="38%" cy="32%" r="70%">
+            <stop offset="0%" stopColor="#93c5fd" />
+            <stop offset="100%" stopColor="#1d4ed8" />
+          </radialGradient>
+          {/* Outer glow on périphéries */}
+          <filter id="fGlow" x="-8%" y="-8%" width="116%" height="116%">
+            <feDropShadow dx="0" dy="0" stdDeviation="12" floodColor="#34d39940" />
+          </filter>
+          {/* Axis line glow */}
+          <filter id="fLine" x="-20%" y="-200%" width="140%" height="500%">
+            <feDropShadow dx="0" dy="0" stdDeviation="2" floodColor="#94a3b840" />
+          </filter>
+          {/* Open arrowhead — orient auto rotates it */}
+          <marker id="mArr" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+            <path d="M2,2 L10,6 L2,10" fill="none" stroke="#64748b" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+          </marker>
+        </defs>
+
+        {/* ── Background (cream) ──────────────────────────────── */}
+        <rect width="800" height="680" fill="#fffbf7" />
+
+        {/* ── Zone 3: Périphéries ─────────────────────────────── */}
+        <circle cx="400" cy="342" r="268" fill="url(#gPeri)" stroke="#34d399" strokeWidth="2" filter="url(#fGlow)" />
+
+        {/* ── Zone 2: Centre-ville ────────────────────────────── */}
+        <circle cx="400" cy="342" r="178" fill="url(#gCentre)" stroke="#fb923c" strokeWidth="2" />
+
+        {/* ── Zone 1: CBD ─────────────────────────────────────── */}
+        <circle cx="400" cy="342" r="78" fill="url(#gCBD)" stroke="#3b82f6" strokeWidth="2.5" />
+
+        {/* ── CBD labels ──────────────────────────────────────── */}
+        <text x="400" y="325" textAnchor="middle" fontSize="22" fontWeight="800" fill="white" opacity="0.97">CBD</text>
+        <text x="400" y="346" textAnchor="middle" fontSize="10.5" fontWeight="500" fill="#dbeafe" letterSpacing="0.4">Central Business District</text>
+        <text x="400" y="364" textAnchor="middle" fontSize="10" fill="#bfdbfe">banques · gratte-ciels</text>
+
+        {/* ── Centre-ville label (inside orange ring) ──────────── */}
+        <text x="400" y="216" textAnchor="middle" fontSize="15" fontWeight="700" fill="#7c2d12">Centre-ville</text>
+        <text x="400" y="233" textAnchor="middle" fontSize="10" fill="#9a3412">commerces · culture · services</text>
+
+        {/* ── Périphéries label (inside green ring) ────────────── */}
+        <text x="400" y="116" textAnchor="middle" fontSize="15" fontWeight="700" fill="#065f46">Périphéries</text>
+        <text x="400" y="133" textAnchor="middle" fontSize="10" fill="#047857">industrie · commerce · logement</text>
+
+        {/* ── Communication axes ──────────────────────────────── */}
+
+        {/* Right → Route */}
+        <line x1="672" y1="342" x2="734" y2="342" stroke="#94a3b8" strokeWidth="1.8" markerEnd="url(#mArr)" filter="url(#fLine)" />
+        <rect x="738" y="330" width="54" height="24" rx="12" fill="white" stroke="#cbd5e1" strokeWidth="1.5" />
+        <text x="765" y="346" textAnchor="middle" fontSize="11.5" fontWeight="600" fill="#475569">Route</text>
+
+        {/* Left ← Train */}
+        <line x1="128" y1="342" x2="66" y2="342" stroke="#94a3b8" strokeWidth="1.8" markerEnd="url(#mArr)" filter="url(#fLine)" />
+        <rect x="8" y="330" width="54" height="24" rx="12" fill="white" stroke="#cbd5e1" strokeWidth="1.5" />
+        <text x="35" y="346" textAnchor="middle" fontSize="11.5" fontWeight="600" fill="#475569">Train</text>
+
+        {/* Top ↑ Aéroport */}
+        <line x1="400" y1="74" x2="400" y2="30" stroke="#94a3b8" strokeWidth="1.8" markerEnd="url(#mArr)" filter="url(#fLine)" />
+        <rect x="347" y="6" width="106" height="22" rx="11" fill="white" stroke="#cbd5e1" strokeWidth="1.5" />
+        <text x="400" y="21" textAnchor="middle" fontSize="11.5" fontWeight="600" fill="#475569">Aéroport ✈</text>
+
+        {/* Bottom ↓ Port */}
+        <line x1="400" y1="610" x2="400" y2="650" stroke="#94a3b8" strokeWidth="1.8" markerEnd="url(#mArr)" filter="url(#fLine)" />
+        <rect x="366" y="654" width="68" height="22" rx="11" fill="white" stroke="#cbd5e1" strokeWidth="1.5" />
+        <text x="400" y="669" textAnchor="middle" fontSize="11.5" fontWeight="600" fill="#475569">⚓ Port</text>
+      </svg>
+    </DiagramFrame>
+  );
+}

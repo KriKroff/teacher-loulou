@@ -14,6 +14,7 @@ export const resources: Resource[] = [
     updatedAt: "2026-04-10T19:30:00Z",
     tags: ["espagnol", "subjonctif", "subjuntivo", "conjugaison", "fiche"],
     mdxPath: "4e/espagnol/fiches/espagnol-subjonctif-present-fiche.mdx",
+    relatedResourceSlug: "espagnol-subjonctif-present-quiz"
   },
   {
     slug: "espagnol-subjonctif-present-quiz",
@@ -27,6 +28,7 @@ export const resources: Resource[] = [
     createdAt: "2026-04-10T18:00:00Z",
     updatedAt: "2026-04-10T19:30:00Z",
     tags: ["espagnol", "subjonctif", "quiz", "conjugaison"],
+    relatedResourceSlug: "espagnol-subjonctif-present-fiche",
     quizData: {
       title: "Le subjonctif présent",
       description:

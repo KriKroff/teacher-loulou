@@ -10,7 +10,7 @@ export const resources: Resource[] = [
     type: "fiche",
     level: "4e",
     subject: "physique-chimie",
-    chapter: "Chapitre IV — La masse d'un gaz",
+    chapter: "La masse d'un gaz",
     createdAt: "2026-04-04T12:00:00Z",
     updatedAt: "2026-04-04T12:00:00Z",
     tags: ["gaz", "masse", "matière", "composition de l'air", "pression", "déplacement d'eau", "fiche"],
@@ -27,7 +27,7 @@ export const resources: Resource[] = [
     type: "quiz",
     level: "4e",
     subject: "physique-chimie",
-    chapter: "Chapitre IV — La masse d'un gaz",
+    chapter: "La masse d'un gaz",
     createdAt: "2026-04-04T12:30:00Z",
     updatedAt: "2026-04-04T12:30:00Z",
     tags: ["gaz", "masse", "matière", "composition de l'air", "pression", "quiz"],
@@ -417,13 +417,13 @@ export const resources: Resource[] = [
   // ─── ÉLECTRICITÉ — FICHE ───────────────────────────────────────────────────
   {
     slug: "pc-electricite-fiche",
-    title: "Électricité — Circuits, courant, tension et résistance",
+    title: "EC - Électricité — Circuits, courant, tension et résistance",
     description:
       "Fiche de révision : symboles des composants, circuits série et dérivation, intensité (I), tension (U), résistance (R) et loi d'Ohm (U = R × I).",
     type: "fiche",
     level: "4e",
     subject: "physique-chimie",
-    chapter: "Électricité",
+    chapter: "EC - Électricité",
     createdAt: "2026-04-25T12:00:00Z",
     updatedAt: "2026-04-25T12:00:00Z",
     tags: ["électricité", "circuit", "intensité", "tension", "résistance", "loi d'Ohm", "série", "dérivation", "fiche"],
@@ -434,13 +434,13 @@ export const resources: Resource[] = [
   // ─── ÉLECTRICITÉ — QUIZ ────────────────────────────────────────────────────
   {
     slug: "pc-electricite-quiz",
-    title: "Quiz — Électricité",
+    title: "EC - Quiz — Électricité",
     description:
       "3 niveaux de difficulté : Facile, Intermédiaire, Expert. 10 questions par session sur les circuits, l'intensité, la tension et la loi d'Ohm.",
     type: "quiz",
     level: "4e",
     subject: "physique-chimie",
-    chapter: "Électricité",
+    chapter: "EC - Électricité",
     createdAt: "2026-04-25T12:30:00Z",
     updatedAt: "2026-04-25T12:30:00Z",
     tags: ["électricité", "circuit", "intensité", "tension", "résistance", "loi d'Ohm", "quiz"],
@@ -1078,13 +1078,13 @@ export const resources: Resource[] = [
   // ─── CHIMIE MOLÉCULAIRE — FICHE ────────────────────────────────────────────
   {
     slug: "pc-chimie-molecules-fiche",
-    title: "La description moléculaire de la matière",
+    title: "EC - La description moléculaire de la matière",
     description:
       "Fiche de révision : corps purs et mélanges, états de la matière (solide, liquide, gaz), changements d'état, transformation chimique (réactifs → produits, conservation des atomes).",
     type: "fiche",
     level: "4e",
     subject: "physique-chimie",
-    chapter: "Chapitre 4 — La description moléculaire de la matière",
+    chapter: "EC - La description moléculaire de la matière",
     createdAt: "2026-04-25T12:00:00Z",
     updatedAt: "2026-04-25T12:00:00Z",
     tags: ["chimie", "molécules", "corps pur", "mélange", "états de la matière", "changements d'état", "transformation chimique", "réactifs", "produits", "fiche"],
@@ -1095,13 +1095,13 @@ export const resources: Resource[] = [
   // ─── CHIMIE MOLÉCULAIRE — QUIZ ─────────────────────────────────────────────
   {
     slug: "pc-chimie-molecules-quiz",
-    title: "Quiz — La description moléculaire de la matière",
+    title: "EC - Quiz — La description moléculaire de la matière",
     description:
       "3 niveaux de difficulté : Facile, Intermédiaire, Expert. 10 questions par session sur les molécules, les états de la matière, les changements d'état et les transformations chimiques.",
     type: "quiz",
     level: "4e",
     subject: "physique-chimie",
-    chapter: "Chapitre 4 — La description moléculaire de la matière",
+    chapter: "EC - La description moléculaire de la matière",
     createdAt: "2026-04-25T12:30:00Z",
     updatedAt: "2026-04-25T12:30:00Z",
     tags: ["chimie", "molécules", "corps pur", "mélange", "états de la matière", "changements d'état", "transformation chimique", "quiz"],

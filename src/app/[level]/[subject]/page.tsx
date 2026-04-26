@@ -58,7 +58,13 @@ export default async function SubjectPage({ params }: Props) {
   const grouped = groupByChapter(resources);
 
   // Separate chapters from "autres"
-  const chapterKeys = [...grouped.keys()].filter((k) => k !== "__autres__");
+  const chapterKeys = [...grouped.keys()]
+    .filter((k) => k !== "__autres__")
+    .sort((a, b) => {
+      const maxCreatedAt = (key: string) =>
+        Math.max(...grouped.get(key)!.map((r) => new Date(r.createdAt).getTime()));
+      return maxCreatedAt(b) - maxCreatedAt(a);
+    });
   const autresResources = grouped.get("__autres__") ?? [];
   const hasChapters = chapterKeys.length > 0;
 

@@ -13,6 +13,7 @@ export const resources: Resource[] = [
     chapter: "Chapitre — L'Europe et la révolution industrielle",
     createdAt: "2026-04-04T12:00:00Z",
     updatedAt: "2026-04-04T12:00:00Z",
+    relatedResourceSlug: "histoire-revolution-industrielle-quiz",
     tags: [
       "révolution industrielle",
       "ouvriers",
@@ -786,6 +787,668 @@ export const resources: Resource[] = [
               explanation:
                 "La Belgique, grâce à ses riches bassins houillers (Liège, Charleroi), a été le premier pays continental à s'industrialiser, dès les années 1820-1830.",
               hint: "C'est un petit pays entre la France et l'Allemagne.",
+            },
+          ],
+        },
+      ],
+      questions: [],
+    },
+  },
+  {
+    slug: "ec-urbanisation-mondialisation-fiche",
+    title: "EC — Les espaces et paysages de l'urbanisation",
+    description:
+      "Fiche de révision sur l'urbanisation mondiale, les métropoles, leurs paysages (CBD, bidonville, skyline) et leur rôle dans la mondialisation. Évaluation commune 4e.",
+    type: "fiche",
+    level: "4e",
+    subject: "histoire-geo",
+    chapter: "EC — Les espaces et paysages de l'urbanisation dans la mondialisation",
+    createdAt: "2026-04-26T00:00:00Z",
+    updatedAt: "2026-04-26T00:00:00Z",
+    tags: ["urbanisation", "mondialisation", "métropole", "CBD", "paysages urbains", "fiche", "évaluation commune"],
+    mdxPath: "4e/histoire-geo/fiches/geo-ec-urbanisation-mondialisation-fiche.mdx",
+    relatedResourceSlug: "ec-urbanisation-mondialisation-quiz",
+  },
+  {
+    slug: "ec-urbanisation-mondialisation-quiz",
+    title: "Quiz EC — L'urbanisation dans la mondialisation",
+    description:
+      "Quiz 3 niveaux sur les espaces et paysages de l'urbanisation. Évaluation commune 4e histoire-géo.",
+    type: "quiz",
+    level: "4e",
+    subject: "histoire-geo",
+    chapter: "EC — Les espaces et paysages de l'urbanisation dans la mondialisation",
+    createdAt: "2026-04-26T00:00:00Z",
+    updatedAt: "2026-04-26T00:00:00Z",
+    tags: ["urbanisation", "mondialisation", "métropole", "quiz", "évaluation commune"],
+    relatedResourceSlug: "ec-urbanisation-mondialisation-fiche",
+    quizData: {
+      title: "Quiz EC — L'urbanisation dans la mondialisation",
+      description:
+        "Teste tes connaissances sur les métropoles, les paysages urbains et la mondialisation.",
+      passingScore: 60,
+      sessionSize: 10,
+      levels: [
+        {
+          id: "facile",
+          name: "Facile",
+          emoji: "🟢",
+          description: "Définitions et notions de base",
+          questions: [
+            {
+              id: "eco-f1",
+              type: "vrai-faux",
+              question: "Aujourd'hui, plus de la moitié de la population mondiale vit en ville.",
+              options: ["Vrai", "Faux"],
+              correctAnswer: "Vrai",
+              explanation: "En 2024, 58 % de la population mondiale est urbaine.",
+            },
+            {
+              id: "eco-f2",
+              type: "qcm",
+              question: "Qu'est-ce que l'urbanisation ?",
+              options: [
+                "La croissance de la population vivant en ville",
+                "La construction de gratte-ciels",
+                "Le déplacement des habitants vers la campagne",
+                "La création de nouvelles routes",
+              ],
+              correctAnswer: "La croissance de la population vivant en ville",
+              explanation:
+                "L'urbanisation désigne la croissance de la population urbaine et l'extension des espaces urbains.",
+            },
+            {
+              id: "eco-f3",
+              type: "qcm",
+              question: "Qu'est-ce qu'une métropole ?",
+              options: [
+                "Une grande ville connectée aux marchés mondiaux",
+                "Un quartier pauvre en périphérie",
+                "Un petit village agricole",
+                "Un port de commerce",
+              ],
+              correctAnswer: "Une grande ville connectée aux marchés mondiaux",
+              explanation:
+                "Une métropole est une grande ville qui concentre des activités importantes et est reliée aux marchés mondiaux.",
+            },
+            {
+              id: "eco-f4",
+              type: "texte-a-trous",
+              question: "Le quartier d'affaires d'une métropole s'appelle le ___.",
+              options: ["CBD", "bidonville", "skyline", "périphérie"],
+              correctAnswer: "CBD",
+              explanation:
+                "CBD signifie Central Business District, le cœur économique de la métropole.",
+            },
+            {
+              id: "eco-f5",
+              type: "qcm",
+              question: "Que signifie 'CBD' ?",
+              options: [
+                "Central Business District",
+                "Centre-Banlieue Développé",
+                "Circuit de Bus Direct",
+                "Centre de Banques Dynamiques",
+              ],
+              correctAnswer: "Central Business District",
+              explanation: "CBD = Central Business District, le quartier des affaires.",
+            },
+            {
+              id: "eco-f6",
+              type: "vrai-faux",
+              question:
+                "Les bidonvilles se trouvent généralement au centre des grandes métropoles.",
+              options: ["Vrai", "Faux"],
+              correctAnswer: "Faux",
+              explanation:
+                "Les bidonvilles sont en périphérie, là où le foncier est moins cher.",
+            },
+            {
+              id: "eco-f7",
+              type: "qcm",
+              question: "Quel est l'exemple de CBD cité dans le cours ?",
+              options: [
+                "The City à Londres",
+                "Le Louvre à Paris",
+                "Le port de Marseille",
+                "La Tour Eiffel",
+              ],
+              correctAnswer: "The City à Londres",
+              explanation:
+                "The City de Londres est le quartier d'affaires par excellence, avec banques et sièges sociaux internationaux.",
+            },
+            {
+              id: "eco-f8",
+              type: "association",
+              question: "Associe chaque paysage urbain à sa définition.",
+              pairs: [
+                { left: "Skyline", right: "Silhouette formée par les gratte-ciels" },
+                { left: "Bidonville", right: "Quartier pauvre avec habitations précaires" },
+                {
+                  left: "Étalement urbain",
+                  right: "Extension de la ville vers les zones rurales",
+                },
+              ],
+              options: [
+                "Silhouette formée par les gratte-ciels",
+                "Quartier pauvre avec habitations précaires",
+                "Extension de la ville vers les zones rurales",
+              ],
+              correctAnswer: [
+                "Silhouette formée par les gratte-ciels",
+                "Quartier pauvre avec habitations précaires",
+                "Extension de la ville vers les zones rurales",
+              ],
+              explanation:
+                "Trois paysages urbains clés : skyline (gratte-ciels), bidonville (pauvreté), étalement urbain (expansion).",
+            },
+            {
+              id: "eco-f9",
+              type: "nombre",
+              question:
+                "En quelle année la population urbaine mondiale n'était-elle que de 20 % ?",
+              options: [],
+              correctAnswer: "1900",
+              explanation: "En 1900, seulement 20 % de la population mondiale vivait en ville.",
+            },
+            {
+              id: "eco-f10",
+              type: "vrai-faux",
+              question:
+                "Les axes de communication comprennent les routes, les trains et les aéroports.",
+              options: ["Vrai", "Faux"],
+              correctAnswer: "Vrai",
+              explanation:
+                "Les axes de communication incluent toutes les voies de déplacement des personnes et marchandises.",
+            },
+            {
+              id: "eco-f11",
+              type: "qcm",
+              question: "Qu'est-ce que l'étalement urbain ?",
+              options: [
+                "L'extension de la ville vers les zones rurales environnantes",
+                "La construction de gratte-ciels en centre-ville",
+                "La rénovation des bidonvilles",
+                "Le dépeuplement des villes",
+              ],
+              correctAnswer: "L'extension de la ville vers les zones rurales environnantes",
+              explanation:
+                "L'étalement urbain, c'est quand la ville grandit en gagnant sur les campagnes alentour.",
+            },
+            {
+              id: "eco-f12",
+              type: "texte-a-trous",
+              question: "Une métropole est une grande ville ouverte sur la ___.",
+              options: ["mondialisation", "campagne", "périphérie", "banlieue"],
+              correctAnswer: "mondialisation",
+              explanation:
+                "Une métropole est reliée aux marchés mondiaux et ouverte sur la mondialisation.",
+            },
+            {
+              id: "eco-f13",
+              type: "nombre",
+              question:
+                "Quel pourcentage de la population mondiale est urbaine aujourd'hui (vers 2024) ?",
+              options: [],
+              correctAnswer: "58",
+              tolerance: 3,
+              explanation:
+                "Environ 58 % de la population mondiale vit en ville, soit 4,5 milliards de personnes.",
+            },
+            {
+              id: "eco-f14",
+              type: "intrus",
+              question: "Lequel de ces éléments N'EST PAS un axe de communication ?",
+              options: ["Bidonville", "Autoroute", "Aéroport", "Ligne de métro"],
+              correctAnswer: "Bidonville",
+              explanation:
+                "Un bidonville est un paysage urbain (quartier pauvre), pas un axe de communication.",
+            },
+            {
+              id: "eco-f15",
+              type: "qcm",
+              question:
+                "Dans quelle zone d'une métropole trouve-t-on les gratte-ciels et les sièges sociaux ?",
+              options: ["Le CBD", "Les périphéries", "Les bidonvilles", "L'étalement urbain"],
+              correctAnswer: "Le CBD",
+              explanation:
+                "Le CBD (Central Business District) concentre les banques, sièges sociaux et gratte-ciels.",
+            },
+          ],
+        },
+        {
+          id: "intermediaire",
+          name: "Intermédiaire",
+          emoji: "🟡",
+          description: "Comprendre et analyser",
+          questions: [
+            {
+              id: "eco-i1",
+              type: "qcm",
+              question:
+                "Quelle est la différence principale entre le centre-ville et le CBD ?",
+              options: [
+                "Le CBD est spécifiquement le quartier d'affaires concentrant banques et sièges sociaux",
+                "Le centre-ville est plus petit que le CBD",
+                "Le CBD est en périphérie",
+                "Il n'y a aucune différence",
+              ],
+              correctAnswer:
+                "Le CBD est spécifiquement le quartier d'affaires concentrant banques et sièges sociaux",
+              explanation:
+                "Le centre-ville est le cœur de la ville en général ; le CBD en est la partie dédiée aux affaires.",
+            },
+            {
+              id: "eco-i2",
+              type: "texte-a-trous-select",
+              question:
+                "Le CBD concentre les ___ internationales, les ___ et les gratte-ciels.",
+              options: ["entreprises", "banques", "bidonvilles", "musées", "aéroports"],
+              correctAnswer: ["entreprises", "banques"],
+              explanation:
+                "Le CBD est le cœur financier et économique : entreprises internationales, banques, tours de bureaux.",
+            },
+            {
+              id: "eco-i3",
+              type: "association",
+              question: "Associe chaque fonction à son exemple.",
+              pairs: [
+                { left: "Fonction politique", right: "Sièges du gouvernement" },
+                { left: "Fonction économique", right: "Banques et entreprises" },
+                { left: "Fonction culturelle", right: "Universités et musées" },
+              ],
+              options: [
+                "Sièges du gouvernement",
+                "Banques et entreprises",
+                "Universités et musées",
+              ],
+              correctAnswer: [
+                "Sièges du gouvernement",
+                "Banques et entreprises",
+                "Universités et musées",
+              ],
+              explanation:
+                "Une métropole cumule fonctions politiques, économiques et culturelles.",
+            },
+            {
+              id: "eco-i4",
+              type: "qcm",
+              question: "Pourquoi les villes s'étendent-elles vers les périphéries ?",
+              options: [
+                "Pour créer de nouveaux espaces résidentiels et commerciaux face à la croissance urbaine",
+                "Parce que les centres-villes sont abandonnés",
+                "Pour fuir la mondialisation",
+                "Parce que les gratte-ciels sont trop coûteux",
+              ],
+              correctAnswer:
+                "Pour créer de nouveaux espaces résidentiels et commerciaux face à la croissance urbaine",
+              explanation:
+                "La croissance de la population urbaine pousse à construire en périphérie.",
+            },
+            {
+              id: "eco-i5",
+              type: "ordre",
+              question:
+                "Remets ces chiffres d'urbanisation dans l'ordre chronologique (du plus ancien au plus récent).",
+              options: ["58 % (2024)", "20 % (1900)", "66 % (2050 prévision)"],
+              correctAnswer: ["20 % (1900)", "58 % (2024)", "66 % (2050 prévision)"],
+              explanation:
+                "L'urbanisation progresse : 20 % en 1900, 58 % aujourd'hui, 66 % prévus en 2050.",
+            },
+            {
+              id: "eco-i6",
+              type: "qcm-multiple",
+              question:
+                "Quelles sont les fonctions d'une métropole ? (plusieurs réponses correctes)",
+              options: [
+                "Politique",
+                "Économique et financière",
+                "Scientifique et culturelle",
+                "Agricole",
+              ],
+              correctAnswer: [
+                "Politique",
+                "Économique et financière",
+                "Scientifique et culturelle",
+              ],
+              explanation:
+                "Une métropole cumule fonctions politiques, économiques/financières et culturelles/scientifiques.",
+            },
+            {
+              id: "eco-i7",
+              type: "texte-a-trous",
+              question: "L'étalement urbain est l'extension de la ville vers les zones ___.",
+              options: ["rurales", "industrielles", "souterraines", "maritimes"],
+              correctAnswer: "rurales",
+              explanation:
+                "L'étalement urbain désigne la croissance des villes qui gagnent sur les campagnes.",
+            },
+            {
+              id: "eco-i8",
+              type: "vrai-faux",
+              question: "Shanghai possède l'un des plus grands ports du monde.",
+              options: ["Vrai", "Faux"],
+              correctAnswer: "Vrai",
+              explanation:
+                "Shanghai est une métropole mondiale avec l'un des ports les plus actifs + le CBD de Pudong.",
+            },
+            {
+              id: "eco-i9",
+              type: "nombre",
+              question:
+                "Combien de milliards d'habitants urbains y a-t-il dans le monde (environ) ?",
+              options: [],
+              correctAnswer: "4.5",
+              tolerance: 0.5,
+              explanation:
+                "Il y a environ 4,5 milliards d'habitants urbains dans le monde en 2024.",
+            },
+            {
+              id: "eco-i10",
+              type: "qcm",
+              question: "Que crée la mondialisation entre les différents territoires ?",
+              options: [
+                "Des inégalités",
+                "Une égalité parfaite",
+                "Des bidonvilles dans chaque ville",
+                "Des skylines identiques",
+              ],
+              correctAnswer: "Des inégalités",
+              explanation:
+                "La mondialisation ne profite pas à tous : territoires connectés s'enrichissent, les autres restent à l'écart.",
+            },
+            {
+              id: "eco-i11",
+              type: "texte-a-trous-select",
+              question:
+                "Shanghai possède l'un des plus grands ___ du monde et le quartier d'affaires de ___.",
+              options: ["ports", "bidonvilles", "Pudong", "Belleville", "aéroports"],
+              correctAnswer: ["ports", "Pudong"],
+              explanation:
+                "Shanghai : port parmi les plus actifs au monde + CBD de Pudong (gratte-ciels, sièges sociaux).",
+            },
+            {
+              id: "eco-i12",
+              type: "qcm",
+              question: "Par quoi les métropoles échangent-elles avec le reste du monde ?",
+              options: [
+                "Ports, aéroports et réseaux de transport",
+                "Bidonvilles et étalement urbain",
+                "Musées et universités uniquement",
+                "CBD uniquement",
+              ],
+              correctAnswer: "Ports, aéroports et réseaux de transport",
+              explanation:
+                "Les métropoles échangent marchandises, informations et personnes via leurs axes de communication.",
+            },
+            {
+              id: "eco-i13",
+              type: "vrai-faux",
+              question:
+                "Tous les territoires du monde profitent également de la mondialisation.",
+              options: ["Vrai", "Faux"],
+              correctAnswer: "Faux",
+              explanation:
+                "La mondialisation crée des inégalités : territoires bien connectés prospèrent, les autres sont marginalisés.",
+            },
+            {
+              id: "eco-i14",
+              type: "association",
+              question: "Associe chaque paysage à sa localisation dans la métropole.",
+              pairs: [
+                { left: "Skyline (gratte-ciels)", right: "Centre-ville et CBD" },
+                { left: "Bidonville", right: "Périphéries pauvres" },
+                { left: "Zones commerciales", right: "Franges urbaines" },
+              ],
+              options: ["Centre-ville et CBD", "Périphéries pauvres", "Franges urbaines"],
+              correctAnswer: [
+                "Centre-ville et CBD",
+                "Périphéries pauvres",
+                "Franges urbaines",
+              ],
+              explanation:
+                "Chaque zone de la métropole a ses paysages caractéristiques.",
+            },
+            {
+              id: "eco-i15",
+              type: "qcm",
+              question: "Un territoire 'bien connecté' à la mondialisation…",
+              options: [
+                "Attire des entreprises et crée des emplois",
+                "Développe des bidonvilles",
+                "Reste à l'écart des flux mondiaux",
+                "Perd sa population",
+              ],
+              correctAnswer: "Attire des entreprises et crée des emplois",
+              explanation:
+                "Les territoires intégrés à la mondialisation attirent investissements et entreprises, créant richesse et emplois.",
+            },
+          ],
+        },
+        {
+          id: "expert",
+          name: "Expert",
+          emoji: "🔴",
+          description: "Analyser, synthétiser, argumenter",
+          questions: [
+            {
+              id: "eco-e1",
+              type: "qcm",
+              question:
+                "En quoi le CBD constitue-t-il le 'cœur névralgique' d'une métropole mondiale ?",
+              options: [
+                "Il concentre les décisions économiques mondiales : banques, sièges sociaux, marchés financiers",
+                "Il héberge la plus grande population de la ville",
+                "Il est le seul espace vert de la métropole",
+                "Il regroupe les bidonvilles et quartiers défavorisés",
+              ],
+              correctAnswer:
+                "Il concentre les décisions économiques mondiales : banques, sièges sociaux, marchés financiers",
+              explanation:
+                "Le CBD est le point de connexion entre la métropole et l'économie mondiale.",
+            },
+            {
+              id: "eco-e2",
+              type: "texte-a-trous-select",
+              question:
+                "Les territoires bien ___ à la mondialisation attirent des ___ et créent des ___.",
+              options: [
+                "connectés",
+                "entreprises",
+                "emplois",
+                "bidonvilles",
+                "déconnectés",
+                "monuments",
+              ],
+              correctAnswer: ["connectés", "entreprises", "emplois"],
+              explanation:
+                "La connexion aux réseaux mondiaux attire investisseurs et entreprises, générant emplois et développement.",
+            },
+            {
+              id: "eco-e3",
+              type: "qcm",
+              question:
+                "Pourquoi les bidonvilles se trouvent-ils en périphérie et non au centre-ville ?",
+              options: [
+                "Parce que le foncier est moins cher en périphérie et les populations pauvres sont exclues par les prix du centre",
+                "Parce que les gratte-ciels sont en périphérie",
+                "Parce que le gouvernement les y impose",
+                "Par choix délibéré des habitants",
+              ],
+              correctAnswer:
+                "Parce que le foncier est moins cher en périphérie et les populations pauvres sont exclues par les prix du centre",
+              explanation:
+                "Les prix immobiliers au centre-ville sont très élevés. Les plus pauvres s'installent donc en périphérie, parfois dans des bidonvilles.",
+            },
+            {
+              id: "eco-e4",
+              type: "ordre",
+              question:
+                "Remets dans l'ordre les zones d'une métropole, du cœur vers l'extérieur.",
+              options: ["Centre-ville", "Périphéries", "CBD"],
+              correctAnswer: ["CBD", "Centre-ville", "Périphéries"],
+              explanation:
+                "Le CBD est au cœur, entouré par le centre-ville, lui-même cerné par les périphéries.",
+            },
+            {
+              id: "eco-e5",
+              type: "qcm",
+              question:
+                "Qu'est-ce qui explique que certains territoires restent à l'écart de la mondialisation ?",
+              options: [
+                "Leur manque de connexion aux réseaux de transport et de communication mondiaux",
+                "Leur trop grande population",
+                "La présence de nombreuses métropoles",
+                "Leur richesse excessive",
+              ],
+              correctAnswer:
+                "Leur manque de connexion aux réseaux de transport et de communication mondiaux",
+              explanation:
+                "Les territoires sans port, sans aéroport, avec des réseaux insuffisants restent à l'écart des flux.",
+            },
+            {
+              id: "eco-e6",
+              type: "qcm-multiple",
+              question:
+                "Quels éléments font d'une ville une métropole mondiale ? (plusieurs réponses)",
+              options: [
+                "Une connexion aux marchés mondiaux par ports/aéroports",
+                "La concentration d'entreprises et de sièges sociaux",
+                "Un CBD développé avec gratte-ciels",
+                "Une population inférieure à 100 000 habitants",
+              ],
+              correctAnswer: [
+                "Une connexion aux marchés mondiaux par ports/aéroports",
+                "La concentration d'entreprises et de sièges sociaux",
+                "Un CBD développé avec gratte-ciels",
+              ],
+              explanation:
+                "Une métropole mondiale : connexion au monde + concentration d'activités + CBD développé.",
+            },
+            {
+              id: "eco-e7",
+              type: "texte-a-trous",
+              question:
+                "La ___ désigne la silhouette formée par les gratte-ciels d'une grande ville.",
+              options: ["skyline", "périphérie", "étalement urbain", "mondialisation"],
+              correctAnswer: "skyline",
+              explanation:
+                "La skyline est la silhouette caractéristique que forment les gratte-ciels d'une ville vue de loin.",
+            },
+            {
+              id: "eco-e8",
+              type: "qcm",
+              question: "Que montre l'exemple de Shanghai dans le cours ?",
+              options: [
+                "Qu'une métropole peut à la fois être un hub portuaire mondial et un centre financier international",
+                "Que les bidonvilles disparaissent grâce à la mondialisation",
+                "Que les métropoles asiatiques sont identiques aux métropoles européennes",
+                "Que l'urbanisation ne touche que la Chine",
+              ],
+              correctAnswer:
+                "Qu'une métropole peut à la fois être un hub portuaire mondial et un centre financier international",
+              explanation:
+                "Shanghai illustre la métropole mondiale : port parmi les plus actifs + CBD de Pudong = nœud d'échanges mondial.",
+            },
+            {
+              id: "eco-e9",
+              type: "slider",
+              question:
+                "Quel pourcentage de la population mondiale sera urbaine en 2050 (selon les prévisions) ?",
+              options: ["40", "80", "5"],
+              correctAnswer: "66",
+              tolerance: 5,
+              explanation:
+                "Les projections prévoient 66 % de population urbaine en 2050, soit les 2/3 de l'humanité.",
+            },
+            {
+              id: "eco-e10",
+              type: "qcm",
+              question:
+                "Quelle est la conséquence pour les territoires peu intégrés à la mondialisation ?",
+              options: [
+                "Ils restent à l'écart des flux mondiaux et bénéficient moins des échanges économiques",
+                "Ils développent plus de bidonvilles que les autres",
+                "Ils deviennent automatiquement des métropoles mondiales",
+                "Ils abandonnent leurs centres-villes",
+              ],
+              correctAnswer:
+                "Ils restent à l'écart des flux mondiaux et bénéficient moins des échanges économiques",
+              explanation:
+                "Sans connexion aux réseaux mondiaux, ces territoires ne profitent pas des flux d'investissements et d'emplois.",
+            },
+            {
+              id: "eco-e11",
+              type: "association",
+              question: "Associe chaque CBD à sa métropole / caractéristique.",
+              pairs: [
+                { left: "CBD de Londres", right: "The City" },
+                { left: "CBD de Shanghai", right: "Pudong" },
+                { left: "Connexion mondiale par mer", right: "Port" },
+              ],
+              options: ["The City", "Pudong", "Port"],
+              correctAnswer: ["The City", "Pudong", "Port"],
+              explanation:
+                "The City = Londres, Pudong = Shanghai, le port = axe de connexion maritime.",
+            },
+            {
+              id: "eco-e12",
+              type: "qcm",
+              question:
+                "Quel est l'argument central pour montrer que les métropoles sont les espaces majeurs de la mondialisation ?",
+              options: [
+                "Elles concentrent les flux d'échanges (marchandises, personnes, informations) grâce à leurs axes de communication",
+                "Elles ont toutes les plus grandes populations mondiales",
+                "Elles produisent l'essentiel des ressources agricoles mondiales",
+                "Elles éliminent les inégalités économiques",
+              ],
+              correctAnswer:
+                "Elles concentrent les flux d'échanges (marchandises, personnes, informations) grâce à leurs axes de communication",
+              explanation:
+                "Les métropoles sont les nœuds d'échange de la mondialisation : ports, aéroports, réseaux les connectent au monde entier.",
+            },
+            {
+              id: "eco-e13",
+              type: "vrai-faux",
+              question:
+                "Une métropole peut remplir simultanément des fonctions politiques, économiques et culturelles.",
+              options: ["Vrai", "Faux"],
+              correctAnswer: "Vrai",
+              explanation:
+                "C'est une caractéristique des grandes métropoles mondiales : elles cumulent ces trois types de fonctions.",
+            },
+            {
+              id: "eco-e14",
+              type: "texte-a-trous-select",
+              question:
+                "Les grandes métropoles concentrent les ___, les ___ et jouent un rôle ___ dans la mondialisation.",
+              options: [
+                "entreprises",
+                "universités",
+                "majeur",
+                "mineur",
+                "bidonvilles",
+                "agriculteurs",
+              ],
+              correctAnswer: ["entreprises", "universités", "majeur"],
+              explanation:
+                "Les métropoles concentrent activités économiques (entreprises) et intellectuelles (universités) pour un rôle majeur dans la mondialisation.",
+            },
+            {
+              id: "eco-e15",
+              type: "qcm",
+              question:
+                "En quoi la skyline est-elle révélatrice du rôle mondial d'une métropole ?",
+              options: [
+                "Les gratte-ciels symbolisent la concentration des activités économiques et financières au cœur de la ville",
+                "Les gratte-ciels sont uniquement des bâtiments résidentiels",
+                "La skyline indique que la ville est pauvre",
+                "La skyline est uniquement un phénomène américain",
+              ],
+              correctAnswer:
+                "Les gratte-ciels symbolisent la concentration des activités économiques et financières au cœur de la ville",
+              explanation:
+                "La skyline (silhouette de gratte-ciels) est le symbole visuel de la puissance économique d'une métropole mondiale.",
             },
           ],
         },
