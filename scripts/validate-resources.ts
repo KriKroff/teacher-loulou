@@ -8,7 +8,6 @@
  *   - Every fiche/cours resource has mdxPath defined and the file exists (strict)
  *   - Leveled quiz levels have ≥ 15 questions each (warning — does not fail build)
  *   - Flat quiz questions array has ≥ 15 questions (warning)
- *   - Every MDX fiche/cours has a <QuizLink> when a quiz exists in same level/subject (warning)
  */
 
 import fs from "fs";
@@ -122,22 +121,8 @@ for (const r of resources) {
   const mdxAbs = path.join(RESOURCES_DIR, r.mdxPath);
   if (!fs.existsSync(mdxAbs)) {
     error(`[${r.level}/${r.subject}/${r.slug}] mdxPath file not found: ${mdxAbs}`);
-    continue;
   }
 
-  // QuizLink check (WARNING only — skip if no quiz in same level/subject)
-  const siblings = byLevelSubject.get(`${r.level}/${r.subject}`) ?? [];
-  const hasQuiz = siblings.some((s) => s.type === "quiz");
-  if (!hasQuiz) continue; // no quiz at all → QuizLink not needed
-
-  const mdxContent = fs.readFileSync(mdxAbs, "utf-8");
-  if (!mdxContent.includes("<QuizLink")) {
-    // Check if the quiz is for a different topic — if there's only one fiche and one quiz,
-    // the QuizLink should be present; if multiple fiches exist for unrelated topics, warn gently.
-    warn(
-      `[${r.level}/${r.subject}/${r.slug}] MDX file has no <QuizLink> but a quiz exists in this subject. Add <QuizLink level="${r.level}" subject="${r.subject}" /> at the end of the file, or confirm this fiche intentionally lacks a cross-link. See MIGRATION_NOTES.md.`
-    );
-  }
 }
 
 // ── C. MDX file existence pass (all .mdx under resources/) ───────────────────

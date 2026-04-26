@@ -4,7 +4,7 @@ export const resources: Resource[] = [
   // ─── FICHE DE RÉVISION ─────────────────────────────────────────────────────
   {
     slug: "svt-puberte-reproduction-fiche",
-    title: "La puberté et la reproduction humaine",
+    title: "EC - La puberté et la reproduction humaine",
     description:
       "Fiche de révision complète : puberté, appareils reproducteurs, cycle féminin, émotions et vocabulaire clé.",
     type: "fiche",
@@ -21,7 +21,7 @@ export const resources: Resource[] = [
   // ─── QUIZ UNIFIÉ (3 niveaux) ────────────────────────────────────────────────
   {
     slug: "svt-puberte-quiz",
-    title: "Quiz — Puberté et reproduction",
+    title: "EC - Quiz — Puberté et reproduction",
     description:
       "3 niveaux de difficulté : Facile, Intermédiaire, Expert. Choisis ton niveau et c'est parti !",
     type: "quiz",

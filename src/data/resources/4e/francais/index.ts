@@ -13,6 +13,7 @@ export const resources: Resource[] = [
     updatedAt: "2026-03-28T10:00:00Z",
     tags: ["conjugaison", "présent", "verbes"],
     mdxPath: "4e/francais/fiches/conjugaison-present-indicatif.mdx",
+    relatedResourceSlug: "quiz-present-indicatif"
   },
   {
     slug: "quiz-present-indicatif",
@@ -25,6 +26,7 @@ export const resources: Resource[] = [
     createdAt: "2026-03-28T11:00:00Z",
     updatedAt: "2026-03-28T11:00:00Z",
     tags: ["conjugaison", "présent", "quiz"],
+    relatedResourceSlug: "conjugaison-present-indicatif",
     quizData: {
       title: "Le présent de l'indicatif",
       description: "10 questions pour maîtriser le présent !",
@@ -141,6 +143,7 @@ export const resources: Resource[] = [
     updatedAt: "2026-04-10T18:00:00Z",
     tags: ["conjugaison", "imparfait", "verbes", "fiche"],
     mdxPath: "4e/francais/fiches/imparfait-indicatif.mdx",
+    relatedResourceSlug: "imparfait-indicatif-quiz"
   },
 
   // ─── QUIZ : L'IMPARFAIT DE L'INDICATIF (3 niveaux) ─────────────────────────
@@ -156,6 +159,7 @@ export const resources: Resource[] = [
     createdAt: "2026-04-10T18:00:00Z",
     updatedAt: "2026-04-10T19:30:00Z",
     tags: ["conjugaison", "imparfait", "verbes", "quiz"],
+    relatedResourceSlug: "imparfait-indicatif-fiche",
     quizData: {
       title: "Quiz — L'imparfait de l'indicatif",
       description:
