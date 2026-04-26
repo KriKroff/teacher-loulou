@@ -1,0 +1,198 @@
+import {
+  Section, Retenir, Definition, Formule, Tableau, Exemple, Astuce, Erreur,
+  Glossaire, GlossaireItem,
+} from "@/components/fiche";
+
+<Glossaire>
+  <GlossaireItem term="Fraction">Écriture de la forme numérateur/dénominateur. Ex : 3/4.</GlossaireItem>
+  <GlossaireItem term="Numérateur">Le nombre du haut d'une fraction.</GlossaireItem>
+  <GlossaireItem term="Dénominateur">Le nombre du bas d'une fraction. Il ne peut pas être nul.</GlossaireItem>
+  <GlossaireItem term="PGCD">Plus Grand Commun Diviseur — le plus grand entier qui divise deux nombres.</GlossaireItem>
+  <GlossaireItem term="Puissance">Multiplication répétée. Ex : $10^3 = 10 \times 10 \times 10 = 1000$.</GlossaireItem>
+  <GlossaireItem term="Écriture scientifique">Forme $a \times 10^n$ avec $1 \leq a < 10$ et $n$ entier.</GlossaireItem>
+  <GlossaireItem term="Proportionnalité">Deux grandeurs sont proportionnelles si leurs rapports sont toujours égaux.</GlossaireItem>
+  <GlossaireItem term="Coefficient de proportionnalité">Le rapport constant qui relie deux grandeurs proportionnelles.</GlossaireItem>
+</Glossaire>
+
+<Section title="Fractions" color="blue" emoji="➗" index={1}>
+
+### Simplifier une fraction
+
+Pour simplifier, on divise le numérateur et le dénominateur par leur **PGCD**.
+
+<Retenir color="blue">
+Une fraction est **irréductible** quand le numérateur et le dénominateur n'ont aucun diviseur commun autre que 1.
+</Retenir>
+
+<Exemple title="Simplifier 24/36">
+PGCD(24, 36) = 12
+
+$$\frac{24}{36} = \frac{24 \div 12}{36 \div 12} = \frac{2}{3}$$
+</Exemple>
+
+### Addition et soustraction
+
+Il faut un **dénominateur commun** avant d'additionner.
+
+<Formule>
+$$\frac{a}{b} + \frac{c}{d} = \frac{a \times d + c \times b}{b \times d}$$
+</Formule>
+
+<Exemple title="Additionner 1/3 + 1/4">
+$$\frac{1}{3} + \frac{1}{4} = \frac{1 \times 4 + 1 \times 3}{3 \times 4} = \frac{4 + 3}{12} = \frac{7}{12}$$
+</Exemple>
+
+<Astuce>
+Si les dénominateurs ont un multiple commun plus petit, utilise-le. Ex : pour $\frac{1}{4} + \frac{1}{6}$, le dénominateur commun est 12 (pas 24).
+</Astuce>
+
+### Multiplication
+
+<Formule>
+$$\frac{a}{b} \times \frac{c}{d} = \frac{a \times c}{b \times d}$$
+</Formule>
+
+<Exemple title="Multiplier 2/3 × 3/4">
+$$\frac{2}{3} \times \frac{3}{4} = \frac{2 \times 3}{3 \times 4} = \frac{6}{12} = \frac{1}{2}$$
+</Exemple>
+
+### Division
+
+Diviser par une fraction revient à **multiplier par son inverse**.
+
+<Formule>
+$$\frac{a}{b} \div \frac{c}{d} = \frac{a}{b} \times \frac{d}{c} = \frac{a \times d}{b \times c}$$
+</Formule>
+
+<Exemple title="Diviser 2/3 ÷ 4/9">
+$$\frac{2}{3} \div \frac{4}{9} = \frac{2}{3} \times \frac{9}{4} = \frac{2 \times 9}{3 \times 4} = \frac{18}{12} = \frac{3}{2}$$
+</Exemple>
+
+<Erreur>
+Pour additionner des fractions, on ne fait **pas** numérateur + numérateur et dénominateur + dénominateur. On cherche d'abord un dénominateur commun !
+</Erreur>
+
+</Section>
+
+<Section title="Puissances et préfixes" color="orange" emoji="⚡" index={2}>
+
+<Definition term="Puissance">
+$10^n$ signifie multiplier 10 par lui-même $n$ fois. Pour $n$ négatif : $10^{-n} = \dfrac{1}{10^n}$.
+</Definition>
+
+<Tableau>
+| Puissance | Valeur | Préfixe | Symbole |
+|-----------|--------|---------|---------|
+| $10^9$ | 1 000 000 000 | giga | G |
+| $10^6$ | 1 000 000 | méga | M |
+| $10^3$ | 1 000 | kilo | k |
+| $10^2$ | 100 | hecto | h |
+| $10^1$ | 10 | déca | da |
+| $10^0$ | 1 | — | — |
+| $10^{-1}$ | 0,1 | déci | d |
+| $10^{-2}$ | 0,01 | centi | c |
+| $10^{-3}$ | 0,001 | milli | m |
+| $10^{-6}$ | 0,000 001 | micro | µ |
+| $10^{-9}$ | 0,000 000 001 | nano | n |
+</Tableau>
+
+<Retenir color="orange">
+- $10^0 = 1$ (tout nombre à la puissance 0 vaut 1)
+- $10^{-n} = \dfrac{1}{10^n}$ (puissance négative → fraction)
+- **kilo** ($10^3$) et **milli** ($10^{-3}$) sont les plus courants en sciences
+</Retenir>
+
+<Exemple title="Conversion avec préfixes">
+- 5 km = 5 × 10³ m = 5 000 m
+- 3 mm = 3 × 10⁻³ m = 0,003 m
+- 2 µm = 2 × 10⁻⁶ m (microscopique !)
+</Exemple>
+
+</Section>
+
+<Section title="Écriture scientifique" color="green" emoji="🔬" index={3}>
+
+<Definition term="Écriture scientifique">
+Un nombre est en écriture scientifique quand il s'écrit $a \times 10^n$, avec $1 \leq a < 10$ et $n$ un entier relatif.
+</Definition>
+
+<Retenir color="green">
+- La partie $a$ a **un seul chiffre avant la virgule** (entre 1 et 9)
+- $n$ est le nombre de fois qu'on a déplacé la virgule
+</Retenir>
+
+### Grand nombre → écriture scientifique
+
+Déplacer la virgule vers la **gauche** → exposant **positif**.
+
+<Exemple title="47 000 en écriture scientifique">
+$$47\,000 \rightarrow 4{,}7 \times 10^4$$
+
+On a déplacé la virgule 4 fois vers la gauche.
+</Exemple>
+
+### Petit nombre → écriture scientifique
+
+Déplacer la virgule vers la **droite** → exposant **négatif**.
+
+<Exemple title="0,000082 en écriture scientifique">
+$$0{,}000082 \rightarrow 8{,}2 \times 10^{-5}$$
+
+On a déplacé la virgule 5 fois vers la droite → exposant négatif.
+</Exemple>
+
+<Erreur>
+$15 \times 10^3$ **n'est pas** une écriture scientifique car $15 \geq 10$. Il faut écrire $1{,}5 \times 10^4$.
+</Erreur>
+
+<Astuce>
+**Moyen mnémotechnique :** grand nombre → exposant positif (on "compresse"). Petit nombre → exposant négatif (on "étend").
+</Astuce>
+
+</Section>
+
+<Section title="Proportionnalité" color="rose" emoji="📊" index={4}>
+
+<Definition term="Proportionnalité">
+Deux grandeurs sont **proportionnelles** si on peut passer de l'une à l'autre en multipliant toujours par le même nombre : le **coefficient de proportionnalité**.
+</Definition>
+
+### Vérifier la proportionnalité
+
+Calculer tous les rapports $y \div x$. S'ils sont tous **égaux**, c'est proportionnel.
+
+<Exemple title="Vérifier un tableau">
+| $x$ | 2 | 4 | 6 |
+|-----|---|---|---|
+| $y$ | 6 | 12 | 18 |
+
+$6 \div 2 = 3$ ; $12 \div 4 = 3$ ; $18 \div 6 = 3$ → tous égaux → **proportionnel**, coefficient $k = 3$.
+</Exemple>
+
+### Coefficient de proportionnalité
+
+<Formule>
+$$k = \frac{y}{x} \quad \Leftrightarrow \quad y = k \times x$$
+</Formule>
+
+### Produit en croix
+
+Si $\dfrac{a}{b} = \dfrac{c}{d}$, alors $a \times d = b \times c$.
+
+<Exemple title="Trouver une valeur manquante">
+Pour $x = 5$, $y = 15$. Trouver $y$ pour $x = 8$.
+
+$$\frac{5}{15} = \frac{8}{y} \implies 5y = 15 \times 8 = 120 \implies y = 24$$
+</Exemple>
+
+### Graphique d'une situation proportionnelle
+
+<Retenir color="rose">
+Le graphique d'une situation proportionnelle est une **droite qui passe par l'origine** (point $(0\,;\,0)$). La pente de cette droite est le coefficient de proportionnalité $k$.
+</Retenir>
+
+<Astuce>
+Si le graphique ne passe pas par $(0\,;\,0)$, la situation **n'est pas** proportionnelle.
+</Astuce>
+
+</Section>

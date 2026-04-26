@@ -17,5 +17,13 @@ export {
   FriseHistoire4eEC,
   ChainesCausesHistoireEC,
   CommerceTriangulaireDiagram,
+  PythagoreDiagram,
+  ThalesDiagram,
+  CubeDiagram,
+  PaveDroitDiagram,
+  PyramideDiagram,
+  ConeDiagram,
+  PatronPyramideDiagram,
+  PatronConeDiagram,
 } from "./Diagrams";
 export type { FicheColor } from "./colors";

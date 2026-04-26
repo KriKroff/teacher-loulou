@@ -1,0 +1,230 @@
+import {
+  Section, Retenir, Definition, Formule, Schema, Tableau, Exemple, Astuce, Erreur,
+  Glossaire, GlossaireItem,
+  PythagoreDiagram, ThalesDiagram, CubeDiagram, PaveDroitDiagram,
+  PyramideDiagram, ConeDiagram, PatronPyramideDiagram, PatronConeDiagram,
+} from "@/components/fiche";
+
+<Glossaire>
+  <GlossaireItem term="Périmètre">Distance totale autour d'une figure plane (en cm, m…).</GlossaireItem>
+  <GlossaireItem term="Aire">Surface occupée par une figure plane (en cm², m²…).</GlossaireItem>
+  <GlossaireItem term="Volume">Espace intérieur d'un solide (en cm³, m³…).</GlossaireItem>
+  <GlossaireItem term="Patron">Figure plane qu'on obtient en dépliant un solide. On peut le replier pour reconstituer le solide.</GlossaireItem>
+  <GlossaireItem term="Hypoténuse">Côté le plus long d'un triangle rectangle, toujours opposé à l'angle droit.</GlossaireItem>
+  <GlossaireItem term="Cathète">Chacun des deux côtés qui forment l'angle droit d'un triangle rectangle.</GlossaireItem>
+  <GlossaireItem term="Génératrice">Segment qui relie le sommet d'un cône à un point quelconque du cercle de base.</GlossaireItem>
+  <GlossaireItem term="Droites parallèles">Droites dans le même plan qui ne se croisent jamais.</GlossaireItem>
+</Glossaire>
+
+<Section title="Périmètre et Aire" color="blue" emoji="📐" index={1}>
+
+Le **périmètre** est le tour d'une figure. L'**aire** est sa surface.
+
+<Tableau>
+| Figure | Périmètre | Aire |
+|--------|-----------|------|
+| Carré (côté $a$) | $P = 4a$ | $\mathcal{A} = a^2$ |
+| Rectangle ($L$ et $l$) | $P = 2(L + l)$ | $\mathcal{A} = L \times l$ |
+| Triangle (côtés $a,b,c$ ; base $b$, hauteur $h$) | $P = a + b + c$ | $\mathcal{A} = \dfrac{b \times h}{2}$ |
+| Disque (rayon $r$) | $C = 2\pi r$ | $\mathcal{A} = \pi r^2$ |
+</Tableau>
+
+<Retenir color="blue">
+- Le périmètre du cercle s'appelle **circonférence** : $C = 2\pi r$
+- L'**aire du disque** (la surface) : $\mathcal{A} = \pi r^2$
+- On utilise souvent $\pi \approx 3{,}14$
+</Retenir>
+
+<Exemple title="Aire d'un triangle">
+Triangle de base $b = 6$ cm et hauteur $h = 4$ cm :
+
+$$\mathcal{A} = \frac{6 \times 4}{2} = \frac{24}{2} = 12 \text{ cm}^2$$
+</Exemple>
+
+<Erreur>
+Ne confonds pas **aire** et **périmètre** ! Le périmètre est une longueur (cm), l'aire est une surface (cm²).
+</Erreur>
+
+</Section>
+
+<Section title="Volumes des solides" color="purple" emoji="🧊" index={2}>
+
+<Definition term="Volume">
+L'espace occupé par un solide, exprimé en unités cubiques (cm³, m³, L…).
+</Definition>
+
+### Le cube
+
+Tous les côtés ont la même longueur $a$.
+
+<Schema caption="Cube de côté a" alt="Cube de côté a">
+  <CubeDiagram />
+</Schema>
+
+<Formule>
+$$V_{\text{cube}} = a^3$$
+</Formule>
+
+### Le pavé droit
+
+Boîte rectangulaire de longueur $L$, largeur $l$, hauteur $h$.
+
+<Schema caption="Pavé droit : L × l × h" alt="Pavé droit avec dimensions L, l, h">
+  <PaveDroitDiagram />
+</Schema>
+
+<Formule>
+$$V_{\text{pavé}} = L \times l \times h$$
+</Formule>
+
+### La pyramide
+
+Base polygonale d'aire $B$, sommet pointu, hauteur $h$ perpendiculaire à la base.
+
+<Schema caption="Pyramide à base carrée" alt="Pyramide à base carrée avec hauteur h et base B">
+  <PyramideDiagram />
+</Schema>
+
+<Formule>
+$$V_{\text{pyramide}} = \frac{B \times h}{3}$$
+</Formule>
+
+### Le cône de révolution
+
+Base circulaire de rayon $r$, sommet pointu, hauteur $h$.
+
+<Definition term="Génératrice">
+La génératrice $g$ est le segment reliant le sommet au cercle de base. On calcule : $g = \sqrt{r^2 + h^2}$ (Pythagore).
+</Definition>
+
+<Schema caption="Cône de révolution : rayon r, hauteur h, génératrice g" alt="Cône avec rayon, hauteur et génératrice">
+  <ConeDiagram />
+</Schema>
+
+<Formule>
+$$V_{\text{cône}} = \frac{\pi r^2 \times h}{3}$$
+</Formule>
+
+<Retenir color="purple">
+La pyramide et le cône ont un **facteur 1/3** dans leur formule. Retenez : **pointe = diviser par 3**.
+</Retenir>
+
+<Exemple title="Volume d'un cône">
+Cône de rayon $r = 3$ cm et hauteur $h = 4$ cm :
+
+$$V = \frac{\pi \times 3^2 \times 4}{3} = \frac{9\pi \times 4}{3} = \frac{36\pi}{3} = 12\pi \approx 37{,}7 \text{ cm}^3$$
+</Exemple>
+
+</Section>
+
+<Section title="Patrons" color="green" emoji="✂️" index={3}>
+
+Un **patron** est la figure plane qu'on obtient en dépliant un solide. On peut le replier pour reconstituer le solide.
+
+### Patron d'une pyramide à base carrée
+
+<Schema caption="1 carré (base) + 4 triangles isocèles (faces latérales)" alt="Patron d'une pyramide carrée déplié">
+  <PatronPyramideDiagram />
+</Schema>
+
+- 1 **carré** : la base
+- 4 **triangles isocèles** : les faces latérales
+
+### Patron d'un cône
+
+<Schema caption="1 secteur angulaire (face latérale) + 1 disque (base)" alt="Patron d'un cône déplié">
+  <PatronConeDiagram />
+</Schema>
+
+- 1 **secteur angulaire** dont le rayon est la génératrice $g$
+- 1 **disque** de rayon $r$ (la base)
+
+<Astuce>
+Pour construire un patron : trace chaque face à plat, en faisant attention que les faces partagent les mêmes arêtes. Tu peux plier ton dessin pour vérifier !
+</Astuce>
+
+</Section>
+
+<Section title="Théorème de Pythagore" color="orange" emoji="📏" index={4}>
+
+<Retenir color="orange">
+**Théorème de Pythagore :** Dans un triangle **rectangle**, le carré de l'hypoténuse est égal à la somme des carrés des deux autres côtés (les cathètes).
+</Retenir>
+
+<Schema caption="Triangle ABC rectangle en A — BC est l'hypoténuse" alt="Triangle rectangle ABC avec angle droit en A">
+  <PythagoreDiagram />
+</Schema>
+
+Si le triangle ABC est rectangle en A :
+
+<Formule>
+$$BC^2 = AB^2 + AC^2$$
+</Formule>
+
+<Exemple title="Trouver l'hypoténuse">
+Triangle rectangle en A, $AB = 3$ cm, $AC = 4$ cm.
+
+$$BC^2 = 3^2 + 4^2 = 9 + 16 = 25 \implies BC = \sqrt{25} = 5 \text{ cm}$$
+</Exemple>
+
+<Exemple title="Trouver une cathète">
+Triangle rectangle en A, $BC = 13$ cm (hypoténuse), $AB = 5$ cm.
+
+$$AC^2 = BC^2 - AB^2 = 169 - 25 = 144 \implies AC = \sqrt{144} = 12 \text{ cm}$$
+</Exemple>
+
+### Réciproque du théorème de Pythagore
+
+<Retenir color="amber">
+**Réciproque :** Si dans un triangle, le carré du plus grand côté est **égal** à la somme des carrés des deux autres, alors le triangle est **rectangle**.
+</Retenir>
+
+<Exemple title="Vérifier si un triangle est rectangle">
+Triangle avec côtés 5 cm, 12 cm et 13 cm.
+
+- Plus grand côté : 13 → $13^2 = 169$
+- $5^2 + 12^2 = 25 + 144 = 169$ ✅
+
+$169 = 169$ donc le triangle est **rectangle**.
+</Exemple>
+
+<Erreur>
+Toujours comparer le **plus grand côté au carré** avec la **somme des deux autres carrés**. Ne pas faire l'inverse !
+</Erreur>
+
+</Section>
+
+<Section title="Théorème de Thalès" color="cyan" emoji="〰️" index={5}>
+
+**Configuration :** deux droites sécantes issues du même point O, coupées par deux droites parallèles.
+
+<Schema caption="Droites (OAM) et (OBN) coupées par AB // MN" alt="Configuration de Thalès avec deux droites sécantes et deux parallèles">
+  <ThalesDiagram />
+</Schema>
+
+Si $(AB) \parallel (MN)$, alors :
+
+<Formule>
+$$\frac{OA}{OM} = \frac{OB}{ON} = \frac{AB}{MN}$$
+</Formule>
+
+<Exemple title="Calculer une longueur">
+$OA = 3$ cm, $OM = 6$ cm, $OB = 4$ cm. Trouver $ON$.
+
+$$\frac{OA}{OM} = \frac{OB}{ON} \implies \frac{3}{6} = \frac{4}{ON} \implies ON = \frac{4 \times 6}{3} = 8 \text{ cm}$$
+</Exemple>
+
+### Réciproque du théorème de Thalès
+
+<Retenir color="cyan">
+**Réciproque :** Si $M$ est sur $(OA)$, $N$ est sur $(OB)$ et $\dfrac{OA}{OM} = \dfrac{OB}{ON}$, alors $(AB) \parallel (MN)$.
+</Retenir>
+
+<Astuce title="Méthode">
+1. Identifier le point commun O et les deux droites sécantes.
+2. Repérer les points A, B (premier rapport) et M, N (second rapport).
+3. Écrire l'égalité des rapports.
+4. Isoler l'inconnue et calculer.
+</Astuce>
+
+</Section>

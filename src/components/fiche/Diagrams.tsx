@@ -850,3 +850,183 @@ export function ChainesCausesHistoireEC() {
     </figure>
   );
 }
+
+// ──────────────────────────────────────────────
+// MATHÉMATIQUES — Géométrie
+// ──────────────────────────────────────────────
+
+export function PythagoreDiagram() {
+  return (
+    <DiagramFrame title="Triangle rectangle ABC (angle droit en A)">
+      <svg viewBox="0 0 280 230" width="280" height="230">
+        <polygon points="40,185 225,185 40,40" fill="#EFF6FF" stroke="#3B82F6" strokeWidth="2.5" />
+        <polyline points="40,163 62,163 62,185" fill="none" stroke="#3B82F6" strokeWidth="2" />
+        <text x="22" y="200" fontSize="15" fontWeight="bold" fill="#1D4ED8">A</text>
+        <text x="232" y="193" fontSize="15" fontWeight="bold" fill="#1D4ED8">B</text>
+        <text x="22" y="36" fontSize="15" fontWeight="bold" fill="#1D4ED8">C</text>
+        <text x="132" y="202" textAnchor="middle" fontSize="13" fill="#374151">AB</text>
+        <text x="20" y="116" textAnchor="middle" fontSize="13" fill="#374151">AC</text>
+        <text x="152" y="108" fontSize="13" fill="#DC2626" fontWeight="bold">BC</text>
+        <text x="132" y="124" fontSize="11" fill="#DC2626" textAnchor="middle">(hypoténuse)</text>
+        <rect x="30" y="208" width="220" height="20" fill="#DBEAFE" rx="4" />
+        <text x="140" y="223" textAnchor="middle" fontSize="13" fontWeight="bold" fill="#1D4ED8">
+          BC² = AB² + AC²
+        </text>
+      </svg>
+    </DiagramFrame>
+  );
+}
+
+export function ThalesDiagram() {
+  return (
+    <DiagramFrame title="Théorème de Thalès — AB // MN">
+      <svg viewBox="0 0 350 255" width="350" height="255">
+        <line x1="175" y1="20" x2="45" y2="220" stroke="#9CA3AF" strokeWidth="1.5" />
+        <line x1="175" y1="20" x2="305" y2="220" stroke="#9CA3AF" strokeWidth="1.5" />
+        <line x1="108" y1="110" x2="242" y2="110" stroke="#3B82F6" strokeWidth="2.5" />
+        <line x1="45" y1="220" x2="305" y2="220" stroke="#3B82F6" strokeWidth="2.5" />
+        <line x1="172" y1="103" x2="178" y2="117" stroke="#3B82F6" strokeWidth="1.5" />
+        <line x1="169" y1="213" x2="175" y2="227" stroke="#3B82F6" strokeWidth="1.5" />
+        <circle cx="175" cy="20" r="4" fill="#1D4ED8" />
+        <circle cx="108" cy="110" r="4" fill="#1D4ED8" />
+        <circle cx="242" cy="110" r="4" fill="#1D4ED8" />
+        <circle cx="45" cy="220" r="4" fill="#1D4ED8" />
+        <circle cx="305" cy="220" r="4" fill="#1D4ED8" />
+        <text x="182" y="22" fontSize="14" fontWeight="bold" fill="#1D4ED8">O</text>
+        <text x="90" y="107" fontSize="14" fontWeight="bold" fill="#1D4ED8">A</text>
+        <text x="248" y="107" fontSize="14" fontWeight="bold" fill="#1D4ED8">B</text>
+        <text x="28" y="224" fontSize="14" fontWeight="bold" fill="#1D4ED8">M</text>
+        <text x="310" y="224" fontSize="14" fontWeight="bold" fill="#1D4ED8">N</text>
+        <rect x="60" y="236" width="230" height="16" fill="#DBEAFE" rx="3" />
+        <text x="175" y="249" textAnchor="middle" fontSize="12" fill="#1D4ED8" fontWeight="bold">
+          OA/OM = OB/ON = AB/MN
+        </text>
+      </svg>
+    </DiagramFrame>
+  );
+}
+
+export function CubeDiagram() {
+  return (
+    <DiagramFrame title="Cube de côté a">
+      <svg viewBox="0 0 220 195" width="220" height="195">
+        <rect x="40" y="80" width="100" height="100" fill="#EFF6FF" stroke="#3B82F6" strokeWidth="2" />
+        <polygon points="40,80 80,45 180,45 140,80" fill="#BFDBFE" stroke="#3B82F6" strokeWidth="2" />
+        <polygon points="140,80 180,45 180,145 140,180" fill="#93C5FD" stroke="#3B82F6" strokeWidth="2" />
+        <line x1="40" y1="180" x2="80" y2="145" stroke="#9CA3AF" strokeWidth="1.5" strokeDasharray="5,3" />
+        <line x1="80" y1="45" x2="80" y2="145" stroke="#9CA3AF" strokeWidth="1.5" strokeDasharray="5,3" />
+        <line x1="80" y1="145" x2="180" y2="145" stroke="#9CA3AF" strokeWidth="1.5" strokeDasharray="5,3" />
+        <text x="85" y="170" textAnchor="middle" fontSize="14" fontWeight="bold" fill="#1D4ED8">a</text>
+        <text x="185" y="120" fontSize="14" fontWeight="bold" fill="#1D4ED8">a</text>
+        <text x="105" y="40" fontSize="14" fontWeight="bold" fill="#1D4ED8">a</text>
+        <text x="110" y="190" textAnchor="middle" fontSize="12" fill="#374151">V = a³</text>
+      </svg>
+    </DiagramFrame>
+  );
+}
+
+export function PaveDroitDiagram() {
+  return (
+    <DiagramFrame title="Pavé droit (L × l × h)">
+      <svg viewBox="0 0 240 205" width="240" height="205">
+        <rect x="30" y="80" width="130" height="100" fill="#F0FDF4" stroke="#22C55E" strokeWidth="2" />
+        <polygon points="30,80 70,45 200,45 160,80" fill="#BBF7D0" stroke="#22C55E" strokeWidth="2" />
+        <polygon points="160,80 200,45 200,145 160,180" fill="#86EFAC" stroke="#22C55E" strokeWidth="2" />
+        <line x1="30" y1="180" x2="70" y2="145" stroke="#9CA3AF" strokeWidth="1.5" strokeDasharray="5,3" />
+        <line x1="70" y1="45" x2="70" y2="145" stroke="#9CA3AF" strokeWidth="1.5" strokeDasharray="5,3" />
+        <line x1="70" y1="145" x2="200" y2="145" stroke="#9CA3AF" strokeWidth="1.5" strokeDasharray="5,3" />
+        <text x="88" y="173" textAnchor="middle" fontSize="14" fontWeight="bold" fill="#15803D">L</text>
+        <text x="205" y="118" fontSize="14" fontWeight="bold" fill="#15803D">h</text>
+        <text x="125" y="40" fontSize="14" fontWeight="bold" fill="#15803D">l</text>
+        <text x="120" y="197" textAnchor="middle" fontSize="12" fill="#374151">V = L × l × h</text>
+      </svg>
+    </DiagramFrame>
+  );
+}
+
+export function PyramideDiagram() {
+  return (
+    <DiagramFrame title="Pyramide à base carrée">
+      <svg viewBox="0 0 260 225" width="260" height="225">
+        <polygon points="60,170 140,195 220,170 140,145" fill="#FEF3C7" stroke="#D97706" strokeWidth="2" />
+        <polygon points="130,30 60,170 140,195" fill="#FDE68A" stroke="#D97706" strokeWidth="2" />
+        <polygon points="130,30 140,195 220,170" fill="#FCD34D" stroke="#D97706" strokeWidth="2" />
+        <polygon points="130,30 60,170 220,170" fill="#FDE68A" stroke="#D97706" strokeWidth="1.5" />
+        <line x1="130" y1="30" x2="140" y2="170" stroke="#D97706" strokeWidth="1.5" strokeDasharray="6,3" />
+        <circle cx="140" cy="170" r="3" fill="#D97706" />
+        <circle cx="130" cy="30" r="4" fill="#92400E" />
+        <text x="118" y="22" fontSize="14" fontWeight="bold" fill="#92400E">S</text>
+        <text x="148" y="108" fontSize="14" fontWeight="bold" fill="#92400E">h</text>
+        <text x="165" y="193" fontSize="13" fill="#92400E">B (base)</text>
+        <rect x="30" y="207" width="200" height="16" fill="#FEF3C7" rx="3" />
+        <text x="130" y="220" textAnchor="middle" fontSize="12" fill="#92400E" fontWeight="bold">V = (B × h) / 3</text>
+      </svg>
+    </DiagramFrame>
+  );
+}
+
+export function ConeDiagram() {
+  return (
+    <DiagramFrame title="Cône de révolution">
+      <svg viewBox="0 0 240 235" width="240" height="235">
+        <ellipse cx="120" cy="175" rx="80" ry="25" fill="#FDF4FF" stroke="#A855F7" strokeWidth="2" />
+        <line x1="120" y1="30" x2="40" y2="175" stroke="#A855F7" strokeWidth="2" />
+        <line x1="120" y1="30" x2="200" y2="175" stroke="#A855F7" strokeWidth="2" />
+        <line x1="120" y1="30" x2="120" y2="175" stroke="#A855F7" strokeWidth="1.5" strokeDasharray="6,3" />
+        <line x1="120" y1="175" x2="200" y2="175" stroke="#7E22CE" strokeWidth="1.5" strokeDasharray="4,3" />
+        <polyline points="120,155 132,155 132,175" fill="none" stroke="#A855F7" strokeWidth="1.5" />
+        <circle cx="120" cy="30" r="4" fill="#7E22CE" />
+        <text x="128" y="26" fontSize="14" fontWeight="bold" fill="#7E22CE">S</text>
+        <text x="126" y="110" fontSize="14" fontWeight="bold" fill="#7E22CE">h</text>
+        <text x="155" y="167" fontSize="14" fontWeight="bold" fill="#7E22CE">r</text>
+        <text x="45" y="92" fontSize="13" fill="#7E22CE" fontStyle="italic">g</text>
+        <text x="28" y="108" fontSize="11" fill="#7E22CE">(génératrice)</text>
+        <rect x="10" y="210" width="220" height="20" fill="#FAE8FF" rx="3" />
+        <text x="120" y="224" textAnchor="middle" fontSize="12" fontWeight="bold" fill="#7E22CE">
+          V = (π × r² × h) / 3
+        </text>
+      </svg>
+    </DiagramFrame>
+  );
+}
+
+export function PatronPyramideDiagram() {
+  return (
+    <DiagramFrame title="Patron d'une pyramide à base carrée">
+      <svg viewBox="0 0 280 265" width="280" height="265">
+        <rect x="90" y="90" width="100" height="100" fill="#FEF3C7" stroke="#D97706" strokeWidth="2" />
+        <text x="140" y="145" textAnchor="middle" fontSize="13" fill="#92400E" fontWeight="bold">Base</text>
+        <polygon points="90,90 190,90 140,25" fill="#FDE68A" stroke="#D97706" strokeWidth="2" />
+        <polygon points="90,190 190,190 140,255" fill="#FDE68A" stroke="#D97706" strokeWidth="2" />
+        <polygon points="90,90 90,190 25,140" fill="#FDE68A" stroke="#D97706" strokeWidth="2" />
+        <polygon points="190,90 190,190 255,140" fill="#FDE68A" stroke="#D97706" strokeWidth="2" />
+        <text x="140" y="55" textAnchor="middle" fontSize="12" fill="#92400E">face</text>
+        <text x="140" y="250" textAnchor="middle" fontSize="12" fill="#92400E">face</text>
+        <text x="42" y="143" textAnchor="middle" fontSize="12" fill="#92400E">face</text>
+        <text x="238" y="143" textAnchor="middle" fontSize="12" fill="#92400E">face</text>
+      </svg>
+    </DiagramFrame>
+  );
+}
+
+export function PatronConeDiagram() {
+  return (
+    <DiagramFrame title="Patron d'un cône (secteur + disque)">
+      <svg viewBox="0 0 320 205" width="320" height="205">
+        <path
+          d="M 20,185 L 130,10 A 152,152 0 0,1 265,140 Z"
+          fill="#FAE8FF"
+          stroke="#A855F7"
+          strokeWidth="2"
+        />
+        <text x="118" y="130" textAnchor="middle" fontSize="13" fill="#7E22CE">Face latérale</text>
+        <text x="118" y="148" textAnchor="middle" fontSize="11" fill="#7E22CE">(secteur, rayon = g)</text>
+        <text x="62" y="96" fontSize="13" fill="#7E22CE" fontWeight="bold">g</text>
+        <circle cx="288" cy="82" r="32" fill="#FDF4FF" stroke="#A855F7" strokeWidth="2" />
+        <text x="288" y="80" textAnchor="middle" fontSize="12" fill="#7E22CE">Base</text>
+        <text x="288" y="96" textAnchor="middle" fontSize="11" fill="#7E22CE">(disque r)</text>
+        <text x="258" y="160" fontSize="13" fill="#374151" fontWeight="bold">+</text>
+      </svg>
+    </DiagramFrame>
+  );
+}
