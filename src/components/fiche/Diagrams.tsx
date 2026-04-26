@@ -1110,23 +1110,20 @@ export function PatronConeDiagram() {
         <text x="84" y="105" fontSize="12" fontWeight="bold" fill="#7E22CE">S</text>
 
         {/* ── "Face latérale" inside sector ── */}
-        <text x="152" y="103" textAnchor="middle" fontSize="10" fill="#7E22CE">Face</text>
-        <text x="152" y="116" textAnchor="middle" fontSize="10" fill="#7E22CE">latérale</text>
+        <text x="152" y="120" textAnchor="middle" fontSize="10" fill="#7E22CE">Face</text>
+        <text x="152" y="132" textAnchor="middle" fontSize="10" fill="#7E22CE">latérale</text>
 
         {/* ── "arc = 2πr" below the arc ── */}
         <text x="100" y="200" textAnchor="middle" fontSize="10" fill="#A855F7" fontWeight="bold">arc = 2πr</text>
 
-        {/* ── PLUS SIGN ── */}
-        <text x="228" y="114" textAnchor="middle" fontSize="18" fill="#374151" fontWeight="bold">+</text>
-
         {/* ── BASE DISK (radius r) ── */}
-        <circle cx="293" cy="108" r="40" fill="#CCFBF1" stroke="#0D9488" strokeWidth="2" />
+        <circle cx="220" cy="108" r="40" fill="#CCFBF1" stroke="#0D9488" strokeWidth="2" />
         {/* r line (dashed) */}
-        <line x1="293" y1="108" x2="333" y2="108" stroke="#0D9488" strokeWidth="1.5" strokeDasharray="4,2" />
-        <text x="310" y="103" fontSize="12" fill="#0D9488" fontWeight="bold">r</text>
+        <line x1="223" y1="108" x2="263" y2="108" stroke="#0D9488" strokeWidth="1.5" strokeDasharray="4,2" />
+        <text x="237" y="103" fontSize="12" fill="#0D9488" fontWeight="bold">r</text>
         {/* Labels */}
-        <text x="293" y="105" textAnchor="middle" fontSize="11" fill="#0D9488">Base</text>
-        <text x="293" y="119" textAnchor="middle" fontSize="10" fill="#0D9488">(disque)</text>
+        <text x="223" y="127" textAnchor="middle" fontSize="11" fill="#0D9488">Base</text>
+        <text x="223" y="140" textAnchor="middle" fontSize="10" fill="#0D9488">(disque)</text>
       </svg>
     </DiagramFrame>
   );
