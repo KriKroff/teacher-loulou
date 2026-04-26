@@ -150,13 +150,6 @@ Quiz files are stored as JSON in `src/data/quizzes/` for reuse across resource e
 - The `sessionSize` field on the `Quiz` object controls questions per session; `passingScore` is a percentage
 
 ## Cross-linking resources
-
-- Every `fiche` or `cours` MDX file **MUST** end with a `<QuizLink>` component **when a quiz on the same topic exists in that subject**:
-  ```mdx
-  <QuizLink level="4e" subject="francais" />
-  ```
-  If a specific quiz slug is needed: `<QuizLink level="4e" subject="francais" slug="my-quiz-slug" />`
-- Exception: if the fiche covers a topic without a dedicated quiz (e.g. `figures-de-style` in `francais` while the quizzes are about conjugaison), omit `<QuizLink>`. The validation script will warn but not fail the build in this case.
 - `[slug]/page.tsx` automatically adds "Passer au quiz →" buttons at the **top and bottom** of every fiche/cours page by finding the first `quiz` resource in the same level/subject.
 - `QuizPlayer` automatically adds "Revoir la fiche" links at the **top of level-select/intro screens** and at the **bottom of the result screen** by finding the first `fiche` resource using `getResourcesByLevelAndSubject`.
 - **No hardcoded slugs** — always rely on these dynamic lookups.
@@ -207,7 +200,6 @@ All fiche/cours content is written in MDX and uses these components from `src/co
 | `<Astuce>` | `title?` | Tip callout |
 | `<Erreur>` | `title?` | Warning/error callout |
 | `<Vocabulaire>` | `term`, `children` | Inline vocabulary highlight |
-| `<QuizLink>` | `level`, `subject`, `slug?`, `label?` | CTA button to the related quiz |
 
 Available colors: `purple`, `blue`, `green`, `orange`, `cyan`, `brown`, `sand`, `rose`, `amber`
 
@@ -282,7 +274,6 @@ All three are exposed in `AccessibilityControls` with icons Volume2, Smartphone,
 
 ### Warning checks (do not fail the build)
 - Leveled quiz levels must have ≥ 15 questions each. Flat quizzes must have ≥ 15 questions.
-- Every `fiche` / `cours` MDX file should contain `<QuizLink>` when a quiz exists in the same subject.
 - Orphaned `.mdx` files (under `src/data/resources/`) not referenced by any resource are flagged.
 
 Known warning suppressions are documented in `MIGRATION_NOTES.md` at the root.

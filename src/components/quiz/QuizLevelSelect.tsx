@@ -1,13 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { HelpCircle, BookOpen, ChevronRight, List, RotateCcw } from "lucide-react";
-import { useState } from "react";
-import { cn } from "@/lib/utils";
-import type { Quiz, QuizLevel } from "@/types";
-import { RESOURCE_TYPE_NAMES } from "@/types";
-import { ResetProgressionDialog } from "./ResetProgressionDialog";
-import { useProgress } from "@/hooks/useProgress";
+import {ChevronRight, HelpCircle, List, RotateCcw} from "lucide-react";
+import {useState} from "react";
+import {cn} from "@/lib/utils";
+import type {Quiz, QuizLevel} from "@/types";
+import {RESOURCE_TYPE_NAMES} from "@/types";
+import {ResetProgressionDialog} from "./ResetProgressionDialog";
+import {useProgress} from "@/hooks/useProgress";
 
 const LEVEL_COLORS: Record<string, { bg: string; border: string; text: string }> = {
   facile: { bg: "bg-green-50", border: "border-green-400", text: "text-green-700" },
@@ -33,7 +33,6 @@ interface QuizLevelSelectProps {
 
 export function QuizLevelSelect({
   quiz,
-  ficheHref,
   questionsHref,
   resourceSlug,
   onSelectLevel,
@@ -49,16 +48,6 @@ export function QuizLevelSelect({
 
   return (
     <div className="space-y-4">
-      {ficheHref && (
-        <Link
-          href={ficheHref}
-          className="flex items-center justify-center gap-2 rounded-2xl border-2 border-accent-300 bg-accent-50 px-6 py-3 text-sm font-bold text-accent-700 transition-all hover:bg-accent-100 active:scale-95"
-        >
-          <BookOpen className="h-4 w-4" />
-          Revoir la fiche avant de commencer →
-        </Link>
-      )}
-
       <div className="flex items-center gap-3">
         <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-100 text-purple-600">
           <HelpCircle className="h-5 w-5" />

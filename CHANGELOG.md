@@ -23,7 +23,7 @@ with ADHD/DYS best practices across content, quiz, and UX.
 ### Phase 3 — MDX setup + fiche primitives
 - Installed `next-mdx-remote`, `remark-gfm`, `remark-math`, `rehype-katex`, `katex`
 - Created `src/components/fiche/` library: Section, Retenir, Definition, Formule, Schema,
-  Tableau, Exemple, Astuce, Erreur, Vocabulaire, QuizLink
+  Tableau, Exemple, Astuce, Erreur, Vocabulaire
 - Created `src/components/content/MdxRenderer.tsx` (RSC, KaTeX, syllabification plugin)
 - Added `mdxPath` to `Resource` type
 
@@ -74,10 +74,8 @@ with ADHD/DYS best practices across content, quiz, and UX.
   - `pc-masse-gaz-quiz`: 8 → 10
   - `svt-puberte-quiz`: missing → 10
   - `quiz-present-indicatif`: missing → 10
-- Cross-link audit: all fiches with matching quizzes have `<QuizLink>` at end of MDX.
-  `figures-de-style` intentionally skipped (no topic-matching quiz in subject).
 - Created `scripts/validate-resources.ts` with strict (sessionSize, mdxPath) and warning
-  (question counts, QuizLink presence) checks
+  (question counts) checks
 - Installed `tsx` devDependency; added `validate-resources` + `prebuild` npm scripts
 - Created `MIGRATION_NOTES.md` documenting quiz pools < 15 questions to complete
 - Updated `AGENTS.md`: Project Structure, Commands, Cross-linking exception, new Validation section
