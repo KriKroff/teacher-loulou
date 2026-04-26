@@ -43,7 +43,7 @@ export default async function QuestionsPage({ params }: Props) {
 
       <div>
         <h1 className="text-2xl font-bold text-warm-800">{quiz.title}</h1>
-        <p className="text-sm text-warm-500">Toutes les questions · {quiz.levels ? quiz.levels.reduce((n, l) => n + l.questions.length, 0) : quiz.questions.length} au total</p>
+        <p className="text-sm text-warm-500">Toutes les questions · {quiz.levels ? quiz.levels.reduce((n, l) => n + l.questions.length, 0) : (quiz.questions?.length ?? 0)} au total</p>
       </div>
 
       <QuestionsClient

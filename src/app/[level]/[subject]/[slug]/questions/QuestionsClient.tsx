@@ -81,7 +81,7 @@ export function QuestionsClient({ quiz, resourceSlug, quizHref }: QuestionsClien
       });
     });
   } else {
-    sections.push({ levelId: "__root__", label: "Questions", questions: quiz.questions });
+    sections.push({ levelId: "__root__", label: "Questions", questions: quiz.questions ?? [] });
   }
 
   return (

@@ -41,7 +41,7 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
         if (q) { found = q; foundLevel = level; break; }
       }
     } else {
-      found = quiz.questions.find((q) => q.id === retryId);
+      found = quiz.questions?.find((q) => q.id === retryId);
     }
 
     if (!found) return;
@@ -77,8 +77,8 @@ export function QuizPlayer({ resource }: { resource: Resource }) {
   };
 
   const handleStart = () => {
-    if (!hasLevels && quiz.questions.length > 0 && sessionQuestions.length === 0) {
-      startSession("__root__", quiz.questions);
+    if (!hasLevels && (quiz.questions?.length ?? 0) > 0 && sessionQuestions.length === 0) {
+      startSession("__root__", quiz.questions ?? []);
     }
     setState("playing");
   };

@@ -58,7 +58,7 @@ export interface QuizLevel {
 export interface Quiz {
   title: string;
   description: string;
-  questions: QuizQuestion[];
+  questions?: QuizQuestion[];
   passingScore: number;
   levels?: QuizLevel[];
   /** Number of questions per session (default: 10) */
@@ -87,8 +87,8 @@ export interface QuizQuestion {
     | "tri-categories"
     | "completion-tableau";
   options?: string[];
-  correctAnswer: string | string[];
-  explanation: string;
+  correctAnswer?: string | string[];
+  explanation?: string;
   hint?: string;
   pairs?: { left: string; right: string }[]; // for "association" type
   /** Allowed tolerance for "slider" and "nombre" types (default: 0 — exact match) */

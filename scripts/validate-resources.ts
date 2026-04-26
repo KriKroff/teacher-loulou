@@ -98,9 +98,10 @@ for (const r of resources) {
     }
   } else {
     // flat quiz
-    if (quiz.questions.length < 15) {
+    const flatQuestions = quiz.questions ?? [];
+    if (flatQuestions.length < 15) {
       warn(
-        `[${r.level}/${r.subject}/${r.slug}] flat quiz has ${quiz.questions.length} questions (minimum 15). See MIGRATION_NOTES.md.`
+        `[${r.level}/${r.subject}/${r.slug}] flat quiz has ${flatQuestions.length} questions (minimum 15). See MIGRATION_NOTES.md.`
       );
     }
   }
