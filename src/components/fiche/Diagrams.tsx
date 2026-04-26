@@ -909,7 +909,7 @@ export function ThalesDiagram() {
 export function CubeDiagram() {
   return (
     <DiagramFrame title="Cube de côté a">
-      <svg viewBox="0 0 220 195" width="220" height="195">
+      <svg viewBox="0 0 220 210" width="220" height="195">
         <rect x="40" y="80" width="100" height="100" fill="#EFF6FF" stroke="#3B82F6" strokeWidth="2" />
         <polygon points="40,80 80,45 180,45 140,80" fill="#BFDBFE" stroke="#3B82F6" strokeWidth="2" />
         <polygon points="140,80 180,45 180,145 140,180" fill="#93C5FD" stroke="#3B82F6" strokeWidth="2" />
@@ -919,7 +919,7 @@ export function CubeDiagram() {
         <text x="85" y="170" textAnchor="middle" fontSize="14" fontWeight="bold" fill="#1D4ED8">a</text>
         <text x="185" y="120" fontSize="14" fontWeight="bold" fill="#1D4ED8">a</text>
         <text x="105" y="40" fontSize="14" fontWeight="bold" fill="#1D4ED8">a</text>
-        <text x="110" y="190" textAnchor="middle" fontSize="12" fill="#374151">V = a³</text>
+        <text x="110" y="200" textAnchor="middle" fontSize="14" fontWeight="bold" fill="#374151">V = a³</text>
       </svg>
     </DiagramFrame>
   );
@@ -937,7 +937,7 @@ export function PaveDroitDiagram() {
         <line x1="70" y1="145" x2="200" y2="145" stroke="#9CA3AF" strokeWidth="1.5" strokeDasharray="5,3" />
         <text x="88" y="173" textAnchor="middle" fontSize="14" fontWeight="bold" fill="#15803D">L</text>
         <text x="205" y="118" fontSize="14" fontWeight="bold" fill="#15803D">h</text>
-        <text x="125" y="40" fontSize="14" fontWeight="bold" fill="#15803D">l</text>
+        <text x="195" y="165" fontSize="14" fontWeight="bold" fill="#15803D">l</text>
         <text x="120" y="197" textAnchor="middle" fontSize="12" fill="#374151">V = L × l × h</text>
       </svg>
     </DiagramFrame>
@@ -945,21 +945,65 @@ export function PaveDroitDiagram() {
 }
 
 export function PyramideDiagram() {
+  // 3D perspective: E=apex, A=hidden back-right, B=front-left, C=front-right, D=back-right visible
+  // Approximate coords matching a standard 3D pyramide illustration
+  // E(140,18) apex, B(42,148) left, C(118,192) front, D(248,160) right, A(170,108) hidden
+  const E = "140,18";
+  const B = "42,148";
+  const C = "118,192";
+  const D = "248,160";
+  const A = "170,108"; // hidden vertex
+
+  // Foot of height on base (centroid approx)
+  const footX = 145;
+  const footY = 155;
+
   return (
     <DiagramFrame title="Pyramide à base carrée">
-      <svg viewBox="0 0 260 225" width="260" height="225">
-        <polygon points="60,170 140,195 220,170 140,145" fill="#FEF3C7" stroke="#D97706" strokeWidth="2" />
-        <polygon points="130,30 60,170 140,195" fill="#FDE68A" stroke="#D97706" strokeWidth="2" />
-        <polygon points="130,30 140,195 220,170" fill="#FCD34D" stroke="#D97706" strokeWidth="2" />
-        <polygon points="130,30 60,170 220,170" fill="#FDE68A" stroke="#D97706" strokeWidth="1.5" />
-        <line x1="130" y1="30" x2="140" y2="170" stroke="#D97706" strokeWidth="1.5" strokeDasharray="6,3" />
-        <circle cx="140" cy="170" r="3" fill="#D97706" />
-        <circle cx="130" cy="30" r="4" fill="#92400E" />
-        <text x="118" y="22" fontSize="14" fontWeight="bold" fill="#92400E">S</text>
-        <text x="148" y="108" fontSize="14" fontWeight="bold" fill="#92400E">h</text>
-        <text x="165" y="193" fontSize="13" fill="#92400E">B (base)</text>
-        <rect x="30" y="207" width="200" height="16" fill="#FEF3C7" rx="3" />
-        <text x="130" y="220" textAnchor="middle" fontSize="12" fill="#92400E" fontWeight="bold">V = (B × h) / 3</text>
+      <svg viewBox="0 0 300 250" width="300" height="250">
+        {/* Base square ABCD — visible edges B-C, C-D, B-D visible; A-B, A-D dashed */}
+        <polygon points={`${B} ${C} ${D} ${A}`} fill="#FEF3C7" stroke="#7C2D12" strokeWidth="2" />
+        {/* Hidden edges from A */}
+        <line x1="170" y1="108" x2="42" y2="148" stroke="#7C2D12" strokeWidth="1.5" strokeDasharray="5,3" />
+        <line x1="170" y1="108" x2="248" y2="160" stroke="#7C2D12" strokeWidth="1.5" strokeDasharray="5,3" />
+        {/* Lateral faces — colored */}
+        {/* E-B face (left, orange) */}
+        <polygon points={`${E} ${B} ${C}`} fill="#FED7AA" stroke="#F97316" strokeWidth="0" opacity="0.55" />
+        {/* E-C face (front, teal) */}
+        <polygon points={`${E} ${C} ${D}`} fill="#99F6E4" stroke="#14B8A6" strokeWidth="0" opacity="0.55" />
+        {/* E-D face (right, red) — slightly less visible */}
+        <polygon points={`${E} ${D} ${A}`} fill="#FECACA" stroke="#EF4444" strokeWidth="0" opacity="0.45" />
+        {/* E-A face (back, hidden) */}
+        <polygon points={`${E} ${A} ${B}`} fill="#E5E7EB" stroke="#9CA3AF" strokeWidth="0" opacity="0.3" />
+        {/* Colored lateral edges */}
+        <line x1="140" y1="18" x2="42" y2="148" stroke="#F97316" strokeWidth="2.5" />
+        <line x1="140" y1="18" x2="118" y2="192" stroke="#14B8A6" strokeWidth="2.5" />
+        <line x1="140" y1="18" x2="248" y2="160" stroke="#EF4444" strokeWidth="2.5" />
+        {/* Hidden edge E-A dashed */}
+        <line x1="140" y1="18" x2="170" y2="108" stroke="#9CA3AF" strokeWidth="1.5" strokeDasharray="5,3" />
+        {/* Visible base edges */}
+        <line x1="42" y1="148" x2="118" y2="192" stroke="#7C2D12" strokeWidth="2" />
+        <line x1="118" y1="192" x2="248" y2="160" stroke="#7C2D12" strokeWidth="2" />
+        <line x1="42" y1="148" x2="170" y2="108" stroke="#7C2D12" strokeWidth="2" />
+        <line x1="248" y1="160" x2="170" y2="108" stroke="#7C2D12" strokeWidth="2" />
+        {/* Height h — dashed blue from apex to foot */}
+        <line x1="140" y1="18" x2={footX} y2={footY} stroke="#3B82F6" strokeWidth="1.5" strokeDasharray="6,3" />
+        <circle cx={footX} cy={footY} r="3" fill="#3B82F6" />
+        {/* Right angle marker at foot */}
+        <polyline points={`${footX},${footY - 10} ${footX + 10},${footY - 10} ${footX + 10},${footY}`} fill="none" stroke="#3B82F6" strokeWidth="1.5" />
+        {/* Vertex labels */}
+        <circle cx="140" cy="18" r="4" fill="#1E3A8A" />
+        <text x="147" y="14" fontSize="14" fontWeight="bold" fill="#1E3A8A">E</text>
+        <text x="22" y="152" fontSize="13" fontWeight="bold" fill="#7C2D12">B</text>
+        <text x="110" y="208" fontSize="13" fontWeight="bold" fill="#7C2D12">C</text>
+        <text x="252" y="164" fontSize="13" fontWeight="bold" fill="#7C2D12">D</text>
+        <text x="173" y="106" fontSize="13" fontWeight="bold" fill="#9CA3AF">A</text>
+        {/* h label */}
+        <text x="153" y="95" fontSize="13" fontWeight="bold" fill="#3B82F6">h</text>
+        {/* Formula */}
+        <rect x="40" y="215" width="220" height="30" fill="#FEF3C7" rx="4" />
+        <text x="150" y="228" textAnchor="middle" fontSize="11" fill="#92400E">Abase = côté²</text>
+        <text x="150" y="242" textAnchor="middle" fontSize="11" fontWeight="bold" fill="#92400E">V = (Abase × h) / 3</text>
       </svg>
     </DiagramFrame>
   );
@@ -968,7 +1012,7 @@ export function PyramideDiagram() {
 export function ConeDiagram() {
   return (
     <DiagramFrame title="Cône de révolution">
-      <svg viewBox="0 0 240 235" width="240" height="235">
+      <svg viewBox="0 0 240 310" width="240" height="310">
         <ellipse cx="120" cy="175" rx="80" ry="25" fill="#FDF4FF" stroke="#A855F7" strokeWidth="2" />
         <line x1="120" y1="30" x2="40" y2="175" stroke="#A855F7" strokeWidth="2" />
         <line x1="120" y1="30" x2="200" y2="175" stroke="#A855F7" strokeWidth="2" />
@@ -981,51 +1025,117 @@ export function ConeDiagram() {
         <text x="155" y="167" fontSize="14" fontWeight="bold" fill="#7E22CE">r</text>
         <text x="45" y="92" fontSize="13" fill="#7E22CE" fontStyle="italic">g</text>
         <text x="28" y="108" fontSize="11" fill="#7E22CE">(génératrice)</text>
-        <rect x="10" y="210" width="220" height="20" fill="#FAE8FF" rx="3" />
-        <text x="120" y="224" textAnchor="middle" fontSize="12" fontWeight="bold" fill="#7E22CE">
-          V = (π × r² × h) / 3
-        </text>
+        {/* Formula box */}
+        <rect x="10" y="208" width="220" height="94" fill="#FAE8FF" rx="4" />
+        <text x="120" y="223" textAnchor="middle" fontSize="11" fill="#7E22CE">Abase = π × r²</text>
+        <line x1="20" y1="229" x2="220" y2="229" stroke="#D8B4FE" strokeWidth="0.8" />
+        <text x="120" y="243" textAnchor="middle" fontSize="11" fill="#7E22CE">Alat = π × r × g</text>
+        <line x1="20" y1="249" x2="220" y2="249" stroke="#D8B4FE" strokeWidth="0.8" />
+        <text x="120" y="263" textAnchor="middle" fontSize="11" fill="#7E22CE">V = (Abase × h) / 3</text>
+        <line x1="20" y1="269" x2="220" y2="269" stroke="#D8B4FE" strokeWidth="0.8" />
+        <text x="120" y="284" textAnchor="middle" fontSize="11" fontWeight="bold" fill="#7E22CE">V = (π × r² × h) / 3</text>
+        <text x="120" y="298" textAnchor="middle" fontSize="10" fill="#9333EA">g = √(r² + h²)  (Pythagore)</text>
       </svg>
     </DiagramFrame>
   );
 }
 
 export function PatronPyramideDiagram() {
+  // Cross layout: center square ABCD, 4 colored triangles unfolded around it
+  // Square: B(92,92) top-left, A(208,92) top-right, D(208,208) bottom-right, C(92,208) bottom-left
+  // Labels match 3D diagram: A=back-right, B=front-left, C=front-right, D=back-left (visual coherence)
   return (
     <DiagramFrame title="Patron d'une pyramide à base carrée">
-      <svg viewBox="0 0 280 265" width="280" height="265">
-        <rect x="90" y="90" width="100" height="100" fill="#FEF3C7" stroke="#D97706" strokeWidth="2" />
-        <text x="140" y="145" textAnchor="middle" fontSize="13" fill="#92400E" fontWeight="bold">Base</text>
-        <polygon points="90,90 190,90 140,25" fill="#FDE68A" stroke="#D97706" strokeWidth="2" />
-        <polygon points="90,190 190,190 140,255" fill="#FDE68A" stroke="#D97706" strokeWidth="2" />
-        <polygon points="90,90 90,190 25,140" fill="#FDE68A" stroke="#D97706" strokeWidth="2" />
-        <polygon points="190,90 190,190 255,140" fill="#FDE68A" stroke="#D97706" strokeWidth="2" />
-        <text x="140" y="55" textAnchor="middle" fontSize="12" fill="#92400E">face</text>
-        <text x="140" y="250" textAnchor="middle" fontSize="12" fill="#92400E">face</text>
-        <text x="42" y="143" textAnchor="middle" fontSize="12" fill="#92400E">face</text>
-        <text x="238" y="143" textAnchor="middle" fontSize="12" fill="#92400E">face</text>
+      <svg viewBox="0 0 310 310" width="310" height="310">
+        {/* Center base square ABCD */}
+        <rect x="92" y="92" width="116" height="116" fill="#FEF3C7" stroke="#7C2D12" strokeWidth="2.5" />
+        {/* Right-angle markers at 4 corners of base */}
+        <polyline points="92,108 108,108 108,92" fill="none" stroke="#7C2D12" strokeWidth="1.5" />
+        <polyline points="192,92 192,108 208,108" fill="none" stroke="#7C2D12" strokeWidth="1.5" />
+        <polyline points="208,192 192,192 192,208" fill="none" stroke="#7C2D12" strokeWidth="1.5" />
+        <polyline points="108,208 108,192 92,192" fill="none" stroke="#7C2D12" strokeWidth="1.5" />
+        {/* Top triangle (B-A edge) — orange */}
+        <polygon points="92,92 208,92 150,25" fill="#FED7AA" stroke="#F97316" strokeWidth="2" />
+        {/* Left triangle (B-C edge) — teal */}
+        <polygon points="92,92 92,208 25,150" fill="#99F6E4" stroke="#14B8A6" strokeWidth="2" />
+        {/* Bottom triangle (C-D edge) — blue */}
+        <polygon points="92,208 208,208 150,275" fill="#BFDBFE" stroke="#3B82F6" strokeWidth="2" />
+        {/* Right triangle (A-D edge) — red */}
+        <polygon points="208,92 208,208 275,150" fill="#FECACA" stroke="#EF4444" strokeWidth="2" />
+        {/* Base label */}
+        <text x="150" y="153" textAnchor="middle" fontSize="13" fontWeight="bold" fill="#7C2D12">Base</text>
+        {/* Face labels */}
+        <text x="150" y="52" textAnchor="middle" fontSize="11" fill="#F97316" fontWeight="bold">face</text>
+        <text x="150" y="262" textAnchor="middle" fontSize="11" fill="#3B82F6" fontWeight="bold">face</text>
+        <text x="43" y="153" textAnchor="middle" fontSize="11" fill="#14B8A6" fontWeight="bold">face</text>
+        <text x="257" y="153" textAnchor="middle" fontSize="11" fill="#EF4444" fontWeight="bold">face</text>
+        {/* Vertex labels */}
+        <text x="76" y="89" fontSize="12" fontWeight="bold" fill="#7C2D12">B</text>
+        <text x="210" y="89" fontSize="12" fontWeight="bold" fill="#7C2D12">A</text>
+        <text x="210" y="218" fontSize="12" fontWeight="bold" fill="#7C2D12">D</text>
+        <text x="76" y="218" fontSize="12" fontWeight="bold" fill="#7C2D12">C</text>
       </svg>
     </DiagramFrame>
   );
 }
 
 export function PatronConeDiagram() {
+  // Sector: apex S at top-center, two radii of length g, arc at bottom labeled 2πr
+  // Base disk: circle of radius r
+  // Step-by-step angle formula with 3 colored steps
   return (
-    <DiagramFrame title="Patron d'un cône (secteur + disque)">
-      <svg viewBox="0 0 320 205" width="320" height="205">
+    <DiagramFrame title="Patron d'un cône">
+      <svg viewBox="0 0 340 320" width="340" height="320">
+        {/* ── SECTOR (face latérale) ── */}
+        {/* Sector centered at S(108,18), radius 130, spanning ~100° */}
         <path
-          d="M 20,185 L 130,10 A 152,152 0 0,1 265,140 Z"
+          d="M 108,18 L 8,148 A 130,130 0 0,0 208,148 Z"
           fill="#FAE8FF"
           stroke="#A855F7"
           strokeWidth="2"
         />
-        <text x="118" y="130" textAnchor="middle" fontSize="13" fill="#7E22CE">Face latérale</text>
-        <text x="118" y="148" textAnchor="middle" fontSize="11" fill="#7E22CE">(secteur, rayon = g)</text>
-        <text x="62" y="96" fontSize="13" fill="#7E22CE" fontWeight="bold">g</text>
-        <circle cx="288" cy="82" r="32" fill="#FDF4FF" stroke="#A855F7" strokeWidth="2" />
-        <text x="288" y="80" textAnchor="middle" fontSize="12" fill="#7E22CE">Base</text>
-        <text x="288" y="96" textAnchor="middle" fontSize="11" fill="#7E22CE">(disque r)</text>
-        <text x="258" y="160" fontSize="13" fill="#374151" fontWeight="bold">+</text>
+        {/* Arc label: 2πr */}
+        <text x="108" y="172" textAnchor="middle" fontSize="11" fill="#A855F7" fontWeight="bold">arc = 2πr</text>
+        {/* Radius labels g */}
+        <text x="42" y="85" fontSize="12" fill="#7E22CE" fontWeight="bold" fontStyle="italic">g</text>
+        <text x="160" y="85" fontSize="12" fill="#7E22CE" fontWeight="bold" fontStyle="italic">g</text>
+        {/* S label */}
+        <circle cx="108" cy="18" r="3" fill="#7E22CE" />
+        <text x="114" y="16" fontSize="12" fontWeight="bold" fill="#7E22CE">S</text>
+        {/* Angle arc θ */}
+        <path d="M 108,18 m 30,0 A 30,30 0 0,0 108,48" fill="none" stroke="#9333EA" strokeWidth="1.5" />
+        <text x="118" y="48" fontSize="11" fill="#9333EA" fontWeight="bold">θ</text>
+        {/* Face label */}
+        <text x="108" y="135" textAnchor="middle" fontSize="11" fill="#7E22CE">Face latérale</text>
+
+        {/* ── PLUS SIGN ── */}
+        <text x="222" y="95" textAnchor="middle" fontSize="18" fill="#374151" fontWeight="bold">+</text>
+
+        {/* ── BASE DISK ── */}
+        <circle cx="290" cy="90" r="38" fill="#FDF4FF" stroke="#A855F7" strokeWidth="2" />
+        <line x1="290" y1="90" x2="328" y2="90" stroke="#7E22CE" strokeWidth="1.5" strokeDasharray="4,2" />
+        <text x="307" y="85" fontSize="11" fill="#7E22CE" fontWeight="bold">r</text>
+        <text x="290" y="95" textAnchor="middle" fontSize="11" fill="#7E22CE">Base</text>
+        <text x="290" y="109" textAnchor="middle" fontSize="10" fill="#7E22CE">(disque)</text>
+
+        {/* ── STEP-BY-STEP ANGLE FORMULA ── */}
+        <rect x="8" y="190" width="324" height="118" fill="#F5F3FF" rx="6" stroke="#DDD6FE" strokeWidth="1" />
+        <text x="170" y="206" textAnchor="middle" fontSize="11" fontWeight="bold" fill="#4C1D95">Calculer l&apos;angle θ du secteur :</text>
+
+        {/* Step 1 — orange */}
+        <rect x="16" y="212" width="8" height="28" fill="#F97316" rx="2" />
+        <text x="32" y="223" fontSize="10" fill="#F97316" fontWeight="bold">① Arc du secteur</text>
+        <text x="32" y="235" fontSize="10" fill="#F97316">= circonférence de la base = 2πr</text>
+
+        {/* Step 2 — teal */}
+        <rect x="16" y="244" width="8" height="28" fill="#14B8A6" rx="2" />
+        <text x="32" y="255" fontSize="10" fill="#0D9488" fontWeight="bold">② Fraction du cercle complet</text>
+        <text x="32" y="267" fontSize="10" fill="#0D9488">= arc / périmètre du cercle de rayon g = 2πr / 2πg = r/g</text>
+
+        {/* Step 3 — purple */}
+        <rect x="16" y="276" width="8" height="28" fill="#7C3AED" rx="2" />
+        <text x="32" y="287" fontSize="10" fill="#7C3AED" fontWeight="bold">③ Angle du secteur</text>
+        <text x="32" y="299" fontSize="10" fill="#7C3AED">θ = (r / g) × 360°</text>
       </svg>
     </DiagramFrame>
   );
