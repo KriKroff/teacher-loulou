@@ -15,9 +15,11 @@ export function VraiFauxQuestion({ question, onAnswer, showFeedback }: QuestionC
     onAnswer(isCorrect, option);
   };
 
+  const options = question.options?.length ? question.options : ["Vrai", "Faux"];
+
   return (
     <div className="space-y-2.5">
-      {question.options?.map((option) => {
+      {options.map((option) => {
         const isSelected = selectedAnswer === option;
         const isCorrect = question.correctAnswer === option;
 
