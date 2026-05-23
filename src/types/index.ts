@@ -85,7 +85,8 @@ export interface QuizQuestion {
     | "click-on-image"
     | "audio-listen"
     | "tri-categories"
-    | "completion-tableau";
+    | "completion-tableau"
+    | "verbe-irregulier";
   options?: string[];
   correctAnswer?: string | string[];
   explanation?: string;
@@ -133,6 +134,17 @@ export interface QuizQuestion {
   table?: {
     headers: string[];
     rows: ({ value: string } | { blank: true; correctAnswer: string })[][];
+  };
+
+  // ── verbe-irregulier ───────────────────────────────────────────────────────
+  /** Data for the irregular verb question. One field is shown; the others must be filled. */
+  verbData?: {
+    french: string;
+    base: string;
+    preterite: string;
+    participle: string;
+    /** Which field is already revealed to the student. */
+    givenField: "french" | "base" | "preterite" | "participle";
   };
 }
 

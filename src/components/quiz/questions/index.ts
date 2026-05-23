@@ -15,4 +15,5 @@ export { ClickOnImageQuestion } from "./ClickOnImageQuestion";
 export { AudioListenQuestion } from "./AudioListenQuestion";
 export { TriCategoriesQuestion } from "./TriCategoriesQuestion";
 export { CompletionTableauQuestion } from "./CompletionTableauQuestion";
+export { VerbeIrregulierQuestion } from "./VerbeIrregulierQuestion";
 export type { QuestionComponentProps } from "./types";
