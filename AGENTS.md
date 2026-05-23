@@ -106,7 +106,7 @@ To add a new diagram: add an `export function` to `Diagrams.tsx`, re-export from
 | `texte-a-trous-select` | statement with N `___`, `options[]`, `correctAnswer: string[]` (ordered) |
 | `association` | `pairs: { left, right }[]` |
 | `qcm-multiple` | `options[]`, `correctAnswer: string[]` |
-| `ordre` | `items[]`, `correctAnswer: string[]` (correct order) |
+| `ordre` | `options[]`, `correctAnswer: string[]` (correct order) |
 | `nombre` | `correctAnswer: string` (numeric), `tolerance?` |
 | `slider` | `options: ["min","max"]` or `["min","max","step"]`, `correctAnswer`, `tolerance?` |
 | `intrus` | `options[]`, `correctAnswer` (the odd one out) |
