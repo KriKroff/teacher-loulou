@@ -106,7 +106,7 @@ To add a new diagram: add an `export function` to `Diagrams.tsx`, re-export from
 | `texte-a-trous-select` | statement with N `___`, `options[]`, `correctAnswer: string[]` (ordered) |
 | `association` | `pairs: { left, right }[]` |
 | `qcm-multiple` | `options[]`, `correctAnswer: string[]` |
-| `ordre` | `items[]`, `correctAnswer: string[]` (correct order) |
+| `ordre` | `options[]`, `correctAnswer: string[]` (correct order) |
 | `nombre` | `correctAnswer: string` (numeric), `tolerance?` |
 | `slider` | `options: ["min","max"]` or `["min","max","step"]`, `correctAnswer`, `tolerance?` |
 | `intrus` | `options[]`, `correctAnswer` (the odd one out) |
@@ -124,6 +124,7 @@ To add a new diagram: add an `export function` to `Diagrams.tsx`, re-export from
 - Define all jargon; ELI8 style — never condescending
 - Tone and language level: 12-16 year olds
 - Start each fiche with a `<Glossaire>` of key terms when the chapter has specific vocabulary
+- **Always provide a French translation** for any non-French word, phrase, or sentence — inline (e.g. *hablar* → *parler*), in examples (e.g. *Mañana iré al colegio.* → Demain j'irai au collège.), or in a table column. For verbs, translate the **infinitive only** (not each conjugated form).
 
 **Design (applied globally — don't override in MDX):**
 - Background `#FFF8F0`, text `#2D2D2D` — never pure white/black
