@@ -20,6 +20,7 @@ import {
   AudioListenQuestion,
   TriCategoriesQuestion,
   CompletionTableauQuestion,
+  VerbeIrregulierQuestion,
 } from "./questions";
 import type { QuestionComponentProps } from "./questions";
 
@@ -61,6 +62,7 @@ const TYPE_BADGES: Partial<Record<QuizQuestion["type"], { label: string; classNa
   "audio-listen": { label: "Écoute et réponds", className: "bg-blue-100 text-blue-700" },
   "tri-categories": { label: "Trie par catégorie", className: "bg-fuchsia-100 text-fuchsia-700" },
   "completion-tableau": { label: "Complète le tableau", className: "bg-lime-100 text-lime-700" },
+  "verbe-irregulier": { label: "Verbe irrégulier", className: "bg-violet-100 text-violet-700" },
 };
 
 function QuestionDispatcher(props: QuestionComponentProps) {
@@ -99,6 +101,8 @@ function QuestionDispatcher(props: QuestionComponentProps) {
       return <TriCategoriesQuestion {...props} />;
     case "completion-tableau":
       return <CompletionTableauQuestion {...props} />;
+    case "verbe-irregulier":
+      return <VerbeIrregulierQuestion {...props} />;
     default:
       return null;
   }
