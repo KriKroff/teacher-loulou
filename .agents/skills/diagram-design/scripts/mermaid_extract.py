@@ -653,7 +653,7 @@ def _edge_operators(text: str) -> list[_Operator]:
         occupied.append((operator_start, match.end()))
 
     pattern = re.compile(
-        r"[xo][-=.]+[xo]|<[-=.]+>|-+\.-+>|=+>|-+(?:>|x|o)|-+\.-+|={3,}|-{3,}"
+        r"[xo][-=.]+[xo]|<[-=.]+>|-{2,}\.-{2,}>|=+>|-{2,}>|->|-{2,}x|-x|-{2,}o|-o|-{2,}\.-{2,}|={3,}|-{3,}"
     )
     for match in pattern.finditer(mask):
         if any(start <= match.start() < end for start, end in occupied):
@@ -789,7 +789,7 @@ def _parse_sequence(
     # from swallowing dashes into the source.
     message_re = re.compile(
         r"^([\w.:-]+?(?: [\w.:-]+)*?)(?:\(\))?\s*"
-        r"(<<--?>>|--?>>|--?>|--?\)|--?x)"
+        r"(<<-->>|<<->>|-->>|->>|-->|->|--\)|-\)|--x|-x)"
         r"\s*[+-]?\s*(?:\(\))?([\w.:-]+?(?: [\w.:-]+)*?)\s*:\s*(.*)$"
     )
     for line_number, raw in lines[header_position + 1 :]:
@@ -874,7 +874,7 @@ def _parse_sequence(
                 undirected=arrowhead == "none",
             )
             continue
-        if re.search(r"<<--?>>|--?>>|--?>|--?\)|--?x", text):
+        if re.search(r"<<-->>|<<->>|-->>|->>|-->|->|--\)|-\)|--x|-x", text):
             _fail(f"malformed edge at line {line_number}")
 
 
