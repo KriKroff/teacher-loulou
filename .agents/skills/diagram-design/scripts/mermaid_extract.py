@@ -874,7 +874,10 @@ def _parse_sequence(
                 undirected=arrowhead == "none",
             )
             continue
-        if re.search(r"<<-->>|<<->>|-->>|->>|-->|->|--\)|-\)|--x|-x", text):
+        if any(
+            token in text
+            for token in ("<<-->>", "<<->>", "-->>", "->>", "-->", "->", "--)", "-)", "--x", "-x")
+        ):
             _fail(f"malformed edge at line {line_number}")
 
 
