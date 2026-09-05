@@ -1210,3 +1210,264 @@ export function ProportionnaliteGraphiquesDiagram() {
     </DiagramFrame>
   );
 }
+
+export function PremiereGuerreMondialeAlliancesDiagram() {
+  return (
+    <DiagramFrame
+      title="L'Europe en 1914 — alliances et tensions"
+      caption="Le système d'alliances transforme l'attentat de Sarajevo en guerre générale."
+    >
+      <svg
+        viewBox="0 0 900 420"
+        className="h-auto w-full"
+        role="img"
+        aria-label="Schéma des alliances européennes et des tensions avant la Première Guerre mondiale"
+      >
+        <defs>
+          <linearGradient id="pgm-entente" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#DBEAFE" />
+            <stop offset="100%" stopColor="#93C5FD" />
+          </linearGradient>
+          <linearGradient id="pgm-alliance" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#FED7AA" />
+            <stop offset="100%" stopColor="#FB923C" />
+          </linearGradient>
+          <linearGradient id="pgm-tension" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#FEF3C7" />
+            <stop offset="100%" stopColor="#FDE68A" />
+          </linearGradient>
+          <marker id="pgm-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#78716C" />
+          </marker>
+        </defs>
+
+        <style>{`
+          @media (prefers-reduced-motion: reduce) { .pgm-pulse { animation: none !important; } }
+          .pgm-pulse { animation: pgm-pulse 2.2s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+          @keyframes pgm-pulse {
+            0%, 100% { opacity: .35; transform: scale(1); }
+            50% { opacity: .9; transform: scale(1.08); }
+          }
+        `}</style>
+
+        <rect x="18" y="18" width="864" height="384" rx="24" fill="#FFFDF8" stroke="#E7E5E4" strokeWidth="2" />
+
+        <rect x="56" y="86" width="252" height="184" rx="24" fill="url(#pgm-entente)" stroke="#60A5FA" strokeWidth="2.5" />
+        <text x="182" y="118" textAnchor="middle" fontSize="24" fontWeight="800" fill="#1D4ED8">
+          Triple-Entente
+        </text>
+        <text x="182" y="150" textAnchor="middle" fontSize="16" fill="#1E40AF">France</text>
+        <text x="182" y="176" textAnchor="middle" fontSize="16" fill="#1E40AF">Royaume-Uni</text>
+        <text x="182" y="202" textAnchor="middle" fontSize="16" fill="#1E40AF">Russie</text>
+        <rect x="90" y="222" width="184" height="30" rx="15" fill="white" opacity="0.9" />
+        <text x="182" y="242" textAnchor="middle" fontSize="13" fontWeight="700" fill="#1D4ED8">
+          régimes parlementaires / républicains
+        </text>
+
+        <rect x="592" y="86" width="252" height="184" rx="24" fill="url(#pgm-alliance)" stroke="#F97316" strokeWidth="2.5" />
+        <text x="718" y="118" textAnchor="middle" fontSize="24" fontWeight="800" fill="#9A3412">
+          Triple-Alliance
+        </text>
+        <text x="718" y="150" textAnchor="middle" fontSize="16" fill="#9A3412">Allemagne</text>
+        <text x="718" y="176" textAnchor="middle" fontSize="16" fill="#9A3412">Autriche-Hongrie</text>
+        <text x="718" y="202" textAnchor="middle" fontSize="16" fill="#9A3412">Italie (en 1914)</text>
+        <rect x="618" y="222" width="200" height="30" rx="15" fill="white" opacity="0.9" />
+        <text x="718" y="242" textAnchor="middle" fontSize="13" fontWeight="700" fill="#9A3412">
+          grands empires autoritaires
+        </text>
+
+        <rect x="310" y="32" width="280" height="48" rx="24" fill="url(#pgm-tension)" stroke="#F59E0B" strokeWidth="2" />
+        <text x="450" y="51" textAnchor="middle" fontSize="13" fontWeight="700" fill="#92400E">Une Europe fracturée en deux</text>
+        <text x="450" y="68" textAnchor="middle" fontSize="12" fill="#A16207">alliances + armements + nationalismes</text>
+
+        <line x1="308" y1="144" x2="592" y2="144" stroke="#78716C" strokeWidth="4" strokeDasharray="10 8" />
+        <text x="450" y="136" textAnchor="middle" fontSize="13" fontWeight="700" fill="#57534E">méfiance</text>
+        <text x="450" y="156" textAnchor="middle" fontSize="13" fontWeight="700" fill="#57534E">course aux armements</text>
+
+        <rect x="332" y="110" width="92" height="54" rx="14" fill="#FFF7ED" stroke="#FB923C" strokeWidth="1.8" />
+        <text x="378" y="132" textAnchor="middle" fontSize="12" fontWeight="800" fill="#C2410C">Alsace-</text>
+        <text x="378" y="146" textAnchor="middle" fontSize="12" fontWeight="800" fill="#C2410C">Lorraine</text>
+
+        <rect x="476" y="110" width="92" height="54" rx="14" fill="#ECFEFF" stroke="#22D3EE" strokeWidth="1.8" />
+        <text x="522" y="132" textAnchor="middle" fontSize="12" fontWeight="800" fill="#0F766E">Balkans</text>
+        <text x="522" y="146" textAnchor="middle" fontSize="12" fill="#0F766E">tensions</text>
+
+        <line x1="450" y1="182" x2="450" y2="270" stroke="#78716C" strokeWidth="3" markerEnd="url(#pgm-arrow)" />
+        <text x="466" y="230" fontSize="12" fill="#57534E">crise</text>
+
+        <circle className="pgm-pulse" cx="450" cy="318" r="42" fill="#FCA5A5" opacity="0.45" />
+        <circle cx="450" cy="318" r="28" fill="#EF4444" />
+        <text x="450" y="312" textAnchor="middle" fontSize="13" fontWeight="800" fill="white">
+          Sarajevo
+        </text>
+        <text x="450" y="329" textAnchor="middle" fontSize="11.5" fontWeight="700" fill="white">
+          28 juin 1914
+        </text>
+
+        <path d="M 422 340 C 340 366 254 366 182 280" fill="none" stroke="#3B82F6" strokeWidth="3" markerEnd="url(#pgm-arrow)" />
+        <path d="M 478 340 C 560 366 646 366 718 280" fill="none" stroke="#F97316" strokeWidth="3" markerEnd="url(#pgm-arrow)" />
+        <text x="286" y="360" textAnchor="middle" fontSize="11.5" fontWeight="700" fill="#1D4ED8">
+          soutien aux alliés
+        </text>
+        <text x="614" y="360" textAnchor="middle" fontSize="11.5" fontWeight="700" fill="#C2410C">
+          engrenage militaire
+        </text>
+      </svg>
+    </DiagramFrame>
+  );
+}
+
+export function PremiereGuerreMondialeFriseDiagram() {
+  const points = [
+    { year: "1914", label: "Sarajevo", sub: "juin", color: "#EF4444", x: 90, y: 126 },
+    { year: "1914", label: "Marne", sub: "sept.", color: "#F97316", x: 250, y: 84 },
+    { year: "1916", label: "Verdun", sub: "usure", color: "#7C3AED", x: 500, y: 126 },
+    { year: "1917", label: "États-Unis", sub: "entrent", color: "#0EA5E9", x: 670, y: 84 },
+    { year: "1918", label: "Armistice", sub: "11 nov.", color: "#16A34A", x: 840, y: 126 },
+    { year: "1919", label: "Versailles", sub: "juin", color: "#A855F7", x: 990, y: 84 },
+  ];
+
+  return (
+    <DiagramFrame
+      title="Frise rapide — 1914 à 1919"
+      caption="On passe d'une guerre de mouvement à une guerre de position, puis au retour du mouvement et à la paix."
+    >
+      <div className="overflow-x-auto">
+        <svg
+          viewBox="0 0 1080 220"
+          width={1080}
+          height={220}
+          style={{ minWidth: 760, display: "block" }}
+          role="img"
+          aria-label="Frise chronologique de la Première Guerre mondiale de 1914 à 1919"
+        >
+          <rect x="20" y="26" width="130" height="34" rx="17" fill="#FED7AA" stroke="#FB923C" />
+          <text x="85" y="47" textAnchor="middle" fontSize="12.5" fontWeight="800" fill="#9A3412">mouvement</text>
+          <rect x="154" y="26" width="520" height="34" rx="17" fill="#FCE7F3" stroke="#F472B6" />
+          <text x="414" y="47" textAnchor="middle" fontSize="12.5" fontWeight="800" fill="#9D174D">position / tranchées</text>
+          <rect x="678" y="26" width="186" height="34" rx="17" fill="#DCFCE7" stroke="#22C55E" />
+          <text x="771" y="47" textAnchor="middle" fontSize="12.5" fontWeight="800" fill="#166534">mouvement</text>
+          <rect x="868" y="26" width="192" height="34" rx="17" fill="#DBEAFE" stroke="#60A5FA" />
+          <text x="964" y="47" textAnchor="middle" fontSize="12.5" fontWeight="800" fill="#1D4ED8">paix difficile</text>
+
+          <line x1="60" y1="126" x2="1030" y2="126" stroke="#44403C" strokeWidth="5" strokeLinecap="round" />
+          <polygon points="1048,126 1029,117 1029,135" fill="#44403C" />
+
+          {[1914, 1915, 1916, 1917, 1918, 1919].map((year, index) => {
+            const x = 90 + index * 180;
+            return (
+              <g key={year}>
+                <line x1={x} y1="114" x2={x} y2="138" stroke="#A8A29E" strokeWidth="2" />
+                <text x={x} y="160" textAnchor="middle" fontSize="12" fontWeight="700" fill="#57534E">
+                  {year}
+                </text>
+              </g>
+            );
+          })}
+
+          {points.map((point) => (
+            <g key={`${point.year}-${point.label}`}>
+              <line
+                x1={point.x}
+                y1={point.y === 84 ? 94 : 116}
+                x2={point.x}
+                y2={point.y}
+                stroke={point.color}
+                strokeWidth="3"
+              />
+              <circle cx={point.x} cy="126" r="6" fill={point.color} />
+              <rect
+                x={point.x - 62}
+                y={point.y === 84 ? 40 : 132}
+                width="124"
+                height="38"
+                rx="10"
+                fill="white"
+                stroke={point.color}
+                strokeWidth="1.8"
+              />
+              <text x={point.x} y={point.y === 84 ? 56 : 149} textAnchor="middle" fontSize="12" fontWeight="800" fill="#1C1917">
+                {point.label}
+              </text>
+              <text x={point.x} y={point.y === 84 ? 70 : 163} textAnchor="middle" fontSize="11" fill="#57534E">
+                {point.sub}
+              </text>
+            </g>
+          ))}
+        </svg>
+      </div>
+    </DiagramFrame>
+  );
+}
+
+export function GuerreTotaleMobilisationDiagram() {
+  return (
+    <DiagramFrame
+      title="Pourquoi parle-t-on de guerre totale ?"
+      caption="Le front et l'arrière sont liés : hommes, armes, argent, nourriture et propagande circulent sans arrêt."
+    >
+      <svg
+        viewBox="0 0 900 420"
+        className="h-auto w-full"
+        role="img"
+        aria-label="Schéma de la mobilisation du front et de l'arrière pendant la Première Guerre mondiale"
+      >
+        <style>{`
+          @media (prefers-reduced-motion: reduce) { .gtm-flow { animation: none !important; } }
+          .gtm-flow { animation: gtm-flow 2.8s ease-in-out infinite; }
+          @keyframes gtm-flow { 0%,100%{opacity:.4} 50%{opacity:1} }
+        `}</style>
+
+        <rect x="26" y="18" width="848" height="384" rx="24" fill="#FFFDF8" stroke="#E7E5E4" strokeWidth="2" />
+        <rect x="58" y="90" width="270" height="250" rx="24" fill="#E0E7FF" stroke="#818CF8" strokeWidth="2.5" />
+        <rect x="572" y="90" width="270" height="250" rx="24" fill="#FCE7F3" stroke="#F472B6" strokeWidth="2.5" />
+        <rect x="334" y="40" width="232" height="54" rx="18" fill="#FEF3C7" stroke="#F59E0B" strokeWidth="2" />
+
+        <text x="193" y="126" textAnchor="middle" fontSize="28" fontWeight="800" fill="#4338CA">Front</text>
+        <text x="707" y="126" textAnchor="middle" fontSize="28" fontWeight="800" fill="#BE185D">Arrière</text>
+        <text x="450" y="63" textAnchor="middle" fontSize="15" fontWeight="800" fill="#92400E">
+          Toute la société est mobilisée
+        </text>
+        <text x="450" y="81" textAnchor="middle" fontSize="12.5" fill="#A16207">
+          soldats + civils + économie + colonies
+        </text>
+
+        <rect x="90" y="150" width="206" height="44" rx="14" fill="white" />
+        <text x="193" y="170" textAnchor="middle" fontSize="14" fontWeight="800" fill="#3730A3">🪖 Poilus dans les tranchées</text>
+        <text x="193" y="186" textAnchor="middle" fontSize="12" fill="#4338CA">combattre · tenir · survivre</text>
+
+        <rect x="90" y="208" width="206" height="44" rx="14" fill="white" />
+        <text x="193" y="228" textAnchor="middle" fontSize="14" fontWeight="800" fill="#3730A3">💥 Artillerie et gaz</text>
+        <text x="193" y="244" textAnchor="middle" fontSize="12" fill="#4338CA">violence de masse</text>
+
+        <rect x="90" y="266" width="206" height="44" rx="14" fill="white" />
+        <text x="193" y="286" textAnchor="middle" fontSize="14" fontWeight="800" fill="#3730A3">✉️ Lettres et blessés</text>
+        <text x="193" y="302" textAnchor="middle" fontSize="12" fill="#4338CA">le front dépend de l'arrière</text>
+
+        <rect x="604" y="150" width="206" height="44" rx="14" fill="white" />
+        <text x="707" y="170" textAnchor="middle" fontSize="14" fontWeight="800" fill="#9D174D">🏭 Usines et munitionnettes</text>
+        <text x="707" y="186" textAnchor="middle" fontSize="12" fill="#BE185D">armes · obus · camions</text>
+
+        <rect x="604" y="208" width="206" height="44" rx="14" fill="white" />
+        <text x="707" y="228" textAnchor="middle" fontSize="14" fontWeight="800" fill="#9D174D">📣 Propagande et emprunts</text>
+        <text x="707" y="244" textAnchor="middle" fontSize="12" fill="#BE185D">moral · argent · soutien</text>
+
+        <rect x="604" y="266" width="206" height="44" rx="14" fill="white" />
+        <text x="707" y="286" textAnchor="middle" fontSize="14" fontWeight="800" fill="#9D174D">🌍 Colonies et familles</text>
+        <text x="707" y="302" textAnchor="middle" fontSize="12" fill="#BE185D">soldats · matières premières</text>
+
+        <g className="gtm-flow">
+          <line x1="328" y1="172" x2="572" y2="172" stroke="#F59E0B" strokeWidth="4" strokeDasharray="10 8" />
+          <polygon points="572,172 559,165 559,179" fill="#F59E0B" />
+          <text x="450" y="163" textAnchor="middle" fontSize="12.5" fontWeight="700" fill="#92400E">armes · nourriture · renforts</text>
+        </g>
+
+        <g className="gtm-flow">
+          <line x1="572" y1="286" x2="328" y2="286" stroke="#0EA5E9" strokeWidth="4" strokeDasharray="10 8" />
+          <polygon points="328,286 341,279 341,293" fill="#0EA5E9" />
+          <text x="450" y="306" textAnchor="middle" fontSize="12.5" fontWeight="700" fill="#0369A1">lettres · blessés · informations</text>
+        </g>
+      </svg>
+    </DiagramFrame>
+  );
+}

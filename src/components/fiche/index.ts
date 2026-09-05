@@ -26,5 +26,8 @@ export {
   PatronPyramideDiagram,
   PatronConeDiagram,
   ProportionnaliteGraphiquesDiagram,
+  PremiereGuerreMondialeAlliancesDiagram,
+  PremiereGuerreMondialeFriseDiagram,
+  GuerreTotaleMobilisationDiagram,
 } from "./Diagrams";
 export type { FicheColor } from "./colors";
