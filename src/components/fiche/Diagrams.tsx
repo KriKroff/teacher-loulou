@@ -1311,72 +1311,68 @@ export function PremiereGuerreMondialeFriseDiagram() {
 }
 
 export function GuerreTotaleMobilisationDiagram() {
+  const frontItems = [
+    ["Soldats", "combattre dans les tranchées"],
+    ["Armes et obus", "violence de masse"],
+    ["Blessés et lettres", "le front dépend de l'arrière"],
+  ];
+  const rearItems = [
+    ["Usines", "armes, obus, camions"],
+    ["Propagande", "moral et soutien"],
+    ["Familles et colonies", "soldats et matières premières"],
+  ];
+
   return (
     <DiagramFrame
       title="Pourquoi parle-t-on de guerre totale ?"
-      caption="Le front et l'arrière sont liés : hommes, armes, argent, nourriture et propagande circulent sans arrêt."
+      caption="Le front et l'arrière sont interdépendants : toute la société participe à la guerre."
     >
       <svg
-        viewBox="0 0 900 420"
+        viewBox="0 0 520 930"
         className="h-auto w-full"
         role="img"
-        aria-label="Schéma de la mobilisation du front et de l'arrière pendant la Première Guerre mondiale"
+        aria-label="Schéma vertical montrant la mobilisation du front et de l'arrière pendant la Première Guerre mondiale"
       >
-        <style>{`
-          @media (prefers-reduced-motion: reduce) { .gtm-flow { animation: none !important; } }
-          .gtm-flow { animation: gtm-flow 2.8s ease-in-out infinite; }
-          @keyframes gtm-flow { 0%,100%{opacity:.4} 50%{opacity:1} }
-        `}</style>
+        <rect x="12" y="12" width="496" height="906" rx="24" fill="#FFFDF8" stroke="#E7E5E4" strokeWidth="2" />
+        <rect x="42" y="34" width="436" height="74" rx="18" fill="#FEF3C7" stroke="#F59E0B" strokeWidth="2.5" />
+        <text x="260" y="65" textAnchor="middle" fontSize="23" fontWeight="800" fill="#92400E">TOUTE LA SOCIÉTÉ EST MOBILISÉE</text>
+        <text x="260" y="89" textAnchor="middle" fontSize="16" fill="#A16207">soldats • civils • économie • colonies</text>
 
-        <rect x="26" y="18" width="848" height="384" rx="24" fill="#FFFDF8" stroke="#E7E5E4" strokeWidth="2" />
-        <rect x="58" y="90" width="270" height="250" rx="24" fill="#E0E7FF" stroke="#818CF8" strokeWidth="2.5" />
-        <rect x="572" y="90" width="270" height="250" rx="24" fill="#FCE7F3" stroke="#F472B6" strokeWidth="2.5" />
-        <rect x="334" y="40" width="232" height="54" rx="18" fill="#FEF3C7" stroke="#F59E0B" strokeWidth="2" />
+        <rect x="42" y="138" width="436" height="250" rx="22" fill="#E0E7FF" stroke="#818CF8" strokeWidth="3" />
+        <text x="260" y="178" textAnchor="middle" fontSize="30" fontWeight="800" fill="#4338CA">LE FRONT</text>
+        {frontItems.map(([title, detail], index) => {
+          const y = 198 + index * 58;
+          return <g key={title}>
+            <rect x="76" y={y} width="368" height="44" rx="14" fill="#FFFFFF" />
+            <text x="96" y={y + 19} fontSize="16" fontWeight="800" fill="#3730A3">{title}</text>
+            <text x="96" y={y + 36} fontSize="13" fill="#4338CA">{detail}</text>
+          </g>;
+        })}
 
-        <text x="193" y="126" textAnchor="middle" fontSize="28" fontWeight="800" fill="#4338CA">Front</text>
-        <text x="707" y="126" textAnchor="middle" fontSize="28" fontWeight="800" fill="#BE185D">Arrière</text>
-        <text x="450" y="63" textAnchor="middle" fontSize="15" fontWeight="800" fill="#92400E">
-          Toute la société est mobilisée
-        </text>
-        <text x="450" y="81" textAnchor="middle" fontSize="12.5" fill="#A16207">
-          soldats + civils + économie + colonies
-        </text>
+        <line x1="260" y1="388" x2="260" y2="450" stroke="#F59E0B" strokeWidth="5" strokeDasharray="12 8" />
+        <polygon points="260,466 249,446 271,446" fill="#F59E0B" />
+        <rect x="96" y="402" width="328" height="42" rx="15" fill="#FFF7ED" stroke="#F59E0B" strokeWidth="2" />
+        <text x="260" y="428" textAnchor="middle" fontSize="16" fontWeight="800" fill="#92400E">armes • nourriture • renforts</text>
 
-        <rect x="90" y="150" width="206" height="44" rx="14" fill="white" />
-        <text x="193" y="170" textAnchor="middle" fontSize="14" fontWeight="800" fill="#3730A3">🪖 Poilus dans les tranchées</text>
-        <text x="193" y="186" textAnchor="middle" fontSize="12" fill="#4338CA">combattre · tenir · survivre</text>
+        <rect x="42" y="480" width="436" height="250" rx="22" fill="#FCE7F3" stroke="#F472B6" strokeWidth="3" />
+        <text x="260" y="520" textAnchor="middle" fontSize="30" fontWeight="800" fill="#BE185D">L&apos;ARRIÈRE</text>
+        {rearItems.map(([title, detail], index) => {
+          const y = 540 + index * 58;
+          return <g key={title}>
+            <rect x="76" y={y} width="368" height="44" rx="14" fill="#FFFFFF" />
+            <text x="96" y={y + 19} fontSize="16" fontWeight="800" fill="#9D174D">{title}</text>
+            <text x="96" y={y + 36} fontSize="13" fill="#BE185D">{detail}</text>
+          </g>;
+        })}
 
-        <rect x="90" y="208" width="206" height="44" rx="14" fill="white" />
-        <text x="193" y="228" textAnchor="middle" fontSize="14" fontWeight="800" fill="#3730A3">💥 Artillerie et gaz</text>
-        <text x="193" y="244" textAnchor="middle" fontSize="12" fill="#4338CA">violence de masse</text>
+        <line x1="260" y1="730" x2="260" y2="792" stroke="#0EA5E9" strokeWidth="5" strokeDasharray="12 8" />
+        <polygon points="260,808 249,788 271,788" fill="#0EA5E9" />
+        <rect x="86" y="744" width="348" height="42" rx="15" fill="#E0F2FE" stroke="#0EA5E9" strokeWidth="2" />
+        <text x="260" y="770" textAnchor="middle" fontSize="16" fontWeight="800" fill="#0369A1">informations • blessés • courrier</text>
 
-        <rect x="90" y="266" width="206" height="44" rx="14" fill="white" />
-        <text x="193" y="286" textAnchor="middle" fontSize="14" fontWeight="800" fill="#3730A3">✉️ Lettres et blessés</text>
-        <text x="193" y="302" textAnchor="middle" fontSize="12" fill="#4338CA">le front dépend de l&apos;arrière</text>
-
-        <rect x="604" y="150" width="206" height="44" rx="14" fill="white" />
-        <text x="707" y="170" textAnchor="middle" fontSize="14" fontWeight="800" fill="#9D174D">🏭 Usines et munitionnettes</text>
-        <text x="707" y="186" textAnchor="middle" fontSize="12" fill="#BE185D">armes · obus · camions</text>
-
-        <rect x="604" y="208" width="206" height="44" rx="14" fill="white" />
-        <text x="707" y="228" textAnchor="middle" fontSize="14" fontWeight="800" fill="#9D174D">📣 Propagande et emprunts</text>
-        <text x="707" y="244" textAnchor="middle" fontSize="12" fill="#BE185D">moral · argent · soutien</text>
-
-        <rect x="604" y="266" width="206" height="44" rx="14" fill="white" />
-        <text x="707" y="286" textAnchor="middle" fontSize="14" fontWeight="800" fill="#9D174D">🌍 Colonies et familles</text>
-        <text x="707" y="302" textAnchor="middle" fontSize="12" fill="#BE185D">soldats · matières premières</text>
-
-        <g className="gtm-flow">
-          <line x1="328" y1="172" x2="572" y2="172" stroke="#F59E0B" strokeWidth="4" strokeDasharray="10 8" />
-          <polygon points="572,172 559,165 559,179" fill="#F59E0B" />
-          <text x="450" y="163" textAnchor="middle" fontSize="12.5" fontWeight="700" fill="#92400E">armes · nourriture · renforts</text>
-        </g>
-
-        <g className="gtm-flow">
-          <line x1="572" y1="286" x2="328" y2="286" stroke="#0EA5E9" strokeWidth="4" strokeDasharray="10 8" />
-          <polygon points="328,286 341,279 341,293" fill="#0EA5E9" />
-          <text x="450" y="306" textAnchor="middle" fontSize="12.5" fontWeight="700" fill="#0369A1">lettres · blessés · informations</text>
-        </g>
+        <rect x="62" y="828" width="396" height="58" rx="18" fill="#DCFCE7" stroke="#22C55E" strokeWidth="2.5" />
+        <text x="260" y="853" textAnchor="middle" fontSize="18" fontWeight="800" fill="#166534">Une guerre totale mobilise</text>
+        <text x="260" y="875" textAnchor="middle" fontSize="16" fill="#166534">les ressources de tout un pays.</text>
       </svg>
     </DiagramFrame>
   );
