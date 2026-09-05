@@ -1442,7 +1442,7 @@ export function GuerreTotaleMobilisationDiagram() {
 
         <rect x="90" y="266" width="206" height="44" rx="14" fill="white" />
         <text x="193" y="286" textAnchor="middle" fontSize="14" fontWeight="800" fill="#3730A3">✉️ Lettres et blessés</text>
-        <text x="193" y="302" textAnchor="middle" fontSize="12" fill="#4338CA">le front dépend de l'arrière</text>
+        <text x="193" y="302" textAnchor="middle" fontSize="12" fill="#4338CA">le front dépend de l&apos;arrière</text>
 
         <rect x="604" y="150" width="206" height="44" rx="14" fill="white" />
         <text x="707" y="170" textAnchor="middle" fontSize="14" fontWeight="800" fill="#9D174D">🏭 Usines et munitionnettes</text>
