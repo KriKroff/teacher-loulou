@@ -1,6 +1,7 @@
 import type { Resource, SchoolLevel, Subject } from "@/types";
 
 // Import all resource registries
+import { resources as histoireGeo3e } from "./3e/histoire-geo";
 import { resources as francais4e } from "./4e/francais";
 import { resources as svt4e } from "./4e/svt";
 import { resources as physiqueChimie4e } from "./4e/physique-chimie";
@@ -11,6 +12,7 @@ import { resources as anglais4e } from "./4e/anglais";
 
 // Master resource list
 const allResources: Resource[] = [
+  ...histoireGeo3e,
   ...francais4e,
   ...svt4e,
   ...physiqueChimie4e,

@@ -5,6 +5,7 @@ import type { SchoolLevel } from "@/types";
 import { LEVEL_NAMES } from "@/types";
 
 const levels: { level: SchoolLevel; color: string; emoji: string }[] = [
+  { level: "3e", color: "from-emerald-400 to-cyan-500", emoji: "🧭" },
   { level: "4e", color: "from-violet-400 to-purple-500", emoji: "🚀" },
 ];
 
