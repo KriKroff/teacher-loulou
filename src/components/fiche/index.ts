@@ -28,6 +28,7 @@ export {
   ProportionnaliteGraphiquesDiagram,
   PremiereGuerreMondialeAlliancesDiagram,
   PremiereGuerreMondialeFriseDiagram,
+  PremiereGuerreMondialeTrancheesDiagram,
   GuerreTotaleMobilisationDiagram,
 } from "./Diagrams";
 export type { FicheColor } from "./colors";

@@ -1212,96 +1212,245 @@ export function ProportionnaliteGraphiquesDiagram() {
 }
 
 export function PremiereGuerreMondialeAlliancesDiagram() {
+  const tensions = [
+    "Alsace-Lorraine",
+    "armements",
+    "Balkans",
+  ];
+
   return (
     <DiagramFrame
-      title="L'Europe en 1914 — alliances et tensions"
-      caption="Lis le schéma de haut en bas : deux alliances rivales, puis l'étincelle de Sarajevo."
+      title="L'Europe en 1913-1914 — des tensions à la guerre"
+      caption="On lit de haut en bas : Europe divisée, alliances rivales, tensions, puis Sarajevo."
     >
       <svg
-        viewBox="0 0 520 760"
+        viewBox="0 0 560 860"
         className="h-auto w-full"
         role="img"
-        aria-label="Schéma vertical et lisible des deux alliances européennes avant la Première Guerre mondiale, puis de l'attentat de Sarajevo"
+        aria-labelledby="pgm-alliances-title pgm-alliances-desc"
       >
+        <title id="pgm-alliances-title">Europe divisée et alliances en 1913-1914</title>
+        <desc id="pgm-alliances-desc">Schéma montrant l&apos;Europe fracturée en deux, les deux alliances, les tensions et l&apos;attentat de Sarajevo.</desc>
         <defs>
-          <marker id="pgm-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
-            <path d="M 0 0 L 10 5 L 0 10 z" fill="#78716C" />
+          <marker id="pgm-alliances-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#7C6F64" />
           </marker>
         </defs>
 
-        <rect x="12" y="12" width="496" height="736" rx="24" fill="#FFFDF8" stroke="#E7E5E4" strokeWidth="2" />
-        <rect x="44" y="34" width="432" height="68" rx="18" fill="#FEF3C7" stroke="#F59E0B" strokeWidth="2.5" />
-        <text x="260" y="62" textAnchor="middle" fontSize="22" fontWeight="800" fill="#92400E">Une Europe fracturée en deux</text>
-        <text x="260" y="86" textAnchor="middle" fontSize="16" fill="#A16207">alliances + armements + nationalismes</text>
+        <style>{`
+          @media (prefers-reduced-motion: reduce) { .pgm-alliances-pulse { animation: none !important; } }
+          .pgm-alliances-pulse { animation: pgm-alliances-pulse 2.4s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+          @keyframes pgm-alliances-pulse {
+            0%, 100% { opacity: .35; transform: scale(1); }
+            50% { opacity: .85; transform: scale(1.06); }
+          }
+        `}</style>
 
-        <rect x="44" y="132" width="432" height="174" rx="22" fill="#DBEAFE" stroke="#60A5FA" strokeWidth="3" />
-        <text x="260" y="168" textAnchor="middle" fontSize="28" fontWeight="800" fill="#1D4ED8">TRIPLE-ENTENTE</text>
-        <text x="260" y="204" textAnchor="middle" fontSize="21" fontWeight="700" fill="#1E40AF">France • Royaume-Uni • Russie</text>
-        <rect x="78" y="230" width="364" height="48" rx="16" fill="#FFFFFF" opacity="0.92" />
-        <text x="260" y="260" textAnchor="middle" fontSize="16" fontWeight="700" fill="#1D4ED8">régimes parlementaires / républicains</text>
+        <rect x="16" y="16" width="528" height="828" rx="24" fill="#FFF8F0" stroke="#E7D8C8" strokeWidth="2" />
 
-        <line x1="260" y1="306" x2="260" y2="348" stroke="#78716C" strokeWidth="4" markerEnd="url(#pgm-arrow)" />
-        <text x="278" y="334" fontSize="15" fontWeight="700" fill="#57534E">rivalité</text>
+        <rect x="52" y="44" width="456" height="84" rx="16" fill="#FFF1D6" stroke="#E4A11B" strokeWidth="2" />
+        <text x="280" y="76" textAnchor="middle" fontSize="24" fontWeight="800" fill="#8A5A00">En 1913, l&apos;Europe est fracturée en deux</text>
+        <text x="280" y="103" textAnchor="middle" fontSize="15" fill="#8A5A00">régimes parlementaires et républicains ↔ empires aux pouvoirs autoritaires</text>
 
-        <rect x="44" y="364" width="432" height="174" rx="22" fill="#FED7AA" stroke="#F97316" strokeWidth="3" />
-        <text x="260" y="400" textAnchor="middle" fontSize="28" fontWeight="800" fill="#9A3412">TRIPLE-ALLIANCE</text>
-        <text x="260" y="436" textAnchor="middle" fontSize="20" fontWeight="700" fill="#9A3412">Allemagne • Autriche-Hongrie</text>
-        <text x="260" y="464" textAnchor="middle" fontSize="20" fontWeight="700" fill="#9A3412">Italie (en 1914)</text>
-        <rect x="78" y="480" width="364" height="36" rx="16" fill="#FFFFFF" opacity="0.92" />
-        <text x="260" y="504" textAnchor="middle" fontSize="16" fontWeight="700" fill="#9A3412">grands empires autoritaires</text>
+        <rect x="52" y="156" width="216" height="156" rx="20" fill="#ECF5FF" stroke="#7DB4E6" strokeWidth="2.5" />
+        <text x="160" y="188" textAnchor="middle" fontSize="14" fontWeight="700" fill="#386B93">RÉGIMES PARLEMENTAIRES</text>
+        <text x="160" y="208" textAnchor="middle" fontSize="14" fontWeight="700" fill="#386B93">ET RÉPUBLICAINS</text>
+        <text x="160" y="242" textAnchor="middle" fontSize="18" fontWeight="800" fill="#244C6A">France</text>
+        <text x="160" y="270" textAnchor="middle" fontSize="16" fill="#244C6A">Grande-Bretagne</text>
+        <text x="160" y="296" textAnchor="middle" fontSize="16" fill="#244C6A">Pays-Bas (exemple)</text>
 
-        <line x1="260" y1="538" x2="260" y2="584" stroke="#78716C" strokeWidth="4" markerEnd="url(#pgm-arrow)" />
-        <text x="278" y="568" fontSize="15" fontWeight="700" fill="#57534E">la crise éclate</text>
+        <rect x="292" y="156" width="216" height="156" rx="20" fill="#FFF0E4" stroke="#E29A67" strokeWidth="2.5" />
+        <text x="400" y="188" textAnchor="middle" fontSize="14" fontWeight="700" fill="#9A4F1E">EMPIRES AUX POUVOIRS</text>
+        <text x="400" y="208" textAnchor="middle" fontSize="14" fontWeight="700" fill="#9A4F1E">AUTORITAIRES</text>
+        <text x="400" y="242" textAnchor="middle" fontSize="18" fontWeight="800" fill="#7B3B13">Empire allemand</text>
+        <text x="400" y="270" textAnchor="middle" fontSize="16" fill="#7B3B13">Empire austro-hongrois</text>
+        <text x="400" y="296" textAnchor="middle" fontSize="16" fill="#7B3B13">Empire ottoman</text>
 
-        <circle cx="260" cy="646" r="57" fill="#FEE2E2" stroke="#EF4444" strokeWidth="3" />
-        <circle cx="260" cy="646" r="42" fill="#EF4444" />
-        <text x="260" y="640" textAnchor="middle" fontSize="20" fontWeight="800" fill="#FFFFFF">Sarajevo</text>
-        <text x="260" y="665" textAnchor="middle" fontSize="15" fontWeight="700" fill="#FFFFFF">28 juin 1914</text>
-        <text x="260" y="720" textAnchor="middle" fontSize="18" fontWeight="800" fill="#B91C1C">une crise locale devient une guerre mondiale</text>
+        <line x1="160" y1="312" x2="160" y2="356" stroke="#7C6F64" strokeWidth="3" markerEnd="url(#pgm-alliances-arrow)" />
+        <line x1="400" y1="312" x2="400" y2="356" stroke="#7C6F64" strokeWidth="3" markerEnd="url(#pgm-alliances-arrow)" />
+
+        <rect x="52" y="376" width="216" height="152" rx="20" fill="#F8FBFF" stroke="#4E8EC5" strokeWidth="2.5" />
+        <text x="160" y="410" textAnchor="middle" fontSize="24" fontWeight="800" fill="#2D628C">Triple-Entente</text>
+        <text x="160" y="442" textAnchor="middle" fontSize="18" fontWeight="700" fill="#244C6A">France</text>
+        <text x="160" y="468" textAnchor="middle" fontSize="18" fontWeight="700" fill="#244C6A">Russie</text>
+        <text x="160" y="494" textAnchor="middle" fontSize="18" fontWeight="700" fill="#244C6A">Grande-Bretagne</text>
+
+        <rect x="292" y="376" width="216" height="152" rx="20" fill="#FFF8F2" stroke="#D77A38" strokeWidth="2.5" />
+        <text x="400" y="410" textAnchor="middle" fontSize="24" fontWeight="800" fill="#A14F1B">Triple-Alliance</text>
+        <text x="400" y="442" textAnchor="middle" fontSize="18" fontWeight="700" fill="#7B3B13">Allemagne</text>
+        <text x="400" y="468" textAnchor="middle" fontSize="18" fontWeight="700" fill="#7B3B13">Autriche-Hongrie</text>
+        <text x="400" y="494" textAnchor="middle" fontSize="18" fontWeight="700" fill="#7B3B13">Italie (+ Empire ottoman allié)</text>
+
+        <text x="280" y="568" textAnchor="middle" fontSize="15" fontWeight="700" fill="#6A5C51">Les tensions montent</text>
+        {tensions.map((label, index) => {
+          const x = 92 + index * 156;
+          return (
+            <g key={label}>
+              <rect x={x} y="588" width="128" height="40" rx="14" fill="#FFFFFF" stroke="#D4C4B6" strokeWidth="1.6" />
+              <text x={x + 64} y="613" textAnchor="middle" fontSize="16" fontWeight="700" fill="#4A3E36">{label}</text>
+            </g>
+          );
+        })}
+
+        <line x1="280" y1="628" x2="280" y2="680" stroke="#7C6F64" strokeWidth="3" markerEnd="url(#pgm-alliances-arrow)" />
+
+        <circle className="pgm-alliances-pulse" cx="280" cy="738" r="64" fill="#F7B0A8" opacity="0.45" />
+        <circle cx="280" cy="738" r="48" fill="#D85B4B" />
+        <text x="280" y="730" textAnchor="middle" fontSize="22" fontWeight="800" fill="#FFFFFF">Sarajevo</text>
+        <text x="280" y="758" textAnchor="middle" fontSize="16" fontWeight="700" fill="#FFFFFF">28 juin 1914</text>
+
+        <rect x="76" y="792" width="408" height="28" rx="14" fill="#FEE7E2" stroke="#D85B4B" strokeWidth="1.5" />
+        <text x="280" y="811" textAnchor="middle" fontSize="15" fontWeight="700" fill="#9F2E21">une crise locale devient une guerre européenne puis mondiale</text>
       </svg>
     </DiagramFrame>
   );
 }
 
 export function PremiereGuerreMondialeFriseDiagram() {
+  const axisY = 184;
+  const yearTicks = [
+    { year: "1914", x: 136 },
+    { year: "1915", x: 396 },
+    { year: "1916", x: 640 },
+    { year: "1917", x: 884 },
+    { year: "1918", x: 1112 },
+    { year: "1919", x: 1280 },
+  ];
+  const phases = [
+    { x: 76, width: 156, label: "guerre de mouvement", fill: "#FFF0E4", stroke: "#E29A67", tx: "#9A4F1E" },
+    { x: 232, width: 680, label: "guerre de position / tranchées", fill: "#F3EAFE", stroke: "#B38FE0", tx: "#6B3CA2" },
+    { x: 912, width: 220, label: "reprise du mouvement", fill: "#E9F8EE", stroke: "#7FC49A", tx: "#2F7A46" },
+    { x: 1132, width: 176, label: "paix difficile", fill: "#ECF5FF", stroke: "#7DB4E6", tx: "#386B93" },
+  ];
   const events = [
-    { year: "1914", date: "28 juin", title: "Sarajevo", detail: "L'attentat déclenche la crise.", color: "#EF4444", fill: "#FEE2E2" },
-    { year: "1914", date: "septembre", title: "La Marne", detail: "La guerre de mouvement s'arrête.", color: "#F97316", fill: "#FFEDD5" },
-    { year: "1916", date: "février–décembre", title: "Verdun", detail: "Une bataille longue et meurtrière.", color: "#7C3AED", fill: "#EDE9FE" },
-    { year: "1917", date: "avril", title: "États-Unis", detail: "Ils entrent en guerre aux côtés de l'Entente.", color: "#0EA5E9", fill: "#E0F2FE" },
-    { year: "1918", date: "11 novembre", title: "Armistice", detail: "Les combats cessent.", color: "#16A34A", fill: "#DCFCE7" },
-    { year: "1919", date: "28 juin", title: "Versailles", detail: "Le traité organise une paix difficile.", color: "#A855F7", fill: "#F3E8FF" },
+    { x: 136, year: "1914", date: "28 juin", title: "Sarajevo", detail: "l'attentat déclenche la crise", top: true, color: "#D85B4B", fill: "#FEE7E2" },
+    { x: 196, year: "1914", date: "sept.", title: "La Marne", detail: "la guerre rapide s'arrête", top: false, color: "#E18A3C", fill: "#FFF0E4" },
+    { x: 652, year: "1916", date: "1916", title: "Verdun", detail: "une bataille longue et meurtrière", top: true, color: "#8F63C9", fill: "#F3EAFE" },
+    { x: 892, year: "1917", date: "1917", title: "États-Unis", detail: "ils entrent en guerre", top: false, color: "#4E8EC5", fill: "#ECF5FF" },
+    { x: 1112, year: "1918", date: "11 nov.", title: "Armistice", detail: "les combats cessent", top: true, color: "#4E9B63", fill: "#E9F8EE" },
+    { x: 1280, year: "1919", date: "28 juin", title: "Versailles", detail: "le traité prépare une paix fragile", top: false, color: "#A15BCB", fill: "#F7ECFF" },
   ];
 
   return (
     <DiagramFrame
-      title="Frise essentielle — 1914 à 1919"
-      caption="Chaque date est isolée dans une carte : lis de haut en bas pour suivre les grandes étapes."
+      title="Frise des grandes étapes — 1914 à 1919"
+      caption="La chronologie garde l'idée du temps réel : 1914 est dense, puis viennent Verdun, 1917, l'armistice et Versailles."
+    >
+      <div className="overflow-x-auto">
+        <svg
+          viewBox="0 0 1400 340"
+          width={1400}
+          height={340}
+          style={{ minWidth: 980, display: "block" }}
+          role="img"
+          aria-labelledby="pgm-frise-title pgm-frise-desc"
+        >
+          <title id="pgm-frise-title">Frise chronologique de la Première Guerre mondiale</title>
+          <desc id="pgm-frise-desc">Frise montrant Sarajevo, la Marne, Verdun, l&apos;entrée des États-Unis, l&apos;armistice et le traité de Versailles.</desc>
+
+          <rect x="20" y="20" width="1360" height="300" rx="24" fill="#FFF8F0" stroke="#E7D8C8" strokeWidth="2" />
+          {phases.map((phase) => (
+            <g key={phase.label}>
+              <rect x={phase.x} y="44" width={phase.width} height="32" rx="12" fill={phase.fill} stroke={phase.stroke} strokeWidth="1.6" />
+              <text x={phase.x + phase.width / 2} y="65" textAnchor="middle" fontSize="13" fontWeight="700" fill={phase.tx}>{phase.label}</text>
+            </g>
+          ))}
+
+          <line x1="72" y1={axisY} x2="1328" y2={axisY} stroke="#7C6F64" strokeWidth="3" strokeLinecap="round" />
+          <polygon points="1344,184 1324,174 1324,194" fill="#7C6F64" />
+
+          {yearTicks.map((tick) => (
+            <g key={tick.year}>
+              <line x1={tick.x} y1="172" x2={tick.x} y2="196" stroke="#B7A79A" strokeWidth="1.5" />
+              <text x={tick.x} y="220" textAnchor="middle" fontSize="12" fontWeight="700" fill="#7C6F64">{tick.year}</text>
+            </g>
+          ))}
+
+          {events.map((event) => {
+            const boxY = event.top ? 92 : 198;
+            const lineTop = event.top ? 136 : axisY;
+            const lineBottom = event.top ? axisY : 198;
+            return (
+              <g key={event.title}>
+                <line x1={event.x} y1={lineTop} x2={event.x} y2={lineBottom} stroke={event.color} strokeWidth="2.5" />
+                <circle cx={event.x} cy={axisY} r="8" fill={event.color} />
+                <rect x={event.x - 86} y={boxY} width="172" height="72" rx="16" fill={event.fill} stroke={event.color} strokeWidth="2" />
+                <rect x={event.x - 70} y={boxY + 12} width="72" height="22" rx="10" fill={event.color} />
+                <text x={event.x - 34} y={boxY + 27} textAnchor="middle" fontSize="12" fontWeight="800" fill="#FFFFFF">{event.date}</text>
+                <text x={event.x + 16} y={boxY + 28} fontSize="12" fontWeight="700" fill={event.color}>{event.year}</text>
+                <text x={event.x} y={boxY + 48} textAnchor="middle" fontSize="18" fontWeight="800" fill="#2D2D2D">{event.title}</text>
+                <text x={event.x} y={boxY + 64} textAnchor="middle" fontSize="12" fill="#5F5147">{event.detail}</text>
+              </g>
+            );
+          })}
+        </svg>
+      </div>
+    </DiagramFrame>
+  );
+}
+
+export function PremiereGuerreMondialeTrancheesDiagram() {
+  const reminders = ["boue", "obus", "attente", "assauts"];
+
+  return (
+    <DiagramFrame
+      title="Le front dans les tranchées"
+      caption="Le no man's land sépare les deux tranchées : c'est l'espace le plus exposé pendant les assauts."
     >
       <svg
-        viewBox="0 0 520 900"
+        viewBox="0 0 560 520"
         className="h-auto w-full"
         role="img"
-        aria-label="Frise chronologique verticale de la Première Guerre mondiale de 1914 à 1919"
+        aria-labelledby="pgm-tranchees-title pgm-tranchees-desc"
       >
-        <rect x="12" y="12" width="496" height="876" rx="24" fill="#FFFDF8" stroke="#E7E5E4" strokeWidth="2" />
-        <rect x="42" y="36" width="436" height="60" rx="18" fill="#FCE7F3" stroke="#F472B6" strokeWidth="2" />
-        <text x="260" y="62" textAnchor="middle" fontSize="22" fontWeight="800" fill="#9D174D">LA PREMIÈRE GUERRE MONDIALE</text>
-        <text x="260" y="83" textAnchor="middle" fontSize="15" fill="#BE185D">de la crise à la paix difficile</text>
+        <title id="pgm-tranchees-title">Tranchées de la Première Guerre mondiale</title>
+        <desc id="pgm-tranchees-desc">Coupe simplifiée montrant deux tranchées opposées, le no man&apos;s land, les barbelés et les dangers du front.</desc>
 
-        <line x1="66" y1="126" x2="66" y2="840" stroke="#A8A29E" strokeWidth="5" strokeLinecap="round" />
-        {events.map((event, index) => {
-          const y = 122 + index * 138;
+        <rect x="16" y="16" width="528" height="488" rx="24" fill="#FFF8F0" stroke="#E7D8C8" strokeWidth="2" />
+        <rect x="36" y="44" width="488" height="120" rx="18" fill="#EAF6FF" stroke="#B9D9F1" strokeWidth="1.5" />
+        <text x="280" y="74" textAnchor="middle" fontSize="22" fontWeight="800" fill="#3E6D95">Le front ouest</text>
+        <text x="280" y="100" textAnchor="middle" fontSize="16" fill="#4C6F8B">des soldats vivent face à face, séparés par le no man&apos;s land</text>
+        <text x="140" y="134" textAnchor="middle" fontSize="15" fontWeight="700" fill="#2D2D2D">armée française</text>
+        <text x="420" y="134" textAnchor="middle" fontSize="15" fontWeight="700" fill="#2D2D2D">armée allemande</text>
+
+        <rect x="40" y="164" width="480" height="220" rx="20" fill="#D9C4A9" />
+        <rect x="40" y="164" width="480" height="24" fill="#C5AA87" />
+
+        <path d="M 60 188 H 180 V 238 H 224 V 188 H 338 V 238 H 382 V 188 H 500" fill="none" stroke="#7A5B43" strokeWidth="12" strokeLinejoin="round" />
+        <path d="M 60 188 H 178 V 286 H 236 V 188" fill="none" stroke="#5A4332" strokeWidth="18" strokeLinejoin="round" />
+        <path d="M 324 188 H 382 V 286 H 500 V 188" fill="none" stroke="#5A4332" strokeWidth="18" strokeLinejoin="round" />
+
+        <rect x="100" y="218" width="84" height="56" rx="12" fill="#FFF6EC" stroke="#C9A47C" strokeWidth="1.8" />
+        <text x="142" y="241" textAnchor="middle" fontSize="14" fontWeight="800" fill="#5A4332">tranchée</text>
+        <text x="142" y="260" textAnchor="middle" fontSize="12" fill="#5A4332">abris et parapets</text>
+
+        <rect x="376" y="218" width="84" height="56" rx="12" fill="#FFF6EC" stroke="#C9A47C" strokeWidth="1.8" />
+        <text x="418" y="241" textAnchor="middle" fontSize="14" fontWeight="800" fill="#5A4332">tranchée</text>
+        <text x="418" y="260" textAnchor="middle" fontSize="12" fill="#5A4332">soldats en attente</text>
+
+        <rect x="224" y="198" width="112" height="92" rx="16" fill="#F6EBFF" stroke="#A57DD6" strokeWidth="2" />
+        <text x="280" y="230" textAnchor="middle" fontSize="16" fontWeight="800" fill="#6B3CA2">no man&apos;s land</text>
+        <text x="280" y="252" textAnchor="middle" fontSize="12" fill="#6B3CA2">terre entre les</text>
+        <text x="280" y="268" textAnchor="middle" fontSize="12" fill="#6B3CA2">deux tranchées</text>
+
+        <path d="M 228 184 L 240 200 L 252 184 L 264 200 L 276 184 L 288 200 L 300 184 L 312 200 L 324 184" fill="none" stroke="#7C6F64" strokeWidth="2.5" />
+        <text x="280" y="178" textAnchor="middle" fontSize="12" fontWeight="700" fill="#7C6F64">barbelés</text>
+
+        <path d="M 140 140 C 190 86 246 86 280 140" fill="none" stroke="#D85B4B" strokeWidth="3" strokeDasharray="8 6" />
+        <path d="M 420 140 C 372 86 316 86 280 140" fill="none" stroke="#D85B4B" strokeWidth="3" strokeDasharray="8 6" />
+        <text x="280" y="122" textAnchor="middle" fontSize="14" fontWeight="700" fill="#B84032">obus et bombardements</text>
+
+        <rect x="88" y="320" width="128" height="34" rx="12" fill="#FFFFFF" stroke="#D4C4B6" strokeWidth="1.5" />
+        <text x="152" y="342" textAnchor="middle" fontSize="13" fontWeight="700" fill="#4A3E36">boue, rats, froid</text>
+        <rect x="344" y="320" width="128" height="34" rx="12" fill="#FFFFFF" stroke="#D4C4B6" strokeWidth="1.5" />
+        <text x="408" y="342" textAnchor="middle" fontSize="13" fontWeight="700" fill="#4A3E36">attaques très risquées</text>
+
+        {reminders.map((label, index) => {
+          const x = 56 + index * 116;
           return (
-            <g key={`${event.year}-${event.title}`}>
-              <circle cx="66" cy={y + 34} r="15" fill={event.color} stroke="#FFFDF8" strokeWidth="5" />
-              <text x="66" y={y + 40} textAnchor="middle" fontSize="12" fontWeight="800" fill="#FFFFFF">{index + 1}</text>
-              <rect x="102" y={y} width="360" height="108" rx="18" fill={event.fill} stroke={event.color} strokeWidth="2.5" />
-              <rect x="120" y={y + 14} width="112" height="30" rx="15" fill={event.color} />
-              <text x="176" y={y + 35} textAnchor="middle" fontSize="17" fontWeight="800" fill="#FFFFFF">{event.year}</text>
-              <text x="250" y={y + 35} fontSize="15" fontWeight="700" fill={event.color}>{event.date}</text>
-              <text x="120" y={y + 70} fontSize="22" fontWeight="800" fill="#1C1917">{event.title}</text>
-              <text x="120" y={y + 92} fontSize="14" fill="#57534E">{event.detail}</text>
+            <g key={label}>
+              <rect x={x} y="420" width="100" height="44" rx="14" fill="#FFFDF8" stroke="#D8C8B9" strokeWidth="1.5" />
+              <text x={x + 50} y="447" textAnchor="middle" fontSize="16" fontWeight="800" fill="#5A4332">{label}</text>
             </g>
           );
         })}
@@ -1312,67 +1461,87 @@ export function PremiereGuerreMondialeFriseDiagram() {
 
 export function GuerreTotaleMobilisationDiagram() {
   const frontItems = [
-    ["Soldats", "combattre dans les tranchées"],
-    ["Armes et obus", "violence de masse"],
-    ["Blessés et lettres", "le front dépend de l'arrière"],
+    ["Poilus", "combattre dans les tranchées"],
+    ["Blessés", "soignés puis renvoyés ou réformés"],
+    ["Matériel", "obtenir armes, obus, nourriture"],
   ];
   const rearItems = [
-    ["Usines", "armes, obus, camions"],
-    ["Propagande", "moral et soutien"],
-    ["Familles et colonies", "soldats et matières premières"],
+    ["Femmes et usines", "fabriquer munitions et équipements"],
+    ["Familles", "soutenir, rationner, emprunter"],
+    ["Colonies", "apporter soldats et matières premières"],
   ];
 
   return (
     <DiagramFrame
-      title="Pourquoi parle-t-on de guerre totale ?"
-      caption="Le front et l'arrière sont interdépendants : toute la société participe à la guerre."
+      title="Guerre totale — le front et l'arrière sont liés"
+      caption="Le front ne tient que parce que l'arrière produit, finance, soigne et ravitaille en continu."
     >
       <svg
-        viewBox="0 0 520 930"
+        viewBox="0 0 560 820"
         className="h-auto w-full"
         role="img"
-        aria-label="Schéma vertical montrant la mobilisation du front et de l'arrière pendant la Première Guerre mondiale"
+        aria-labelledby="pgm-total-title pgm-total-desc"
       >
-        <rect x="12" y="12" width="496" height="906" rx="24" fill="#FFFDF8" stroke="#E7E5E4" strokeWidth="2" />
-        <rect x="42" y="34" width="436" height="74" rx="18" fill="#FEF3C7" stroke="#F59E0B" strokeWidth="2.5" />
-        <text x="260" y="65" textAnchor="middle" fontSize="23" fontWeight="800" fill="#92400E">TOUTE LA SOCIÉTÉ EST MOBILISÉE</text>
-        <text x="260" y="89" textAnchor="middle" fontSize="16" fill="#A16207">soldats • civils • économie • colonies</text>
+        <title id="pgm-total-title">Front et arrière dans une guerre totale</title>
+        <desc id="pgm-total-desc">Schéma montrant les soldats au front, les civils à l&apos;arrière, et les échanges constants entre eux pendant la guerre.</desc>
+        <defs>
+          <marker id="pgm-total-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#7C6F64" />
+          </marker>
+        </defs>
 
-        <rect x="42" y="138" width="436" height="250" rx="22" fill="#E0E7FF" stroke="#818CF8" strokeWidth="3" />
-        <text x="260" y="178" textAnchor="middle" fontSize="30" fontWeight="800" fill="#4338CA">LE FRONT</text>
+        <rect x="16" y="16" width="528" height="788" rx="24" fill="#FFF8F0" stroke="#E7D8C8" strokeWidth="2" />
+        <rect x="52" y="40" width="456" height="72" rx="16" fill="#FFEFD9" stroke="#E4A11B" strokeWidth="2" />
+        <text x="280" y="69" textAnchor="middle" fontSize="24" fontWeight="800" fill="#8A5A00">Pourquoi parle-t-on de guerre totale ?</text>
+        <text x="280" y="94" textAnchor="middle" fontSize="15" fill="#8A5A00">toute la société est mobilisée : soldats, civils, économie, colonies</text>
+
+        <rect x="48" y="144" width="188" height="458" rx="20" fill="#EEF5FF" stroke="#87B5E0" strokeWidth="2.5" />
+        <rect x="324" y="144" width="188" height="458" rx="20" fill="#FFF0E7" stroke="#E09A6A" strokeWidth="2.5" />
+
+        <rect x="80" y="164" width="124" height="34" rx="14" fill="#4E8EC5" />
+        <text x="142" y="186" textAnchor="middle" fontSize="16" fontWeight="800" fill="#FFFFFF">LE FRONT</text>
+        <rect x="356" y="164" width="124" height="34" rx="14" fill="#D77A38" />
+        <text x="418" y="186" textAnchor="middle" fontSize="16" fontWeight="800" fill="#FFFFFF">L&apos;ARRIÈRE</text>
+
         {frontItems.map(([title, detail], index) => {
-          const y = 198 + index * 58;
-          return <g key={title}>
-            <rect x="76" y={y} width="368" height="44" rx="14" fill="#FFFFFF" />
-            <text x="96" y={y + 19} fontSize="16" fontWeight="800" fill="#3730A3">{title}</text>
-            <text x="96" y={y + 36} fontSize="13" fill="#4338CA">{detail}</text>
-          </g>;
+          const y = 228 + index * 112;
+          return (
+            <g key={title}>
+              <rect x="72" y={y} width="140" height="76" rx="16" fill="#FFFFFF" stroke="#C6DDF0" strokeWidth="1.6" />
+              <text x="142" y={y + 28} textAnchor="middle" fontSize="16" fontWeight="800" fill="#2F628B">{title}</text>
+              <text x="142" y={y + 50} textAnchor="middle" fontSize="12" fill="#4A708E">{detail}</text>
+            </g>
+          );
         })}
 
-        <line x1="260" y1="388" x2="260" y2="450" stroke="#F59E0B" strokeWidth="5" strokeDasharray="12 8" />
-        <polygon points="260,466 249,446 271,446" fill="#F59E0B" />
-        <rect x="96" y="402" width="328" height="42" rx="15" fill="#FFF7ED" stroke="#F59E0B" strokeWidth="2" />
-        <text x="260" y="428" textAnchor="middle" fontSize="16" fontWeight="800" fill="#92400E">armes • nourriture • renforts</text>
-
-        <rect x="42" y="480" width="436" height="250" rx="22" fill="#FCE7F3" stroke="#F472B6" strokeWidth="3" />
-        <text x="260" y="520" textAnchor="middle" fontSize="30" fontWeight="800" fill="#BE185D">L&apos;ARRIÈRE</text>
         {rearItems.map(([title, detail], index) => {
-          const y = 540 + index * 58;
-          return <g key={title}>
-            <rect x="76" y={y} width="368" height="44" rx="14" fill="#FFFFFF" />
-            <text x="96" y={y + 19} fontSize="16" fontWeight="800" fill="#9D174D">{title}</text>
-            <text x="96" y={y + 36} fontSize="13" fill="#BE185D">{detail}</text>
-          </g>;
+          const y = 228 + index * 112;
+          return (
+            <g key={title}>
+              <rect x="348" y={y} width="140" height="76" rx="16" fill="#FFFFFF" stroke="#EBC8AA" strokeWidth="1.6" />
+              <text x="418" y={y + 28} textAnchor="middle" fontSize="16" fontWeight="800" fill="#A14F1B">{title}</text>
+              <text x="418" y={y + 50} textAnchor="middle" fontSize="12" fill="#8C603F">{detail}</text>
+            </g>
+          );
         })}
 
-        <line x1="260" y1="730" x2="260" y2="792" stroke="#0EA5E9" strokeWidth="5" strokeDasharray="12 8" />
-        <polygon points="260,808 249,788 271,788" fill="#0EA5E9" />
-        <rect x="86" y="744" width="348" height="42" rx="15" fill="#E0F2FE" stroke="#0EA5E9" strokeWidth="2" />
-        <text x="260" y="770" textAnchor="middle" fontSize="16" fontWeight="800" fill="#0369A1">informations • blessés • courrier</text>
+        <line x1="236" y1="266" x2="324" y2="266" stroke="#7C6F64" strokeWidth="3" markerEnd="url(#pgm-total-arrow)" />
+        <rect x="224" y="236" width="112" height="24" rx="10" fill="#FFFDF8" stroke="#D8C8B9" strokeWidth="1.3" />
+        <text x="280" y="252" textAnchor="middle" fontSize="11.5" fontWeight="700" fill="#5A4332">armes • obus</text>
 
-        <rect x="62" y="828" width="396" height="58" rx="18" fill="#DCFCE7" stroke="#22C55E" strokeWidth="2.5" />
-        <text x="260" y="853" textAnchor="middle" fontSize="18" fontWeight="800" fill="#166534">Une guerre totale mobilise</text>
-        <text x="260" y="875" textAnchor="middle" fontSize="16" fill="#166534">les ressources de tout un pays.</text>
+        <line x1="324" y1="378" x2="236" y2="378" stroke="#7C6F64" strokeWidth="3" markerEnd="url(#pgm-total-arrow)" />
+        <rect x="220" y="390" width="120" height="24" rx="10" fill="#FFFDF8" stroke="#D8C8B9" strokeWidth="1.3" />
+        <text x="280" y="406" textAnchor="middle" fontSize="11.5" fontWeight="700" fill="#5A4332">courrier • blessés</text>
+
+        <line x1="236" y1="490" x2="324" y2="490" stroke="#7C6F64" strokeWidth="3" markerEnd="url(#pgm-total-arrow)" />
+        <rect x="198" y="460" width="164" height="24" rx="10" fill="#FFFDF8" stroke="#D8C8B9" strokeWidth="1.3" />
+        <text x="280" y="476" textAnchor="middle" fontSize="11.5" fontWeight="700" fill="#5A4332">ravitaillement • renforts</text>
+
+        <rect x="84" y="638" width="392" height="124" rx="20" fill="#F7ECFF" stroke="#B38FE0" strokeWidth="2.2" />
+        <text x="280" y="676" textAnchor="middle" fontSize="22" fontWeight="800" fill="#6B3CA2">Bilan : une guerre totale</text>
+        <text x="280" y="706" textAnchor="middle" fontSize="15" fill="#6B3CA2">le front dépend de l&apos;arrière</text>
+        <text x="280" y="730" textAnchor="middle" fontSize="15" fill="#6B3CA2">et l&apos;arrière vit lui aussi la guerre :</text>
+        <text x="280" y="752" textAnchor="middle" fontSize="15" fill="#6B3CA2">travail, deuil, propagande, pénuries</text>
       </svg>
     </DiagramFrame>
   );
