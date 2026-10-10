@@ -1,3 +1,5 @@
+import { Fragment } from "react";
+
 function DiagramFrame({
   title,
   caption,
@@ -1207,6 +1209,248 @@ export function ProportionnaliteGraphiquesDiagram() {
         <text x={gx(2,W/2)} y={H+14} textAnchor="middle" fontSize="10" fill="#B91C1C" fontWeight="bold">Non proportionnel</text>
         <text x={gx(2,W/2)} y={H+25} textAnchor="middle" fontSize="9" fill="#B91C1C">pas une droite</text>
       </svg>
+    </DiagramFrame>
+  );
+}
+
+// ── Français 3e — Cri de liberté, résister à l'oppression ───────────────────
+
+const CRI_LIBERTE_WORKS = [
+  {
+    emoji: "⛓️",
+    genre: "Roman",
+    title: "Le Dernier Jour d'un condamné",
+    author: "Victor Hugo",
+    year: "1829",
+    oppression: "La peine de mort",
+    reaction: "Faire ressentir l'angoisse du condamné",
+    card: "border-purple-300 bg-purple-50",
+    text: "text-purple-800",
+  },
+  {
+    emoji: "🎭",
+    genre: "Théâtre",
+    title: "Antigone",
+    author: "Jean Anouilh",
+    year: "1944",
+    oppression: "Le pouvoir du roi",
+    reaction: "Dire « non » au tyran",
+    card: "border-rose-300 bg-rose-50",
+    text: "text-rose-800",
+  },
+  {
+    emoji: "✒️",
+    genre: "Poésie",
+    title: "Minerai noir",
+    author: "René Depestre",
+    year: "1956",
+    oppression: "L'esclavage",
+    reaction: "Appeler le peuple à la révolte",
+    card: "border-amber-300 bg-amber-50",
+    text: "text-amber-800",
+  },
+  {
+    emoji: "📷",
+    genre: "Photographie",
+    title: "La mine d'or de Serra Pelada",
+    author: "Sebastião Salgado",
+    year: "1986",
+    oppression: "L'exploitation au travail",
+    reaction: "Montrer pour faire réagir",
+    card: "border-cyan-300 bg-cyan-50",
+    text: "text-cyan-800",
+  },
+];
+
+export function CriLiberteChapitreDiagram() {
+  return (
+    <DiagramFrame
+      title="Le chapitre en un coup d'œil"
+      caption="4 œuvres, 4 formes d'art, une même question : comment dire non à l'oppression ?"
+    >
+      <div className="grid gap-3 sm:grid-cols-2">
+        {CRI_LIBERTE_WORKS.map((w, i) => (
+          <div key={w.title} className={`rounded-xl border-2 p-3 ${w.card}`}>
+            <div className={`text-xs font-bold uppercase tracking-wider ${w.text}`}>
+              Séance {i + 1} · {w.genre}
+            </div>
+            <div className="mt-1 text-base font-extrabold text-warm-800">
+              {w.emoji} {w.title}
+            </div>
+            <div className="text-sm text-warm-600">
+              {w.author} — {w.year}
+            </div>
+            <div className="mt-2 text-sm text-warm-800">
+              <span className="font-bold">Oppression :</span> {w.oppression}
+            </div>
+            <div className="text-sm text-warm-800">
+              <span className="font-bold">Réponse :</span> {w.reaction}
+            </div>
+          </div>
+        ))}
+      </div>
+    </DiagramFrame>
+  );
+}
+
+export function ImplacableDecompositionDiagram() {
+  return (
+    <DiagramFrame
+      title="Décomposer un mot pour le comprendre"
+      caption="Préfixe + radical + suffixe : chaque morceau apporte un bout du sens."
+    >
+      <svg viewBox="0 0 640 330" className="h-auto w-full" role="img" aria-label="Le mot implacable découpé en préfixe im, radical plac et suffixe able">
+        <rect x="40" y="30" width="150" height="80" rx="18" fill="#FFE4E6" stroke="#F43F5E" strokeWidth="4" />
+        <rect x="210" y="30" width="200" height="80" rx="18" fill="#DBEAFE" stroke="#3B82F6" strokeWidth="4" />
+        <rect x="430" y="30" width="170" height="80" rx="18" fill="#DCFCE7" stroke="#22C55E" strokeWidth="4" />
+        <text x="115" y="85" textAnchor="middle" fontSize="40" fontWeight="800" fill="#9F1239">im</text>
+        <text x="310" y="85" textAnchor="middle" fontSize="40" fontWeight="800" fill="#1E3A8A">plac</text>
+        <text x="515" y="85" textAnchor="middle" fontSize="40" fontWeight="800" fill="#166534">able</text>
+
+        <line x1="115" y1="115" x2="115" y2="150" stroke="#F43F5E" strokeWidth="4" />
+        <line x1="310" y1="115" x2="310" y2="150" stroke="#3B82F6" strokeWidth="4" />
+        <line x1="515" y1="115" x2="515" y2="150" stroke="#22C55E" strokeWidth="4" />
+
+        <text x="115" y="180" textAnchor="middle" fontSize="22" fontWeight="700" fill="#9F1239">préfixe</text>
+        <text x="115" y="210" textAnchor="middle" fontSize="20" fill="#2D2D2D">= « ne pas »</text>
+        <text x="310" y="180" textAnchor="middle" fontSize="22" fontWeight="700" fill="#1E3A8A">radical</text>
+        <text x="310" y="210" textAnchor="middle" fontSize="20" fill="#2D2D2D">latin placare</text>
+        <text x="310" y="236" textAnchor="middle" fontSize="20" fill="#2D2D2D">= apaiser, calmer</text>
+        <text x="515" y="180" textAnchor="middle" fontSize="22" fontWeight="700" fill="#166534">suffixe</text>
+        <text x="515" y="210" textAnchor="middle" fontSize="20" fill="#2D2D2D">{"= « qu'on peut »"}</text>
+
+        <rect x="60" y="262" width="520" height="54" rx="27" fill="#FFF7ED" stroke="#FB923C" strokeWidth="3" />
+        <text x="320" y="297" textAnchor="middle" fontSize="22" fontWeight="700" fill="#9A3412">
+          {"implacable = qu'on ne peut pas apaiser"}
+        </text>
+      </svg>
+    </DiagramFrame>
+  );
+}
+
+export function DoubleCaptiviteDiagram() {
+  return (
+    <DiagramFrame
+      title="La double prison du condamné"
+      caption="« Mon corps est aux fers dans un cachot, mon esprit est en prison dans une idée. » — V. Hugo"
+    >
+      <div className="grid gap-3 sm:grid-cols-2">
+        <div className="rounded-xl border-2 border-stone-300 bg-stone-50 p-3">
+          <div className="text-2xl">🔒 Le corps</div>
+          <div className="mt-1 font-bold text-warm-800">« aux fers dans un cachot »</div>
+          <ul className="mt-2 list-disc pl-5 text-sm text-warm-700">
+            <li>Prison physique : murs, chaînes</li>
+            <li>Il ne peut plus bouger librement</li>
+          </ul>
+        </div>
+        <div className="rounded-xl border-2 border-purple-300 bg-purple-50 p-3">
+          <div className="text-2xl">🧠 L&apos;esprit</div>
+          <div className="mt-1 font-bold text-purple-800">« en prison dans une idée »</div>
+          <ul className="mt-2 list-disc pl-5 text-sm text-warm-700">
+            <li>Prison mentale : une seule pensée</li>
+            <li>« Condamné à mort ! » tourne en boucle</li>
+          </ul>
+        </div>
+      </div>
+      <div className="mt-3 rounded-xl border-2 border-rose-300 bg-rose-50 p-3 text-center text-sm font-bold text-rose-800">
+        ➜ La pire prison, c&apos;est celle de l&apos;esprit : il ne peut même plus penser à autre chose.
+      </div>
+    </DiagramFrame>
+  );
+}
+
+export function AntigoneCreonDiagram() {
+  return (
+    <DiagramFrame
+      title="Antigone contre Créon : deux visions qui s'affrontent"
+      caption="Chacun a ses raisons. C'est ce qui rend le conflit si fort."
+    >
+      <div className="grid items-stretch gap-3 sm:grid-cols-[1fr_auto_1fr]">
+        <div className="rounded-xl border-2 border-rose-300 bg-rose-50 p-3">
+          <div className="text-lg font-extrabold text-rose-800">👧 Antigone</div>
+          <div className="text-sm text-warm-600">jeune fille, nièce du roi</div>
+          <div className="mt-2 rounded-lg bg-white/80 px-2 py-1 text-center font-bold text-rose-700">dit NON ✋</div>
+          <ul className="mt-2 list-disc pl-5 text-sm text-warm-800">
+            <li>Défend sa <strong>famille</strong> : enterrer son frère</li>
+            <li>Suit sa <strong>conscience</strong></li>
+            <li>Refuse le <strong>compromis</strong></li>
+            <li>Reste <strong>calme</strong>, sûre d&apos;elle</li>
+          </ul>
+        </div>
+        <div className="flex items-center justify-center">
+          <span className="rounded-full bg-red-600 px-4 py-2 text-lg font-extrabold text-white shadow">VS</span>
+        </div>
+        <div className="rounded-xl border-2 border-blue-300 bg-blue-50 p-3">
+          <div className="text-lg font-extrabold text-blue-800">👑 Créon</div>
+          <div className="text-sm text-warm-600">roi de Thèbes, son oncle</div>
+          <div className="mt-2 rounded-lg bg-white/80 px-2 py-1 text-center font-bold text-blue-700">dit OUI 🤝</div>
+          <ul className="mt-2 list-disc pl-5 text-sm text-warm-800">
+            <li>Défend l&apos;<strong>ordre</strong> et la <strong>loi</strong></li>
+            <li>Porte la <strong>responsabilité</strong> du royaume</li>
+            <li>Accepte les <strong>compromis</strong></li>
+            <li>Devient <strong>violent</strong></li>
+          </ul>
+        </div>
+      </div>
+      <div className="mt-3 rounded-xl border-2 border-amber-300 bg-amber-50 p-3 text-center text-sm text-amber-900">
+        <strong>Point commun :</strong> tous les deux sont <strong>têtus</strong> et ne s&apos;écoutent pas.
+      </div>
+    </DiagramFrame>
+  );
+}
+
+const MINERAI_NOIR_ROWS = [
+  { image: "« minerai noir », « métal noir »", sens: "les esclaves africains, traités comme une matière première" },
+  { image: "l'extraction, les foreuses", sens: "l'exploitation des corps pendant des siècles" },
+  { image: "« le vacarme des pioches »", sens: "des milliers d'esclaves forcés de travailler" },
+  { image: "« peuple dévalisé », « défriché »", sens: "un peuple volé, vidé comme une terre" },
+  { image: "« Mûris ton grisou »", sens: "la colère qui va exploser : la révolte" },
+];
+
+export function MineraiNoirMetaphoreDiagram() {
+  return (
+    <DiagramFrame
+      title="La métaphore filée de « Minerai noir »"
+      caption="Le poète file (prolonge) la même image tout au long du poème : le peuple noir = une mine qu'on exploite."
+    >
+      <div className="grid grid-cols-[1fr_auto_1fr] gap-x-2 gap-y-2 text-sm">
+        <div className="rounded-lg bg-stone-700 px-2 py-1 text-center font-bold text-white">⛏️ L&apos;image (la mine)</div>
+        <div />
+        <div className="rounded-lg bg-amber-600 px-2 py-1 text-center font-bold text-white">👥 Ce que ça veut dire</div>
+        {MINERAI_NOIR_ROWS.map((row) => (
+          <Fragment key={row.image}>
+            <div className="rounded-lg border-2 border-stone-300 bg-stone-50 p-2 font-semibold text-warm-800">{row.image}</div>
+            <div className="flex items-center text-xl text-amber-600">➜</div>
+            <div className="rounded-lg border-2 border-amber-300 bg-amber-50 p-2 text-warm-800">{row.sens}</div>
+          </Fragment>
+        ))}
+      </div>
+    </DiagramFrame>
+  );
+}
+
+export function AnalyseImageMethodeDiagram() {
+  const steps = [
+    { n: "1", emoji: "👀", title: "J'observe", text: "Plans, cadrage, lumière, couleurs, personnages", color: "border-cyan-300 bg-cyan-50 text-cyan-800" },
+    { n: "2", emoji: "💭", title: "J'interprète", text: "Qu'est-ce que ça veut dire ? Quel effet sur moi ?", color: "border-purple-300 bg-purple-50 text-purple-800" },
+    { n: "3", emoji: "✍️", title: "J'argumente", text: "Je relie à l'intention du photographe : dénoncer", color: "border-orange-300 bg-orange-50 text-orange-800" },
+  ];
+  return (
+    <DiagramFrame
+      title="Analyser une image en 3 étapes"
+      caption="Toujours partir de ce qu'on VOIT avant de dire ce qu'on COMPREND."
+    >
+      <div className="grid gap-3 sm:grid-cols-3">
+        {steps.map((s) => (
+          <div key={s.n} className={`rounded-xl border-2 p-3 ${s.color}`}>
+            <div className="text-2xl">{s.emoji}</div>
+            <div className="font-extrabold">
+              {s.n}. {s.title}
+            </div>
+            <div className="text-sm text-warm-700">{s.text}</div>
+          </div>
+        ))}
+      </div>
     </DiagramFrame>
   );
 }

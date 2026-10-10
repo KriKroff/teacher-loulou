@@ -30,6 +30,8 @@ Learning website for French middle/high school students with dyslexia, dysphonia
 
 Subjects: `espagnol`, `francais`, `histoire-geo`, `physique-chimie`, `svt`
 
+Levels: `4e` and `3e` (replace `4e` in paths/`level` accordingly). A new level folder must be imported in `src/data/resources/index.ts` and listed in `src/components/home/LevelGrid.tsx`.
+
 ## Creating a Quiz
 
 Add an entry in the same `index.ts` with `type: "quiz"` and inline `quizData`:
@@ -79,7 +81,7 @@ All MDX fiches use these components from `src/components/fiche/`:
 | `<Definition>` | `term` (req) | Vocabulary definition block |
 | `<Formule>` | — | Formula highlight box |
 | `<Schema>` | `src`, `alt`, `caption?` | Image with caption (`assetPath` handled automatically) |
-| `<Tableau>` | — | Styled table wrapper |
+| `<Tableau>` | — | Styled table wrapper for raw `<thead>/<tr>` JSX only — never wrap a markdown table (already styled; nesting breaks hydration) |
 | `<Exemple>` | `title?` | Example callout |
 | `<Astuce>` | `title?` | Tip callout |
 | `<Erreur>` | `title?` | Warning callout |
