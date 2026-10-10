@@ -1454,3 +1454,51 @@ export function AnalyseImageMethodeDiagram() {
     </DiagramFrame>
   );
 }
+
+const ANTIGONE_FRISE = [
+  { emoji: "📢", title: "Le Prologue", text: "Il présente les personnages et annonce qu'Antigone va mourir." },
+  { emoji: "🌅", title: "L'aube : Antigone et la Nourrice", text: "Antigone rentre en cachette. La Nourrice la gronde : elle croit à un amoureux." },
+  { emoji: "💛", title: "Antigone et Ismène", text: "Ismène a peur et refuse de l'aider à enterrer Polynice." },
+  { emoji: "💙", title: "Antigone et Hémon", text: "Elle lui fait ses adieux sans tout expliquer : elle ne pourra jamais l'épouser." },
+  { emoji: "💂", title: "Créon et le Garde", text: "Le corps de Polynice a été recouvert de terre. On a trouvé une petite pelle d'enfant." },
+  { emoji: "🎭", title: "Le Chœur", text: "« C'est propre, la tragédie » : la machine est lancée, plus rien ne peut l'arrêter." },
+  { emoji: "⛓️", title: "L'arrestation", text: "Antigone retourne au corps en plein jour. Les gardes l'attrapent." },
+  { emoji: "⚔️", title: "Le face-à-face Antigone / Créon", text: "Créon veut la sauver et étouffer l'affaire. Elle refuse tout compromis. Il la condamne.", inClass: true },
+  { emoji: "🙏", title: "Hémon supplie son père", text: "Créon refuse de céder. Hémon part, désespéré." },
+  { emoji: "✉️", title: "Antigone et le Garde", text: "Seule avant de mourir, elle fait écrire une lettre pour Hémon. Le Garde, lui, pense à sa paye." },
+  { emoji: "📨", title: "Le Messager", text: "Antigone s'est pendue dans son tombeau. Hémon se tue près d'elle, puis Eurydice." },
+  { emoji: "🃏", title: "La fin", text: "Créon, seul, part au conseil. Le Chœur : « Et voilà. » Les gardes jouent aux cartes." },
+];
+
+export function AntigoneFriseDiagram() {
+  return (
+    <DiagramFrame
+      title="Antigone : l'action pas à pas"
+      caption="⭐ = la scène étudiée en classe. Tout le reste sert à la comprendre."
+    >
+      <ol className="relative ml-3 border-l-4 border-rose-200">
+        {ANTIGONE_FRISE.map((step, i) => (
+          <li key={step.title} className="mb-3 ml-5 last:mb-0">
+            <span
+              className={`absolute -left-[14px] flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold text-white ${
+                step.inClass ? "bg-amber-500" : "bg-rose-400"
+              }`}
+            >
+              {i + 1}
+            </span>
+            <div
+              className={`rounded-xl border-2 p-2 ${
+                step.inClass ? "border-amber-400 bg-amber-50" : "border-rose-100 bg-white"
+              }`}
+            >
+              <div className="font-bold text-warm-800">
+                {step.emoji} {step.title} {step.inClass && "⭐"}
+              </div>
+              <div className="text-sm text-warm-700">{step.text}</div>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </DiagramFrame>
+  );
+}

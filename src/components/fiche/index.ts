@@ -32,5 +32,6 @@ export {
   AntigoneCreonDiagram,
   MineraiNoirMetaphoreDiagram,
   AnalyseImageMethodeDiagram,
+  AntigoneFriseDiagram,
 } from "./Diagrams";
 export type { FicheColor } from "./colors";
