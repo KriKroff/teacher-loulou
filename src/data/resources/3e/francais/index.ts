@@ -3,34 +3,43 @@ import type { Resource } from "@/types";
 const CHAPTER = "Chapitre 1 — Cri de liberté, résister à l'oppression";
 
 export const resources: Resource[] = [
-  // ── Séance 1 — Le Dernier Jour d'un condamné (Victor Hugo) ─────────────────
   {
     slug: "francais-dernier-jour-condamne-fiche",
     title: "Le Dernier Jour d'un condamné — Victor Hugo",
-    description:
-      "L'homme captif : le texte du chapitre I, vocabulaire de l'oppression, double prison du corps et de l'esprit, procédés de Hugo. Avec sujet de rédaction corrigé.",
+    description: "Séance 1 — L'homme captif : vocabulaire de l'oppression, captivité mentale, procédés de Hugo, synthèse du cours et sujet de rédaction.",
     type: "fiche",
     level: "3e",
     subject: "francais",
     chapter: CHAPTER,
     createdAt: "2026-10-10T10:00:00Z",
-    updatedAt: "2026-10-10T16:00:00Z",
-    tags: ["hugo", "peine de mort", "captivité", "oppression", "figures de style", "fiche"],
+    updatedAt: "2026-10-11T10:00:00Z",
+    tags: [
+      "hugo",
+      "peine de mort",
+      "captivité",
+      "oppression",
+      "figures de style",
+      "fiche"
+    ],
     relatedResourceSlug: "francais-dernier-jour-condamne-quiz",
-    mdxPath: "3e/francais/fiches/francais-dernier-jour-condamne-fiche.mdx",
+    mdxPath: "3e/francais/fiches/francais-dernier-jour-condamne-fiche.mdx"
   },
   {
     slug: "francais-dernier-jour-condamne-quiz",
     title: "Quiz — Le Dernier Jour d'un condamné",
-    description:
-      "Teste-toi sur Victor Hugo, la captivité mentale, le vocabulaire du texte et les procédés d'écriture.",
+    description: "Teste-toi sur le vocabulaire, les idées et les procédés du texte de Hugo vus en classe.",
     type: "quiz",
     level: "3e",
     subject: "francais",
     chapter: CHAPTER,
     createdAt: "2026-10-10T10:05:00Z",
-    updatedAt: "2026-10-10T16:05:00Z",
-    tags: ["hugo", "peine de mort", "captivité", "quiz"],
+    updatedAt: "2026-10-11T10:05:00Z",
+    tags: [
+      "hugo",
+      "peine de mort",
+      "captivité",
+      "quiz"
+    ],
     relatedResourceSlug: "francais-dernier-jour-condamne-fiche",
     quizData: {
       title: "Le Dernier Jour d'un condamné",
@@ -42,747 +51,820 @@ export const resources: Resource[] = [
           id: "facile",
           name: "Facile",
           emoji: "🟢",
-          description: "L'œuvre, l'auteur et le vocabulaire de base.",
+          description: "Le vocabulaire et les idées du texte.",
           questions: [
             {
               id: "hugo-f1",
               type: "qcm",
               question: "Qui a écrit « Le Dernier Jour d'un condamné » ?",
-              options: ["Émile Zola", "Jean Anouilh", "Victor Hugo", "Molière"],
+              options: [
+                "Jean Anouilh",
+                "René Depestre",
+                "Victor Hugo",
+                "Émile Zola"
+              ],
               correctAnswer: "Victor Hugo",
-              explanation: "Victor Hugo publie ce roman en 1829. Il s'est battu toute sa vie contre la peine de mort.",
+              explanation: "Victor Hugo a écrit ce roman en 1829."
             },
             {
               id: "hugo-f2",
               type: "qcm",
               question: "En quelle année la peine de mort a-t-elle été abolie en France ?",
-              options: ["1981", "1789", "1945", "2007"],
+              options: [
+                "1981",
+                "1829",
+                "1945",
+                "1968"
+              ],
               correctAnswer: "1981",
-              explanation: "En 1981, grâce à la loi défendue par Robert Badinter. (En 2007, l'abolition est inscrite dans la Constitution.)",
-              hint: "C'est noté en gros dans ton cahier, sous le titre de la séance 1.",
+              explanation: "1981 : abolition de la peine de mort en France. C'est la date notée au début de la séance."
             },
             {
               id: "hugo-f3",
-              type: "vrai-faux",
-              question: "Le roman est écrit à la 1re personne (« je »).",
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Vrai",
-              explanation: "C'est le journal du condamné : il raconte lui-même ce qu'il vit.",
+              type: "qcm",
+              question: "Que veut dire « captif » ?",
+              options: [
+                "Malade, très fatigué",
+                "Coupable, jugé",
+                "Seul, abandonné",
+                "Prisonnier, enfermé"
+              ],
+              correctAnswer: "Prisonnier, enfermé",
+              explanation: "Captif = prisonnier, enfermé."
             },
             {
               id: "hugo-f4",
               type: "qcm",
-              question: "Que veut dire le mot « captif » ?",
-              options: ["Libre", "Joyeux", "Coupable", "Prisonnier, enfermé"],
-              correctAnswer: "Prisonnier, enfermé",
-              explanation: "Captif vient du latin captivus : « pris, capturé ».",
+              question: "Que veut dire « hideux » ?",
+              options: [
+                "D'une beauté étonnante",
+                "D'une laideur effrayante",
+                "D'une tristesse profonde",
+                "D'une taille immense"
+              ],
+              correctAnswer: "D'une laideur effrayante",
+              explanation: "Hideux, hideuse = dont la laideur est effrayante."
             },
             {
               id: "hugo-f5",
-              type: "vrai-faux",
-              question: "Dans le roman, on connaît le nom et le crime du condamné.",
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Faux",
-              explanation: "On ne connaît ni son nom ni son crime : ainsi, il représente tous les condamnés à mort.",
+              type: "qcm",
+              question: "Que veut dire « implacable » ?",
+              options: [
+                "Qu'on ne peut pas trouver",
+                "Qu'on ne peut pas apaiser",
+                "Qu'on ne peut pas porter",
+                "Qu'on ne peut pas oublier"
+              ],
+              correctAnswer: "Qu'on ne peut pas apaiser",
+              explanation: "Im- (ne pas) + plac (apaiser) + -able (qu'on peut) : qu'on ne peut pas apaiser."
             },
             {
               id: "hugo-f6",
-              type: "qcm",
-              question: "Que veut dire « hideux » ?",
-              options: ["Très beau", "Dont la laideur est effrayante", "Caché", "Très triste"],
-              correctAnswer: "Dont la laideur est effrayante",
-              explanation: "Hideux, hideuse = si laid que ça fait peur.",
-            },
-            {
-              id: "hugo-f7",
-              type: "texte-a-trous",
-              question: "Complète la citation : « Mon esprit est ___ dans une idée. »",
-              options: ["en vacances", "en prison", "heureux", "perdu"],
-              correctAnswer: "en prison",
-              explanation: "« Mon corps est aux fers dans un cachot, mon esprit est en prison dans une idée. »",
-            },
-            {
-              id: "hugo-f8",
-              type: "qcm",
-              question: "Quelle idée obsède le personnage ?",
-              options: ["Il va être libéré", "Il est condamné à mort", "Il est amoureux", "Il a perdu sa famille"],
-              correctAnswer: "Il est condamné à mort",
-              explanation: "Une seule pensée tourne en boucle : « Condamné à mort ! »",
-            },
-            {
-              id: "hugo-f9",
               type: "association",
               question: "Associe chaque mot à son sens.",
               pairs: [
-                { left: "une oppression", right: "Le fait d'écraser, de priver de liberté (nom)" },
-                { left: "oppresser", right: "Écraser physiquement" },
-                { left: "opprimer", right: "Écraser moralement, politiquement" },
+                {
+                  left: "une oppression",
+                  right: "Le fait d'enlever la liberté"
+                },
+                {
+                  left: "oppresser",
+                  right: "Écraser physiquement"
+                },
+                {
+                  left: "opprimer",
+                  right: "Écraser moralement, politiquement"
+                }
               ],
               options: [
-                "Le fait d'écraser, de priver de liberté (nom)",
+                "Le fait d'enlever la liberté",
                 "Écraser physiquement",
-                "Écraser moralement, politiquement",
+                "Écraser moralement, politiquement"
               ],
               correctAnswer: [
-                "Le fait d'écraser, de priver de liberté (nom)",
+                "Le fait d'enlever la liberté",
                 "Écraser physiquement",
-                "Écraser moralement, politiquement",
+                "Écraser moralement, politiquement"
               ],
-              explanation: "1 nom (une oppression) et 2 verbes : oppresser = physique, opprimer = moral, politique.",
-              hint: "op-PRESS-er : ça presse sur la poitrine.",
+              explanation: "1 nom et 2 verbes : oppresser = physique, opprimer = moral et politique."
+            },
+            {
+              id: "hugo-f7",
+              type: "vrai-faux",
+              question: "Le roman est le journal d'un homme condamné à mort, écrit à la 1re personne (« je »).",
+              options: [
+                "Vrai",
+                "Faux"
+              ],
+              correctAnswer: "Vrai",
+              explanation: "Le condamné raconte lui-même ce qu'il vit et ce qu'il ressent."
+            },
+            {
+              id: "hugo-f8",
+              type: "texte-a-trous",
+              question: "« Mon corps est aux fers dans un cachot, mon esprit est ___ dans une idée. »",
+              options: [
+                "en voyage",
+                "en colère",
+                "en sécurité",
+                "en prison"
+              ],
+              correctAnswer: "en prison",
+              explanation: "« mon esprit est en prison dans une idée » : c'est la captivité mentale."
+            },
+            {
+              id: "hugo-f9",
+              type: "qcm",
+              question: "Quelle idée envahit l'esprit du personnage ?",
+              options: [
+                "Il va mourir",
+                "Il va guérir",
+                "Il va partir",
+                "Il va gagner"
+              ],
+              correctAnswer: "Il va mourir",
+              explanation: "Une seule idée l'obsède : il est condamné à mort."
             },
             {
               id: "hugo-f10",
               type: "vrai-faux",
-              question: "Un mot « péjoratif » donne une image positive.",
-              options: ["Vrai", "Faux"],
+              question: "Dans le texte, le personnage peut agir librement.",
+              options: [
+                "Vrai",
+                "Faux"
+              ],
               correctAnswer: "Faux",
-              explanation: "Péjoratif = négatif. Le contraire, c'est mélioratif (positif).",
+              explanation: "Il ne vit plus que dans ses pensées : il ne peut pas agir."
             },
             {
               id: "hugo-f11",
               type: "qcm",
-              question: "Quel est le but de Victor Hugo dans ce roman ?",
-              options: ["Faire rire le lecteur", "Raconter sa propre vie", "Décrire les rues de Paris", "Combattre la peine de mort"],
-              correctAnswer: "Combattre la peine de mort",
-              explanation: "Hugo veut montrer que la peine de mort est une punition cruelle.",
+              question: "Que ressent le lecteur pour le personnage ?",
+              options: [
+                "De la colère",
+                "De la jalousie",
+                "De la pitié",
+                "De l'ennui"
+              ],
+              correctAnswer: "De la pitié",
+              explanation: "On a accès à ses ressentis : on a pitié de lui."
             },
             {
               id: "hugo-f12",
-              type: "qcm",
-              question: "Par quelle machine le condamné va-t-il être exécuté ?",
-              options: ["La guillotine", "La potence", "La chaise électrique", "Le bûcher"],
-              correctAnswer: "La guillotine",
-              explanation: "Au XIXe siècle, en France, les condamnés à mort étaient guillotinés.",
+              type: "vrai-faux",
+              question: "« horrible », « sanglante », « implacable » sont des adjectifs péjoratifs (négatifs).",
+              options: [
+                "Vrai",
+                "Faux"
+              ],
+              correctAnswer: "Vrai",
+              explanation: "Ces adjectifs donnent une image très négative de l'idée de la mort."
             },
             {
               id: "hugo-f13",
               type: "intrus",
               question: "Trouve l'intrus : quel mot n'est PAS de la même famille que « captif » ?",
-              options: ["capturer", "captivité", "capitale", "captivant"],
-              correctAnswer: "capitale",
-              explanation: "Capturer, captivité, captivant viennent du latin capere (saisir, prendre). Capitale vient de caput (la tête).",
+              options: [
+                "capturer",
+                "captiver",
+                "cadeau",
+                "captivante"
+              ],
+              correctAnswer: "cadeau",
+              explanation: "Capturer, captiver, captivante viennent du même mot latin que captif (saisir, prendre)."
             },
             {
               id: "hugo-f14",
-              type: "vrai-faux",
-              question: "En lisant le texte, le lecteur a pitié du personnage.",
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Vrai",
-              explanation: "Grâce au point de vue interne, on partage ses ressentis : on a pitié de lui.",
+              type: "qcm",
+              question: "Quel est l'objectif de la séance 1 ?",
+              options: [
+                "Comprendre la captivité mentale",
+                "Comprendre la vie en prison",
+                "Comprendre le rôle des juges",
+                "Comprendre la vie de Hugo"
+              ],
+              correctAnswer: "Comprendre la captivité mentale",
+              explanation: "Objectif : comprendre ce que peut être une captivité mentale et le besoin de se libérer."
             },
             {
               id: "hugo-f15",
-              type: "qcm",
-              question: "Quelle est la grande question (problématique) du chapitre ?",
+              type: "vrai-faux",
+              question: "« Oppresser » veut dire écraser moralement ou politiquement.",
               options: [
-                "Comment écrire un bon roman policier ?",
-                "Pourquoi les rois ont-ils toujours raison ?",
-                "Comment les écrivains expriment-ils la réflexion et le désir de liberté face à l'oppression ?",
-                "Comment devenir célèbre grâce à l'écriture ?",
+                "Vrai",
+                "Faux"
               ],
-              correctAnswer: "Comment les écrivains expriment-ils la réflexion et le désir de liberté face à l'oppression ?",
-              explanation: "Le chapitre s'appelle « Cri de liberté, résister à l'oppression ».",
+              correctAnswer: "Faux",
+              explanation: "Oppresser = physique. C'est « opprimer » qui veut dire moral, politique."
             },
             {
               id: "hugo-f16",
               type: "qcm",
-              question: "Que veut dire « implacable » ?",
-              options: ["Qu'on peut calmer facilement", "Très petit", "Qu'on ne peut pas apaiser", "Plein de place"],
-              correctAnswer: "Qu'on ne peut pas apaiser",
-              explanation: "Im- (ne pas) + plac (apaiser) + -able (qu'on peut) = qu'on ne peut pas apaiser.",
-            },
-            {
-              id: "hugo-f17",
-              type: "qcm",
-              question: "Quel ministre a défendu la loi d'abolition de la peine de mort en 1981 ?",
-              options: ["Robert Badinter", "Victor Hugo", "Napoléon", "Jean Anouilh"],
-              correctAnswer: "Robert Badinter",
-              explanation: "Robert Badinter, ministre de la Justice, a fait voter l'abolition le 9 octobre 1981.",
-            },
-            {
-              id: "hugo-f18",
-              type: "vrai-faux",
-              question: "Victor Hugo a vécu au XIXe siècle.",
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Vrai",
-              explanation: "Victor Hugo a vécu de 1802 à 1885.",
-            },
-            {
-              id: "hugo-f19",
-              type: "qcm",
-              question: "« Le Dernier Jour d'un condamné » est…",
-              options: ["un poème", "une pièce de théâtre", "une bande dessinée", "un roman"],
-              correctAnswer: "un roman",
-              explanation: "C'est un court roman, écrit sous la forme d'un journal.",
-            },
-            {
-              id: "hugo-f20",
-              type: "texte-a-trous",
-              question: "Le roman prend la forme du ___ d'un condamné, écrit pendant ses dernières semaines.",
-              options: ["menu", "journal", "horoscope", "dictionnaire"],
-              correctAnswer: "journal",
-              explanation: "Le condamné écrit chaque jour ce qu'il ressent, jusqu'à son exécution.",
-            },
-            {
-              id: "hugo-f21",
-              type: "qcm",
-              question: "Quels sont les premiers mots du roman ?",
-              options: ["« Il était une fois »", "« Condamné à mort ! »", "« Je suis libre ! »", "« Bonjour tristesse »"],
-              correctAnswer: "« Condamné à mort ! »",
-              explanation: "Le roman s'ouvre et se termine (chapitre I) sur ces mots : l'idée encadre tout le texte.",
-            },
-            {
-              id: "hugo-f22",
-              type: "qcm",
-              question: "Où se trouve le condamné au début du roman ?",
-              options: ["Dans un château", "À Bicêtre, une prison près de Paris", "Sur un bateau", "À l'hôpital"],
-              correctAnswer: "À Bicêtre, une prison près de Paris",
-              explanation: "Le chapitre commence par le mot « Bicêtre » : le nom de la prison.",
-            },
-            {
-              id: "hugo-f23",
-              type: "vrai-faux",
-              question: "Dans le texte, la pensée de la mort revient même dans ses rêves.",
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Vrai",
-              explanation: "Elle « reparaît dans [ses] rêves sous la forme d'un couteau » : il ne peut jamais lui échapper.",
-            },
-          ],
+              question: "Quel mot complète la question du chapitre : « Comment les écrivains expriment-ils le désir de ___ face à l'oppression ? »",
+              options: [
+                "richesse",
+                "vengeance",
+                "voyage",
+                "liberté"
+              ],
+              correctAnswer: "liberté",
+              explanation: "Le chapitre s'appelle « Cri de liberté, résister à l'oppression »."
+            }
+          ]
         },
         {
           id: "intermediaire",
           name: "Intermédiaire",
           emoji: "🟡",
-          description: "Les idées du texte, les figures de style et les dates.",
+          description: "Les figures de style et les procédés.",
           questions: [
             {
               id: "hugo-i1",
               type: "qcm",
-              question: "Dans « Une horrible, une sanglante, une implacable idée ! », les adjectifs sont…",
-              options: ["mélioratifs", "neutres", "scientifiques", "péjoratifs"],
-              correctAnswer: "péjoratifs",
-              explanation: "Ce sont 3 adjectifs négatifs (péjoratifs) qui montrent à quel point l'idée de la mort est terrible.",
+              question: "« comme un spectre de plomb » : quelle figure de style ?",
+              options: [
+                "Une métaphore",
+                "Une comparaison",
+                "Une personnification",
+                "Une répétition"
+              ],
+              correctAnswer: "Une comparaison",
+              explanation: "Il y a le mot de comparaison « comme ».",
+              hint: "Cherche le petit mot-outil."
             },
             {
               id: "hugo-i2",
               type: "qcm",
-              question: "« comme un spectre de plomb » est…",
-              options: ["une comparaison", "une métaphore", "une personnification", "une antithèse"],
-              correctAnswer: "une comparaison",
-              explanation: "Il y a un outil de comparaison : « comme ».",
-              hint: "Cherche le petit mot-outil.",
+              question: "« mon esprit est en prison dans une idée » : quelle figure de style ?",
+              options: [
+                "Une comparaison",
+                "Une métaphore",
+                "Une énumération",
+                "Une répétition"
+              ],
+              correctAnswer: "Une métaphore",
+              explanation: "Pas de mot de comparaison : l'esprit est directement présenté comme un prisonnier."
             },
             {
               id: "hugo-i3",
               type: "qcm-multiple",
-              question: "Que suggère l'image « un spectre de plomb » ? (2 réponses)",
+              question: "D'après le cours, que montre le mot « spectre » (fantôme) ? (2 réponses)",
               options: [
-                "La pensée se glisse partout, elle est omniprésente",
-                "La pensée écrase le prisonnier",
-                "La pensée est joyeuse",
-                "La pensée disparaît vite",
+                "L'idée se glisse partout",
+                "L'idée est omniprésente",
+                "L'idée est très joyeuse",
+                "L'idée disparaît vite"
               ],
-              correctAnswer: ["La pensée se glisse partout, elle est omniprésente", "La pensée écrase le prisonnier"],
-              explanation: "Le spectre (fantôme) se glisse partout ; le plomb, très lourd, écrase.",
+              correctAnswer: [
+                "L'idée se glisse partout",
+                "L'idée est omniprésente"
+              ],
+              explanation: "Comme un fantôme, l'idée est légère, se glisse partout et reste présente tout le temps."
             },
             {
               id: "hugo-i4",
               type: "association",
-              question: "Associe chaque morceau du mot « implacable » à son rôle.",
+              question: "Associe chaque morceau du mot « implacable » à son sens.",
               pairs: [
-                { left: "im-", right: "Préfixe : « ne pas »" },
-                { left: "plac", right: "Radical : apaiser, calmer" },
-                { left: "-able", right: "Suffixe : « qu'on peut »" },
+                {
+                  left: "im-",
+                  right: "ne pas"
+                },
+                {
+                  left: "plac",
+                  right: "apaiser"
+                },
+                {
+                  left: "-able",
+                  right: "qu'on peut"
+                }
               ],
-              options: ["Préfixe : « ne pas »", "Radical : apaiser, calmer", "Suffixe : « qu'on peut »"],
-              correctAnswer: ["Préfixe : « ne pas »", "Radical : apaiser, calmer", "Suffixe : « qu'on peut »"],
-              explanation: "Le radical vient du latin placare (apaiser). Implacable = qu'on ne peut pas apaiser.",
+              options: [
+                "ne pas",
+                "apaiser",
+                "qu'on peut"
+              ],
+              correctAnswer: [
+                "ne pas",
+                "apaiser",
+                "qu'on peut"
+              ],
+              explanation: "Préfixe im- (ne pas) + radical plac (apaiser) + suffixe -able (qu'on peut)."
             },
             {
               id: "hugo-i5",
-              type: "vrai-faux",
-              question: "Le point de vue interne permet d'accéder aux ressentis du personnage.",
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Vrai",
-              explanation: "On est dans sa tête : on connaît ses peurs et ses pensées.",
+              type: "texte-a-trous-select",
+              question: "« Mon ___ est aux fers dans un cachot, mon ___ est en prison dans une idée. »",
+              options: [
+                "corps",
+                "esprit",
+                "bras",
+                "pied"
+              ],
+              correctAnswer: [
+                "corps",
+                "esprit"
+              ],
+              explanation: "Double captivité : le corps (prison physique) et l'esprit (prison mentale)."
             },
             {
               id: "hugo-i6",
               type: "qcm",
-              question: "Pourquoi Hugo ne donne-t-il ni le nom ni le crime du condamné ?",
+              question: "La pensée le secoue « de ses deux mains de glace ». Quelle figure de style ?",
               options: [
-                "Parce qu'il a oublié",
-                "Pour en faire un mystère policier",
-                "Pour que le condamné représente tous les condamnés",
-                "Parce que le personnage est innocent",
+                "Une comparaison",
+                "Une énumération",
+                "Une hyperbole",
+                "Une personnification"
               ],
-              correctAnswer: "Pour que le condamné représente tous les condamnés",
-              explanation: "Hugo ne juge pas l'homme : il dénonce la peine de mort elle-même, pour tous.",
+              correctAnswer: "Une personnification",
+              explanation: "La pensée a des mains, comme une personne."
             },
             {
               id: "hugo-i7",
-              type: "texte-a-trous-select",
-              question: "« Mon ___ est aux fers dans un cachot, mon ___ est en prison dans une idée. »",
-              options: ["corps", "esprit", "cœur", "bras", "âme"],
-              correctAnswer: ["corps", "esprit"],
-              explanation: "Double captivité : le corps (prison physique) et l'esprit (prison mentale).",
+              type: "qcm",
+              question: "« toujours seul avec elle, toujours glacé [...], toujours courbé [...] » : quel procédé ?",
+              options: [
+                "Une répétition",
+                "Une comparaison",
+                "Une personnification",
+                "Une métaphore"
+              ],
+              correctAnswer: "Une répétition",
+              explanation: "« toujours » est répété : cela submerge le lecteur, comme l'idée submerge le condamné."
             },
             {
               id: "hugo-i8",
-              type: "ordre",
-              question: "Remets ces événements dans l'ordre chronologique.",
+              type: "qcm",
+              question: "Que permet le point de vue interne ?",
               options: [
-                "Hugo publie Le Dernier Jour d'un condamné",
-                "Hugo ajoute une préface contre la peine de mort",
-                "Dernière exécution en France",
-                "Abolition de la peine de mort en France",
-                "L'abolition entre dans la Constitution",
+                "De connaître l'avis du juge",
+                "De voir la scène de très loin",
+                "D'avoir accès à ses ressentis",
+                "De savoir la fin à l'avance"
               ],
-              correctAnswer: [
-                "Hugo publie Le Dernier Jour d'un condamné",
-                "Hugo ajoute une préface contre la peine de mort",
-                "Dernière exécution en France",
-                "Abolition de la peine de mort en France",
-                "L'abolition entre dans la Constitution",
-              ],
-              explanation: "1829 → 1832 → 1977 → 1981 → 2007.",
+              correctAnswer: "D'avoir accès à ses ressentis",
+              explanation: "On est dans la tête du personnage : on connaît ce qu'il ressent."
             },
             {
               id: "hugo-i9",
               type: "qcm",
-              question: "« mon esprit est en prison dans une idée » est…",
-              options: ["une comparaison", "une antithèse", "une métaphore", "une énumération"],
-              correctAnswer: "une métaphore",
-              explanation: "L'esprit est assimilé à un prisonnier, sans outil de comparaison : c'est une métaphore.",
+              question: "Quel temps Hugo utilise-t-il pour plonger le lecteur dans la situation ?",
+              options: [
+                "Le futur",
+                "Le passé simple",
+                "Le présent",
+                "Le conditionnel"
+              ],
+              correctAnswer: "Le présent",
+              explanation: "« je suis captif » : le présent fait vivre la scène en même temps que lui."
             },
             {
               id: "hugo-i10",
-              type: "qcm",
-              question: "Quel verbe signifie « écraser moralement ou politiquement » ?",
-              options: ["opprimer", "oppresser", "opposer", "opérer"],
-              correctAnswer: "opprimer",
-              explanation: "Opprimer = moral, politique. Oppresser = physique.",
+              type: "vrai-faux",
+              question: "Le souvenir des moments joyeux du passé rend l'enfermement encore plus pénible.",
+              options: [
+                "Vrai",
+                "Faux"
+              ],
+              correctAnswer: "Vrai",
+              explanation: "« Autrefois [...] j'étais un homme comme un autre homme » : le contraste accentue la pénibilité."
             },
             {
               id: "hugo-i11",
-              type: "texte-a-trous",
-              question: "« La chaleur de l'été m'___ : j'ai du mal à respirer. »",
-              options: ["opprime", "oppose", "oppresse", "opère"],
-              correctAnswer: "oppresse",
-              explanation: "Une gêne physique pour respirer : c'est oppresser.",
-            },
-            {
-              id: "hugo-i12",
-              type: "vrai-faux",
-              question: "Le souvenir des moments joyeux du passé rend l'enfermement encore plus pénible.",
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Vrai",
-              explanation: "Le contraste entre « autrefois » (libre) et maintenant (captif) accentue la souffrance.",
-            },
-            {
-              id: "hugo-i13",
               type: "tri-categories",
               question: "Classe chaque élément : prison du corps ou prison de l'esprit ?",
               items: [
-                { id: "h13-a", label: "« aux fers »" },
-                { id: "h13-b", label: "« dans un cachot »" },
-                { id: "h13-c", label: "« en prison dans une idée »" },
-                { id: "h13-d", label: "Une seule pensée possible" },
-                { id: "h13-e", label: "Les murs et les chaînes" },
-                { id: "h13-f", label: "« Condamné à mort ! » tourne en boucle" },
+                {
+                  id: "hugo-i11-1",
+                  label: "« aux fers »"
+                },
+                {
+                  id: "hugo-i11-3",
+                  label: "« en prison dans une idée »"
+                },
+                {
+                  id: "hugo-i11-2",
+                  label: "« dans un cachot »"
+                },
+                {
+                  id: "hugo-i11-4",
+                  label: "Il ne pense qu'à sa mort"
+                }
               ],
               categories: [
-                { id: "corps", label: "🔒 Prison du corps", correctItemIds: ["h13-a", "h13-b", "h13-e"] },
-                { id: "esprit", label: "🧠 Prison de l'esprit", correctItemIds: ["h13-c", "h13-d", "h13-f"] },
+                {
+                  id: "corps",
+                  label: "🔒 Prison du corps",
+                  correctItemIds: [
+                    "hugo-i11-1",
+                    "hugo-i11-2"
+                  ]
+                },
+                {
+                  id: "esprit",
+                  label: "🧠 Prison de l'esprit",
+                  correctItemIds: [
+                    "hugo-i11-3",
+                    "hugo-i11-4"
+                  ]
+                }
               ],
               correctAnswer: "tri-categories",
-              explanation: "Le condamné subit une double captivité : physique (cachot, fers) et mentale (une idée obsédante).",
+              explanation: "Le condamné subit une double captivité : physique et mentale."
+            },
+            {
+              id: "hugo-i12",
+              type: "texte-a-trous",
+              question: "« La fumée de l'incendie m'___ : j'ai du mal à respirer. »",
+              options: [
+                "oppresse",
+                "opprime",
+                "oppose",
+                "opère"
+              ],
+              correctAnswer: "oppresse",
+              explanation: "Une gêne physique : c'est oppresser."
+            },
+            {
+              id: "hugo-i13",
+              type: "texte-a-trous",
+              question: "« Le tyran ___ son peuple : il lui retire ses libertés. »",
+              options: [
+                "oppresse",
+                "oppose",
+                "opère",
+                "opprime"
+              ],
+              correctAnswer: "opprime",
+              explanation: "Écraser moralement ou politiquement : c'est opprimer."
             },
             {
               id: "hugo-i14",
               type: "qcm",
-              question: "Quel temps Hugo utilise-t-il pour plonger le lecteur dans la situation ?",
-              options: ["le passé simple", "le futur", "le conditionnel", "le présent"],
-              correctAnswer: "le présent",
-              explanation: "Le présent (« je suis captif ») donne l'impression de vivre la scène en même temps que lui.",
+              question: "Pourquoi le personnage ne peut-il pas agir ?",
+              options: [
+                "Il dort pendant toute la journée",
+                "Il ne vit que dans ses pensées",
+                "Il attend la visite de sa famille",
+                "Il écrit une lettre à son juge"
+              ],
+              correctAnswer: "Il ne vit que dans ses pensées",
+              explanation: "L'idée de la mort envahit son esprit : il ne vit plus que dans ses pensées."
             },
             {
               id: "hugo-i15",
-              type: "slider",
-              question: "En quelle année Victor Hugo publie-t-il « Le Dernier Jour d'un condamné » ?",
-              options: ["1800", "1900", "1"],
-              correctAnswer: "1829",
-              tolerance: 2,
-              explanation: "Le roman paraît en 1829. Hugo a alors 27 ans.",
-              hint: "C'est plus de 150 ans avant l'abolition de 1981.",
+              type: "vrai-faux",
+              question: "Les adjectifs « horrible, sanglante, implacable » forment un lexique hyperbolique (exagéré).",
+              options: [
+                "Vrai",
+                "Faux"
+              ],
+              correctAnswer: "Vrai",
+              explanation: "Ils montrent la situation extrême du prisonnier."
             },
             {
               id: "hugo-i16",
-              type: "qcm",
-              question: "La pensée le secoue « de ses deux mains de glace ». Quelle figure de style ?",
-              options: ["une comparaison", "une personnification", "une hyperbole", "une énumération"],
-              correctAnswer: "une personnification",
-              explanation: "La pensée a des mains, comme une personne : elle devient un ennemi vivant.",
-            },
-            {
-              id: "hugo-i17",
               type: "intrus",
-              question: "Trouve l'intrus : lequel n'est PAS un procédé utilisé par Hugo dans ce texte ?",
-              options: ["Lexique hyperbolique", "Point de vue interne", "Métaphore", "Didascalie"],
-              correctAnswer: "Didascalie",
-              explanation: "Les didascalies appartiennent au théâtre (indications de mise en scène). Hugo écrit un roman.",
-            },
-            {
-              id: "hugo-i18",
-              type: "vrai-faux",
-              question: "Dans le texte, le condamné peut agir librement contre son sort.",
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Faux",
-              explanation: "Il ne vit plus que dans ses pensées : il ne peut pas agir. Il est réduit à la passivité.",
-            },
-            {
-              id: "hugo-i19",
-              type: "qcm",
-              question: "Le mot latin captivus, à l'origine de « captif », veut dire…",
-              options: ["libre", "pris, saisi", "triste", "coupable"],
-              correctAnswer: "pris, saisi",
-              explanation: "Captivus = pris, capturé. Il vient de capere : saisir, prendre.",
-            },
-            {
-              id: "hugo-i20",
-              type: "nombre",
-              question: "Combien d'années séparent la publication du roman (1829) et l'abolition de la peine de mort (1981) ?",
-              correctAnswer: "152",
-              explanation: "1981 − 1829 = 152 ans. Le combat de Hugo a mis plus d'un siècle et demi à aboutir !",
-            },
-            {
-              id: "hugo-i21",
-              type: "ordre",
-              question: "Remets dans l'ordre les 3 temps du chapitre I.",
-              options: ["Autrefois : il était libre et plein d'imagination", "Maintenant : une seule idée l'obsède", "Même la nuit : l'idée le poursuit jusque dans ses rêves"],
-              correctAnswer: ["Autrefois : il était libre et plein d'imagination", "Maintenant : une seule idée l'obsède", "Même la nuit : l'idée le poursuit jusque dans ses rêves"],
-              explanation: "Avant / maintenant / même la nuit : le texte montre que la prison de l'esprit ne s'arrête jamais.",
-            },
-            {
-              id: "hugo-i22",
-              type: "qcm",
-              question: "« Je pouvais penser à ce que je voulais, j'étais libre. » À quel temps sont ces verbes ?",
-              options: ["Au présent", "Au futur", "Au passé simple", "À l'imparfait"],
-              correctAnswer: "À l'imparfait",
-              explanation: "L'imparfait décrit sa vie d'avant ; le présent (« je suis captif ») décrit sa prison. Le contraste des temps renforce le contraste des situations.",
-            },
-            {
-              id: "hugo-i23",
-              type: "association",
-              question: "Associe chaque mot difficile du texte à son sens.",
-              pairs: [{"left": "aux fers", "right": "Enchaîné"}, {"left": "convulsif", "right": "Agité de mouvements brusques"}, {"left": "giberne", "right": "Boîte à munitions d'un soldat"}, {"left": "arabesques", "right": "Dessins décoratifs en courbes"}],
-              options: ["Enchaîné", "Agité de mouvements brusques", "Boîte à munitions d'un soldat", "Dessins décoratifs en courbes"],
-              correctAnswer: ["Enchaîné", "Agité de mouvements brusques", "Boîte à munitions d'un soldat", "Dessins décoratifs en courbes"],
-              explanation: "Ces mots sont expliqués dans le tableau sous le texte de la fiche.",
-            },
-          ],
+              question: "Trouve l'intrus : lequel n'est PAS un procédé étudié dans le texte de Hugo ?",
+              options: [
+                "la comparaison",
+                "la didascalie",
+                "la répétition",
+                "la métaphore"
+              ],
+              correctAnswer: "la didascalie",
+              explanation: "La didascalie appartient au théâtre (séance sur Antigone)."
+            }
+          ]
         },
         {
           id: "expert",
           name: "Expert",
           emoji: "🔴",
-          description: "Analyser les procédés et comprendre la synthèse.",
+          description: "La synthèse et la rédaction.",
           questions: [
             {
               id: "hugo-e1",
-              type: "completion-tableau",
-              question: "Complète le nom de chaque figure de style.",
-              table: {
-                headers: ["Exemple", "Figure de style"],
-                rows: [
-                  [{ value: "« en prison dans une idée »" }, { blank: true, correctAnswer: "métaphore" }],
-                  [{ value: "« comme un spectre de plomb »" }, { blank: true, correctAnswer: "comparaison" }],
-                  [{ value: "« ses deux mains de glace »" }, { blank: true, correctAnswer: "personnification" }],
-                ],
-              },
-              correctAnswer: ["métaphore", "comparaison", "personnification"],
-              explanation: "Métaphore : pas d'outil. Comparaison : « comme ». Personnification : la pensée a des mains.",
-              hint: "Les accents et majuscules ne comptent pas.",
+              type: "association",
+              question: "Associe chaque procédé à son effet (synthèse du cours).",
+              pairs: [
+                {
+                  left: "Lexique hyperbolique",
+                  right: "Montre la situation extrême"
+                },
+                {
+                  left: "Métaphore, personnification",
+                  right: "Aide à imaginer la situation"
+                },
+                {
+                  left: "Énumération, répétition",
+                  right: "Submerge le lecteur"
+                },
+                {
+                  left: "Souvenirs du passé",
+                  right: "Rend l'enfermement plus pénible"
+                }
+              ],
+              options: [
+                "Montre la situation extrême",
+                "Aide à imaginer la situation",
+                "Submerge le lecteur",
+                "Rend l'enfermement plus pénible"
+              ],
+              correctAnswer: [
+                "Montre la situation extrême",
+                "Aide à imaginer la situation",
+                "Submerge le lecteur",
+                "Rend l'enfermement plus pénible"
+              ],
+              explanation: "C'est la synthèse : comment Hugo exprime la cruauté de la captivité mentale."
             },
             {
               id: "hugo-e2",
-              type: "qcm",
-              question: "Quelle phrase analyse correctement un procédé ?",
+              type: "texte-a-trous-select",
+              question: "« Ce texte montre les effets ___ de la contrainte. Face à la privation de liberté, il est nécessaire d'___. »",
               options: [
-                "Hugo emploie la métaphore « en prison dans une idée » pour montrer que l'esprit du condamné est enfermé, comme son corps.",
-                "Il y a une métaphore.",
-                "« en prison dans une idée » est une phrase du texte.",
-                "La métaphore est une belle figure de style.",
+                "insupportables",
+                "agir",
+                "agréables",
+                "attendre"
               ],
-              correctAnswer:
-                "Hugo emploie la métaphore « en prison dans une idée » pour montrer que l'esprit du condamné est enfermé, comme son corps.",
-              explanation: "Une bonne analyse = citation + nom du procédé + effet sur le lecteur.",
+              correctAnswer: [
+                "insupportables",
+                "agir"
+              ],
+              explanation: "Conclusion du cours : la contrainte rend passif, il faut agir et se rebeller."
             },
             {
               id: "hugo-e3",
-              type: "qcm-multiple",
-              question: "Quels procédés « submergent » le lecteur, comme le condamné ? (2 réponses)",
-              options: ["L'énumération", "La répétition", "La stichomythie", "La didascalie"],
-              correctAnswer: ["L'énumération", "La répétition"],
-              explanation: "Les énumérations et répétitions accumulent les mots : le lecteur est submergé, comme le prisonnier par son idée.",
+              type: "qcm",
+              question: "Quelle phrase analyse correctement un procédé ?",
+              options: [
+                "« en prison dans une idée » : cette métaphore est une très jolie phrase du texte.",
+                "« en prison dans une idée » : cette phrase se trouve au début de l'extrait étudié.",
+                "« en prison dans une idée » : cette métaphore contient en tout six mots différents.",
+                "« en prison dans une idée » : cette métaphore montre que son esprit est enfermé."
+              ],
+              correctAnswer: "« en prison dans une idée » : cette métaphore montre que son esprit est enfermé.",
+              explanation: "Une bonne analyse donne la citation, le procédé ET son effet."
             },
             {
               id: "hugo-e4",
               type: "qcm",
-              question: "« toujours seul avec elle, toujours glacé de sa présence, toujours courbé sous son poids » : quel procédé ?",
-              options: ["Une antithèse", "Une litote", "Une répétition (anaphore)", "Une métonymie"],
-              correctAnswer: "Une répétition (anaphore)",
-              explanation: "« toujours » est répété en début de groupe : c'est une anaphore. Elle montre que l'idée ne le quitte jamais.",
+              question: "Pourquoi le personnage devient-il passif ?",
+              options: [
+                "La contrainte l'empêche d'agir",
+                "Il a décidé de se reposer",
+                "Il est d'accord avec sa peine",
+                "Il n'a plus envie de vivre"
+              ],
+              correctAnswer: "La contrainte l'empêche d'agir",
+              explanation: "Le texte montre les effets insupportables de la contrainte, qui ramène le prisonnier à la passivité."
             },
             {
               id: "hugo-e5",
-              type: "texte-a-trous-select",
-              question: "« Ce texte montre les effets insupportables de la ___ qui ramène le sujet à la ___. »",
-              options: ["contrainte", "passivité", "liberté", "joie", "colère"],
-              correctAnswer: ["contrainte", "passivité"],
-              explanation: "La contrainte rend le prisonnier passif : il ne peut plus agir.",
+              type: "qcm-multiple",
+              question: "Quels procédés Hugo utilise-t-il pour plonger le lecteur dans la situation ? (2 réponses)",
+              options: [
+                "Le point de vue interne",
+                "Le présent",
+                "Les didascalies",
+                "Le dialogue"
+              ],
+              correctAnswer: [
+                "Le point de vue interne",
+                "Le présent"
+              ],
+              explanation: "Point de vue interne + présent : le lecteur vit la scène avec le personnage."
             },
             {
               id: "hugo-e6",
-              type: "vrai-faux",
-              question: "Le lexique hyperbolique (« horrible, sanglante, implacable ») montre la situation extrême du prisonnier.",
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Vrai",
-              explanation: "Ces adjectifs exagérés manifestent la situation extrême du prisonnier.",
+              type: "qcm",
+              question: "Qu'est-ce qu'une captivité mentale ?",
+              options: [
+                "Être prisonnier d'un cachot",
+                "Être prisonnier d'un pays",
+                "Être prisonnier d'une pensée",
+                "Être prisonnier d'un rêve"
+              ],
+              correctAnswer: "Être prisonnier d'une pensée",
+              explanation: "L'esprit est « en prison dans une idée » : il ne peut penser à rien d'autre."
             },
             {
               id: "hugo-e7",
-              type: "qcm",
-              question: "Pourquoi l'image « spectre de plomb » est-elle surprenante ?",
+              type: "texte-a-trous",
+              question: "« Il est insupportable pour l'homme de ne plus être ___ de son destin. »",
               options: [
-                "Parce qu'un fantôme ne fait pas peur",
-                "Parce que le plomb est un métal précieux",
-                "Parce qu'un spectre est léger alors que le plomb est très lourd",
-                "Parce que Hugo ne croit pas aux fantômes",
+                "témoin",
+                "voisin",
+                "maître",
+                "lecteur"
               ],
-              correctAnswer: "Parce qu'un spectre est léger alors que le plomb est très lourd",
-              explanation: "Hugo réunit deux idées opposées : la pensée est partout (légère comme un fantôme) ET elle écrase (lourde comme le plomb).",
+              correctAnswer: "maître",
+              explanation: "Être maître de son destin = décider de sa vie. Le condamné a perdu ce pouvoir."
             },
             {
               id: "hugo-e8",
-              type: "association",
-              question: "Associe chaque procédé à son effet.",
-              pairs: [
-                { left: "Point de vue interne", right: "Le lecteur vit la scène avec le personnage" },
-                { left: "Métaphore", right: "On imagine mieux la souffrance" },
-                { left: "Énumération", right: "Le lecteur est submergé" },
-                { left: "Souvenirs du passé", right: "Le contraste rend la prison plus pénible" },
-              ],
+              type: "ordre",
+              question: "Remets dans l'ordre les phrases de ce paragraphe (méthode I-C-A-C).",
               options: [
-                "Le lecteur vit la scène avec le personnage",
-                "On imagine mieux la souffrance",
-                "Le lecteur est submergé",
-                "Le contraste rend la prison plus pénible",
+                "Hugo montre que l'esprit du condamné est enfermé.",
+                "Il écrit : « mon esprit est en prison dans une idée ».",
+                "Cette métaphore aide à imaginer une prison dont on ne sort pas.",
+                "Ainsi, Hugo fait ressentir la cruauté de la captivité mentale."
               ],
               correctAnswer: [
-                "Le lecteur vit la scène avec le personnage",
-                "On imagine mieux la souffrance",
-                "Le lecteur est submergé",
-                "Le contraste rend la prison plus pénible",
+                "Hugo montre que l'esprit du condamné est enfermé.",
+                "Il écrit : « mon esprit est en prison dans une idée ».",
+                "Cette métaphore aide à imaginer une prison dont on ne sort pas.",
+                "Ainsi, Hugo fait ressentir la cruauté de la captivité mentale."
               ],
-              explanation: "Chaque procédé sert à nous faire ressentir la cruauté de la captivité mentale.",
+              explanation: "Idée → Citation → Analyse → Conclusion."
             },
             {
               id: "hugo-e9",
               type: "qcm",
-              question: "Quelle conclusion tire-t-on de ce texte ?",
+              question: "Que montre l'adjectif « implacable » à propos de l'idée de la mort ?",
               options: [
-                "Face à la privation de liberté, il est nécessaire d'agir, de se rebeller",
-                "Il vaut mieux accepter son sort sans rien dire",
-                "La prison est un lieu de repos",
-                "Le condamné mérite sa punition",
+                "Rien ne peut la calmer",
+                "Elle passe très vite",
+                "Elle le rend joyeux",
+                "Elle vient la nuit"
               ],
-              correctAnswer: "Face à la privation de liberté, il est nécessaire d'agir, de se rebeller",
-              explanation: "Pour un être humain, ne plus être maître de son destin est insupportable.",
+              correctAnswer: "Rien ne peut la calmer",
+              explanation: "Implacable = qu'on ne peut pas apaiser : l'idée l'obsède."
             },
             {
               id: "hugo-e10",
-              type: "qcm-multiple",
-              question: "À quels thèmes du programme de 3e ce chapitre se rattache-t-il ? (2 réponses)",
+              type: "vrai-faux",
+              question: "Dans la synthèse du cours, les figures de style permettent au lecteur de mieux imaginer et comprendre la situation.",
               options: [
-                "Agir dans la cité : individu et pouvoir",
-                "Se raconter, se représenter",
-                "Le voyage et l'aventure",
-                "Imaginer des univers nouveaux",
+                "Vrai",
+                "Faux"
               ],
-              correctAnswer: ["Agir dans la cité : individu et pouvoir", "Se raconter, se représenter"],
-              explanation: "Ce sont les deux parties (I et II) notées au début du chapitre.",
+              correctAnswer: "Vrai",
+              explanation: "La métaphore et la personnification rendent la souffrance concrète."
             },
             {
               id: "hugo-e11",
               type: "qcm",
-              question: "Quel est l'effet du point de vue interne associé au présent ?",
+              question: "Quel est le lien entre ce texte et la question du chapitre ?",
               options: [
-                "Le lecteur regarde la scène de loin, sans émotion",
-                "Le texte devient drôle",
-                "On découvre l'avis du juge",
-                "Le lecteur vit la scène en même temps que le personnage",
+                "Il raconte une évasion réussie",
+                "Il décrit un procès en détail",
+                "Il explique les lois de France",
+                "Il montre le besoin de se libérer"
               ],
-              correctAnswer: "Le lecteur vit la scène en même temps que le personnage",
-              explanation: "Hugo plonge le lecteur dans la situation : on ressent ce que ressent le condamné.",
+              correctAnswer: "Il montre le besoin de se libérer",
+              explanation: "La captivité est insupportable : elle fait naître le désir de liberté."
             },
             {
               id: "hugo-e12",
-              type: "vrai-faux",
-              question: "Hugo cherche surtout à prouver que le condamné est innocent.",
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Faux",
-              explanation: "Hugo ne dit pas s'il est coupable. Il dénonce la peine de mort, quelle que soit la faute.",
+              type: "tri-categories",
+              question: "Classe chaque citation selon le procédé.",
+              items: [
+                {
+                  id: "hugo-e12-1",
+                  label: "« comme un spectre de plomb »"
+                },
+                {
+                  id: "hugo-e12-3",
+                  label: "« ses deux mains de glace »"
+                },
+                {
+                  id: "hugo-e12-2",
+                  label: "« en prison dans une idée »"
+                },
+                {
+                  id: "hugo-e12-4",
+                  label: "« toujours… toujours… toujours »"
+                }
+              ],
+              categories: [
+                {
+                  id: "comp",
+                  label: "Comparaison",
+                  correctItemIds: [
+                    "hugo-e12-1"
+                  ]
+                },
+                {
+                  id: "meta",
+                  label: "Métaphore",
+                  correctItemIds: [
+                    "hugo-e12-2"
+                  ]
+                },
+                {
+                  id: "perso",
+                  label: "Personnification",
+                  correctItemIds: [
+                    "hugo-e12-3"
+                  ]
+                },
+                {
+                  id: "rep",
+                  label: "Répétition",
+                  correctItemIds: [
+                    "hugo-e12-4"
+                  ]
+                }
+              ],
+              correctAnswer: "tri-categories",
+              explanation: "Comparaison : « comme ». Métaphore : sans outil. Personnification : la pensée a des mains. Répétition : un mot redit."
             },
             {
               id: "hugo-e13",
-              type: "intrus",
-              question: "Trouve l'intrus parmi ces adjectifs.",
-              options: ["horrible", "sanglante", "radieuse", "implacable"],
-              correctAnswer: "radieuse",
-              explanation: "Radieuse est mélioratif (positif). Les trois autres sont péjoratifs et viennent du texte.",
+              type: "qcm",
+              question: "Pourquoi le lecteur a-t-il pitié du personnage ?",
+              options: [
+                "Il connaît son crime en détail",
+                "Il partage ses peurs de l'intérieur",
+                "Il le voit souffrir dans un film",
+                "Il lit l'avis des autres gardiens"
+              ],
+              correctAnswer: "Il partage ses peurs de l'intérieur",
+              explanation: "Grâce au point de vue interne, on a accès à ses ressentis."
             },
             {
               id: "hugo-e14",
-              type: "qcm",
-              question: "Que signifie « omniprésent » ?",
-              options: ["Absent", "Présent partout, tout le temps", "Présent seulement la nuit", "Très puissant"],
-              correctAnswer: "Présent partout, tout le temps",
-              explanation: "Omni- = tout. L'idée de la mort est omniprésente : elle ne quitte jamais le condamné.",
+              type: "intrus",
+              question: "Trouve l'intrus : quel adjectif n'est PAS péjoratif ?",
+              options: [
+                "horrible",
+                "radieuse",
+                "sanglante",
+                "implacable"
+              ],
+              correctAnswer: "radieuse",
+              explanation: "Radieuse est positif. Les trois autres viennent du texte et sont négatifs."
             },
             {
               id: "hugo-e15",
-              type: "tri-categories",
-              question: "Classe ces morceaux de mots : préfixe, radical ou suffixe ?",
-              items: [
-                { id: "h15-a", label: "im-" },
-                { id: "h15-b", label: "in-" },
-                { id: "h15-c", label: "plac" },
-                { id: "h15-d", label: "capt" },
-                { id: "h15-e", label: "-able" },
-                { id: "h15-f", label: "-if" },
+              type: "qcm",
+              question: "Quel est le meilleur sujet de rédaction pour cette séance ?",
+              options: [
+                "Comment Hugo décrit-il la vie quotidienne dans les prisons ?",
+                "Comment Hugo raconte-t-il le procès du condamné à mort ?",
+                "Comment Hugo explique-t-il la loi qui abolit la peine de mort ?",
+                "Comment Hugo exprime-t-il la cruauté de la captivité mentale ?"
               ],
-              categories: [
-                { id: "prefixe", label: "Préfixe", correctItemIds: ["h15-a", "h15-b"] },
-                { id: "radical", label: "Radical", correctItemIds: ["h15-c", "h15-d"] },
-                { id: "suffixe", label: "Suffixe", correctItemIds: ["h15-e", "h15-f"] },
-              ],
-              correctAnswer: "tri-categories",
-              explanation: "im-plac-able, capt-if : le préfixe est devant, le radical porte le sens, le suffixe est à la fin.",
+              correctAnswer: "Comment Hugo exprime-t-il la cruauté de la captivité mentale ?",
+              explanation: "C'est la question de la synthèse du cours."
             },
             {
               id: "hugo-e16",
-              type: "ordre",
-              question: "Remets dans l'ordre les étapes pour analyser un procédé.",
-              options: [
-                "Je cite l'exemple entre guillemets",
-                "Je nomme le procédé",
-                "J'explique l'effet sur le lecteur",
-                "Je relie à la question posée",
-              ],
-              correctAnswer: [
-                "Je cite l'exemple entre guillemets",
-                "Je nomme le procédé",
-                "J'explique l'effet sur le lecteur",
-                "Je relie à la question posée",
-              ],
-              explanation: "Citation → procédé → effet → lien avec la problématique.",
-            },
-            {
-              id: "hugo-e17",
-              type: "qcm",
-              question: "Qu'ajoute Victor Hugo à son roman en 1832 ?",
-              options: ["Une suite", "Une préface contre la peine de mort", "Une adaptation au théâtre", "Un poème"],
-              correctAnswer: "Une préface contre la peine de mort",
-              explanation: "Dans cette préface, Hugo explique clairement que son roman est un plaidoyer contre la peine de mort.",
-            },
-            {
-              id: "hugo-e18",
-              type: "texte-a-trous",
-              question: "« Il est insupportable pour l'homme de ne plus être ___ de son destin. »",
-              options: ["spectateur", "esclave", "maître", "auteur"],
-              correctAnswer: "maître",
-              explanation: "Être maître de son destin = décider de sa vie. Le condamné a perdu ce pouvoir.",
-            },
-            {
-              id: "hugo-e19",
               type: "vrai-faux",
-              question: "Depuis 2007, l'abolition de la peine de mort est inscrite dans la Constitution française.",
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Vrai",
-              explanation: "Cela rend un retour de la peine de mort beaucoup plus difficile.",
-            },
-            {
-              id: "hugo-e20",
-              type: "qcm",
-              question: "Quel est l'effet des trois adjectifs accumulés « horrible, sanglante, implacable » ?",
+              question: "D'après le cours, Hugo veut aussi montrer qu'il faut agir face à la privation de liberté.",
               options: [
-                "Le texte devient plus léger",
-                "On comprend que le personnage est heureux",
-                "On apprend le crime du condamné",
-                "L'idée paraît de plus en plus terrible, comme une gradation",
+                "Vrai",
+                "Faux"
               ],
-              correctAnswer: "L'idée paraît de plus en plus terrible, comme une gradation",
-              explanation: "L'accumulation fait monter l'intensité : on finit sur « implacable », rien ne peut arrêter cette idée.",
-            },
-            {
-              id: "hugo-e21",
-              type: "qcm",
-              question: "Pourquoi le chapitre commence-t-il ET se termine-t-il par « Condamné à mort ! » ?",
-              options: ["Pour montrer que le condamné est enfermé dans cette idée, sans issue", "Par hasard", "Pour faire rire le lecteur", "Parce que Hugo manquait d'idées"],
-              correctAnswer: "Pour montrer que le condamné est enfermé dans cette idée, sans issue",
-              explanation: "Cette construction en boucle (circulaire) enferme le texte comme l'idée enferme l'esprit du condamné.",
-            },
-            {
-              id: "hugo-e22",
-              type: "ordre",
-              question: "Remets dans l'ordre les étapes d'un paragraphe de rédaction (méthode I-C-A-C).",
-              options: ["Idée", "Citation", "Analyse", "Conclusion"],
-              correctAnswer: ["Idée", "Citation", "Analyse", "Conclusion"],
-              explanation: "J'annonce mon idée, je la prouve par une citation, j'analyse le procédé et son effet, je conclus.",
-            },
-            {
-              id: "hugo-e23",
-              type: "qcm",
-              question: "« elle se glisse sous toutes les formes », « m'obsède éveillé, épie mon sommeil » : quel est l'effet de cette accumulation de verbes ?",
-              options: ["Montrer que le condamné dort bien", "Décrire la prison", "Montrer que la pensée agit comme un ennemi qui le traque partout", "Ralentir l'action"],
-              correctAnswer: "Montrer que la pensée agit comme un ennemi qui le traque partout",
-              explanation: "Les verbes d'action (se glisse, se colle, obsède, épie) personnifient la pensée : elle le surveille jour et nuit.",
-            },
-          ],
-        },
-      ],
-    },
+              correctAnswer: "Vrai",
+              explanation: "Face à la privation de liberté, il est nécessaire d'agir, de se rebeller."
+            }
+          ]
+        }
+      ]
+    }
   },
-  // ── Séance 2 — Antigone (Jean Anouilh) ──────────────────────────────────────
   {
     slug: "francais-antigone-anouilh-fiche",
     title: "Antigone — Jean Anouilh",
-    description:
-      "La scène Antigone / Créon vue en classe (conflit, domination, procédés du théâtre), puis la pièce en entier : frise, personnages, citations, thèmes. Avec sujet de rédaction corrigé.",
+    description: "Séance 2 — La confrontation entre l'individu et le pouvoir : la scène vue en classe, puis un rappel de toute la pièce. Avec sujet de rédaction.",
     type: "fiche",
     level: "3e",
     subject: "francais",
     chapter: CHAPTER,
     createdAt: "2026-10-10T11:00:00Z",
-    updatedAt: "2026-10-10T16:00:00Z",
-    tags: ["antigone", "anouilh", "théâtre", "tragédie", "conflit", "fiche"],
+    updatedAt: "2026-10-11T10:00:00Z",
+    tags: [
+      "antigone",
+      "anouilh",
+      "théâtre",
+      "conflit",
+      "fiche"
+    ],
     relatedResourceSlug: "francais-antigone-anouilh-quiz",
-    mdxPath: "3e/francais/fiches/francais-antigone-anouilh-fiche.mdx",
+    mdxPath: "3e/francais/fiches/francais-antigone-anouilh-fiche.mdx"
   },
   {
     slug: "francais-antigone-anouilh-quiz",
     title: "Quiz — Antigone d'Anouilh",
-    description:
-      "Teste-toi sur la scène étudiée en classe et sur toute la pièce : personnages, action, citations et thèmes.",
+    description: "Teste-toi sur la scène Antigone / Créon vue en classe et sur le rappel de la pièce.",
     type: "quiz",
     level: "3e",
     subject: "francais",
     chapter: CHAPTER,
     createdAt: "2026-10-10T11:05:00Z",
-    updatedAt: "2026-10-10T16:05:00Z",
-    tags: ["antigone", "anouilh", "théâtre", "quiz"],
+    updatedAt: "2026-10-11T10:05:00Z",
+    tags: [
+      "antigone",
+      "anouilh",
+      "théâtre",
+      "quiz"
+    ],
     relatedResourceSlug: "francais-antigone-anouilh-fiche",
     quizData: {
       title: "Antigone de Jean Anouilh",
@@ -794,281 +876,260 @@ export const resources: Resource[] = [
           id: "facile",
           name: "Facile",
           emoji: "🟢",
-          description: "L'histoire, les personnages et le vocabulaire du théâtre.",
+          description: "Les personnages et le conflit.",
           questions: [
             {
               id: "anti-f1",
               type: "qcm",
-              question: "Qui a écrit la pièce « Antigone » étudiée en classe (1944) ?",
-              options: ["Victor Hugo", "René Depestre", "Jean Anouilh", "Molière"],
+              question: "Qui a écrit la pièce « Antigone » étudiée en classe ?",
+              options: [
+                "Jean Anouilh",
+                "Victor Hugo",
+                "René Depestre",
+                "Molière"
+              ],
               correctAnswer: "Jean Anouilh",
-              explanation: "Jean Anouilh a réécrit le mythe d'Antigone en 1944.",
+              explanation: "Jean Anouilh. La pièce est jouée en 1944."
             },
             {
               id: "anti-f2",
               type: "qcm",
-              question: "« Antigone » d'Anouilh est…",
-              options: ["une pièce de théâtre (tragédie)", "un roman", "un poème", "un conte"],
-              correctAnswer: "une pièce de théâtre (tragédie)",
-              explanation: "C'est une tragédie : on sait dès le début que l'héroïne va mourir.",
+              question: "Qui est Créon ?",
+              options: [
+                "Le frère d'Antigone",
+                "Le père d'Antigone",
+                "Le roi, oncle d'Antigone",
+                "Le garde d'Antigone"
+              ],
+              correctAnswer: "Le roi, oncle d'Antigone",
+              explanation: "Créon, roi de Thèbes, est le frère de Jocaste : c'est l'oncle d'Antigone."
             },
             {
               id: "anti-f3",
               type: "qcm",
-              question: "Qui est Créon ?",
+              question: "Qui est Hémon ?",
               options: [
                 "Le frère d'Antigone",
+                "Le garde de Créon",
                 "Le fiancé d'Antigone",
-                "Le père d'Antigone",
-                "Le roi de Thèbes, oncle d'Antigone",
+                "Le père de Créon"
               ],
-              correctAnswer: "Le roi de Thèbes, oncle d'Antigone",
-              explanation: "Créon est le frère de Jocaste (la mère d'Antigone) : c'est son oncle. Il est devenu roi de Thèbes.",
+              correctAnswer: "Le fiancé d'Antigone",
+              explanation: "Hémon est le fils de Créon et le fiancé d'Antigone."
             },
             {
               id: "anti-f4",
-              type: "qcm",
-              question: "Qui est Hémon ?",
-              options: ["Le frère d'Antigone", "Le fils de Créon et le fiancé d'Antigone", "Un garde", "Le père de Créon"],
-              correctAnswer: "Le fils de Créon et le fiancé d'Antigone",
-              explanation: "Hémon aime Antigone. Il est aussi le fils de Créon : il est pris entre les deux.",
+              type: "vrai-faux",
+              question: "Créon interdit d'enterrer Polynice.",
+              options: [
+                "Vrai",
+                "Faux"
+              ],
+              correctAnswer: "Vrai",
+              explanation: "Créon donne une tombe à Étéocle, mais pas à Polynice."
             },
             {
               id: "anti-f5",
               type: "vrai-faux",
-              question: "Créon interdit d'enterrer Polynice.",
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Vrai",
-              explanation: "Polynice est considéré comme un traître : son corps doit rester sans sépulture. Peine : la mort.",
+              question: "Antigone obéit à Créon.",
+              options: [
+                "Vrai",
+                "Faux"
+              ],
+              correctAnswer: "Faux",
+              explanation: "Antigone désobéit : elle refuse le compromis."
             },
             {
               id: "anti-f6",
               type: "qcm",
-              question: "Que fait Antigone malgré l'interdiction ?",
+              question: "Quel est l'objectif de la séance ?",
               options: [
-                "Elle quitte la ville",
-                "Elle recouvre de terre le corps de son frère Polynice",
-                "Elle épouse Hémon en secret",
-                "Elle devient reine",
+                "Repérer les procédés du conflit",
+                "Repérer les rimes d'un poème",
+                "Repérer le décor d'une pièce",
+                "Repérer les dates d'une vie"
               ],
-              correctAnswer: "Elle recouvre de terre le corps de son frère Polynice",
-              explanation: "Elle accomplit le rite funéraire pour son frère : c'est un acte de désobéissance.",
+              correctAnswer: "Repérer les procédés du conflit",
+              explanation: "Objectif : repérer les procédés d'écriture du conflit dans un dialogue de théâtre."
             },
             {
               id: "anti-f7",
-              type: "vrai-faux",
-              question: "À la fin, Antigone accepte d'obéir à Créon.",
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Faux",
-              explanation: "Antigone refuse le compromis jusqu'au bout. Elle choisit son destin, même s'il la mène à la mort.",
-            },
-            {
-              id: "anti-f8",
               type: "qcm",
               question: "Qu'est-ce qu'une didascalie ?",
               options: [
-                "Une très longue réplique",
-                "Un personnage secondaire",
-                "Un décor peint",
-                "Une indication de l'auteur, non prononcée par les acteurs",
+                "Une réplique très longue",
+                "Un personnage du chœur",
+                "Un décor peint à la main",
+                "Une indication de l'auteur"
               ],
-              correctAnswer: "Une indication de l'auteur, non prononcée par les acteurs",
-              explanation: "Les didascalies (souvent en italique) indiquent les gestes, le ton, le décor.",
+              correctAnswer: "Une indication de l'auteur",
+              explanation: "Elle est en italique et n'est pas dite par les acteurs."
+            },
+            {
+              id: "anti-f8",
+              type: "vrai-faux",
+              question: "Créon tutoie Antigone, et Antigone vouvoie Créon.",
+              options: [
+                "Vrai",
+                "Faux"
+              ],
+              correctAnswer: "Vrai",
+              explanation: "Il prend plus de liberté avec elle : il la domine."
             },
             {
               id: "anti-f9",
-              type: "association",
-              question: "Associe chaque personnage à son rôle.",
-              pairs: [
-                { left: "Antigone", right: "L'héroïne qui dit non" },
-                { left: "Créon", right: "Le roi de Thèbes" },
-                { left: "Ismène", right: "La sœur prudente" },
-                { left: "Polynice", right: "Le frère privé de tombe" },
+              type: "qcm",
+              question: "Face à Créon, comment est Antigone ?",
+              options: [
+                "Violente",
+                "Calme",
+                "Joyeuse",
+                "Peureuse"
               ],
-              options: ["L'héroïne qui dit non", "Le roi de Thèbes", "La sœur prudente", "Le frère privé de tombe"],
-              correctAnswer: ["L'héroïne qui dit non", "Le roi de Thèbes", "La sœur prudente", "Le frère privé de tombe"],
-              explanation: "Regarde l'arbre généalogique de la fiche pour bien les retenir.",
+              correctAnswer: "Calme",
+              explanation: "Antigone est calme ; c'est Créon qui est violent."
             },
             {
               id: "anti-f10",
               type: "qcm",
-              question: "En quelle année Anouilh fait-il jouer sa pièce ?",
-              options: ["1944", "1829", "1981", "441 av. J.-C."],
-              correctAnswer: "1944",
-              explanation: "En 1944, pendant l'Occupation allemande. (441 av. J.-C., c'est la version de Sophocle.)",
+              question: "Que défend Antigone ?",
+              options: [
+                "L'ordre du royaume",
+                "L'intérêt familial",
+                "La loi de Créon",
+                "Le droit des gardes"
+              ],
+              correctAnswer: "L'intérêt familial",
+              explanation: "Elle veut enterrer son frère : elle défend sa famille."
             },
             {
               id: "anti-f11",
-              type: "vrai-faux",
-              question: "Face à Créon, Antigone reste calme.",
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Vrai",
-              explanation: "Elle est sûre d'elle, et cela se voit à son calme. C'est Créon qui devient violent.",
+              type: "qcm",
+              question: "Que défend Créon ?",
+              options: [
+                "L'intérêt familial",
+                "La liberté de tous",
+                "Le repos des morts",
+                "L'ordre du royaume"
+              ],
+              correctAnswer: "L'ordre du royaume",
+              explanation: "Créon = la responsabilité du royaume et l'ordre à maintenir."
             },
             {
               id: "anti-f12",
-              type: "qcm",
-              question: "Comment Créon s'adresse-t-il à Antigone ?",
-              options: ["Il la vouvoie", "Il ne lui parle pas", "Il la tutoie", "Il lui écrit"],
-              correctAnswer: "Il la tutoie",
-              explanation: "Il la tutoie, elle le vouvoie : il prend plus de liberté avec elle, il la domine.",
+              type: "texte-a-trous",
+              question: "Antigone refuse le ___ : elle ne veut rien céder.",
+              options: [
+                "compromis",
+                "combat",
+                "mariage",
+                "silence"
+              ],
+              correctAnswer: "compromis",
+              explanation: "Un compromis = un accord où chacun renonce à une partie de ce qu'il veut."
             },
             {
               id: "anti-f13",
-              type: "qcm",
-              question: "Qui a écrit la première « Antigone », dans la Grèce antique ?",
-              options: ["Homère", "Platon", "Sophocle", "Victor Hugo"],
-              correctAnswer: "Sophocle",
-              explanation: "Sophocle, vers 441 av. J.-C. Anouilh réécrit ce mythe en 1944.",
+              type: "vrai-faux",
+              question: "Antigone et Créon sont têtus : ils ne veulent pas s'écouter.",
+              options: [
+                "Vrai",
+                "Faux"
+              ],
+              correctAnswer: "Vrai",
+              explanation: "C'est ce qu'on retient de la scène."
             },
             {
               id: "anti-f14",
-              type: "texte-a-trous",
-              question: "Créon a dit « oui » aux compromis ; Antigone, elle, dit ___.",
-              options: ["oui", "non", "peut-être", "merci"],
-              correctAnswer: "non",
-              explanation: "Antigone est celle qui dit NON au pouvoir.",
+              type: "qcm",
+              question: "Que dit Antigone pour montrer qu'elle est plus puissante que Créon ?",
+              options: [
+                "« moi je suis libre »",
+                "« moi je suis forte »",
+                "« moi je suis reine »",
+                "« moi je suis seule »"
+              ],
+              correctAnswer: "« moi je suis reine »",
+              explanation: "« moi je suis reine » : elle se sent plus puissante car elle respecte ses valeurs."
             },
             {
               id: "anti-f15",
-              type: "vrai-faux",
-              question: "Une tragédie se termine bien.",
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Faux",
-              explanation: "Dans une tragédie, le héros ne peut pas échapper à son destin : ça finit mal.",
+              type: "association",
+              question: "Associe chaque personnage à son rôle.",
+              pairs: [
+                {
+                  left: "Antigone",
+                  right: "Elle dit non"
+                },
+                {
+                  left: "Créon",
+                  right: "Le roi"
+                },
+                {
+                  left: "Ismène",
+                  right: "La sœur prudente"
+                },
+                {
+                  left: "Hémon",
+                  right: "Le fiancé"
+                }
+              ],
+              options: [
+                "Elle dit non",
+                "Le roi",
+                "La sœur prudente",
+                "Le fiancé"
+              ],
+              correctAnswer: [
+                "Elle dit non",
+                "Le roi",
+                "La sœur prudente",
+                "Le fiancé"
+              ],
+              explanation: "Revois l'arbre généalogique et la liste des personnages."
             },
             {
               id: "anti-f16",
-              type: "qcm",
-              question: "Dans quelle ville se passe l'histoire ?",
-              options: ["Thèbes", "Athènes", "Rome", "Paris"],
-              correctAnswer: "Thèbes",
-              explanation: "Créon est roi de Thèbes, une cité de la Grèce antique.",
+              type: "vrai-faux",
+              question: "Antigone essaie de convaincre Créon.",
+              options: [
+                "Vrai",
+                "Faux"
+              ],
+              correctAnswer: "Faux",
+              explanation: "Elle n'essaie pas : elle est sûre d'elle."
             },
             {
               id: "anti-f17",
-              type: "intrus",
-              question: "Trouve l'intrus : qui ne fait PAS partie de la famille d'Antigone ?",
-              options: ["Ismène", "Polynice", "Roméo", "Étéocle"],
-              correctAnswer: "Roméo",
-              explanation: "Roméo vient de « Roméo et Juliette » (Shakespeare). Ismène, Polynice et Étéocle sont frères et sœur d'Antigone.",
+              type: "qcm",
+              question: "Qui annonce la mort d'Antigone, d'Hémon et d'Eurydice ?",
+              options: [
+                "Le Prologue",
+                "La Nourrice",
+                "Le Messager",
+                "Ismène"
+              ],
+              correctAnswer: "Le Messager",
+              explanation: "Partie B : le Messager annonce les morts."
             },
             {
               id: "anti-f18",
-              type: "qcm",
-              question: "Que veut dire « têtu » ?",
-              options: ["Triste", "Drôle", "Rapide", "Obstiné, qui ne change pas d'avis"],
-              correctAnswer: "Obstiné, qui ne change pas d'avis",
-              explanation: "Antigone et Créon sont tous les deux têtus : ils ne veulent pas s'écouter.",
-            },
-            {
-              id: "anti-f19",
-              type: "qcm",
-              question: "Que s'est-il passé entre Étéocle et Polynice ?",
+              type: "vrai-faux",
+              question: "À la fin, Créon se retrouve seul.",
               options: [
-                "Ils sont partis en voyage",
-                "Ils se sont tués l'un l'autre pour le trône",
-                "Ils se sont réconciliés",
-                "Ils ont épousé deux sœurs",
+                "Vrai",
+                "Faux"
               ],
-              correctAnswer: "Ils se sont tués l'un l'autre pour le trône",
-              explanation: "Les deux frères se sont battus pour le trône de Thèbes et sont morts tous les deux.",
-            },
-            {
-              id: "anti-f20",
-              type: "vrai-faux",
-              question: "Au début de la pièce, le Prologue annonce déjà qu'Antigone va mourir.",
-              options: ["Vrai", "Faux"],
               correctAnswer: "Vrai",
-              explanation: "Le Prologue présente les personnages et annonce la fin : c'est une tragédie.",
-            },
-            {
-              id: "anti-f21",
-              type: "qcm",
-              question: "Au début de la pièce, avec qui Antigone parle-t-elle en rentrant à l'aube ?",
-              options: ["Créon", "La Nourrice", "Le Messager", "Eurydice"],
-              correctAnswer: "La Nourrice",
-              explanation: "La Nourrice la gronde : elle croit qu'Antigone est allée voir un amoureux.",
-            },
-            {
-              id: "anti-f22",
-              type: "qcm",
-              question: "Avec quel objet Antigone recouvre-t-elle de terre le corps de Polynice la première fois ?",
-              options: ["Une épée", "Ses chaussures", "Un seau", "Une petite pelle d'enfant"],
-              correctAnswer: "Une petite pelle d'enfant",
-              explanation: "Ce symbole montre qu'Antigone agit avec la pureté d'une enfant.",
-            },
-            {
-              id: "anti-f23",
-              type: "vrai-faux",
-              question: "Antigone est arrêtée par les gardes la deuxième fois qu'elle va recouvrir le corps.",
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Vrai",
-              explanation: "La première fois, de nuit, personne ne l'a vue. Elle y retourne en plein jour et se fait prendre.",
-            },
-            {
-              id: "anti-f24",
-              type: "qcm",
-              question: "Comment le Prologue décrit-il Antigone ?",
-              options: ["« la petite maigre »", "« la plus belle des princesses »", "« la reine de Thèbes »", "« la guerrière »"],
-              correctAnswer: "« la petite maigre »",
-              explanation: "Antigone n'a rien d'une héroïne en apparence : c'est Ismène qui est la belle.",
-            },
-            {
-              id: "anti-f25",
-              type: "vrai-faux",
-              question: "Ismène est décrite comme la plus belle et la plus raisonnable des deux sœurs.",
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Vrai",
-              explanation: "Ismène est belle et prudente ; elle a peur de Créon et refuse d'abord d'aider sa sœur.",
-            },
-            {
-              id: "anti-f26",
-              type: "qcm",
-              question: "Qui annonce la mort d'Antigone, d'Hémon et d'Eurydice ?",
-              options: ["Le Prologue", "Ismène", "Le Messager", "La Nourrice"],
-              correctAnswer: "Le Messager",
-              explanation: "Comme dans les tragédies grecques, les morts ne sont pas montrées : un messager les raconte.",
-            },
-            {
-              id: "anti-f27",
-              type: "qcm",
-              question: "Que font les gardes à la toute fin de la pièce ?",
-              options: ["Ils pleurent", "Ils enterrent Polynice", "Ils jouent aux cartes", "Ils couronnent Hémon"],
-              correctAnswer: "Ils jouent aux cartes",
-              explanation: "Ce détail montre l'indifférence du monde : la vie continue comme si rien ne s'était passé.",
-            },
-            {
-              id: "anti-f28",
-              type: "qcm",
-              question: "Comment meurt Antigone ?",
-              options: ["Elle se pend dans le tombeau où on l'a emmurée", "Elle est guillotinée", "Elle tombe malade", "Elle se noie"],
-              correctAnswer: "Elle se pend dans le tombeau où on l'a emmurée",
-              explanation: "Hémon, qui l'a rejointe, se tue à côté d'elle.",
-            },
-            {
-              id: "anti-f29",
-              type: "vrai-faux",
-              question: "La pièce d'Anouilh est découpée en cinq actes.",
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Faux",
-              explanation: "La pièce est jouée d'un seul bloc, sans actes ni entracte.",
-            },
-            {
-              id: "anti-f30",
-              type: "qcm",
-              question: "Qui est Eurydice ?",
-              options: ["La sœur d'Antigone", "La Nourrice", "Une déesse", "La femme de Créon"],
-              correctAnswer: "La femme de Créon",
-              explanation: "Elle tricote pour les pauvres de Thèbes et se tue en apprenant la mort de son fils Hémon.",
-            },
-          ],
+              explanation: "Partie B : il a perdu sa nièce, son fils et sa femme."
+            }
+          ]
         },
         {
           id: "intermediaire",
           name: "Intermédiaire",
           emoji: "🟡",
-          description: "Le conflit, la domination de Créon et la détermination d'Antigone.",
+          description: "La détermination d'Antigone et la domination de Créon.",
           questions: [
             {
               id: "anti-i1",
@@ -1077,699 +1138,697 @@ export const resources: Resource[] = [
               imageSrc: "/images/francais/antigone-genealogie-vierge.svg",
               imageAlt: "Arbre généalogique d'Antigone avec des cases vides",
               zones: [
-                { id: "zone-creon", x: 86.2, y: 14, correctLabel: "Créon" },
-                { id: "zone-oedipe", x: 27.5, y: 43, correctLabel: "Œdipe" },
-                { id: "zone-hemon", x: 86.2, y: 43, correctLabel: "Hémon" },
-                { id: "zone-antigone", x: 31.9, y: 73, correctLabel: "Antigone" },
-                { id: "zone-polynice", x: 73.1, y: 73, correctLabel: "Polynice" },
+                {
+                  id: "zone-creon",
+                  x: 86.2,
+                  y: 14,
+                  correctLabel: "Créon"
+                },
+                {
+                  id: "zone-oedipe",
+                  x: 27.5,
+                  y: 43,
+                  correctLabel: "Œdipe"
+                },
+                {
+                  id: "zone-hemon",
+                  x: 86.2,
+                  y: 43,
+                  correctLabel: "Hémon"
+                },
+                {
+                  id: "zone-antigone",
+                  x: 31.9,
+                  y: 73,
+                  correctLabel: "Antigone"
+                },
+                {
+                  id: "zone-polynice",
+                  x: 73.1,
+                  y: 73,
+                  correctLabel: "Polynice"
+                }
               ],
-              labels: ["Créon", "Œdipe", "Hémon", "Antigone", "Polynice", "Eurydice"],
+              labels: [
+                "Créon",
+                "Œdipe",
+                "Hémon",
+                "Antigone",
+                "Polynice",
+                "Eurydice"
+              ],
               correctAnswer: "drag-on-image",
-              explanation:
-                "Œdipe est le fils de Laïos et Jocaste. Ses enfants : Ismène, Antigone, Étéocle, Polynice. Créon (frère de Jocaste) est le père d'Hémon, fiancé d'Antigone.",
-              hint: "Lis les petites légendes sous chaque case.",
+              explanation: "Créon (le roi) est le père d'Hémon. Œdipe est le père d'Ismène, Antigone, Étéocle et Polynice (privé de tombe).",
+              hint: "Aide-toi des mots écrits sous les cases."
             },
             {
               id: "anti-i2",
-              type: "qcm",
-              question: "Que défend Créon ?",
-              options: [
-                "L'intérêt de sa famille avant tout",
-                "La responsabilité du royaume et l'ordre à maintenir",
-                "Le droit d'enterrer Polynice",
-                "La liberté de chacun de faire ce qu'il veut",
+              type: "tri-categories",
+              question: "Classe chaque caractéristique : Antigone ou Créon ?",
+              items: [
+                {
+                  id: "anti-i2-1",
+                  label: "Défend sa famille"
+                },
+                {
+                  id: "anti-i2-3",
+                  label: "Refuse le compromis"
+                },
+                {
+                  id: "anti-i2-5",
+                  label: "Devient violent"
+                },
+                {
+                  id: "anti-i2-2",
+                  label: "Reste calme"
+                },
+                {
+                  id: "anti-i2-4",
+                  label: "Défend le royaume"
+                },
+                {
+                  id: "anti-i2-6",
+                  label: "Veut maintenir l'ordre"
+                }
               ],
-              correctAnswer: "La responsabilité du royaume et l'ordre à maintenir",
-              explanation: "Il veut « rendre l'ordre de ce monde un peu moins absurde ».",
+              categories: [
+                {
+                  id: "antigone",
+                  label: "👧 Antigone",
+                  correctItemIds: [
+                    "anti-i2-1",
+                    "anti-i2-2",
+                    "anti-i2-3"
+                  ]
+                },
+                {
+                  id: "creon",
+                  label: "👑 Créon",
+                  correctItemIds: [
+                    "anti-i2-4",
+                    "anti-i2-5",
+                    "anti-i2-6"
+                  ]
+                }
+              ],
+              correctAnswer: "tri-categories",
+              explanation: "Chacun défend ses valeurs, argumentées et légitimes."
             },
             {
               id: "anti-i3",
               type: "qcm",
-              question: "Que défend Antigone ?",
+              question: "Comment se voit d'abord la détermination d'Antigone ?",
               options: [
-                "L'ordre du royaume",
-                "L'intérêt familial : le devoir d'enterrer son frère",
-                "Son droit à devenir reine",
-                "La loi de Créon",
+                "Par ses points d'exclamation",
+                "Par ses points de suspension",
+                "Par ses longues descriptions",
+                "Par ses questions à Créon"
               ],
-              correctAnswer: "L'intérêt familial : le devoir d'enterrer son frère",
-              explanation: "Antigone suit sa conscience et défend sa famille, malgré la loi.",
+              correctAnswer: "Par ses points d'exclamation",
+              explanation: "Une multitude de points d'exclamation montre sa colère."
             },
             {
               id: "anti-i4",
-              type: "tri-categories",
-              question: "Classe chaque caractéristique : Antigone ou Créon ?",
-              items: [
-                { id: "a4-a", label: "Dit non" },
-                { id: "a4-b", label: "Dit oui" },
-                { id: "a4-c", label: "Reste calme" },
-                { id: "a4-d", label: "Devient violent" },
-                { id: "a4-e", label: "Refuse le compromis" },
-                { id: "a4-f", label: "Défend l'ordre et la loi" },
+              type: "qcm",
+              question: "« Grossis un peu ! » est une phrase…",
+              options: [
+                "interrogative",
+                "déclarative",
+                "négative",
+                "injonctive"
               ],
-              categories: [
-                { id: "antigone", label: "👧 Antigone", correctItemIds: ["a4-a", "a4-c", "a4-e"] },
-                { id: "creon", label: "👑 Créon", correctItemIds: ["a4-b", "a4-d", "a4-f"] },
-              ],
-              correctAnswer: "tri-categories",
-              explanation: "Deux visions opposées : Antigone (non, calme, refus du compromis) contre Créon (oui, violence, ordre).",
+              correctAnswer: "injonctive",
+              explanation: "C'est un ordre, à l'impératif : Créon montre son pouvoir."
             },
             {
               id: "anti-i5",
               type: "qcm",
-              question: "Par quel signe de ponctuation se traduit surtout la détermination d'Antigone ?",
-              options: ["Les points de suspension", "Les virgules", "Les parenthèses", "Les points d'exclamation"],
-              correctAnswer: "Les points d'exclamation",
-              explanation: "Une multitude de points d'exclamation montre sa colère et sa détermination.",
+              question: "Que montre la didascalie « il serre le bras d'Antigone » ?",
+              options: [
+                "Une marque de tendresse",
+                "Une domination physique",
+                "Une envie de danser",
+                "Une peur de tomber"
+              ],
+              correctAnswer: "Une domination physique",
+              explanation: "Créon s'en prend physiquement à Antigone."
             },
             {
               id: "anti-i6",
-              type: "vrai-faux",
-              question: "Antigone essaie de toutes ses forces de convaincre Créon.",
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Faux",
-              explanation: "Elle n'essaie pas de le convaincre : elle est sûre d'elle et fera ce qu'elle a à faire.",
+              type: "association",
+              question: "Associe chaque domaine de domination à sa preuve.",
+              pairs: [
+                {
+                  left: "Responsabilité",
+                  right: "« rendre l'ordre de ce monde un peu moins absurde »"
+                },
+                {
+                  left: "Parole",
+                  right: "Il la tutoie, elle le vouvoie"
+                },
+                {
+                  left: "Physique",
+                  right: "« il serre le bras d'Antigone »"
+                },
+                {
+                  left: "Statut",
+                  right: "« faire un gros garçon à Hémon »"
+                }
+              ],
+              options: [
+                "« rendre l'ordre de ce monde un peu moins absurde »",
+                "Il la tutoie, elle le vouvoie",
+                "« il serre le bras d'Antigone »",
+                "« faire un gros garçon à Hémon »"
+              ],
+              correctAnswer: [
+                "« rendre l'ordre de ce monde un peu moins absurde »",
+                "Il la tutoie, elle le vouvoie",
+                "« il serre le bras d'Antigone »",
+                "« faire un gros garçon à Hémon »"
+              ],
+              explanation: "R-P-P-S : responsabilité, parole, physique, statut."
             },
             {
               id: "anti-i7",
-              type: "qcm",
-              question: "« Grossis un peu ! » est une phrase…",
-              options: ["injonctive (à l'impératif)", "interrogative", "déclarative", "négative"],
-              correctAnswer: "injonctive (à l'impératif)",
-              explanation: "C'est un ordre, à l'impératif : Créon montre son pouvoir.",
+              type: "texte-a-trous",
+              question: "« Quel jeu joues-tu ? » : Créon parle à Antigone comme à une ___.",
+              options: [
+                "vieille dame",
+                "petite fille",
+                "reine puissante",
+                "ennemie"
+              ],
+              correctAnswer: "petite fille",
+              explanation: "Il ne la prend pas au sérieux. Elle répond : « Je ne joue pas »."
             },
             {
               id: "anti-i8",
               type: "qcm",
-              question: "Que montre la didascalie « il serre le bras d'Antigone » ?",
+              question: "Que fait Créon en disant qu'elle doit « faire un gros garçon à Hémon » ?",
               options: [
-                "Que Créon la console",
-                "Que Créon danse avec elle",
-                "Que Créon la domine physiquement",
-                "Que Créon a froid",
+                "Il lui donne un rôle politique",
+                "Il annonce qu'il la pardonne",
+                "Il refuse qu'elle se marie",
+                "Il lui retire son rôle politique"
               ],
-              correctAnswer: "Que Créon la domine physiquement",
-              explanation: "Créon s'en prend physiquement à Antigone : c'est une forme de domination.",
+              correctAnswer: "Il lui retire son rôle politique",
+              explanation: "Il la ramène à un rôle d'épouse et de mère : c'est la domination par le statut."
             },
             {
               id: "anti-i9",
-              type: "association",
-              question: "Associe chaque domaine de domination à sa preuve dans le texte.",
-              pairs: [
-                { left: "Responsabilité", right: "« rendre l'ordre de ce monde un peu moins absurde »" },
-                { left: "Parole", right: "Il la tutoie, elle le vouvoie" },
-                { left: "Physique", right: "« il serre le bras d'Antigone »" },
-                { left: "Statut", right: "« faire un gros garçon à Hémon »" },
-              ],
+              type: "qcm",
+              question: "Que montre le tutoiement de Créon ?",
               options: [
-                "« rendre l'ordre de ce monde un peu moins absurde »",
-                "Il la tutoie, elle le vouvoie",
-                "« il serre le bras d'Antigone »",
-                "« faire un gros garçon à Hémon »",
+                "Il prend plus de liberté avec elle",
+                "Il la respecte plus que les autres",
+                "Il la connaît depuis très peu",
+                "Il veut qu'elle devienne reine"
               ],
-              correctAnswer: [
-                "« rendre l'ordre de ce monde un peu moins absurde »",
-                "Il la tutoie, elle le vouvoie",
-                "« il serre le bras d'Antigone »",
-                "« faire un gros garçon à Hémon »",
-              ],
-              explanation: "Créon domine Antigone de 4 façons : responsabilité, parole, physique, statut.",
+              correctAnswer: "Il prend plus de liberté avec elle",
+              explanation: "Il la tutoie, elle le vouvoie : la parole montre qui domine."
             },
             {
               id: "anti-i10",
-              type: "qcm",
-              question: "Qu'est-ce qu'une stichomythie ?",
+              type: "vrai-faux",
+              question: "Antigone écoute les arguments de Créon et change d'avis.",
               options: [
-                "Un long monologue",
-                "Un chant du chœur",
-                "Un échange de répliques très courtes et rapides",
-                "Une indication de décor",
+                "Vrai",
+                "Faux"
               ],
-              correctAnswer: "Un échange de répliques très courtes et rapides",
-              explanation: "Les répliques fusent comme des coups d'épée : c'est un duel de paroles.",
+              correctAnswer: "Faux",
+              explanation: "Elle fera ce qu'elle a à faire, malgré les interdictions."
             },
             {
               id: "anti-i11",
-              type: "vrai-faux",
-              question: "En 1944, quand la pièce est jouée, la France est occupée par l'Allemagne.",
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Vrai",
-              explanation: "C'est la Seconde Guerre mondiale. Paris ne sera libéré qu'en août 1944.",
+              type: "qcm",
+              question: "Quelle est la grande question de la pièce ?",
+              options: [
+                "Antigone va-t-elle partir ?",
+                "Antigone va-t-elle régner ?",
+                "Antigone va-t-elle céder ?",
+                "Antigone va-t-elle mentir ?"
+              ],
+              correctAnswer: "Antigone va-t-elle céder ?",
+              explanation: "Antigone va-t-elle céder ou persister ? Créon va-t-il la condamner ?"
             },
             {
               id: "anti-i12",
               type: "qcm",
-              question: "Pourquoi beaucoup de spectateurs de 1944 ont-ils vu en Antigone une figure de la Résistance ?",
+              question: "Pourquoi Antigone n'essaie-t-elle pas de convaincre Créon ?",
               options: [
-                "Parce qu'elle dit non au pouvoir, même au prix de sa vie",
-                "Parce qu'elle porte un uniforme",
-                "Parce qu'elle gagne une bataille",
-                "Parce qu'elle devient reine de France",
+                "Elle a peur de lui",
+                "Elle est d'accord",
+                "Elle est sûre d'elle",
+                "Elle est trop fatiguée"
               ],
-              correctAnswer: "Parce qu'elle dit non au pouvoir, même au prix de sa vie",
-              explanation: "Comme les résistants, Antigone refuse de se soumettre à un pouvoir injuste.",
+              correctAnswer: "Elle est sûre d'elle",
+              explanation: "Elle est sûre d'elle, cela se voit à son calme."
             },
             {
               id: "anti-i13",
-              type: "texte-a-trous",
-              question: "« Quel jeu joues-tu ? » : Créon ne prend pas Antigone au sérieux, il lui parle comme à une ___.",
-              options: ["reine", "petite fille", "ennemie", "guerrière"],
-              correctAnswer: "petite fille",
-              explanation: "Antigone répond : « Je ne joue pas. » Elle refuse d'être traitée comme une enfant.",
+              type: "qcm-multiple",
+              question: "Quels procédés montrent le conflit dans la scène ? (3 réponses)",
+              options: [
+                "Les points d'exclamation",
+                "Les phrases injonctives",
+                "Les didascalies",
+                "Les rimes",
+                "Les descriptions de paysage"
+              ],
+              correctAnswer: [
+                "Les points d'exclamation",
+                "Les phrases injonctives",
+                "Les didascalies"
+              ],
+              explanation: "Ce sont les procédés repérés en classe dans le dialogue."
             },
             {
               id: "anti-i14",
-              type: "ordre",
-              question: "Remets l'histoire d'Antigone dans l'ordre.",
+              type: "qcm",
+              question: "Qui a mis en scène la pièce avec Barbara Schulz et Robert Hossein ?",
               options: [
-                "Étéocle et Polynice s'entretuent",
-                "Créon devient roi de Thèbes",
-                "Créon interdit d'enterrer Polynice",
-                "Antigone recouvre de terre le corps de son frère",
-                "Antigone est condamnée à mort",
+                "Nicolas Briançon",
+                "Jean Anouilh",
+                "Victor Hugo",
+                "Robert Badinter"
               ],
-              correctAnswer: [
-                "Étéocle et Polynice s'entretuent",
-                "Créon devient roi de Thèbes",
-                "Créon interdit d'enterrer Polynice",
-                "Antigone recouvre de terre le corps de son frère",
-                "Antigone est condamnée à mort",
-              ],
-              explanation: "La mort des frères entraîne l'interdiction, puis la désobéissance d'Antigone et sa condamnation.",
+              correctAnswer: "Nicolas Briançon",
+              explanation: "La mise en scène de Nicolas Briançon est notée dans le cours."
             },
             {
               id: "anti-i15",
-              type: "qcm",
-              question: "En disant qu'elle doit « faire un gros garçon à Hémon », que fait Créon ?",
+              type: "ordre",
+              question: "Remets ces moments de la pièce dans l'ordre (Partie B).",
               options: [
-                "Il la félicite",
-                "Il lui donne un rôle politique",
-                "Il annonce son mariage avec un autre",
-                "Il la ramène à un rôle d'épouse et de mère et lui retire son rôle politique",
+                "Le Prologue annonce qu'Antigone va mourir",
+                "Antigone est arrêtée près du corps",
+                "Créon et Antigone s'affrontent",
+                "Le Messager annonce les morts"
               ],
-              correctAnswer: "Il la ramène à un rôle d'épouse et de mère et lui retire son rôle politique",
-              explanation: "C'est la domination par le statut : pour Créon, Antigone n'a pas à se mêler des affaires du royaume.",
+              correctAnswer: [
+                "Le Prologue annonce qu'Antigone va mourir",
+                "Antigone est arrêtée près du corps",
+                "Créon et Antigone s'affrontent",
+                "Le Messager annonce les morts"
+              ],
+              explanation: "Revois la frise de la Partie B."
             },
             {
               id: "anti-i16",
-              type: "qcm-multiple",
-              question: "Quels procédés montrent un conflit dans un dialogue de théâtre ? (3 réponses)",
+              type: "vrai-faux",
+              question: "Dans la scène, chacun défend des valeurs argumentées et légitimes.",
               options: [
-                "La stichomythie",
-                "Les phrases exclamatives",
-                "Les didascalies de gestes violents",
-                "Une longue description de paysage",
-                "Un narrateur qui raconte au passé",
+                "Vrai",
+                "Faux"
               ],
-              correctAnswer: ["La stichomythie", "Les phrases exclamatives", "Les didascalies de gestes violents"],
-              explanation: "Au théâtre, le conflit passe par le rythme des répliques, les émotions et les gestes.",
+              correctAnswer: "Vrai",
+              explanation: "C'est ce qui rend le conflit si fort."
             },
             {
               id: "anti-i17",
-              type: "vrai-faux",
-              question: "Dans la scène, Antigone tutoie Créon et Créon la vouvoie.",
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Faux",
-              explanation: "C'est l'inverse : Créon la tutoie, Antigone le vouvoie.",
+              type: "association",
+              question: "Qui dit quoi ? (Partie B)",
+              pairs: [
+                {
+                  left: "« Je suis là pour vous dire non et pour mourir. »",
+                  right: "Antigone"
+                },
+                {
+                  left: "« Il faut pourtant qu'il y en ait qui mènent la barque. »",
+                  right: "Créon"
+                },
+                {
+                  left: "« Et voilà. »",
+                  right: "Le Chœur"
+                }
+              ],
+              options: [
+                "Antigone",
+                "Créon",
+                "Le Chœur"
+              ],
+              correctAnswer: [
+                "Antigone",
+                "Créon",
+                "Le Chœur"
+              ],
+              explanation: "Les 3 répliques à reconnaître de la Partie B."
             },
             {
               id: "anti-i18",
               type: "qcm",
-              question: "Qui a mis en scène « Antigone » en 2003, avec Barbara Schulz et Robert Hossein ?",
-              options: ["Jean Anouilh", "Nicolas Briançon", "Robert Badinter", "Victor Hugo"],
-              correctAnswer: "Nicolas Briançon",
-              explanation: "Barbara Schulz jouait Antigone et Robert Hossein jouait Créon.",
-            },
-            {
-              id: "anti-i19",
-              type: "qcm",
-              question: "Que veut dire « faire un compromis » ?",
+              question: "Que veut dire Antigone avec « moi je suis reine » ?",
               options: [
-                "Faire une promesse",
-                "Trouver un accord où chacun renonce à une partie de ce qu'il veut",
-                "Refuser toute discussion",
-                "Gagner une dispute",
+                "Elle veut prendre le trône",
+                "Elle est la fille du roi",
+                "Elle accepte le mariage",
+                "Elle se sent plus puissante"
               ],
-              correctAnswer: "Trouver un accord où chacun renonce à une partie de ce qu'il veut",
-              explanation: "Créon accepte les compromis ; Antigone les refuse.",
-            },
-            {
-              id: "anti-i20",
-              type: "intrus",
-              question: "Trouve l'intrus : ce que Créon ne défend PAS.",
-              options: ["L'ordre", "La loi", "L'enterrement de Polynice", "La responsabilité du royaume"],
-              correctAnswer: "L'enterrement de Polynice",
-              explanation: "C'est Antigone qui veut enterrer Polynice. Créon l'a interdit.",
-            },
-            {
-              id: "anti-i21",
-              type: "ordre",
-              question: "Remets dans l'ordre ces moments de la pièce.",
-              options: ["Le Prologue présente les personnages", "Antigone fait ses adieux à Hémon", "Le Garde annonce que le corps a été recouvert", "Antigone est arrêtée", "Le Messager annonce les morts"],
-              correctAnswer: ["Le Prologue présente les personnages", "Antigone fait ses adieux à Hémon", "Le Garde annonce que le corps a été recouvert", "Antigone est arrêtée", "Le Messager annonce les morts"],
-              explanation: "Revois la frise de la fiche : 12 étapes, du Prologue à la partie de cartes des gardes.",
-            },
-            {
-              id: "anti-i22",
-              type: "association",
-              question: "Associe chaque citation à son personnage.",
-              pairs: [{"left": "« Je suis là pour vous dire non et pour mourir. »", "right": "Antigone"}, {"left": "« Il faut pourtant qu'il y en ait qui mènent la barque. »", "right": "Créon"}, {"left": "« C'est propre, la tragédie. »", "right": "Le Chœur"}, {"left": "« la petite maigre »", "right": "Le Prologue"}],
-              options: ["Antigone", "Créon", "Le Chœur", "Le Prologue"],
-              correctAnswer: ["Antigone", "Créon", "Le Chœur", "Le Prologue"],
-              explanation: "Ces citations clés sont dans le tableau de la Partie B de la fiche.",
-            },
-            {
-              id: "anti-i23",
-              type: "qcm",
-              question: "Que fait Créon quand il apprend que le corps de Polynice a été recouvert ?",
-              options: ["Il fait sonner les cloches", "Il abdique", "Il accuse Hémon", "Il veut garder l'affaire secrète"],
-              correctAnswer: "Il veut garder l'affaire secrète",
-              explanation: "Créon ordonne au Garde de se taire : il veut éviter le désordre. Plus tard, il voudra même étouffer l'affaire pour sauver Antigone.",
-            },
-            {
-              id: "anti-i24",
-              type: "qcm",
-              question: "Pendant la grande scène, que propose d'abord Créon à Antigone ?",
-              options: ["De rentrer chez elle, se taire, et il étouffera l'affaire", "De s'enfuir de Thèbes", "De devenir reine", "D'enterrer Polynice avec son aide"],
-              correctAnswer: "De rentrer chez elle, se taire, et il étouffera l'affaire",
-              explanation: "Créon veut la sauver : il lui offre une porte de sortie. Antigone refuse.",
-            },
-            {
-              id: "anti-i25",
-              type: "vrai-faux",
-              question: "Ismène finit par vouloir mourir avec Antigone, mais Antigone refuse.",
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Vrai",
-              explanation: "Antigone refuse : Ismène n'a pas agi avec elle, elle ne partagera pas sa mort.",
-            },
-            {
-              id: "anti-i26",
-              type: "qcm",
-              question: "Que fait Hémon après la condamnation d'Antigone ?",
-              options: ["Il approuve son père", "Il quitte Thèbes pour toujours", "Il supplie son père de la sauver", "Il devient roi"],
-              correctAnswer: "Il supplie son père de la sauver",
-              explanation: "Créon refuse de céder. Hémon rejoindra Antigone dans le tombeau.",
-            },
-            {
-              id: "anti-i27",
-              type: "qcm",
-              question: "Pendant ses derniers moments avec le Garde, que fait Antigone ?",
-              options: ["Elle chante", "Elle s'évade", "Elle fait écrire une lettre pour Hémon", "Elle demande pardon à Créon"],
-              correctAnswer: "Elle fait écrire une lettre pour Hémon",
-              explanation: "Le Garde, lui, ne pense qu'à sa paye et à son avancement : il ne comprend rien à sa tragédie.",
-            },
-            {
-              id: "anti-i28",
-              type: "qcm",
-              question: "Que représente le Chœur dans la pièce ?",
-              options: ["Un commentateur qui explique la tragédie au public", "Un groupe de chanteurs", "Le fils de Créon", "Les dieux de l'Olympe"],
-              correctAnswer: "Un commentateur qui explique la tragédie au public",
-              explanation: "Chez Anouilh, le Chœur est un seul personnage qui commente l'action.",
-            },
-            {
-              id: "anti-i29",
-              type: "qcm",
-              question: "À la fin, que fait Créon après la mort de sa famille ?",
-              options: ["Il se tue", "Il libère tous les prisonniers", "Il quitte le trône", "Il part à son conseil : il continue à gouverner, seul"],
-              correctAnswer: "Il part à son conseil : il continue à gouverner, seul",
-              explanation: "Pour Créon, le travail de roi doit continuer, même seul et malheureux.",
-            },
-            {
-              id: "anti-i30",
-              type: "vrai-faux",
-              question: "Dans la pièce d'Anouilh, Antigone agit d'abord pour obéir aux dieux, comme chez Sophocle.",
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Faux",
-              explanation: "Chez Anouilh, Antigone agit surtout pour elle-même : par fidélité à son frère et parce qu'elle refuse de dire oui.",
-            },
-          ],
+              correctAnswer: "Elle se sent plus puissante",
+              explanation: "Elle est plus puissante que Créon, car elle fait ce qu'elle croit juste."
+            }
+          ]
         },
         {
           id: "expert",
           name: "Expert",
           emoji: "🔴",
-          description: "Interpréter, analyser les procédés et maîtriser la synthèse.",
+          description: "La synthèse, l'analyse et la rédaction.",
           questions: [
             {
               id: "anti-e1",
-              type: "qcm",
-              question: "Quand Antigone dit « moi je suis reine », que veut-elle montrer ?",
+              type: "texte-a-trous-select",
+              question: "« Antigone refuse de se ___ aux décisions trop raisonnables des adultes. Elle refuse le ___. »",
               options: [
-                "Qu'elle va prendre le trône de Créon",
-                "Qu'elle se sent plus puissante que Créon, car elle fait ce qu'elle croit juste",
-                "Qu'elle est la fille du roi",
-                "Qu'elle accepte d'épouser Hémon",
+                "soumettre",
+                "compromis",
+                "révolter",
+                "combat"
               ],
-              correctAnswer: "Qu'elle se sent plus puissante que Créon, car elle fait ce qu'elle croit juste",
-              explanation: "Même blessée et condamnée, elle reste libre : elle respecte ses valeurs. Créon, lui, doit faire des compromis.",
+              correctAnswer: [
+                "soumettre",
+                "compromis"
+              ],
+              explanation: "C'est la synthèse du cours."
             },
             {
               id: "anti-e2",
-              type: "texte-a-trous-select",
-              question: "« Antigone refuse de se ___ aux décisions trop raisonnables des adultes. Elle refuse le ___. »",
-              options: ["soumettre", "compromis", "révolter", "combat", "mariage"],
-              correctAnswer: ["soumettre", "compromis"],
-              explanation: "C'est la synthèse de la séance : Antigone refuse de se soumettre et refuse le compromis.",
+              type: "qcm",
+              question: "Pourquoi Antigone se sent-elle libre ?",
+              options: [
+                "Elle échappe à Créon",
+                "Elle choisit son destin",
+                "Elle devient la reine",
+                "Elle quitte la ville"
+              ],
+              correctAnswer: "Elle choisit son destin",
+              explanation: "Elle choisit son destin, quoi qu'il lui en coûte."
             },
             {
               id: "anti-e3",
-              type: "qcm",
-              question: "Pourquoi le conflit entre Antigone et Créon est-il si fort ?",
-              options: [
-                "Parce que Créon a complètement tort",
-                "Parce que chacun défend des valeurs argumentées et légitimes",
-                "Parce qu'Antigone ment",
-                "Parce qu'ils ne se connaissent pas",
+              type: "tri-categories",
+              question: "Classe chaque preuve dans le bon domaine de domination.",
+              items: [
+                {
+                  id: "anti-e3-1",
+                  label: "Il veut mettre de l'ordre"
+                },
+                {
+                  id: "anti-e3-3",
+                  label: "« Grossis un peu ! »"
+                },
+                {
+                  id: "anti-e3-5",
+                  label: "Elle doit être épouse et mère"
+                },
+                {
+                  id: "anti-e3-2",
+                  label: "Il la tutoie"
+                },
+                {
+                  id: "anti-e3-4",
+                  label: "Il serre son bras"
+                }
               ],
-              correctAnswer: "Parce que chacun défend des valeurs argumentées et légitimes",
-              explanation: "Les deux ont leurs raisons : la famille et la conscience contre l'ordre et la loi.",
+              categories: [
+                {
+                  id: "resp",
+                  label: "🏛️ Responsabilité",
+                  correctItemIds: [
+                    "anti-e3-1"
+                  ]
+                },
+                {
+                  id: "parole",
+                  label: "🗣️ Parole",
+                  correctItemIds: [
+                    "anti-e3-2",
+                    "anti-e3-3"
+                  ]
+                },
+                {
+                  id: "phys",
+                  label: "✋ Physique",
+                  correctItemIds: [
+                    "anti-e3-4"
+                  ]
+                },
+                {
+                  id: "statut",
+                  label: "👰 Statut",
+                  correctItemIds: [
+                    "anti-e3-5"
+                  ]
+                }
+              ],
+              correctAnswer: "tri-categories",
+              explanation: "R-P-P-S : responsabilité, parole, physique, statut."
             },
             {
               id: "anti-e4",
-              type: "completion-tableau",
-              question: "Écris le type de chaque phrase : déclarative, interrogative ou injonctive.",
-              table: {
-                headers: ["Réplique", "Type de phrase"],
-                rows: [
-                  [{ value: "« Grossis un peu ! »" }, { blank: true, correctAnswer: "injonctive" }],
-                  [{ value: "« Quel jeu joues-tu ? »" }, { blank: true, correctAnswer: "interrogative" }],
-                  [{ value: "« Je ne joue pas. »" }, { blank: true, correctAnswer: "déclarative" }],
-                ],
-              },
-              correctAnswer: ["injonctive", "interrogative", "déclarative"],
-              explanation: "Ordre = injonctive ; question = interrogative ; affirmation = déclarative.",
-              hint: "Recopie un des trois mots proposés dans la consigne.",
+              type: "qcm",
+              question: "Pourquoi parle-t-on d'une « situation déséquilibrée » ?",
+              options: [
+                "Antigone domine Créon",
+                "Créon domine de 4 façons",
+                "Les deux sont d'accord",
+                "Personne ne parle"
+              ],
+              correctAnswer: "Créon domine de 4 façons",
+              explanation: "Responsabilité, parole, physique, statut : Créon a tous les pouvoirs."
             },
             {
               id: "anti-e5",
               type: "qcm",
-              question: "Pourquoi parle-t-on d'une « situation déséquilibrée » ?",
+              question: "Quelle phrase analyse correctement un procédé ?",
               options: [
-                "Parce qu'Antigone domine Créon",
-                "Parce que la scène est trop longue",
-                "Parce que les deux personnages sont d'accord",
-                "Parce que Créon domine Antigone en responsabilité, en parole, physiquement et en statut",
+                "« Grossis un peu ! » : cette phrase injonctive est dite au milieu de la scène.",
+                "« Grossis un peu ! » : cette phrase injonctive contient un point d'exclamation.",
+                "« Grossis un peu ! » : cette phrase injonctive est écrite par Jean Anouilh.",
+                "« Grossis un peu ! » : cette phrase injonctive montre le pouvoir de Créon."
               ],
-              correctAnswer: "Parce que Créon domine Antigone en responsabilité, en parole, physiquement et en statut",
-              explanation: "Créon a tous les pouvoirs… mais Antigone garde sa liberté intérieure.",
+              correctAnswer: "« Grossis un peu ! » : cette phrase injonctive montre le pouvoir de Créon.",
+              explanation: "Une bonne analyse donne la citation, le procédé ET son effet."
             },
             {
               id: "anti-e6",
-              type: "vrai-faux",
-              question: "Même si Créon la domine, c'est Antigone qui se sent libre.",
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Vrai",
-              explanation: "Elle choisit son destin, quoi qu'il lui en coûte : c'est cela, sa liberté.",
+              type: "ordre",
+              question: "Remets dans l'ordre les phrases de ce paragraphe (méthode I-C-A-C).",
+              options: [
+                "Même dominée par Créon, Antigone reste libre.",
+                "Elle affirme : « moi je suis reine ».",
+                "Elle se sent plus puissante, car elle fait ce qu'elle croit juste.",
+                "Ainsi, elle choisit son destin."
+              ],
+              correctAnswer: [
+                "Même dominée par Créon, Antigone reste libre.",
+                "Elle affirme : « moi je suis reine ».",
+                "Elle se sent plus puissante, car elle fait ce qu'elle croit juste.",
+                "Ainsi, elle choisit son destin."
+              ],
+              explanation: "Idée → Citation → Analyse → Conclusion."
             },
             {
               id: "anti-e7",
-              type: "qcm",
-              question: "Quel est l'effet du tutoiement de Créon face au vouvoiement d'Antigone ?",
+              type: "vrai-faux",
+              question: "Même si Créon la domine, c'est Antigone qui se sent libre.",
               options: [
-                "Il montre que Créon prend davantage de liberté avec elle : il la domine",
-                "Il montre qu'ils sont amis",
-                "Il montre qu'Antigone est la plus âgée",
-                "Il n'a aucun effet",
+                "Vrai",
+                "Faux"
               ],
-              correctAnswer: "Il montre que Créon prend davantage de liberté avec elle : il la domine",
-              explanation: "La manière de s'adresser à quelqu'un révèle un rapport de pouvoir.",
+              correctAnswer: "Vrai",
+              explanation: "« moi je suis reine »."
             },
             {
               id: "anti-e8",
               type: "qcm",
-              question: "Qu'est-ce qui distingue l'Antigone d'Anouilh de celle de Sophocle ?",
+              question: "Quelle est la différence de violence entre les deux personnages ?",
               options: [
-                "Antigone ne meurt pas",
-                "Il n'y a pas de Créon",
-                "Le langage est courant, parfois familier",
-                "Elle se passe en Amérique",
+                "Elle est calme, il est violent",
+                "Elle est violente, il est calme",
+                "Ils sont calmes tous les deux",
+                "Ils sont violents tous les deux"
               ],
-              correctAnswer: "Le langage est courant, parfois familier",
-              explanation: "Anouilh garde l'histoire du mythe mais modernise la langue (« Grossis un peu ! »).",
+              correctAnswer: "Elle est calme, il est violent",
+              explanation: "Antigone est calme, sûre d'elle ; Créon devient violent."
             },
             {
               id: "anti-e9",
               type: "qcm-multiple",
-              question: "Quels éléments montrent qu'« Antigone » est une tragédie ? (3 réponses)",
+              question: "Quels éléments montrent la domination par la parole ? (2 réponses)",
               options: [
-                "Le Prologue annonce la mort d'Antigone",
-                "L'héroïne ne peut pas échapper à son destin",
-                "Plusieurs personnages meurent à la fin",
-                "Tout finit par un mariage heureux",
+                "Le tutoiement",
+                "La phrase injonctive",
+                "Le bras serré",
+                "Le rôle de mère"
               ],
               correctAnswer: [
-                "Le Prologue annonce la mort d'Antigone",
-                "L'héroïne ne peut pas échapper à son destin",
-                "Plusieurs personnages meurent à la fin",
+                "Le tutoiement",
+                "La phrase injonctive"
               ],
-              explanation: "Destin inévitable, fin annoncée, morts : ce sont les marques de la tragédie.",
+              explanation: "Le bras serré = physique ; le rôle de mère = statut."
             },
             {
               id: "anti-e10",
-              type: "association",
-              question: "Associe chaque procédé à son effet dans le dialogue.",
-              pairs: [
-                { left: "Stichomythie", right: "Un vrai duel de paroles" },
-                { left: "Phrases exclamatives", right: "Colère et détermination" },
-                { left: "Phrases injonctives", right: "Le pouvoir de Créon" },
-                { left: "Didascalies", right: "La violence physique" },
+              type: "qcm",
+              question: "À quelle partie du programme se rattache cette séance ?",
+              options: [
+                "Se raconter",
+                "Voyager loin",
+                "Agir dans la cité",
+                "Rire de tout"
               ],
-              options: ["Un vrai duel de paroles", "Colère et détermination", "Le pouvoir de Créon", "La violence physique"],
-              correctAnswer: ["Un vrai duel de paroles", "Colère et détermination", "Le pouvoir de Créon", "La violence physique"],
-              explanation: "Ces procédés d'écriture font sentir le conflit au spectateur.",
+              correctAnswer: "Agir dans la cité",
+              explanation: "« Agir dans la cité : individu et pouvoir » : Antigone face au roi."
             },
             {
               id: "anti-e11",
               type: "qcm",
-              question: "Quelle question le spectateur se pose-t-il pendant toute la pièce ?",
+              question: "Comment cette séance répond-elle à la question du chapitre ?",
               options: [
-                "Qui a tué Polynice ?",
-                "Hémon va-t-il devenir roi ?",
-                "Antigone va-t-elle céder ou persister ?",
-                "Où est caché le trésor de Thèbes ?",
+                "En montrant qu'il faut obéir",
+                "En montrant qu'il faut fuir",
+                "En montrant qu'on peut dire non",
+                "En montrant qu'il faut mentir"
               ],
-              correctAnswer: "Antigone va-t-elle céder ou persister ?",
-              explanation: "Et aussi : Créon va-t-il appliquer la loi et condamner Antigone ?",
+              correctAnswer: "En montrant qu'on peut dire non",
+              explanation: "Antigone exprime son désir de liberté en disant non au pouvoir."
             },
             {
               id: "anti-e12",
               type: "vrai-faux",
-              question: "Créon condamne Antigone à être emmurée vivante.",
-              options: ["Vrai", "Faux"],
+              question: "Pour Créon, la responsabilité du royaume passe avant la famille.",
+              options: [
+                "Vrai",
+                "Faux"
+              ],
               correctAnswer: "Vrai",
-              explanation: "Elle est enfermée vivante dans un tombeau, où elle se donne la mort.",
+              explanation: "Créon veut maintenir l'ordre ; Antigone défend l'intérêt familial."
             },
             {
               id: "anti-e13",
               type: "qcm",
-              question: "Antigone « choisit son destin, quoi qu'il lui en coûte ». Cela signifie…",
+              question: "Que montre la réponse « Je ne joue pas » d'Antigone ?",
               options: [
-                "Qu'elle va jusqu'au bout, même si elle doit en mourir",
-                "Qu'elle achète sa liberté",
-                "Qu'elle laisse Créon choisir pour elle",
-                "Qu'elle change d'avis",
+                "Elle refuse d'être une enfant",
+                "Elle aime les jeux d'enfant",
+                "Elle a perdu une partie",
+                "Elle veut jouer plus tard"
               ],
-              correctAnswer: "Qu'elle va jusqu'au bout, même si elle doit en mourir",
-              explanation: "Sa liberté est plus importante pour elle que sa propre vie.",
+              correctAnswer: "Elle refuse d'être une enfant",
+              explanation: "Créon la traite comme une petite fille ; elle refuse."
             },
             {
               id: "anti-e14",
-              type: "tri-categories",
-              question: "Classe chaque preuve dans le bon domaine de domination de Créon.",
-              items: [
-                { id: "a14-a", label: "Il veut mettre de l'ordre dans le royaume" },
-                { id: "a14-b", label: "Il la tutoie" },
-                { id: "a14-c", label: "« Grossis un peu ! »" },
-                { id: "a14-d", label: "Il serre le bras d'Antigone" },
-                { id: "a14-e", label: "Elle doit faire un gros garçon à Hémon" },
-                { id: "a14-f", label: "Il lui retire son rôle politique" },
+              type: "intrus",
+              question: "Trouve l'intrus : lequel n'est PAS un domaine où Créon domine Antigone ?",
+              options: [
+                "La parole",
+                "Le physique",
+                "Le statut",
+                "La richesse"
               ],
-              categories: [
-                { id: "responsabilite", label: "🏛️ Responsabilité", correctItemIds: ["a14-a"] },
-                { id: "parole", label: "🗣️ Parole", correctItemIds: ["a14-b", "a14-c"] },
-                { id: "physique", label: "✋ Physique", correctItemIds: ["a14-d"] },
-                { id: "statut", label: "👰 Statut", correctItemIds: ["a14-e", "a14-f"] },
-              ],
-              correctAnswer: "tri-categories",
-              explanation: "Revois le tableau « Une situation déséquilibrée » de la fiche.",
+              correctAnswer: "La richesse",
+              explanation: "R-P-P-S : responsabilité, parole, physique, statut."
             },
             {
               id: "anti-e15",
               type: "qcm",
-              question: "À quel thème du programme la séance sur Antigone se rattache-t-elle surtout ?",
+              question: "« Il faut pourtant qu'il y en ait qui mènent la barque » : que veut dire Créon ?",
               options: [
-                "Se raconter, se représenter",
-                "Visions poétiques du monde",
-                "Le voyage et l'aventure",
-                "Agir dans la cité : individu et pouvoir",
+                "Il faut bien voyager",
+                "Il faut bien gouverner",
+                "Il faut bien pêcher",
+                "Il faut bien se cacher"
               ],
-              correctAnswer: "Agir dans la cité : individu et pouvoir",
-              explanation: "La séance s'appelle « La confrontation entre l'individu et le pouvoir ».",
+              correctAnswer: "Il faut bien gouverner",
+              explanation: "Partie B : la barque = le royaume. Quelqu'un doit gouverner."
             },
             {
               id: "anti-e16",
-              type: "intrus",
-              question: "Trouve l'intrus : lequel n'est PAS un procédé du dialogue de théâtre ?",
-              options: ["Stichomythie", "Didascalie", "Point de vue interne", "Tutoiement / vouvoiement"],
-              correctAnswer: "Point de vue interne",
-              explanation: "Le point de vue interne appartient au récit (comme chez Hugo), pas au dialogue de théâtre.",
+              type: "qcm-multiple",
+              question: "Quels sont les grands thèmes de la pièce ? (3 réponses)",
+              options: [
+                "Dire non au pouvoir",
+                "L'enfance et les adultes",
+                "Le destin et la liberté",
+                "La guerre des étoiles",
+                "Le voyage en mer"
+              ],
+              correctAnswer: [
+                "Dire non au pouvoir",
+                "L'enfance et les adultes",
+                "Le destin et la liberté"
+              ],
+              explanation: "Les 3 thèmes de la Partie B."
             },
             {
               id: "anti-e17",
-              type: "qcm",
-              question: "Quel est le rôle du Prologue au début de la pièce ?",
+              type: "vrai-faux",
+              question: "Dans la pièce, on sait dès le début qu'Antigone va mourir.",
               options: [
-                "Chanter une chanson",
-                "Présenter les personnages et annoncer la fin tragique",
-                "Jouer le rôle de Créon",
-                "Résumer la pièce de Sophocle mot à mot",
+                "Vrai",
+                "Faux"
               ],
-              correctAnswer: "Présenter les personnages et annoncer la fin tragique",
-              explanation: "Le spectateur sait dès le début qu'Antigone va mourir : le suspense porte sur le « comment ».",
+              correctAnswer: "Vrai",
+              explanation: "Le Prologue l'annonce : c'est une tragédie."
             },
             {
               id: "anti-e18",
-              type: "vrai-faux",
-              question: "Ismène, la sœur prudente d'Antigone, l'aide à enterrer Polynice.",
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Faux",
-              explanation: "Ismène a peur et refuse de désobéir. Antigone agit seule.",
-            },
-            {
-              id: "anti-e19",
-              type: "qcm-multiple",
-              question: "Quels personnages meurent à la fin de la pièce ? (3 réponses)",
-              options: ["Antigone", "Hémon", "Eurydice", "Créon", "Ismène"],
-              correctAnswer: ["Antigone", "Hémon", "Eurydice"],
-              explanation: "Antigone se donne la mort, puis Hémon, puis Eurydice (la femme de Créon). Créon reste seul.",
-            },
-            {
-              id: "anti-e20",
               type: "qcm",
-              question: "Pourquoi Antigone n'essaie-t-elle pas de convaincre Créon ?",
+              question: "Quelle citation est la meilleure preuve qu'Antigone reste libre ?",
               options: [
-                "Parce qu'elle ne sait pas parler",
-                "Parce qu'elle est sûre d'elle : sa décision est prise",
-                "Parce qu'elle a peur de lui",
-                "Parce qu'elle est d'accord avec lui",
+                "« Grossis un peu ! »",
+                "« moi je suis reine »",
+                "« Quel jeu joues-tu ? »",
+                "« Et voilà. »"
               ],
-              correctAnswer: "Parce qu'elle est sûre d'elle : sa décision est prise",
-              explanation: "Son calme montre sa détermination : elle n'a pas besoin de l'approbation de Créon.",
-            },
-            {
-              id: "anti-e21",
-              type: "qcm",
-              question: "Que symbolise la petite pelle d'enfant ?",
-              options: ["La richesse de Créon", "Le travail des gardes", "La guerre entre les frères", "La pureté et la fragilité d'Antigone, encore liée à l'enfance"],
-              correctAnswer: "La pureté et la fragilité d'Antigone, encore liée à l'enfance",
-              explanation: "Antigone refuse le monde des adultes : elle agit avec un outil d'enfant.",
-            },
-            {
-              id: "anti-e22",
-              type: "qcm",
-              question: "« Moi, je veux tout, tout de suite » : quel thème cette réplique illustre-t-elle ?",
-              options: ["L'enfance et l'absolu, contre les compromis des adultes", "La gourmandise", "L'amour pour Hémon", "La peur de la mort"],
-              correctAnswer: "L'enfance et l'absolu, contre les compromis des adultes",
-              explanation: "Antigone refuse un bonheur « à moitié » : c'est tout ou rien.",
-            },
-            {
-              id: "anti-e23",
-              type: "qcm",
-              question: "« Il faut pourtant qu'il y en ait qui mènent la barque. » Que veut dire Créon ?",
-              options: ["Qu'il aime naviguer", "Qu'Antigone doit devenir reine", "Que quelqu'un doit accepter de gouverner, même si c'est difficile et salissant", "Qu'il veut quitter Thèbes"],
-              correctAnswer: "Que quelqu'un doit accepter de gouverner, même si c'est difficile et salissant",
-              explanation: "La barque = l'État. Créon défend la nécessité de dire oui pour que le royaume tienne.",
-            },
-            {
-              id: "anti-e24",
-              type: "qcm",
-              question: "« C'est propre, la tragédie » : que veut dire le Chœur ?",
-              options: ["Que le théâtre est bien rangé", "Que les personnages se lavent", "Que dans une tragédie tout est joué d'avance : il n'y a plus d'espoir", "Que la pièce est courte"],
-              correctAnswer: "Que dans une tragédie tout est joué d'avance : il n'y a plus d'espoir",
-              explanation: "La machine est lancée : le spectateur sait que tout va mal finir.",
-            },
-            {
-              id: "anti-e25",
-              type: "vrai-faux",
-              question: "Le dernier mot du Chœur, « Et voilà », montre que le monde reste indifférent à la tragédie.",
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Vrai",
-              explanation: "Tout est fini, la vie reprend : les gardes jouent aux cartes.",
-            },
-            {
-              id: "anti-e26",
-              type: "tri-categories",
-              question: "Classe chaque élément : thème ou symbole ?",
-              items: [{"id": "a26-a", "label": "Dire non au pouvoir"}, {"id": "a26-b", "label": "La pelle d'enfant"}, {"id": "a26-c", "label": "Enfance contre monde adulte"}, {"id": "a26-d", "label": "Les gardes qui jouent aux cartes"}, {"id": "a26-e", "label": "Destin et liberté"}, {"id": "a26-f", "label": "L'aube"}],
-              categories: [{"id": "theme", "label": "🎯 Thème", "correctItemIds": ["a26-a", "a26-c", "a26-e"]}, {"id": "symbole", "label": "🔑 Symbole", "correctItemIds": ["a26-b", "a26-d", "a26-f"]}],
-              correctAnswer: "tri-categories",
-              explanation: "Un thème est une grande idée ; un symbole est un objet ou un moment concret qui la représente.",
-            },
-            {
-              id: "anti-e27",
-              type: "qcm",
-              question: "Pourquoi dit-on que la pièce est « ambiguë » par rapport à la Résistance ?",
-              options: ["Parce que Créon a aussi de vraies raisons, et la censure allemande a laissé jouer la pièce", "Parce qu'Antigone collabore", "Parce qu'elle a été écrite après la guerre", "Parce qu'il n'y a pas de roi"],
-              correctAnswer: "Parce que Créon a aussi de vraies raisons, et la censure allemande a laissé jouer la pièce",
-              explanation: "On peut y voir une résistante… mais Créon est présenté avec ses arguments. C'est pour ça qu'on en débat encore.",
-            },
-            {
-              id: "anti-e28",
-              type: "qcm",
-              question: "Comment finit Créon ?",
-              options: ["Heureux et entouré", "Prisonnier", "Exilé", "Seul : il a perdu sa nièce, son fils et sa femme"],
-              correctAnswer: "Seul : il a perdu sa nièce, son fils et sa femme",
-              explanation: "Le pouvoir l'a rendu seul : c'est aussi une tragédie pour lui.",
-            },
-            {
-              id: "anti-e29",
-              type: "qcm",
-              question: "Quel est le rôle des Gardes dans la pièce ?",
-              options: ["Ils sont des héros", "Ils représentent les gens ordinaires qui obéissent sans réfléchir", "Ils sont les frères d'Antigone", "Ils commentent l'action comme le Chœur"],
-              correctAnswer: "Ils représentent les gens ordinaires qui obéissent sans réfléchir",
-              explanation: "Ils pensent à leur paye et à leurs cartes : un contraste fort avec l'absolu d'Antigone.",
-            },
-            {
-              id: "anti-e30",
-              type: "qcm",
-              question: "Pour le sujet « Montrez qu'Antigone reste libre », quelle citation est la plus efficace ?",
-              options: ["« la petite maigre »", "« moi je suis reine »", "« C'est propre, la tragédie »", "« Et voilà »"],
               correctAnswer: "« moi je suis reine »",
-              explanation: "Blessée et condamnée, elle se dit pourtant reine : c'est la preuve qu'elle se sent libre.",
-            },
-          ],
-        },
-      ],
-    },
+              explanation: "Dominée, elle se dit pourtant reine."
+            }
+          ]
+        }
+      ]
+    }
   },
-  // ── Séances 3 & 4 — Minerai noir (Depestre) + Serra Pelada (Salgado) ───────
   {
     slug: "francais-depestre-salgado-fiche",
     title: "Minerai noir — René Depestre",
-    description:
-      "Un poème engagé contre l'esclavage : métaphore filée, métonymie, appel à la révolte. En fin de fiche : la photographie de Serra Pelada (Salgado). Avec sujets de rédaction corrigés.",
+    description: "Séances 3 et 4 — Un poème d'appel à la révolte, puis une photographie engagée (Serra Pelada, Salgado). Avec sujet de rédaction.",
     type: "fiche",
     level: "3e",
     subject: "francais",
     chapter: CHAPTER,
     createdAt: "2026-10-10T12:00:00Z",
-    updatedAt: "2026-10-10T16:00:00Z",
-    tags: ["depestre", "salgado", "poésie engagée", "photographie", "esclavage", "analyse d'image", "fiche"],
+    updatedAt: "2026-10-11T10:00:00Z",
+    tags: [
+      "depestre",
+      "salgado",
+      "poésie engagée",
+      "photographie",
+      "esclavage",
+      "fiche"
+    ],
     relatedResourceSlug: "francais-depestre-salgado-quiz",
-    mdxPath: "3e/francais/fiches/francais-depestre-salgado-fiche.mdx",
+    mdxPath: "3e/francais/fiches/francais-depestre-salgado-fiche.mdx"
   },
   {
     slug: "francais-depestre-salgado-quiz",
     title: "Quiz — Minerai noir (et Serra Pelada)",
-    description:
-      "Teste-toi sur le poème engagé de Depestre, la photographie de Salgado et le lien entre texte et image.",
+    description: "Teste-toi sur le poème engagé de Depestre et sur la photographie de Salgado.",
     type: "quiz",
     level: "3e",
     subject: "francais",
     chapter: CHAPTER,
     createdAt: "2026-10-10T12:05:00Z",
-    updatedAt: "2026-10-10T16:05:00Z",
-    tags: ["depestre", "salgado", "engagement", "quiz"],
+    updatedAt: "2026-10-11T10:05:00Z",
+    tags: [
+      "depestre",
+      "salgado",
+      "engagement",
+      "quiz"
+    ],
     relatedResourceSlug: "francais-depestre-salgado-fiche",
     quizData: {
       title: "Minerai noir & Serra Pelada",
@@ -1781,680 +1840,842 @@ export const resources: Resource[] = [
           id: "facile",
           name: "Facile",
           emoji: "🟢",
-          description: "Les œuvres, les auteurs et le vocabulaire de base.",
+          description: "Le poème, la photo et le vocabulaire.",
           questions: [
             {
               id: "dep-f1",
               type: "qcm",
               question: "Qui a écrit le poème « Minerai noir » ?",
-              options: ["Victor Hugo", "Jean Anouilh", "Sebastião Salgado", "René Depestre"],
+              options: [
+                "Victor Hugo",
+                "Jean Anouilh",
+                "Sebastião Salgado",
+                "René Depestre"
+              ],
               correctAnswer: "René Depestre",
-              explanation: "René Depestre, poète haïtien, publie Minerai noir en 1956.",
+              explanation: "René Depestre, poète haïtien."
             },
             {
               id: "dep-f2",
               type: "qcm",
-              question: "De quel pays vient René Depestre ?",
-              options: ["Haïti", "La France", "Le Brésil", "Le Sénégal"],
-              correctAnswer: "Haïti",
-              explanation: "Haïti, premier pays où des esclaves révoltés ont gagné leur indépendance (1804).",
+              question: "Que dénonce le poème ?",
+              options: [
+                "L'esclavage",
+                "La pollution",
+                "La guerre",
+                "La pauvreté"
+              ],
+              correctAnswer: "L'esclavage",
+              explanation: "Ce poème est engagé car il dénonce l'esclavage."
             },
             {
               id: "dep-f3",
-              type: "qcm",
-              question: "Que dénonce le poème « Minerai noir » ?",
-              options: ["La peine de mort", "La pollution", "L'esclavage", "La guerre"],
-              correctAnswer: "L'esclavage",
-              explanation: "Le poème dénonce l'esclavage et la souffrance du peuple noir.",
+              type: "texte-a-trous",
+              question: "Une œuvre ___ dénonce une injustice.",
+              options: [
+                "comique",
+                "policière",
+                "engagée",
+                "fantastique"
+              ],
+              correctAnswer: "engagée",
+              explanation: "Engagé(e) = qui dénonce une injustice et défend une cause."
             },
             {
               id: "dep-f4",
               type: "qcm",
-              question: "Qui est Sebastião Salgado ?",
-              options: ["Un peintre français", "Un poète haïtien", "Un photographe brésilien", "Un roi de Thèbes"],
-              correctAnswer: "Un photographe brésilien",
-              explanation: "Salgado (1944-2025) est célèbre pour ses photos de travailleurs en noir et blanc.",
+              question: "« minerai noir », « chair noire » : quelle figure de style ?",
+              options: [
+                "La comparaison",
+                "La répétition",
+                "La métaphore",
+                "La question"
+              ],
+              correctAnswer: "La métaphore",
+              explanation: "Le peuple est présenté comme un minerai, sans mot de comparaison."
             },
             {
               id: "dep-f5",
               type: "vrai-faux",
-              question: "Les photographies de Salgado sont en noir et blanc.",
-              options: ["Vrai", "Faux"],
+              question: "Le poème montre que le peuple africain a été dominé et exploité.",
+              options: [
+                "Vrai",
+                "Faux"
+              ],
               correctAnswer: "Vrai",
-              explanation: "Le noir et blanc renforce le côté dramatique et intemporel de ses images.",
+              explanation: "C'est ce que montrent les expressions du poème."
             },
             {
               id: "dep-f6",
               type: "qcm",
-              question: "Que cherchent les garimpeiros de Serra Pelada ?",
-              options: ["De l'or", "Du charbon", "Du pétrole", "De l'eau"],
-              correctAnswer: "De l'or",
-              explanation: "Serra Pelada était une immense mine d'or à ciel ouvert au Brésil.",
+              question: "Que montre « le vacarme des pioches » ?",
+              options: [
+                "Beaucoup d'esclaves travaillent",
+                "Les pioches sont toutes cassées",
+                "Les mines sont toutes fermées",
+                "Les esclaves se reposent tous"
+              ],
+              correctAnswer: "Beaucoup d'esclaves travaillent",
+              explanation: "Le vacarme montre qu'un grand nombre d'esclaves travaillent."
             },
             {
               id: "dep-f7",
-              type: "texte-a-trous",
-              question: "Une œuvre ___ dénonce une injustice et défend une cause.",
-              options: ["comique", "engagée", "fantastique", "policière"],
-              correctAnswer: "engagée",
-              explanation: "L'artiste engagé prend position pour faire réagir.",
+              type: "qcm",
+              question: "Que demande Depestre au peuple, à la fin ?",
+              options: [
+                "De pardonner aux colons",
+                "De quitter son pays",
+                "De travailler plus fort",
+                "De faire exploser sa colère"
+              ],
+              correctAnswer: "De faire exploser sa colère",
+              explanation: "C'est un appel à la révolte."
             },
             {
               id: "dep-f8",
-              type: "vrai-faux",
-              question: "La mine de Serra Pelada se trouve au Brésil.",
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Vrai",
-              explanation: "Elle se trouve dans le nord du Brésil, en Amazonie.",
+              type: "qcm",
+              question: "Qui a pris la photo de la mine de Serra Pelada ?",
+              options: [
+                "René Depestre",
+                "Sebastião Salgado",
+                "Victor Hugo",
+                "Jean Anouilh"
+              ],
+              correctAnswer: "Sebastião Salgado",
+              explanation: "Sebastião Salgado, en 1986."
             },
             {
               id: "dep-f9",
               type: "qcm",
-              question: "Que veut dire le mot portugais « garimpeiro » ?",
-              options: ["Esclave", "Soldat", "Marchand", "Chercheur d'or"],
-              correctAnswer: "Chercheur d'or",
-              explanation: "Un garimpeiro est un chercheur d'or (orpailleur).",
+              question: "Que veut dire « garimpeiros » ?",
+              options: [
+                "Gardiens de prison",
+                "Chercheurs d'or",
+                "Marchands d'esclaves",
+                "Soldats du roi"
+              ],
+              correctAnswer: "Chercheurs d'or",
+              explanation: "Mot portugais : chercheurs d'or."
             },
             {
               id: "dep-f10",
-              type: "qcm",
-              question: "Quand le poète appelle le peuple « minerai noir », quelle figure de style utilise-t-il ?",
-              options: ["Une comparaison", "Une métaphore", "Une litote", "Une question rhétorique"],
-              correctAnswer: "Une métaphore",
-              explanation: "Le peuple est assimilé à un minerai, sans mot de comparaison : c'est une métaphore.",
+              type: "vrai-faux",
+              question: "« Adeus mamãe » veut dire « Adieu maman ».",
+              options: [
+                "Vrai",
+                "Faux"
+              ],
+              correctAnswer: "Vrai",
+              explanation: "C'est le surnom des échelles de la mine."
             },
             {
               id: "dep-f11",
-              type: "vrai-faux",
-              question: "Les échelles de Serra Pelada sont surnommées « Adeus mamãe », ce qui veut dire « Bonjour papa ».",
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Faux",
-              explanation: "« Adeus mamãe » (portugais) = « Adieu maman » : on risquait d'y mourir.",
+              type: "qcm",
+              question: "Que portent les garimpeiros sur les échelles ?",
+              options: [
+                "Des seaux d'eau",
+                "Des blocs de glace",
+                "Des caisses de fruits",
+                "Des sacs de terre"
+              ],
+              correctAnswer: "Des sacs de terre",
+              explanation: "Ils remontent des sacs de pierres et de terre."
             },
             {
               id: "dep-f12",
-              type: "qcm",
-              question: "Dans une image, le premier plan, c'est…",
-              options: ["Ce qui est tout au fond", "Ce qui est le plus proche de nous", "Le ciel", "Le titre de la photo"],
-              correctAnswer: "Ce qui est le plus proche de nous",
-              explanation: "Le premier plan est la partie de l'image la plus proche du spectateur.",
+              type: "vrai-faux",
+              question: "Sur la photo, on voit le ciel en haut de l'image.",
+              options: [
+                "Vrai",
+                "Faux"
+              ],
+              correctAnswer: "Faux",
+              explanation: "On ne voit ni le ciel, ni le bout des échelles."
             },
             {
               id: "dep-f13",
               type: "qcm",
-              question: "En quelle année Salgado photographie-t-il la mine de Serra Pelada ?",
-              options: ["1956", "1829", "2025", "1986"],
-              correctAnswer: "1986",
-              explanation: "En 1986, pour son reportage « La Main de l'homme ».",
+              question: "À quoi ressemblent les échelles sur la photo ?",
+              options: [
+                "À des colonnes vertébrales",
+                "À des troncs d'arbres",
+                "À des rails de train",
+                "À des barreaux de cage"
+              ],
+              correctAnswer: "À des colonnes vertébrales",
+              explanation: "Les échelles sont vitales : la vie des grimpeurs en dépend."
             },
             {
               id: "dep-f14",
-              type: "intrus",
-              question: "Trouve l'intrus : quelle expression n'est PAS dans le poème ?",
-              options: ["corps noir", "chair noire", "ciel bleu", "minerai noir"],
-              correctAnswer: "ciel bleu",
-              explanation: "Les expressions du poème répètent le mot « noir » : corps noir, chair noire, minerai noir.",
+              type: "association",
+              question: "Associe chaque œuvre du chapitre à son auteur.",
+              pairs: [
+                {
+                  left: "Minerai noir",
+                  right: "René Depestre"
+                },
+                {
+                  left: "Serra Pelada",
+                  right: "Sebastião Salgado"
+                },
+                {
+                  left: "Antigone",
+                  right: "Jean Anouilh"
+                },
+                {
+                  left: "Le Dernier Jour d'un condamné",
+                  right: "Victor Hugo"
+                }
+              ],
+              options: [
+                "René Depestre",
+                "Sebastião Salgado",
+                "Jean Anouilh",
+                "Victor Hugo"
+              ],
+              correctAnswer: [
+                "René Depestre",
+                "Sebastião Salgado",
+                "Jean Anouilh",
+                "Victor Hugo"
+              ],
+              explanation: "4 œuvres : poème, photo, théâtre, roman."
             },
             {
               id: "dep-f15",
               type: "qcm",
-              question: "Qu'est-ce que le grisou ?",
-              options: ["Un gaz explosif des mines", "Un outil de mineur", "Un oiseau", "Une pierre précieuse"],
-              correctAnswer: "Un gaz explosif des mines",
-              explanation: "Une étincelle, et le grisou explose. Dans le poème, il représente la colère du peuple.",
+              question: "Qu'est-ce qu'une hyperbole ?",
+              options: [
+                "Une répétition",
+                "Une comparaison",
+                "Une exagération",
+                "Une question"
+              ],
+              correctAnswer: "Une exagération",
+              explanation: "Hyperbole = exagération pour frapper le lecteur."
             },
             {
               id: "dep-f16",
-              type: "vrai-faux",
-              question: "Le poème se termine par un appel à la révolte.",
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Vrai",
-              explanation: "« Mûris ton grisou » : le poète demande au peuple de faire exploser sa colère.",
-            },
-            {
-              id: "dep-f17",
               type: "qcm",
-              question: "Que font les garimpeiros sur la photo ?",
+              question: "À quoi fait penser la file de garimpeiros ?",
               options: [
-                "Ils se reposent au soleil",
-                "Ils construisent une maison",
-                "Ils remontent des sacs de terre le long d'échelles",
-                "Ils manifestent dans la rue",
+                "À une ruche",
+                "À un troupeau",
+                "À une fourmilière",
+                "À une armée"
               ],
-              correctAnswer: "Ils remontent des sacs de terre le long d'échelles",
-              explanation: "Des sacs pouvant peser jusqu'à 40 kg, en plein soleil.",
-            },
-            {
-              id: "dep-f18",
-              type: "association",
-              question: "Associe chaque œuvre du chapitre à son auteur.",
-              pairs: [
-                { left: "Minerai noir", right: "René Depestre" },
-                { left: "La mine d'or de Serra Pelada", right: "Sebastião Salgado" },
-                { left: "Antigone", right: "Jean Anouilh" },
-                { left: "Le Dernier Jour d'un condamné", right: "Victor Hugo" },
-              ],
-              options: ["René Depestre", "Sebastião Salgado", "Jean Anouilh", "Victor Hugo"],
-              correctAnswer: ["René Depestre", "Sebastião Salgado", "Jean Anouilh", "Victor Hugo"],
-              explanation: "4 œuvres, 4 formes : poème, photo, théâtre, roman.",
-            },
-            {
-              id: "dep-f19",
-              type: "qcm",
-              question: "Qu'est-ce qu'une hyperbole ?",
-              options: ["Une répétition", "Une question", "Une exagération", "Une rime"],
-              correctAnswer: "Une exagération",
-              explanation: "Exemple dans le poème : « toute la terre retentit ».",
-            },
-            {
-              id: "dep-f20",
-              type: "qcm",
-              question: "Comment s'appelle le reportage de Salgado qui contient la photo de Serra Pelada ?",
-              options: ["La Main de l'homme", "Le Sel de la Terre", "Minerai noir", "Les Misérables"],
-              correctAnswer: "La Main de l'homme",
-              explanation: "« La Main de l'homme » montre les travailleurs du monde entier.",
-            },
-          ],
+              correctAnswer: "À une fourmilière",
+              explanation: "Comme des fourmis : travail collectif, force, nombre, mais aussi fragilité."
+            }
+          ]
         },
         {
           id: "intermediaire",
           name: "Intermédiaire",
           emoji: "🟡",
-          description: "Les figures de style et l'analyse de la photographie.",
+          description: "Les figures de style et l'analyse de la photo.",
           questions: [
             {
               id: "dep-i1",
               type: "click-on-image",
-              question: "Sur ce schéma de la photo, clique sur l'élément qui place le spectateur dans la scène.",
+              question: "Sur ce schéma de la photo, clique sur l'élément qui est à la place du spectateur.",
               imageSrc: "/images/francais/serra-pelada-composition-vierge.svg",
-              imageAlt: "Schéma de la photographie de Serra Pelada sans légendes",
+              imageAlt: "Schéma de la photographie de Serra Pelada, sans légendes",
               clickZones: [
-                { id: "homme", x: 4, y: 47, w: 33, h: 53, isCorrect: true, label: "Homme de dos au 1er plan ✓" },
-                { id: "echelles", x: 43, y: 15, w: 56, h: 85, isCorrect: false, label: "Échelles et garimpeiros" },
-                { id: "pente", x: 0, y: 15, w: 40, h: 30, isCorrect: false, label: "Pente de la mine" },
-                { id: "haut", x: 0, y: 0, w: 100, h: 12, isCorrect: false, label: "Haut du cadre" },
+                {
+                  id: "homme",
+                  x: 4,
+                  y: 47,
+                  w: 33,
+                  h: 53,
+                  isCorrect: true,
+                  label: "Homme de dos"
+                },
+                {
+                  id: "echelles",
+                  x: 43,
+                  y: 17,
+                  w: 56,
+                  h: 83,
+                  isCorrect: false,
+                  label: "Échelles et garimpeiros"
+                },
+                {
+                  id: "haut",
+                  x: 0,
+                  y: 0,
+                  w: 100,
+                  h: 15,
+                  isCorrect: false,
+                  label: "Haut du cadre"
+                }
               ],
               correctAnswer: "homme",
-              explanation:
-                "L'homme de dos au premier plan est à la place du spectateur : il oriente notre regard vers les échelles.",
+              explanation: "L'homme de dos au 1er plan est à la place du spectateur : il oriente notre regard."
             },
             {
               id: "dep-i2",
               type: "click-on-image",
-              question: "Clique sur les éléments qui ressemblent à des colonnes vertébrales.",
+              question: "Sur ce schéma de la photo, clique sur ce qui ressemble à des colonnes vertébrales.",
               imageSrc: "/images/francais/serra-pelada-composition-vierge.svg",
-              imageAlt: "Schéma de la photographie de Serra Pelada sans légendes",
+              imageAlt: "Schéma de la photographie de Serra Pelada, sans légendes",
               clickZones: [
-                { id: "homme", x: 4, y: 47, w: 33, h: 53, isCorrect: false, label: "Homme de dos" },
-                { id: "echelles", x: 43, y: 15, w: 56, h: 85, isCorrect: true, label: "Les échelles ✓" },
-                { id: "pente", x: 0, y: 15, w: 40, h: 30, isCorrect: false, label: "Pente de la mine" },
-                { id: "haut", x: 0, y: 0, w: 100, h: 12, isCorrect: false, label: "Haut du cadre" },
+                {
+                  id: "homme",
+                  x: 4,
+                  y: 47,
+                  w: 33,
+                  h: 53,
+                  isCorrect: false,
+                  label: "Homme de dos"
+                },
+                {
+                  id: "echelles",
+                  x: 43,
+                  y: 17,
+                  w: 56,
+                  h: 83,
+                  isCorrect: true,
+                  label: "Échelles et garimpeiros"
+                },
+                {
+                  id: "haut",
+                  x: 0,
+                  y: 0,
+                  w: 100,
+                  h: 15,
+                  isCorrect: false,
+                  label: "Haut du cadre"
+                }
               ],
               correctAnswer: "echelles",
-              explanation:
-                "Les échelles ressemblent à des colonnes vertébrales : elles sont vitales, la vie des grimpeurs en dépend.",
+              explanation: "Les échelles ressemblent à des colonnes vertébrales : elles sont vitales."
             },
             {
               id: "dep-i3",
               type: "qcm",
               question: "Dans « le vacarme des pioches », que désignent « les pioches » ?",
-              options: ["Des outils cassés", "Des armes de guerre", "Le bruit du vent", "Les esclaves qui travaillent"],
-              correctAnswer: "Les esclaves qui travaillent",
-              explanation: "C'est une métonymie : l'outil désigne la personne. Le vacarme montre leur grand nombre.",
+              options: [
+                "Les esclaves",
+                "Les mines",
+                "Les colons",
+                "Les pierres"
+              ],
+              correctAnswer: "Les esclaves",
+              explanation: "C'est une métonymie : l'outil désigne la personne qui le tient."
             },
             {
               id: "dep-i4",
               type: "qcm",
-              question: "Que soulignent les hyperboles du poème (« toute la terre », « inépuisable »…) ?",
+              question: "Que soulignent les hyperboles du poème ?",
               options: [
-                "La beauté des paysages africains",
-                "La puissance collective des Africains et l'ampleur de leur exploitation",
-                "La richesse du poète",
+                "La beauté de l'Afrique",
                 "La fin de l'esclavage",
+                "La richesse du poète",
+                "L'ampleur de l'exploitation"
               ],
-              correctAnswer: "La puissance collective des Africains et l'ampleur de leur exploitation",
-              explanation: "L'exagération montre l'immensité de l'injustice.",
+              correctAnswer: "L'ampleur de l'exploitation",
+              explanation: "Elles soulignent la puissance collective des Africains et l'ampleur de leur exploitation."
             },
             {
               id: "dep-i5",
-              type: "qcm",
-              question: "« Mûris ton grisou » : à quel mode est le verbe « mûris » ?",
-              options: ["Indicatif", "Impératif", "Subjonctif", "Conditionnel"],
-              correctAnswer: "Impératif",
-              explanation: "L'impératif sert à donner un ordre ou un conseil : le poète encourage son peuple.",
-            },
-            {
-              id: "dep-i6",
               type: "tri-categories",
               question: "Classe chaque exemple : métaphore ou métonymie ?",
               items: [
-                { id: "d6-a", label: "Le peuple est un « minerai noir »" },
-                { id: "d6-b", label: "« le vacarme des pioches »" },
-                { id: "d6-c", label: "« peuple défriché »" },
-                { id: "d6-d", label: "« boire un verre »" },
-                { id: "d6-e", label: "« Paris dort »" },
-                { id: "d6-f", label: "« ton grisou » (ta colère)" },
+                {
+                  id: "dep-i5-1",
+                  label: "« minerai noir »"
+                },
+                {
+                  id: "dep-i5-3",
+                  label: "« le vacarme des pioches »"
+                },
+                {
+                  id: "dep-i5-2",
+                  label: "« peuple défriché »"
+                },
+                {
+                  id: "dep-i5-4",
+                  label: "« boire un verre »"
+                }
               ],
               categories: [
-                { id: "metaphore", label: "Métaphore (ressemblance)", correctItemIds: ["d6-a", "d6-c", "d6-f"] },
-                { id: "metonymie", label: "Métonymie (lien logique)", correctItemIds: ["d6-b", "d6-d", "d6-e"] },
+                {
+                  id: "meta",
+                  label: "Métaphore (ressemblance)",
+                  correctItemIds: [
+                    "dep-i5-1",
+                    "dep-i5-2"
+                  ]
+                },
+                {
+                  id: "meto",
+                  label: "Métonymie (mot proche)",
+                  correctItemIds: [
+                    "dep-i5-3",
+                    "dep-i5-4"
+                  ]
+                }
               ],
               correctAnswer: "tri-categories",
-              explanation:
-                "Métaphore : le peuple ressemble à une mine, une terre, un gaz. Métonymie : outil → personne, contenant → contenu, lieu → habitants.",
+              explanation: "Métaphore : le peuple ressemble à une mine, à une terre. Métonymie : l'outil pour la personne, le verre pour la boisson."
             },
             {
-              id: "dep-i7",
+              id: "dep-i6",
               type: "association",
               question: "Associe chaque observation de la photo à son interprétation.",
               pairs: [
-                { left: "Vêtement mouillé, lumière forte", right: "Grande chaleur, travail très physique" },
-                { left: "Échelles comme des colonnes vertébrales", right: "Les échelles sont vitales" },
-                { left: "Garimpeiros en file indienne", right: "Une fourmilière humaine" },
-                { left: "Ni ciel, ni bout des échelles", right: "Aucune issue possible" },
+                {
+                  left: "Vêtement mouillé, lumière forte",
+                  right: "Grande chaleur, travail physique"
+                },
+                {
+                  left: "Échelles = colonnes vertébrales",
+                  right: "Les échelles sont vitales"
+                },
+                {
+                  left: "Garimpeiros en file indienne",
+                  right: "Une fourmilière"
+                },
+                {
+                  left: "Ni ciel, ni bout des échelles",
+                  right: "Aucune issue"
+                }
               ],
               options: [
-                "Grande chaleur, travail très physique",
+                "Grande chaleur, travail physique",
                 "Les échelles sont vitales",
-                "Une fourmilière humaine",
-                "Aucune issue possible",
+                "Une fourmilière",
+                "Aucune issue"
               ],
               correctAnswer: [
-                "Grande chaleur, travail très physique",
+                "Grande chaleur, travail physique",
                 "Les échelles sont vitales",
-                "Une fourmilière humaine",
-                "Aucune issue possible",
+                "Une fourmilière",
+                "Aucune issue"
               ],
-              explanation: "On part toujours de ce qu'on voit (observation) pour dire ce qu'on comprend (interprétation).",
+              explanation: "On part de ce qu'on voit pour dire ce qu'on comprend."
+            },
+            {
+              id: "dep-i7",
+              type: "texte-a-trous-select",
+              question: "Le poète utilise des termes ___ et s'adresse au peuple en répétant le mot « ___ ».",
+              options: [
+                "dévalorisants",
+                "peuple",
+                "joyeux",
+                "esclave"
+              ],
+              correctAnswer: [
+                "dévalorisants",
+                "peuple"
+              ],
+              explanation: "Il veut marquer le lecteur et lui faire comprendre les souffrances du peuple."
             },
             {
               id: "dep-i8",
-              type: "vrai-faux",
-              question: "Sur la photo, le cadrage montre le ciel et le haut des échelles.",
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Faux",
-              explanation: "On ne voit ni le ciel ni le bout des échelles : le spectateur est enfermé dans la mine.",
+              type: "qcm",
+              question: "Pourquoi le poète s'adresse-t-il au peuple ?",
+              options: [
+                "Pour amuser le lecteur",
+                "Pour marquer le lecteur",
+                "Pour rassurer le lecteur",
+                "Pour endormir le lecteur"
+              ],
+              correctAnswer: "Pour marquer le lecteur",
+              explanation: "Il veut marquer le lecteur et lui faire comprendre les souffrances vécues."
             },
             {
               id: "dep-i9",
               type: "qcm",
-              question: "Pourquoi le mot « noir » est-il répété dans tout le poème ?",
+              question: "Quel est l'objectif de la séance 3 ?",
               options: [
-                "Parce que le poème se passe la nuit",
-                "Parce que c'est la couleur préférée du poète",
-                "Pour parler du charbon uniquement",
-                "Pour relier la couleur de peau des esclaves et celle du minerai",
+                "Étudier un poème d'amour",
+                "Étudier un poème engagé",
+                "Étudier un poème drôle",
+                "Étudier un poème ancien"
               ],
-              correctAnswer: "Pour relier la couleur de peau des esclaves et celle du minerai",
-              explanation: "Les colons ne voyaient plus des humains, mais une richesse à extraire.",
+              correctAnswer: "Étudier un poème engagé",
+              explanation: "Étudier la puissance argumentative d'un poème engagé."
             },
             {
               id: "dep-i10",
-              type: "ordre",
-              question: "Remets dans l'ordre les étapes pour analyser une image.",
-              options: ["J'observe", "J'interprète", "J'argumente"],
-              correctAnswer: ["J'observe", "J'interprète", "J'argumente"],
-              explanation: "D'abord ce qu'on voit, puis ce qu'on comprend, enfin on relie à l'intention de l'artiste.",
+              type: "qcm",
+              question: "L'homme du 1er plan ressemble à…",
+              options: [
+                "un soldat de plomb",
+                "un arbre mort",
+                "un géant de pierre",
+                "une statue de boue"
+              ],
+              correctAnswer: "une statue de boue",
+              explanation: "Couvert de terre, il ressemble à une statue de boue."
             },
             {
               id: "dep-i11",
               type: "qcm",
-              question: "D'après le poème, quel peuple les colons ont-ils d'abord fait travailler dans les mines d'or ?",
-              options: ["Les Indiens d'Amérique", "Les Européens", "Les Chinois", "Les Grecs"],
-              correctAnswer: "Les Indiens d'Amérique",
-              explanation: "Quand il n'est plus resté d'Indiens, les colons se sont tournés vers l'Afrique.",
+              question: "Que ressent le spectateur placé comme l'homme du 1er plan ?",
+              options: [
+                "Sa propre passivité",
+                "Sa propre richesse",
+                "Sa propre fatigue",
+                "Sa propre colère"
+              ],
+              correctAnswer: "Sa propre passivité",
+              explanation: "Il regarde sans agir : il se retrouve face à sa passivité."
             },
             {
               id: "dep-i12",
-              type: "texte-a-trous-select",
-              question: "Le poète utilise des termes ___ et s'adresse au peuple en répétant le mot « ___ ».",
-              options: ["dévalorisants", "peuple", "mélioratifs", "esclave", "joyeux"],
-              correctAnswer: ["dévalorisants", "peuple"],
-              explanation: "Il reprend les mots des esclavagistes pour montrer comment ils voyaient les Africains, et interpelle son peuple.",
+              type: "vrai-faux",
+              question: "La fourmilière évoque la force et le nombre, mais aussi la fragilité des travailleurs.",
+              options: [
+                "Vrai",
+                "Faux"
+              ],
+              correctAnswer: "Vrai",
+              explanation: "Travail collectif + force + nombre + vulnérabilité (fragilité)."
             },
             {
               id: "dep-i13",
-              type: "qcm",
-              question: "Dans le poème, que représente le grisou ?",
+              type: "ordre",
+              question: "Remets dans l'ordre les étapes pour analyser une photo.",
               options: [
-                "La richesse des mines",
-                "La fatigue des esclaves",
-                "La colère du peuple, qui va exploser",
-                "La fumée des usines",
+                "J'observe ce que je vois",
+                "J'interprète ce que ça veut dire",
+                "J'argumente dans un paragraphe"
               ],
-              correctAnswer: "La colère du peuple, qui va exploser",
-              explanation: "Le grisou est un gaz qui explose : la colère du peuple grandit en secret, puis éclate.",
+              correctAnswer: [
+                "J'observe ce que je vois",
+                "J'interprète ce que ça veut dire",
+                "J'argumente dans un paragraphe"
+              ],
+              explanation: "Observer → interpréter → argumenter (objectifs de la séance 4)."
             },
             {
               id: "dep-i14",
-              type: "vrai-faux",
-              question: "Haïti est le premier pays où des esclaves révoltés ont gagné leur indépendance, en 1804.",
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Vrai",
-              explanation: "Cette histoire explique pourquoi un poète haïtien appelle à la révolte.",
+              type: "qcm-multiple",
+              question: "Quels sont les points communs entre le poème et la photo ? (2 réponses)",
+              options: [
+                "Des corps exploités",
+                "Un grand nombre de travailleurs",
+                "Des paysages en couleurs",
+                "Une histoire d'amour"
+              ],
+              correctAnswer: [
+                "Des corps exploités",
+                "Un grand nombre de travailleurs"
+              ],
+              explanation: "Les deux montrent des corps exploités, en grand nombre, pour faire réagir."
             },
             {
               id: "dep-i15",
-              type: "slider",
-              question: "Jusqu'à combien de kilos pouvaient peser les sacs de terre portés par les garimpeiros ?",
-              options: ["0", "100", "5"],
-              correctAnswer: "40",
-              tolerance: 5,
-              explanation: "Jusqu'à environ 40 kg, sur des échelles en bois, sous un soleil écrasant.",
+              type: "qcm",
+              question: "Pourquoi les échelles sont-elles appelées « Adeus mamãe » (« Adieu maman ») ?",
+              options: [
+                "On y quitte sa mère",
+                "On y chante le soir",
+                "On risque d'y mourir",
+                "On y dort la nuit"
+              ],
+              correctAnswer: "On risque d'y mourir",
+              explanation: "Les échelles sont dangereuses : une chute peut être mortelle."
             },
             {
               id: "dep-i16",
-              type: "qcm",
-              question: "Que suggère l'image de la « fourmilière » ?",
-              options: [
-                "Que les hommes sont des insectes nuisibles",
-                "Que le travail est amusant",
-                "La force, le nombre, mais aussi la vulnérabilité des travailleurs",
-                "Que la mine est petite",
-              ],
-              correctAnswer: "La force, le nombre, mais aussi la vulnérabilité des travailleurs",
-              explanation: "Tous leurs efforts sont consacrés au travail collectif, comme des fourmis.",
-            },
-            {
-              id: "dep-i17",
-              type: "qcm",
-              question: "Placé comme l'homme du premier plan, que ressent le spectateur ?",
-              options: [
-                "Il est renvoyé à sa propre passivité : il regarde sans agir",
-                "Il se sent en vacances",
-                "Il a envie de devenir chercheur d'or",
-                "Il ne ressent rien",
-              ],
-              correctAnswer: "Il est renvoyé à sa propre passivité : il regarde sans agir",
-              explanation: "Salgado nous oblige à regarder et à nous poser des questions.",
-            },
-            {
-              id: "dep-i18",
-              type: "qcm-multiple",
-              question: "Quels sont les points communs entre le poème et la photo ? (3 réponses)",
-              options: [
-                "Des corps humains exploités",
-                "Un très grand nombre de travailleurs",
-                "L'image de la mine",
-                "Les deux sont en couleurs",
-              ],
-              correctAnswer: ["Des corps humains exploités", "Un très grand nombre de travailleurs", "L'image de la mine"],
-              explanation: "La photo est en noir et blanc ; le poème, lui, n'a pas de couleurs… sauf le mot « noir » !",
-            },
-            {
-              id: "dep-i19",
-              type: "nombre",
-              question: "En quelle année René Depestre publie-t-il le recueil « Minerai noir » ?",
-              correctAnswer: "1956",
-              explanation: "En 1956, aux éditions Présence africaine.",
-            },
-            {
-              id: "dep-i20",
               type: "intrus",
-              question: "Trouve l'intrus : quel mot n'appartient PAS au lexique de la mine ?",
-              options: ["minerai", "pioche", "guillotine", "grisou"],
+              question: "Trouve l'intrus : quel mot ne fait PAS partie du lexique de la mine ?",
+              options: [
+                "minerai",
+                "pioche",
+                "guillotine",
+                "garimpeiro"
+              ],
               correctAnswer: "guillotine",
-              explanation: "La guillotine appartient à la séance sur Hugo !",
-            },
-          ],
+              explanation: "La guillotine appartient à la séance sur Hugo."
+            }
+          ]
         },
         {
           id: "expert",
           name: "Expert",
           emoji: "🔴",
-          description: "Interpréter, comparer et argumenter.",
+          description: "La synthèse, l'analyse et la rédaction.",
           questions: [
             {
               id: "dep-e1",
-              type: "completion-tableau",
-              question: "Écris la figure de style : métaphore, métonymie ou hyperbole.",
-              table: {
-                headers: ["Exemple", "Figure de style"],
-                rows: [
-                  [{ value: "« le vacarme des pioches » (= les esclaves)" }, { blank: true, correctAnswer: "métonymie" }],
-                  [{ value: "le peuple = « minerai noir »" }, { blank: true, correctAnswer: "métaphore" }],
-                  [{ value: "« minerai inépuisable »" }, { blank: true, correctAnswer: "hyperbole" }],
-                ],
-              },
-              correctAnswer: ["métonymie", "métaphore", "hyperbole"],
-              explanation: "Lien logique = métonymie ; ressemblance = métaphore ; exagération = hyperbole.",
-              hint: "Les accents et majuscules ne comptent pas.",
+              type: "texte-a-trous-select",
+              question: "« Ce poème est engagé car il ___ l'esclavage. Il parvient donc à susciter un désir de ___. »",
+              options: [
+                "dénonce",
+                "révolte",
+                "célèbre",
+                "paix"
+              ],
+              correctAnswer: [
+                "dénonce",
+                "révolte"
+              ],
+              explanation: "C'est la synthèse de la séance 3."
             },
             {
               id: "dep-e2",
               type: "qcm",
-              question: "Quelle est la différence entre une métaphore et une métonymie ?",
+              question: "Quelle est la différence entre métaphore et métonymie ?",
               options: [
-                "Il n'y a aucune différence",
-                "La métaphore utilise « comme », la métonymie non",
-                "La métonymie est toujours une exagération",
-                "La métaphore repose sur une ressemblance, la métonymie sur un lien logique",
+                "Ressemblance / mot proche",
+                "Mot proche / ressemblance",
+                "Exagération / ressemblance",
+                "Ressemblance / exagération"
               ],
-              correctAnswer: "La métaphore repose sur une ressemblance, la métonymie sur un lien logique",
-              explanation: "Peuple = mine (ressemblance) ; pioches = esclaves (l'outil pour la personne).",
+              correctAnswer: "Ressemblance / mot proche",
+              explanation: "Métaphore = ressemblance (le peuple est une mine). Métonymie = mot proche (la pioche pour l'esclave)."
             },
             {
               id: "dep-e3",
-              type: "texte-a-trous-select",
-              question: "« Ce poème est engagé car il ___ l'esclavage. Il parvient donc à susciter un désir de ___. »",
-              options: ["dénonce", "révolte", "célèbre", "paix", "oublie"],
-              correctAnswer: ["dénonce", "révolte"],
-              explanation: "C'est la synthèse de la séance 3.",
+              type: "qcm",
+              question: "Quelle phrase analyse correctement un procédé ?",
+              options: [
+                "« minerai noir » : cette métaphore est placée au tout début du poème de Depestre.",
+                "« minerai noir » : cette métaphore est écrite en deux mots dans le poème étudié en classe.",
+                "« minerai noir » : cette métaphore est aussi le titre choisi par le poète pour son texte.",
+                "« minerai noir » : cette métaphore montre que les esclaves étaient traités comme une matière."
+              ],
+              correctAnswer: "« minerai noir » : cette métaphore montre que les esclaves étaient traités comme une matière.",
+              explanation: "Une bonne analyse donne la citation, le procédé ET son effet."
             },
             {
               id: "dep-e4",
-              type: "qcm",
-              question: "L'homme du premier plan « ressemble à une statue de boue ». Quelle interprétation est la meilleure ?",
+              type: "ordre",
+              question: "Remets dans l'ordre les phrases de ce paragraphe (méthode I-C-A-C).",
               options: [
-                "Il est un artiste qui sculpte",
-                "Couvert de terre, il semble transformé en matière, comme s'il faisait partie de la mine",
-                "Il est immobile parce qu'il se repose",
-                "Il est riche car il a trouvé de l'or",
+                "Depestre dénonce l'exploitation des esclaves.",
+                "Il les désigne comme un « minerai noir ».",
+                "Cette métaphore montre qu'on les traitait comme une matière.",
+                "Le poème est donc engagé."
               ],
-              correctAnswer: "Couvert de terre, il semble transformé en matière, comme s'il faisait partie de la mine",
-              explanation: "Comme dans « Minerai noir », l'être humain est réduit à une matière qu'on exploite.",
+              correctAnswer: [
+                "Depestre dénonce l'exploitation des esclaves.",
+                "Il les désigne comme un « minerai noir ».",
+                "Cette métaphore montre qu'on les traitait comme une matière.",
+                "Le poème est donc engagé."
+              ],
+              explanation: "Idée → Citation → Analyse → Conclusion."
             },
             {
               id: "dep-e5",
-              type: "ordre",
-              question: "Remets dans l'ordre les étapes d'un paragraphe argumenté (méthode I-C-A-C).",
-              options: ["Idée", "Citation ou observation", "Analyse", "Conclusion"],
-              correctAnswer: ["Idée", "Citation ou observation", "Analyse", "Conclusion"],
-              explanation: "J'annonce mon idée, je la prouve (citation, ou observation pour une image), j'analyse l'effet, puis je conclus.",
+              type: "tri-categories",
+              question: "Classe chaque phrase : observation ou interprétation ?",
+              items: [
+                {
+                  id: "dep-e5-1",
+                  label: "Le vêtement est mouillé"
+                },
+                {
+                  id: "dep-e5-3",
+                  label: "Le travail semble sans fin"
+                },
+                {
+                  id: "dep-e5-2",
+                  label: "On ne voit pas le ciel"
+                },
+                {
+                  id: "dep-e5-4",
+                  label: "Les échelles sont vitales"
+                }
+              ],
+              categories: [
+                {
+                  id: "obs",
+                  label: "👀 J'observe",
+                  correctItemIds: [
+                    "dep-e5-1",
+                    "dep-e5-2"
+                  ]
+                },
+                {
+                  id: "interp",
+                  label: "💭 J'interprète",
+                  correctItemIds: [
+                    "dep-e5-3",
+                    "dep-e5-4"
+                  ]
+                }
+              ],
+              correctAnswer: "tri-categories",
+              explanation: "Observer = décrire ce qu'on voit. Interpréter = expliquer ce que ça veut dire."
             },
             {
               id: "dep-e6",
-              type: "qcm",
-              question: "Quelle différence de but entre Depestre et Salgado ?",
-              options: [
-                "Depestre fait rire, Salgado fait peur",
-                "Depestre appelle à la révolte, Salgado veut faire prendre conscience au spectateur",
-                "Les deux veulent vendre de l'or",
-                "Depestre défend l'esclavage, Salgado le dénonce",
+              type: "click-on-image",
+              question: "Sur ce schéma, clique sur l'endroit où l'on devrait voir le ciel, mais où le cadre l'a coupé.",
+              imageSrc: "/images/francais/serra-pelada-composition-vierge.svg",
+              imageAlt: "Schéma de la photographie de Serra Pelada, sans légendes",
+              clickZones: [
+                {
+                  id: "homme",
+                  x: 4,
+                  y: 47,
+                  w: 33,
+                  h: 53,
+                  isCorrect: false,
+                  label: "Homme de dos"
+                },
+                {
+                  id: "echelles",
+                  x: 43,
+                  y: 17,
+                  w: 56,
+                  h: 83,
+                  isCorrect: false,
+                  label: "Échelles et garimpeiros"
+                },
+                {
+                  id: "haut",
+                  x: 0,
+                  y: 0,
+                  w: 100,
+                  h: 15,
+                  isCorrect: true,
+                  label: "Haut du cadre"
+                }
               ],
-              correctAnswer: "Depestre appelle à la révolte, Salgado veut faire prendre conscience au spectateur",
-              explanation: "Le poème se termine par un ordre (« Mûris ») ; la photo nous place face à notre passivité.",
+              correctAnswer: "haut",
+              explanation: "En haut, le cadre coupe le ciel et le bout des échelles : le spectateur est enfermé dans la mine, sans issue."
             },
             {
               id: "dep-e7",
-              type: "qcm-multiple",
-              question: "Quels procédés trouve-t-on dans « Minerai noir » ? (4 réponses)",
-              options: ["Métaphore filée", "Métonymie", "Hyperbole", "Impératif", "Stichomythie", "Didascalie"],
-              correctAnswer: ["Métaphore filée", "Métonymie", "Hyperbole", "Impératif"],
-              explanation: "La stichomythie et les didascalies appartiennent au théâtre.",
+              type: "qcm",
+              question: "Quel est l'effet du cadre sans ciel ?",
+              options: [
+                "Le spectateur se sent libre",
+                "Le spectateur se sent enfermé",
+                "Le spectateur se sent riche",
+                "Le spectateur se sent léger"
+              ],
+              correctAnswer: "Le spectateur se sent enfermé",
+              explanation: "Le travail semble sans fin, aucune issue possible."
             },
             {
               id: "dep-e8",
               type: "vrai-faux",
-              question: "Dans « Minerai noir », la métaphore est filée : elle est prolongée tout au long du poème.",
-              options: ["Vrai", "Faux"],
+              question: "Une photographie peut être engagée, comme un poème.",
+              options: [
+                "Vrai",
+                "Faux"
+              ],
               correctAnswer: "Vrai",
-              explanation: "Minerai, extraction, pioches, foreuses, grisou… tout le lexique de la mine décrit le peuple.",
+              explanation: "Salgado choisit ce qu'il montre pour faire réagir le spectateur."
             },
             {
               id: "dep-e9",
               type: "qcm",
-              question: "Pourquoi le poète reprend-il des mots comme « minerai » ou « métal » pour parler des Africains ?",
+              question: "Pourquoi le poète utilise-t-il des termes dévalorisants ?",
               options: [
-                "Pour faire un poème scientifique",
-                "Parce qu'il pense vraiment que ce sont des pierres",
-                "Pour parler de géologie",
-                "Pour montrer comment les esclavagistes les voyaient : comme des choses à exploiter",
+                "Pour montrer qu'il n'aime pas son peuple",
+                "Pour montrer comment on les traitait",
+                "Pour montrer qu'il connaît les mines",
+                "Pour montrer qu'il écrit très bien"
               ],
-              correctAnswer: "Pour montrer comment les esclavagistes les voyaient : comme des choses à exploiter",
-              explanation: "Ces termes dévalorisants choquent le lecteur et dénoncent la déshumanisation.",
+              correctAnswer: "Pour montrer comment on les traitait",
+              explanation: "Il reprend la façon dont les esclavagistes voyaient les Africains : comme une matière."
             },
             {
               id: "dep-e10",
-              type: "association",
-              question: "Associe chaque image de la mine à ce qu'elle signifie dans le poème.",
-              pairs: [
-                { left: "« minerai noir »", right: "Les esclaves africains" },
-                { left: "L'extraction", right: "L'exploitation pendant des siècles" },
-                { left: "« le vacarme des pioches »", right: "Des milliers d'esclaves au travail" },
-                { left: "« Mûris ton grisou »", right: "La colère qui va exploser" },
-              ],
+              type: "qcm",
+              question: "Comment Depestre répond-il à la question du chapitre ?",
               options: [
-                "Les esclaves africains",
-                "L'exploitation pendant des siècles",
-                "Des milliers d'esclaves au travail",
-                "La colère qui va exploser",
+                "En appelant au pardon",
+                "En appelant au départ",
+                "En appelant au silence",
+                "En appelant à la révolte"
               ],
-              correctAnswer: [
-                "Les esclaves africains",
-                "L'exploitation pendant des siècles",
-                "Des milliers d'esclaves au travail",
-                "La colère qui va exploser",
-              ],
-              explanation: "C'est la métaphore filée : le peuple noir = une mine qu'on exploite.",
+              correctAnswer: "En appelant à la révolte",
+              explanation: "Il exprime le désir de liberté en appelant le peuple à faire exploser sa colère."
             },
             {
               id: "dep-e11",
-              type: "qcm",
-              question: "Quel est l'effet du cadrage serré, sans ciel ?",
+              type: "qcm-multiple",
+              question: "Quels procédés trouve-t-on dans « Minerai noir » ? (3 réponses)",
               options: [
-                "Le spectateur se sent enfermé : le travail semble sans fin, sans issue",
-                "Une impression de liberté",
-                "On comprend que la mine est petite",
-                "On voit mieux le paysage",
+                "La métaphore",
+                "La métonymie",
+                "L'hyperbole",
+                "La didascalie",
+                "Le point de vue interne"
               ],
-              correctAnswer: "Le spectateur se sent enfermé : le travail semble sans fin, sans issue",
-              explanation: "Ce que le photographe cache compte autant que ce qu'il montre.",
+              correctAnswer: [
+                "La métaphore",
+                "La métonymie",
+                "L'hyperbole"
+              ],
+              explanation: "La didascalie appartient au théâtre ; le point de vue interne au récit (Hugo)."
             },
             {
               id: "dep-e12",
               type: "qcm",
-              question: "Dans la séance 4, quel type de texte faut-il savoir rédiger ?",
-              options: ["Un poème en alexandrins", "Une lettre d'amour", "Un paragraphe argumenté", "Un dialogue de théâtre"],
-              correctAnswer: "Un paragraphe argumenté",
-              explanation: "Idée → argument → exemple → explication.",
+              question: "Que veut dire « susciter un désir de révolte » ?",
+              options: [
+                "Faire naître l'envie de se révolter",
+                "Faire oublier l'envie de se révolter",
+                "Faire durer l'envie de se reposer",
+                "Faire grandir l'envie de partir"
+              ],
+              correctAnswer: "Faire naître l'envie de se révolter",
+              explanation: "Susciter = faire naître."
             },
             {
               id: "dep-e13",
-              type: "tri-categories",
-              question: "Classe chaque phrase : observation ou interprétation ?",
-              items: [
-                { id: "d13-a", label: "Le vêtement est collé au corps" },
-                { id: "d13-b", label: "La lumière est forte sur son dos" },
-                { id: "d13-c", label: "On ne voit pas le ciel" },
-                { id: "d13-d", label: "Le travail semble sans fin" },
-                { id: "d13-e", label: "Ils travaillent sous une grande chaleur" },
-                { id: "d13-f", label: "Les échelles sont vitales" },
+              type: "qcm",
+              question: "Quel est le lien principal entre le poème et la photo ?",
+              options: [
+                "Ils montrent des paysages d'Afrique",
+                "Ils montrent des fêtes populaires",
+                "Ils montrent des corps exploités",
+                "Ils montrent des familles heureuses"
               ],
-              categories: [
-                { id: "obs", label: "👀 J'observe", correctItemIds: ["d13-a", "d13-b", "d13-c"] },
-                { id: "interp", label: "💭 J'interprète", correctItemIds: ["d13-d", "d13-e", "d13-f"] },
-              ],
-              correctAnswer: "tri-categories",
-              explanation: "Observer = décrire ce qu'on voit. Interpréter = expliquer ce que ça signifie.",
+              correctAnswer: "Ils montrent des corps exploités",
+              explanation: "Les deux montrent des corps exploités, en grand nombre, pour faire réagir."
             },
             {
               id: "dep-e14",
               type: "vrai-faux",
-              question: "Une photographie ne peut pas être engagée, car elle montre seulement la réalité.",
-              options: ["Vrai", "Faux"],
-              correctAnswer: "Faux",
-              explanation: "Le photographe choisit le cadrage, la lumière, le moment : il prend position et dénonce.",
+              question: "Les hyperboles du poème soulignent aussi la puissance collective des Africains.",
+              options: [
+                "Vrai",
+                "Faux"
+              ],
+              correctAnswer: "Vrai",
+              explanation: "Puissance collective + ampleur de l'exploitation."
             },
             {
               id: "dep-e15",
               type: "qcm",
-              question: "« Peuple défriché pour l'enrichissement des grandes foires du monde » : que comprend-on ?",
+              question: "Quelle est la meilleure preuve que la photo est engagée ?",
               options: [
-                "Le peuple a planté des arbres",
-                "Le peuple organise des fêtes",
-                "Le peuple a été exploité comme une terre pour enrichir le commerce mondial",
-                "Le peuple est devenu riche",
+                "La photo est en noir et blanc",
+                "La photo date de 1986",
+                "Le cadre enferme le spectateur",
+                "La photo vient du Brésil"
               ],
-              correctAnswer: "Le peuple a été exploité comme une terre pour enrichir le commerce mondial",
-              explanation: "Défricher = retourner la terre pour la cultiver. Le peuple est traité comme un champ qu'on exploite.",
+              correctAnswer: "Le cadre enferme le spectateur",
+              explanation: "Le cadrage fait ressentir l'enfermement des travailleurs : Salgado nous fait réagir."
             },
             {
               id: "dep-e16",
-              type: "click-on-image",
-              question: "Clique sur la partie du cadre qui crée l'impression qu'il n'y a « aucune issue ».",
-              imageSrc: "/images/francais/serra-pelada-composition-vierge.svg",
-              imageAlt: "Schéma de la photographie de Serra Pelada sans légendes",
-              clickZones: [
-                { id: "homme", x: 4, y: 47, w: 33, h: 53, isCorrect: false, label: "Homme de dos" },
-                { id: "echelles", x: 43, y: 15, w: 56, h: 85, isCorrect: false, label: "Échelles et garimpeiros" },
-                { id: "pente", x: 0, y: 15, w: 40, h: 30, isCorrect: false, label: "Pente de la mine" },
-                { id: "haut", x: 0, y: 0, w: 100, h: 12, isCorrect: true, label: "Haut du cadre : pas de ciel ✓" },
-              ],
-              correctAnswer: "haut",
-              explanation:
-                "En haut, l'image est coupée : on ne voit ni le ciel ni le bout des échelles. Aucune sortie n'est visible.",
-            },
-            {
-              id: "dep-e17",
-              type: "qcm",
-              question: "Quel lien principal peut-on établir entre le poème et la photographie ?",
-              options: [
-                "Les deux montrent des êtres humains exploités comme une matière première",
-                "Les deux racontent une histoire d'amour",
-                "Les deux se passent en Grèce",
-                "Les deux célèbrent la richesse de l'or",
-              ],
-              correctAnswer: "Les deux montrent des êtres humains exploités comme une matière première",
-              explanation: "Chez Depestre, le peuple EST une mine ; chez Salgado, des hommes sont DANS une mine, couverts de terre.",
-            },
-            {
-              id: "dep-e18",
               type: "intrus",
-              question: "Trouve l'intrus : lequel n'est PAS un outil pour analyser une image ?",
-              options: ["Le cadrage", "Le premier plan", "La lumière", "La rime"],
-              correctAnswer: "La rime",
-              explanation: "La rime appartient à la poésie (sons à la fin des vers).",
-            },
-            {
-              id: "dep-e19",
-              type: "qcm",
-              question: "« Mûris ton grisou dans le secret de ta nuit corporelle » : où grandit la colère ?",
+              question: "Trouve l'intrus : lequel n'est PAS un élément de l'analyse de la photo ?",
               options: [
-                "Dans une vraie mine de charbon",
-                "Dans le ciel, la nuit",
-                "Dans les livres d'histoire",
-                "À l'intérieur du peuple, en secret, avant d'éclater",
+                "la rime",
+                "le premier plan",
+                "le cadre",
+                "la lumière"
               ],
-              correctAnswer: "À l'intérieur du peuple, en secret, avant d'éclater",
-              explanation: "La « nuit corporelle » = l'intérieur du corps noir : la colère y mûrit comme le grisou avant d'exploser.",
-            },
-            {
-              id: "dep-e20",
-              type: "qcm",
-              question: "Pourquoi les échelles de Serra Pelada étaient-elles surnommées « Adeus mamãe » (« Adieu maman ») ?",
-              options: [
-                "Parce que les mères venaient y travailler",
-                "Parce qu'on risquait d'y mourir en tombant",
-                "Parce qu'elles menaient à la maison",
-                "Parce qu'on y chantait une chanson",
-              ],
-              correctAnswer: "Parce qu'on risquait d'y mourir en tombant",
-              explanation: "Les échelles étaient raides, glissantes et surchargées : une chute pouvait être mortelle.",
-            },
-          ],
-        },
-      ],
-    },
-  },
+              correctAnswer: "la rime",
+              explanation: "La rime appartient à la poésie."
+            }
+          ]
+        }
+      ]
+    }
+  }
 ];
