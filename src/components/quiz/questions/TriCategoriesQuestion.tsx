@@ -79,25 +79,25 @@ function CategoryDroppable({
       </p>
       <div className="flex min-h-[60px] flex-col gap-2">
         {placedItems.map((item) => {
+          // Before validation, placed items stay draggable so a mistake can be fixed
+          if (!showFeedback) {
+            return <DraggableItem key={item.id} id={item.id} label={item.label} disabled={false} />;
+          }
           const isCorrect = correctItemIds.includes(item.id);
           return (
             <div
               key={item.id}
               className={cn(
                 "flex min-h-[44px] items-center gap-2 rounded-xl border-2 px-3 py-2 text-sm font-semibold",
-                showFeedback
-                  ? isCorrect
-                    ? "border-success-400 bg-success-50 text-success-700"
-                    : "border-red-400 bg-red-50 text-red-700"
-                  : "border-accent-200 bg-white shadow-sm cursor-grab touch-none hover:border-accent-400"
+                isCorrect
+                  ? "border-success-400 bg-success-50 text-success-700"
+                  : "border-red-400 bg-red-50 text-red-700"
               )}
             >
-              {!showFeedback && <GripVertical className="h-4 w-4 shrink-0 text-warm-400" />}
               <span className="flex-1">{item.label}</span>
-              {showFeedback && isCorrect && (
+              {isCorrect ? (
                 <CheckCircle2 className="h-4 w-4 shrink-0 text-success-500" />
-              )}
-              {showFeedback && !isCorrect && (
+              ) : (
                 <XCircle className="h-4 w-4 shrink-0 text-red-500" />
               )}
             </div>

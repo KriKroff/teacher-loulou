@@ -2094,9 +2094,9 @@ export const resources: Resource[] = [
                 {
                   id: "echelles",
                   x: 43,
-                  y: 17,
+                  y: 22,
                   w: 56,
-                  h: 83,
+                  h: 78,
                   isCorrect: false,
                   label: "Échelles et garimpeiros"
                 },
@@ -2105,7 +2105,7 @@ export const resources: Resource[] = [
                   x: 0,
                   y: 0,
                   w: 100,
-                  h: 15,
+                  h: 20,
                   isCorrect: false,
                   label: "Haut du cadre"
                 }
@@ -2132,9 +2132,9 @@ export const resources: Resource[] = [
                 {
                   id: "echelles",
                   x: 43,
-                  y: 17,
+                  y: 22,
                   w: 56,
-                  h: 83,
+                  h: 78,
                   isCorrect: true,
                   label: "Échelles et garimpeiros"
                 },
@@ -2143,7 +2143,7 @@ export const resources: Resource[] = [
                   x: 0,
                   y: 0,
                   w: 100,
-                  h: 15,
+                  h: 20,
                   isCorrect: false,
                   label: "Haut du cadre"
                 }
@@ -2523,9 +2523,9 @@ export const resources: Resource[] = [
                 {
                   id: "echelles",
                   x: 43,
-                  y: 17,
+                  y: 22,
                   w: 56,
-                  h: 83,
+                  h: 78,
                   isCorrect: false,
                   label: "Échelles et garimpeiros"
                 },
@@ -2534,7 +2534,7 @@ export const resources: Resource[] = [
                   x: 0,
                   y: 0,
                   w: 100,
-                  h: 15,
+                  h: 20,
                   isCorrect: true,
                   label: "Haut du cadre"
                 }
