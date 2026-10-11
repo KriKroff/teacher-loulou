@@ -16,6 +16,8 @@ import path from "path";
 // Use relative imports to stay independent from Next.js / @/ path aliases
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const { getAllResources } = require("../src/data/resources") as typeof import("../src/data/resources");
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const { parseTaggedText, tokenizeTaggedText } = require("../src/lib/tagged-text") as typeof import("../src/lib/tagged-text");
 
 const ROOT = path.resolve(__dirname, "..");
 const RESOURCES_DIR = path.join(ROOT, "src", "data", "resources");
@@ -85,6 +87,33 @@ for (const r of resources) {
     error(`[${r.level}/${r.subject}/${r.slug}] sessionSize is missing (must be 10)`);
   } else if (quiz.sessionSize !== 10) {
     error(`[${r.level}/${r.subject}/${r.slug}] sessionSize=${quiz.sessionSize} (must be 10)`);
+  }
+
+  // Data checks for question types whose answers can't be checked by TypeScript (STRICT)
+  const allQuestions = [...(quiz.questions ?? []), ...(quiz.levels ?? []).flatMap((l) => l.questions)];
+  for (const q of allQuestions) {
+    const where = `[${r.level}/${r.subject}/${r.slug}] question "${q.id}"`;
+    if (q.type === "nature-mots") {
+      const targets = parseTaggedText(q.taggedText ?? "").filter((s) => s.kind === "target");
+      if (targets.length === 0) error(`${where}: nature-mots has no [mot|Réponse] target`);
+      for (const t of targets) {
+        if (t.kind === "target" && !(q.options ?? []).includes(t.answer ?? "")) {
+          error(`${where}: answer "${t.answer}" for "${t.text}" is not in options`);
+        }
+      }
+    }
+    if (q.type === "surlignage") {
+      const targets = tokenizeTaggedText(q.taggedText ?? "").filter((t) => t.kind === "word" && t.isTarget);
+      if (targets.length === 0) error(`${where}: surlignage has no [mot] target`);
+    }
+    if (q.type === "etude-texte") {
+      if (!q.subQuestions?.length) error(`${where}: etude-texte has no subQuestions`);
+      for (const sq of q.subQuestions ?? []) {
+        if (!sq.options.includes(sq.correctAnswer)) {
+          error(`${where}: sub-question "${sq.question}" correctAnswer is not in options`);
+        }
+      }
+    }
   }
 
   // Question count checks (WARNING only)
