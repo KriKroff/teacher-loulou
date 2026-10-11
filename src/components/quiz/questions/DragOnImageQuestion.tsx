@@ -32,16 +32,18 @@ function DraggableLabel({
 }) {
   const { attributes, listeners, setNodeRef, isDragging } = useDraggable({
     id,
-    disabled: disabled || placed,
+    disabled,
   });
 
   return (
     <div
       ref={setNodeRef}
-      {...(!disabled && !placed ? { ...attributes, ...listeners } : {})}
+      {...(!disabled ? { ...attributes, ...listeners } : {})}
       className={cn(
         "min-h-[44px] min-w-[44px] select-none rounded-xl border-2 px-3 py-2 text-sm font-semibold transition-all",
-        placed
+        placed && !disabled && !isDragging
+          ? "cursor-grab touch-none border-warm-200 bg-warm-100 text-warm-400 line-through"
+          : placed
           ? "cursor-default border-warm-200 bg-warm-100 text-warm-400 line-through"
           : isDragging
           ? "cursor-grabbing border-accent-400 bg-accent-50 opacity-50 shadow-lg"
@@ -60,10 +62,12 @@ function DroppableZone({
   zone,
   placedLabel,
   showFeedback,
+  onClear,
 }: {
   zone: { id: string; x: number; y: number; correctLabel: string };
   placedLabel: string | null;
   showFeedback: boolean;
+  onClear: () => void;
 }) {
   const { setNodeRef, isOver } = useDroppable({ id: zone.id });
   const isCorrect = placedLabel === zone.correctLabel;
@@ -90,8 +94,20 @@ function DroppableZone({
       }}
     >
       <div
+        role={placedLabel && !showFeedback ? "button" : undefined}
+        tabIndex={placedLabel && !showFeedback ? 0 : undefined}
+        aria-label={placedLabel && !showFeedback ? `Retirer « ${placedLabel} »` : undefined}
+        title={placedLabel && !showFeedback ? "Toucher pour retirer" : undefined}
+        onClick={placedLabel && !showFeedback ? onClear : undefined}
+        onKeyDown={(e) => {
+          if (placedLabel && !showFeedback && (e.key === "Enter" || e.key === " ")) {
+            e.preventDefault();
+            onClear();
+          }
+        }}
         className={cn(
           "flex min-h-[52px] min-w-[52px] items-center justify-center rounded-full border-2 px-2 py-1 text-xs font-bold shadow transition-all",
+          placedLabel && !showFeedback && "cursor-pointer",
           containerStyle
         )}
       >
@@ -196,6 +212,13 @@ export function DragOnImageQuestion({
               zone={zone}
               placedLabel={placements[zone.id] ?? null}
               showFeedback={showFeedback}
+              onClear={() =>
+                setPlacements((prev) => {
+                  const next = { ...prev };
+                  delete next[zone.id];
+                  return next;
+                })
+              }
             />
           ))}
         </div>
@@ -203,7 +226,7 @@ export function DragOnImageQuestion({
         {/* Label bank */}
         <div className="rounded-xl border border-warm-200 bg-warm-50 p-3">
           <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-warm-500">
-            Étiquettes — glisse sur le schéma
+            Étiquettes — glisse sur le schéma (touche une étiquette posée pour la retirer)
           </p>
           <div className="flex flex-wrap gap-2">
             {labels.map((label) => (

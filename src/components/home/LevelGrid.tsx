@@ -6,6 +6,7 @@ import { LEVEL_NAMES } from "@/types";
 
 const levels: { level: SchoolLevel; color: string; emoji: string }[] = [
   { level: "4e", color: "from-violet-400 to-purple-500", emoji: "🚀" },
+  { level: "3e", color: "from-rose-400 to-orange-500", emoji: "🎓" },
 ];
 
 export function LevelGrid() {

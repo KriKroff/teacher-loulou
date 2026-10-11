@@ -26,5 +26,11 @@ export {
   PatronPyramideDiagram,
   PatronConeDiagram,
   ProportionnaliteGraphiquesDiagram,
+  CriLiberteChapitreDiagram,
+  ImplacableDecompositionDiagram,
+  DoubleCaptiviteDiagram,
+  AntigoneCreonDiagram,
+  MineraiNoirMetaphoreDiagram,
+  AntigoneFriseDiagram,
 } from "./Diagrams";
 export type { FicheColor } from "./colors";

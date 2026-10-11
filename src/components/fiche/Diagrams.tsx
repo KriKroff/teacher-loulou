@@ -1210,3 +1210,183 @@ export function ProportionnaliteGraphiquesDiagram() {
     </DiagramFrame>
   );
 }
+
+// ── Français 3e — Cri de liberté, résister à l'oppression ───────────────────
+
+const CRI_LIBERTE_STEPS = [
+  { n: 1, emoji: "⛓️", work: "Hugo", genre: "roman", answer: "Montrer la souffrance de l'homme privé de liberté", card: "border-purple-300 bg-purple-50", text: "text-purple-800" },
+  { n: 2, emoji: "🎭", work: "Antigone", genre: "théâtre", answer: "Dire non au pouvoir", card: "border-rose-300 bg-rose-50", text: "text-rose-800" },
+  { n: 3, emoji: "✒️", work: "Minerai noir", genre: "poème", answer: "Dénoncer et appeler à la révolte", card: "border-amber-300 bg-amber-50", text: "text-amber-800" },
+  { n: 4, emoji: "📷", work: "Serra Pelada", genre: "photo", answer: "Faire voir l'exploitation", card: "border-cyan-300 bg-cyan-50", text: "text-cyan-800" },
+];
+
+/** Chapter thread: the problématique and how each séance answers it. `current` highlights séances. */
+export function CriLiberteChapitreDiagram({ current = [] }: { current?: number[] }) {
+  return (
+    <DiagramFrame
+      title="Le fil du chapitre"
+      caption="Chaque séance apporte une réponse différente à la même question."
+    >
+      <div className="mb-3 rounded-xl bg-warm-800 p-3 text-center text-sm font-bold text-white">
+        Comment les écrivains expriment-ils la réflexion et le désir de liberté face à l&apos;oppression ?
+      </div>
+      <div className="grid grid-cols-2 gap-2">
+        {CRI_LIBERTE_STEPS.map((s) => {
+          const active = current.includes(s.n);
+          return (
+            <div
+              key={s.n}
+              className={`rounded-xl border-2 p-2 ${s.card} ${current.length > 0 && !active ? "opacity-50" : ""} ${active ? "ring-2 ring-offset-1 ring-warm-500" : ""}`}
+            >
+              <div className={`text-xs font-bold uppercase ${s.text}`}>
+                Séance {s.n} · {s.genre}
+              </div>
+              <div className="font-extrabold text-warm-800">
+                {s.emoji} {s.work}
+              </div>
+              <div className="text-sm text-warm-700">{s.answer}</div>
+            </div>
+          );
+        })}
+      </div>
+    </DiagramFrame>
+  );
+}
+
+export function ImplacableDecompositionDiagram() {
+  const parts = [
+    { piece: "im", role: "préfixe", sens: "« ne pas »", color: "border-rose-400 bg-rose-50 text-rose-800" },
+    { piece: "plac", role: "radical", sens: "latin placare : apaiser", color: "border-blue-400 bg-blue-50 text-blue-800" },
+    { piece: "able", role: "suffixe", sens: "« qu'on peut »", color: "border-emerald-400 bg-emerald-50 text-emerald-800" },
+  ];
+  return (
+    <DiagramFrame title="Décomposer « implacable »" caption="Chaque morceau du mot apporte un bout du sens.">
+      <div className="grid grid-cols-3 gap-2">
+        {parts.map((p) => (
+          <div key={p.piece} className={`rounded-xl border-2 p-2 text-center ${p.color}`}>
+            <div className="text-2xl font-extrabold">{p.piece}</div>
+            <div className="text-xs font-bold uppercase">{p.role}</div>
+            <div className="mt-1 text-sm text-warm-800">{p.sens}</div>
+          </div>
+        ))}
+      </div>
+      <div className="mt-3 rounded-full border-2 border-orange-300 bg-orange-50 px-3 py-2 text-center font-bold text-orange-800">
+        implacable = qu&apos;on ne peut pas apaiser
+      </div>
+    </DiagramFrame>
+  );
+}
+
+export function DoubleCaptiviteDiagram() {
+  return (
+    <DiagramFrame
+      title="La double prison du condamné"
+      caption="« Mon corps est aux fers dans un cachot, mon esprit est en prison dans une idée. »"
+    >
+      <div className="grid grid-cols-2 gap-2">
+        <div className="rounded-xl border-2 border-stone-300 bg-stone-50 p-3 text-center">
+          <div className="text-3xl">🔒</div>
+          <div className="font-extrabold text-warm-800">Le corps</div>
+          <div className="text-sm text-warm-700">« aux fers dans un cachot »</div>
+        </div>
+        <div className="rounded-xl border-2 border-purple-300 bg-purple-50 p-3 text-center">
+          <div className="text-3xl">🧠</div>
+          <div className="font-extrabold text-purple-800">L&apos;esprit</div>
+          <div className="text-sm text-warm-700">« en prison dans une idée »</div>
+        </div>
+      </div>
+      <div className="mt-2 rounded-xl border-2 border-rose-300 bg-rose-50 p-2 text-center text-sm font-bold text-rose-800">
+        = une captivité mentale : il ne peut plus penser qu&apos;à sa mort
+      </div>
+    </DiagramFrame>
+  );
+}
+
+export function AntigoneCreonDiagram() {
+  return (
+    <DiagramFrame title="Antigone contre Créon" caption="Chacun défend ses valeurs : elles sont argumentées et légitimes.">
+      <div className="grid grid-cols-2 gap-2">
+        <div className="rounded-xl border-2 border-rose-300 bg-rose-50 p-3">
+          <div className="font-extrabold text-rose-800">👧 Antigone</div>
+          <ul className="mt-1 list-disc pl-4 text-sm text-warm-800">
+            <li>défend l&apos;intérêt <strong>familial</strong></li>
+            <li>refuse le <strong>compromis</strong></li>
+            <li>reste <strong>calme</strong></li>
+          </ul>
+        </div>
+        <div className="rounded-xl border-2 border-blue-300 bg-blue-50 p-3">
+          <div className="font-extrabold text-blue-800">👑 Créon</div>
+          <ul className="mt-1 list-disc pl-4 text-sm text-warm-800">
+            <li>défend la <strong>responsabilité du royaume</strong></li>
+            <li>veut maintenir l&apos;<strong>ordre</strong></li>
+            <li>devient <strong>violent</strong></li>
+          </ul>
+        </div>
+      </div>
+      <div className="mt-2 rounded-xl border-2 border-amber-300 bg-amber-50 p-2 text-center text-sm text-amber-900">
+        Point commun : <strong>têtus</strong>, ils ne veulent pas s&apos;écouter.
+      </div>
+    </DiagramFrame>
+  );
+}
+
+const MINERAI_NOIR_ROWS = [
+  { image: "« corps noir », « chair noire », « minerai noir »", sens: "le peuple africain traité comme une matière qu'on exploite" },
+  { image: "« peuple dévalisé », « peuple défriché »", sens: "un peuple volé, dominé et exploité" },
+  { image: "« le vacarme des pioches »", sens: "un grand nombre d'esclaves qui travaillent" },
+];
+
+export function MineraiNoirMetaphoreDiagram() {
+  return (
+    <DiagramFrame title="Ce que disent les images du poème" caption="Le peuple noir est présenté comme une mine qu'on exploite.">
+      <div className="space-y-2">
+        {MINERAI_NOIR_ROWS.map((row) => (
+          <div key={row.image} className="rounded-xl border-2 border-amber-300 bg-amber-50 p-2">
+            <div className="font-bold text-warm-800">⛏️ {row.image}</div>
+            <div className="text-sm text-warm-700">➜ {row.sens}</div>
+          </div>
+        ))}
+      </div>
+    </DiagramFrame>
+  );
+}
+
+const ANTIGONE_FRISE = [
+  { emoji: "📢", title: "Prologue", text: "On apprend qu'Antigone va mourir." },
+  { emoji: "🌅", title: "La Nourrice", text: "Antigone rentre à l'aube, en cachette." },
+  { emoji: "💛", title: "Ismène", text: "Elle a peur et refuse d'aider." },
+  { emoji: "💙", title: "Hémon", text: "Antigone lui fait ses adieux." },
+  { emoji: "💂", title: "Le Garde", text: "Le corps de Polynice a été recouvert." },
+  { emoji: "🎭", title: "Le Chœur", text: "La tragédie est lancée." },
+  { emoji: "⛓️", title: "L'arrestation", text: "Antigone est prise près du corps." },
+  { emoji: "⚔️", title: "Antigone / Créon", text: "Elle refuse tout compromis. Il la condamne.", inClass: true },
+  { emoji: "🙏", title: "Hémon et Créon", text: "Hémon supplie son père, en vain." },
+  { emoji: "📨", title: "Le Messager", text: "Antigone, Hémon et Eurydice sont morts." },
+  { emoji: "🃏", title: "La fin", text: "Créon reste seul. « Et voilà. »" },
+];
+
+export function AntigoneFriseDiagram() {
+  return (
+    <DiagramFrame title="La pièce en 11 étapes" caption="⭐ = la scène étudiée en classe.">
+      <ol className="relative ml-3 border-l-4 border-rose-200">
+        {ANTIGONE_FRISE.map((step, i) => (
+          <li key={step.title} className="mb-2 ml-5 last:mb-0">
+            <span
+              className={`absolute -left-[14px] flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold text-white ${
+                step.inClass ? "bg-amber-500" : "bg-rose-400"
+              }`}
+            >
+              {i + 1}
+            </span>
+            <div className={`rounded-lg border-2 px-2 py-1 ${step.inClass ? "border-amber-400 bg-amber-50" : "border-rose-100 bg-white"}`}>
+              <span className="font-bold text-warm-800">
+                {step.emoji} {step.title} {step.inClass && "⭐"}
+              </span>
+              <span className="text-sm text-warm-700"> — {step.text}</span>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </DiagramFrame>
+  );
+}
