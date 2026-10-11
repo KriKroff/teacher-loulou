@@ -86,7 +86,10 @@ export interface QuizQuestion {
     | "audio-listen"
     | "tri-categories"
     | "completion-tableau"
-    | "verbe-irregulier";
+    | "verbe-irregulier"
+    | "nature-mots"
+    | "surlignage"
+    | "etude-texte";
   options?: string[];
   correctAnswer?: string | string[];
   explanation?: string;
@@ -146,6 +149,25 @@ export interface QuizQuestion {
     /** Which field is already revealed to the student. */
     givenField: "french" | "base" | "preterite" | "participle";
   };
+
+  // ── nature-mots / surlignage ───────────────────────────────────────────────
+  /**
+   * Sentence with inline markup (see src/lib/tagged-text.ts):
+   * `[mot|Réponse]` = word to identify (nature-mots, answer picked from `options`),
+   * `[mot]` = word to select (surlignage), `{mot}` = group kept as one token.
+   */
+  taggedText?: string;
+
+  // ── etude-texte ────────────────────────────────────────────────────────────
+  /** Short excerpt displayed above the sub-questions. */
+  passage?: string;
+  /** Linked sub-questions (all must be right for the question to count). */
+  subQuestions?: {
+    question: string;
+    options: string[];
+    correctAnswer: string;
+    explanation?: string;
+  }[];
 }
 
 export interface QuizQuestionHistory {

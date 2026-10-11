@@ -21,6 +21,9 @@ import {
   TriCategoriesQuestion,
   CompletionTableauQuestion,
   VerbeIrregulierQuestion,
+  NatureMotsQuestion,
+  SurlignageQuestion,
+  EtudeTexteQuestion,
 } from "./questions";
 import type { QuestionComponentProps } from "./questions";
 
@@ -63,6 +66,9 @@ const TYPE_BADGES: Partial<Record<QuizQuestion["type"], { label: string; classNa
   "tri-categories": { label: "Trie par catégorie", className: "bg-fuchsia-100 text-fuchsia-700" },
   "completion-tableau": { label: "Complète le tableau", className: "bg-lime-100 text-lime-700" },
   "verbe-irregulier": { label: "Verbe irrégulier", className: "bg-violet-100 text-violet-700" },
+  "nature-mots": { label: "Donne la nature", className: "bg-rose-100 text-rose-700" },
+  surlignage: { label: "Surligne les mots", className: "bg-yellow-100 text-yellow-800" },
+  "etude-texte": { label: "Étude de texte", className: "bg-sky-100 text-sky-700" },
 };
 
 function QuestionDispatcher(props: QuestionComponentProps) {
@@ -103,6 +109,12 @@ function QuestionDispatcher(props: QuestionComponentProps) {
       return <CompletionTableauQuestion {...props} />;
     case "verbe-irregulier":
       return <VerbeIrregulierQuestion {...props} />;
+    case "nature-mots":
+      return <NatureMotsQuestion {...props} />;
+    case "surlignage":
+      return <SurlignageQuestion {...props} />;
+    case "etude-texte":
+      return <EtudeTexteQuestion {...props} />;
     default:
       return null;
   }

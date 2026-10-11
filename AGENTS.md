@@ -117,6 +117,9 @@ To add a new diagram: add an `export function` to `Diagrams.tsx`, re-export from
 | `audio-listen` | `audioSrc`, `options[]`, `correctAnswer` |
 | `tri-categories` | `items: {id,label}[]`, `categories: {id,label,correctItemIds[]}[]` |
 | `completion-tableau` | `table: {headers[], rows: ({value}\|{blank,correctAnswer})[][]}` — case/accent insensitive |
+| `nature-mots` | `taggedText` with `[mot\|Réponse]` targets, `options[]` (dropdown per target) — "donne la nature des mots soulignés" |
+| `surlignage` | `taggedText` with `[mot]` targets; every word is tappable, `{groupe}` keeps words together |
+| `etude-texte` | `passage`, `subQuestions: {question, options[], correctAnswer, explanation?}[]` — brevet-style linked questions |
 
 ## Content Guidelines (DYS/ADHD)
 

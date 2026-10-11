@@ -32,5 +32,7 @@ export {
   AntigoneCreonDiagram,
   MineraiNoirMetaphoreDiagram,
   AntigoneFriseDiagram,
+  ClassesGrammaticalesDiagram,
+  PhraseMonaDiagram,
 } from "./Diagrams";
 export type { FicheColor } from "./colors";

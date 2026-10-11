@@ -1390,3 +1390,88 @@ export function AntigoneFriseDiagram() {
     </DiagramFrame>
   );
 }
+
+const CLASSES_VARIABLES = [
+  { emoji: "🏷️", name: "Nom", ex: "maison, Paris" },
+  { emoji: "👉", name: "Déterminant", ex: "le, ces, mon" },
+  { emoji: "🔁", name: "Pronom", ex: "il, qui, le mien" },
+  { emoji: "🎨", name: "Adjectif qualificatif", ex: "bleu, joli" },
+  { emoji: "⚡", name: "Verbe", ex: "être, partir" },
+];
+
+const CLASSES_INVARIABLES = [
+  { emoji: "🎚️", name: "Adverbe", ex: "lentement, très" },
+  { emoji: "🔗", name: "Préposition", ex: "à, de, pour, sans" },
+  { emoji: "🧷", name: "Conjonction", ex: "mais, quand, si" },
+  { emoji: "😮", name: "Interjection", ex: "Oh ! Hélas !" },
+  { emoji: "💥", name: "Onomatopée", ex: "Boum ! Plouf !" },
+];
+
+export function ClassesGrammaticalesDiagram() {
+  const column = (
+    title: string,
+    subtitle: string,
+    items: typeof CLASSES_VARIABLES,
+    tone: "rose" | "blue"
+  ) => (
+    <div
+      className={`rounded-xl border-2 p-2 ${
+        tone === "rose" ? "border-rose-300 bg-rose-50" : "border-blue-300 bg-blue-50"
+      }`}
+    >
+      <div className={`font-extrabold ${tone === "rose" ? "text-rose-800" : "text-blue-800"}`}>{title}</div>
+      <div className="mb-2 text-xs text-warm-600">{subtitle}</div>
+      <ul className="space-y-1">
+        {items.map((c) => (
+          <li key={c.name} className="rounded-lg bg-white/80 px-2 py-1">
+            <span className="font-bold text-warm-800">
+              {c.emoji} {c.name}
+            </span>
+            <span className="block text-xs italic text-warm-600">{c.ex}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+
+  return (
+    <DiagramFrame title="Les 10 classes grammaticales" caption="5 classes variables, 5 classes invariables.">
+      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+        {column("✏️ Mots variables", "Ils changent : genre, nombre, personne, temps…", CLASSES_VARIABLES, "rose")}
+        {column("🧱 Mots invariables", "Ils ne changent jamais d'orthographe.", CLASSES_INVARIABLES, "blue")}
+      </div>
+    </DiagramFrame>
+  );
+}
+
+const PHRASE_MONA: { word: string; nature: string; color: string }[] = [
+  { word: "Tous", nature: "dét.", color: "bg-amber-100 border-amber-400" },
+  { word: "les", nature: "dét.", color: "bg-amber-100 border-amber-400" },
+  { word: "proches", nature: "adj.", color: "bg-green-100 border-green-400" },
+  { word: "amis", nature: "nom", color: "bg-rose-100 border-rose-400" },
+  { word: "de", nature: "prép.", color: "bg-blue-100 border-blue-400" },
+  { word: "Mona", nature: "nom", color: "bg-rose-100 border-rose-400" },
+  { word: "sont arrivés", nature: "verbe", color: "bg-purple-100 border-purple-400" },
+  { word: "hier,", nature: "adv.", color: "bg-cyan-100 border-cyan-400" },
+  { word: "pour", nature: "prép.", color: "bg-blue-100 border-blue-400" },
+  { word: "lui", nature: "pron.", color: "bg-orange-100 border-orange-400" },
+  { word: "souhaiter", nature: "verbe", color: "bg-purple-100 border-purple-400" },
+  { word: "joyeusement", nature: "adv.", color: "bg-cyan-100 border-cyan-400" },
+  { word: "son", nature: "dét.", color: "bg-amber-100 border-amber-400" },
+  { word: "anniversaire.", nature: "nom", color: "bg-rose-100 border-rose-400" },
+];
+
+export function PhraseMonaDiagram() {
+  return (
+    <DiagramFrame title="Une phrase, toutes les classes" caption="Chaque couleur = une classe grammaticale.">
+      <div className="flex flex-wrap gap-1.5">
+        {PHRASE_MONA.map((w, i) => (
+          <div key={i} className={`rounded-lg border-2 px-2 py-1 text-center ${w.color}`}>
+            <div className="font-bold text-warm-800">{w.word}</div>
+            <div className="text-[11px] font-semibold uppercase tracking-wide text-warm-600">{w.nature}</div>
+          </div>
+        ))}
+      </div>
+    </DiagramFrame>
+  );
+}

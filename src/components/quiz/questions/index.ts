@@ -17,3 +17,6 @@ export { TriCategoriesQuestion } from "./TriCategoriesQuestion";
 export { CompletionTableauQuestion } from "./CompletionTableauQuestion";
 export { VerbeIrregulierQuestion } from "./VerbeIrregulierQuestion";
 export type { QuestionComponentProps } from "./types";
+export { NatureMotsQuestion } from "./NatureMotsQuestion";
+export { SurlignageQuestion } from "./SurlignageQuestion";
+export { EtudeTexteQuestion } from "./EtudeTexteQuestion";
