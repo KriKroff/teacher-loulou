@@ -165,13 +165,13 @@ html[data-syllable-colors="true"] .dys-content .syllable-b {
   animation: atlas-ring 1.1s ease-out infinite;
 }
 
-/* Countdown before the next question (matches the 1.1s auto-advance) */
+/* "Continuer" fills up before the automatic next question (duration set inline) */
 @keyframes atlas-next-bar {
   from { width: 0%; }
   to { width: 100%; }
 }
 .atlas-next-bar {
-  animation: atlas-next-bar 1.1s linear forwards;
+  animation: atlas-next-bar 1.5s linear forwards;
 }
 
 @media (prefers-reduced-motion: reduce) {

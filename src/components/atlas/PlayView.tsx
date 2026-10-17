@@ -39,6 +39,10 @@ import { useMapData } from "./useMapData";
 
 const NEIGHBOUR_MAP = NEIGHBOURS as Record<string, string[]>;
 const PASSING = 60;
+/** After a perfect answer, the "Continuer" button fills up for this long, then moves on */
+const AUTO_ADVANCE_MS = 1500;
+/** New answers appear after this delay, so a tap meant for "Continuer" can't hit them */
+const ANSWERS_DELAY_MS = 500;
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -362,9 +366,13 @@ function GameSession({
     key: 1,
   }));
   const inputRef = useRef<HTMLInputElement>(null);
-  // Ignores taps for a moment after a new question appears, so a tap meant for
-  // "Continuer" (or a double tap) can't land on the next question's answers
-  const lockedUntil = useRef(0);
+  // Answers show up shortly after a new question (the map zooms in first)
+  const [answersReady, setAnswersReady] = useState(false);
+  useEffect(() => {
+    if (feedback) return;
+    const t = setTimeout(() => setAnswersReady(true), ANSWERS_DELAY_MS);
+    return () => clearTimeout(t);
+  }, [feedback, session.index]);
 
   const item = session.queue[session.index];
   const country = item ? COUNTRY_BY_ID[item.id] : undefined;
@@ -395,7 +403,7 @@ function GameSession({
 
   const answer = useCallback(
     (ok: boolean, extra: Omit<Feedback, "ok" | "perfect"> & { perfect?: boolean }) => {
-      if (!item || feedback || Date.now() < lockedUntil.current) return;
+      if (!item || feedback || !answersReady) return;
       if (ok) {
         playCorrect();
         vibrateCorrect();
@@ -424,7 +432,7 @@ function GameSession({
       setFeedback({ ok, perfect: extra.perfect ?? ok, ...extra });
       if (mode === "placer" && !ok) setFocus((f) => ({ id: item.id, key: f.key + 1 }));
     },
-    [item, feedback, mode, onProgress, onSave, session]
+    [item, feedback, answersReady, mode, onProgress, onSave, session]
   );
 
   const goNext = useCallback(() => {
@@ -433,7 +441,7 @@ function GameSession({
       return;
     }
     const nextId = session.queue[session.index].id;
-    lockedUntil.current = Date.now() + 450;
+    setAnswersReady(false);
     setFeedback(null);
     setSelected(null);
     setTyped("");
@@ -444,14 +452,14 @@ function GameSession({
   // Perfect answers move on by themselves
   useEffect(() => {
     if (!feedback?.perfect) return;
-    const t = setTimeout(goNext, 1100);
+    const t = setTimeout(goNext, AUTO_ADVANCE_MS);
     return () => clearTimeout(t);
   }, [feedback, goNext]);
 
   // Typing mode: focus the field on each question
   useEffect(() => {
-    if (mode === "ecrire" && !feedback) inputRef.current?.focus({ preventScroll: true });
-  }, [mode, feedback, session.index]);
+    if (mode === "ecrire" && !feedback && answersReady) inputRef.current?.focus({ preventScroll: true });
+  }, [mode, feedback, answersReady, session.index]);
 
   // Speak the target name in "placer"
   useEffect(() => {
@@ -589,80 +597,91 @@ function GameSession({
 
             {feedback ? (
               <FeedbackBox feedback={feedback} country={shownCountry} mode={mode} onNext={goNext} />
-            ) : mode === "qcm" ? (
-              <div className="grid grid-cols-2 gap-2">
-                {options.map((id) => (
-                  <button
-                    key={id}
-                    type="button"
-                    onClick={() => answer(id === item!.id, { chosenId: id })}
-                    className="min-h-14 rounded-xl border-2 border-warm-200 bg-white px-2 py-2 text-[0.95rem] font-semibold leading-tight text-warm-800 shadow-sm transition-all [hyphens:auto] active:scale-95 active:bg-accent-100"
-                    lang="fr"
-                  >
-                    {COUNTRY_BY_ID[id].name}
-                  </button>
-                ))}
-              </div>
-            ) : mode === "placer" ? (
-              <div className="space-y-2">
-                <p className="text-sm text-warm-600">
-                  {selected ? "Tu as choisi un pays (en bleu). Tu confirmes ?" : "Zoome avec deux doigts, puis touche le pays."}
-                </p>
-                <button
-                  type="button"
-                  disabled={!selected}
-                  onClick={() => selected && answer(selected === item!.id, { chosenId: selected })}
-                  className="h-12 w-full rounded-xl bg-accent-600 font-bold text-white shadow transition-all active:scale-95 disabled:bg-warm-300"
-                >
-                  Valider
-                </button>
-              </div>
             ) : (
-              <form
-                className="space-y-2"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  if (!typed.trim()) return;
-                  const check = checkTypedAnswer(typed, COUNTRY_BY_ID[item!.id]);
-                  const ok = check.kind === "exact" || check.kind === "typo";
-                  answer(ok, {
-                    typed,
-                    check,
-                    perfect: check.kind === "exact",
-                    chosenId: check.kind === "other" ? check.other.id : undefined,
-                  });
-                }}
+              // Space is kept while hidden so the layout doesn't jump
+              <div
+                className={cn(
+                  "transition-opacity duration-200",
+                  answersReady ? "opacity-100" : "pointer-events-none opacity-0"
+                )}
+                aria-hidden={!answersReady}
               >
-                <input
-                  ref={inputRef}
-                  value={typed}
-                  onChange={(e) => setTyped(e.target.value)}
-                  placeholder="Nom du pays…"
-                  autoComplete="off"
-                  autoCorrect="off"
-                  autoCapitalize="words"
-                  spellCheck={false}
-                  enterKeyHint="done"
-                  aria-label="Nom du pays"
-                  className="h-12 w-full rounded-xl border-2 border-warm-300 bg-white px-3 text-lg text-warm-900 outline-none focus:border-accent-500"
-                />
-                <div className="flex gap-2">
-                  <button
-                    type="button"
-                    onClick={() => answer(false, { skipped: true })}
-                    className="h-12 rounded-xl border border-warm-300 bg-white px-3 text-sm font-medium text-warm-700 active:scale-95"
+                {mode === "qcm" ? (
+                  <div className="grid grid-cols-2 gap-2">
+                    {options.map((id) => (
+                      <button
+                        key={id}
+                        type="button"
+                        onClick={() => answer(id === item!.id, { chosenId: id })}
+                        className="min-h-14 rounded-xl border-2 border-warm-200 bg-white px-2 py-2 text-[0.95rem] font-semibold leading-tight text-warm-800 shadow-sm transition-all [hyphens:auto] active:scale-95 active:bg-accent-100"
+                        lang="fr"
+                      >
+                        {COUNTRY_BY_ID[id].name}
+                      </button>
+                    ))}
+                  </div>
+                ) : mode === "placer" ? (
+                  <div className="space-y-2">
+                    <p className="text-sm text-warm-600">
+                      {selected ? "Tu as choisi un pays (en bleu). Tu confirmes ?" : "Zoome avec deux doigts, puis touche le pays."}
+                    </p>
+                    <button
+                      type="button"
+                      disabled={!selected}
+                      onClick={() => selected && answer(selected === item!.id, { chosenId: selected })}
+                      className="h-12 w-full rounded-xl bg-accent-600 font-bold text-white shadow transition-all active:scale-95 disabled:bg-warm-300"
+                    >
+                      Valider
+                    </button>
+                  </div>
+                ) : (
+                  <form
+                    className="space-y-2"
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      if (!typed.trim()) return;
+                      const check = checkTypedAnswer(typed, COUNTRY_BY_ID[item!.id]);
+                      const ok = check.kind === "exact" || check.kind === "typo";
+                      answer(ok, {
+                        typed,
+                        check,
+                        perfect: check.kind === "exact",
+                        chosenId: check.kind === "other" ? check.other.id : undefined,
+                      });
+                    }}
                   >
-                    Je ne sais pas
-                  </button>
-                  <button
-                    type="submit"
-                    disabled={!typed.trim()}
-                    className="h-12 flex-1 rounded-xl bg-accent-600 font-bold text-white shadow active:scale-95 disabled:bg-warm-300"
-                  >
-                    Valider
-                  </button>
-                </div>
-              </form>
+                    <input
+                      ref={inputRef}
+                      value={typed}
+                      onChange={(e) => setTyped(e.target.value)}
+                      placeholder="Nom du pays…"
+                      autoComplete="off"
+                      autoCorrect="off"
+                      autoCapitalize="words"
+                      spellCheck={false}
+                      enterKeyHint="done"
+                      aria-label="Nom du pays"
+                      className="h-12 w-full rounded-xl border-2 border-warm-300 bg-white px-3 text-lg text-warm-900 outline-none focus:border-accent-500"
+                    />
+                    <div className="flex gap-2">
+                      <button
+                        type="button"
+                        onClick={() => answer(false, { skipped: true })}
+                        className="h-12 rounded-xl border border-warm-300 bg-white px-3 text-sm font-medium text-warm-700 active:scale-95"
+                      >
+                        Je ne sais pas
+                      </button>
+                      <button
+                        type="submit"
+                        disabled={!typed.trim()}
+                        className="h-12 flex-1 rounded-xl bg-accent-600 font-bold text-white shadow active:scale-95 disabled:bg-warm-300"
+                      >
+                        Valider
+                      </button>
+                    </div>
+                  </form>
+                )}
+              </div>
             )}
           </div>
         )}
@@ -742,24 +761,22 @@ function FeedbackBox({
       >
         {message}
       </div>
-      {feedback.perfect ? (
-        // Moves on by itself: no button here, so nothing to tap where the next answers appear
-        <div className="flex h-12 flex-col justify-center gap-1.5 px-1" aria-hidden>
-          <span className="text-sm font-medium text-warm-500">Question suivante…</span>
-          <span className="h-1.5 overflow-hidden rounded-full bg-warm-200">
-            <span className="atlas-next-bar block h-full rounded-full bg-success-500" />
-          </span>
-        </div>
-      ) : (
-        <button
-          type="button"
-          onClick={onNext}
-          autoFocus
-          className="h-12 w-full rounded-xl bg-warm-800 font-bold text-warm-50 shadow active:scale-95"
-        >
-          Continuer →
-        </button>
-      )}
+      <button
+        type="button"
+        onClick={onNext}
+        autoFocus
+        className="relative h-12 w-full overflow-hidden rounded-xl bg-warm-800 font-bold text-warm-50 shadow active:scale-95"
+      >
+        {/* Perfect answer: fills up like a progress bar, then moves on by itself */}
+        {feedback.perfect && (
+          <span
+            className="atlas-next-bar absolute inset-y-0 left-0 bg-success-600"
+            style={{ animationDuration: `${AUTO_ADVANCE_MS}ms` }}
+            aria-hidden
+          />
+        )}
+        <span className="relative">Continuer →</span>
+      </button>
     </div>
   );
 }
