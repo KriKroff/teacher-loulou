@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, GraduationCap, Clock, BarChart3 } from "lucide-react";
+import { Home, GraduationCap, Globe, Clock, BarChart3 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
   { href: "/", icon: Home, label: "Accueil" },
   { href: "/niveaux", icon: GraduationCap, label: "Niveaux" },
+  { href: "/atlas", icon: Globe, label: "Atlas" },
   { href: "/historique", icon: Clock, label: "Historique" },
   { href: "/progression", icon: BarChart3, label: "Progression" },
 ];
@@ -31,7 +32,7 @@ export function MobileNav() {
               key={item.href}
               href={item.href}
               className={cn(
-                "flex flex-col items-center gap-0.5 rounded-lg px-3 py-1.5 text-xs transition-colors",
+                "flex flex-col items-center gap-0.5 rounded-lg px-2 py-1.5 text-xs tracking-normal transition-colors",
                 isActive
                   ? "text-accent-600 font-semibold"
                   : "text-warm-500 hover:text-warm-700"
