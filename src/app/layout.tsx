@@ -5,6 +5,19 @@ import { AccessibilityProvider } from "@/contexts/AccessibilityContext";
 import { Header } from "@/components/layout/Header";
 import { MobileNav } from "@/components/layout/MobileNav";
 import { ReadingRuler } from "@/components/accessibility/ReadingRuler";
+import { assetPath } from "@/lib/asset-path";
+
+// Declared here rather than in globals.css so font URLs get the GitHub Pages basePath
+const fontFaces = [
+  { family: "Lexend", file: "Lexend-Variable.woff2", weight: "100 900" },
+  { family: "OpenDyslexic", file: "OpenDyslexic-Regular.woff2", weight: "400" },
+  { family: "OpenDyslexic", file: "OpenDyslexic-Bold.woff2", weight: "700" },
+]
+  .map(
+    (f) =>
+      `@font-face{font-family:"${f.family}";src:url("${assetPath(`/fonts/${f.file}`)}") format("woff2");font-weight:${f.weight};font-style:normal;font-display:swap}`
+  )
+  .join("");
 
 export const metadata: Metadata = {
   title: "Teacher Loulou - Apprendre autrement",
@@ -21,6 +34,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
+      <head>
+        <style dangerouslySetInnerHTML={{ __html: fontFaces }} />
+      </head>
       <body suppressHydrationWarning>
         <a
           href="#main-content"
