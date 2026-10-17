@@ -75,18 +75,21 @@ export function PlayView({ mapId, mode }: { mapId: MapId; mode: PlayMode }) {
   const [saved, setSaved] = useLocalStorage<SavedSession | null>(sessionKey(mapId, mode), null);
   const [phase, setPhase] = useState<"setup" | "playing" | "result">("setup");
   const [finished, setFinished] = useState<SavedSession | null>(null);
+  // Live session in React state; localStorage is only for pause/resume
+  const [active, setActive] = useState<SavedSession | null>(null);
 
   const start = (session: SavedSession) => {
+    setActive(session);
     setSaved(session);
     setPhase("playing");
   };
 
-  if (phase === "playing" && saved) {
+  if (phase === "playing" && active) {
     return (
       <GameSession
         mapId={mapId}
         mode={mode}
-        initial={saved}
+        initial={active}
         onProgress={setProgress}
         onSave={setSaved}
         onQuit={() => setPhase("setup")}
@@ -359,6 +362,9 @@ function GameSession({
     key: 1,
   }));
   const inputRef = useRef<HTMLInputElement>(null);
+  // Ignores taps for a moment after a new question appears, so a tap meant for
+  // "Continuer" (or a double tap) can't land on the next question's answers
+  const lockedUntil = useRef(0);
 
   const item = session.queue[session.index];
   const country = item ? COUNTRY_BY_ID[item.id] : undefined;
@@ -389,7 +395,7 @@ function GameSession({
 
   const answer = useCallback(
     (ok: boolean, extra: Omit<Feedback, "ok" | "perfect"> & { perfect?: boolean }) => {
-      if (!item || feedback) return;
+      if (!item || feedback || Date.now() < lockedUntil.current) return;
       if (ok) {
         playCorrect();
         vibrateCorrect();
@@ -427,6 +433,7 @@ function GameSession({
       return;
     }
     const nextId = session.queue[session.index].id;
+    lockedUntil.current = Date.now() + 450;
     setFeedback(null);
     setSelected(null);
     setTyped("");
@@ -457,7 +464,7 @@ function GameSession({
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps -- once per question
-  }, [session.index, mode]);
+  }, [session.index, mode, feedback === null]);
 
   const quit = () => {
     onSave({ ...session, elapsedMs: elapsedRef.current });
@@ -735,14 +742,24 @@ function FeedbackBox({
       >
         {message}
       </div>
-      <button
-        type="button"
-        onClick={onNext}
-        autoFocus
-        className="h-12 w-full rounded-xl bg-warm-800 font-bold text-warm-50 shadow active:scale-95"
-      >
-        Continuer →
-      </button>
+      {feedback.perfect ? (
+        // Moves on by itself: no button here, so nothing to tap where the next answers appear
+        <div className="flex h-12 flex-col justify-center gap-1.5 px-1" aria-hidden>
+          <span className="text-sm font-medium text-warm-500">Question suivante…</span>
+          <span className="h-1.5 overflow-hidden rounded-full bg-warm-200">
+            <span className="atlas-next-bar block h-full rounded-full bg-success-500" />
+          </span>
+        </div>
+      ) : (
+        <button
+          type="button"
+          onClick={onNext}
+          autoFocus
+          className="h-12 w-full rounded-xl bg-warm-800 font-bold text-warm-50 shadow active:scale-95"
+        >
+          Continuer →
+        </button>
+      )}
     </div>
   );
 }

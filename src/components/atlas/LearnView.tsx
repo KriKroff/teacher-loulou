@@ -76,9 +76,11 @@ export function LearnView({ mapId }: { mapId: MapId }) {
   }
 
   function step(delta: number) {
+    if (!order.length) return;
     const i = selected ? order.indexOf(selected) : -1;
-    const next = order[(i + delta + order.length) % order.length];
-    if (next) select(next, true);
+    // Nothing from the tour selected yet: start at the first (or last) country
+    const nextIndex = i < 0 ? (delta > 0 ? 0 : order.length - 1) : (i + delta + order.length) % order.length;
+    select(order[nextIndex], true);
   }
 
   const fills = useMemo(() => {

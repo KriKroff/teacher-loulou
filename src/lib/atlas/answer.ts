@@ -67,9 +67,12 @@ export function checkTypedAnswer(input: string, expected: Country): AnswerCheck 
   const exactOther = NORMALIZED.find((n) => n.names.includes(typed));
   if (exactOther) return { kind: "other", other: exactOther.country };
 
-  const d = distanceTo(typed, target.names);
-  const shortest = Math.min(...target.names.map((n) => n.length));
-  if (d <= tolerance(shortest)) {
+  // Each accepted name gets its own tolerance (a short alias like "RDC" must
+  // not make "République démocratique du Congo" strict)
+  const d = Math.min(
+    ...target.names.map((n) => levenshtein(typed, n)).filter((dist, i) => dist <= tolerance(target.names[i].length))
+  );
+  if (Number.isFinite(d)) {
     const closerOther = NORMALIZED.some(
       (n) => n.country.id !== expected.id && distanceTo(typed, n.names) < d
     );
