@@ -135,6 +135,14 @@ To add a new diagram: add an `export function` to `Diagrams.tsx`, re-export from
 - Background `#FFF8F0`, text `#2D2D2D` — never pure white/black
 - Font: Lexend / Atkinson Hyperlegible
 
+## Atlas (world map module)
+
+`/atlas` — learn and test the 197 countries (UN + Vatican, Palestine, Kosovo, Taiwan) by continent, then on the whole world.
+
+- Country list, French names, accepted spellings and zones: `src/data/atlas/countries.ts`
+- Maps are pre-projected SVG paths in `public/atlas/*.json`, generated from Natural Earth (`world-atlas`) by `npm run build-atlas` — rerun after changing countries or projections
+- UI: `src/components/atlas/` (`AtlasMap` = pan/pinch-zoom SVG map); progress & weighting: `src/lib/atlas/progress.ts`; typo-tolerant answers: `src/lib/atlas/answer.ts`
+
 ## Commands
 
 ```bash
@@ -142,6 +150,7 @@ npm run dev                  # Dev server (http://localhost:3000)
 npm run validate-resources   # Validate all resources — run before committing
 npm run build                # Static build → out/ (runs validate-resources first)
 npm run lint                 # ESLint
+npm run build-atlas          # Regenerate Atlas maps (public/atlas/)
 ```
 
 ## Gotchas
