@@ -36,6 +36,8 @@ import { AtlasMap, MAP_COLORS } from "./AtlasMap";
 import { FullscreenShell, SidePanel } from "./FullscreenShell";
 import { MapPlaceholder } from "./LearnView";
 import { useMapData } from "./useMapData";
+import { ShareResultButton } from "./ShareResultButton";
+import { assetPath } from "@/lib/asset-path";
 
 const NEIGHBOUR_MAP = NEIGHBOURS as Record<string, string[]>;
 const PASSING = 60;
@@ -868,6 +870,25 @@ function ResultView({
         <Legend color={MAP_COLORS.mastered} label="Réussi" />
         <Legend color={MAP_COLORS.review} label="Raté" />
       </p>
+
+      {data && (
+        <ShareResultButton
+          card={{
+            data,
+            playable,
+            answers: scored,
+            pct,
+            emoji,
+            message,
+            zone,
+            mode: modeInfo,
+            time: session.timer ? formatTime(session.elapsedMs) : null,
+          }}
+          fileName={`atlas-${mapId}-${pct}.png`}
+          shareText={`${emoji} J'ai eu ${pct} % à l'Atlas des pays (${zone.name}, ${modeInfo.name}) ! Et toi, tu fais combien ? ${window.location.origin}${assetPath(`/atlas/${mapId}`)}`}
+          highlight={passed}
+        />
+      )}
 
       {errors.length > 0 && (
         <div className="rounded-2xl border border-warm-200 bg-white p-4">
