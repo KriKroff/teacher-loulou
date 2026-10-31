@@ -1757,7 +1757,9 @@ export function CaryotypeDiagram({
   const slot = 62;
   const total = trisomie21 ? 47 : 46;
   const title = trisomie21
-    ? "Caryotype d'un garçon atteint de trisomie 21"
+    ? sexe === "homme"
+      ? "Caryotype d'un garçon atteint de trisomie 21"
+      : "Caryotype d'une fille atteinte de trisomie 21"
     : sexe === "homme"
       ? "Caryotype simplifié d'un homme"
       : "Caryotype simplifié d'une femme";
@@ -1767,7 +1769,7 @@ export function CaryotypeDiagram({
       caption={
         trisomie21
           ? "3 chromosomes n° 21 au lieu de 2 → 47 chromosomes au total."
-          : "Les chromosomes sont rangés par paires, du plus grand au plus petit. La dernière paire = chromosomes sexuels."
+          : "Les chromosomes sont rangés par paires, à peu près du plus grand au plus petit. La dernière paire = chromosomes sexuels."
       }
     >
       <svg viewBox="0 0 460 326" className="mx-auto w-full max-w-lg" role="img" aria-label={`${title} : ${total} chromosomes rangés en paires numérotées de 1 à 22, puis la paire sexuelle.`}>
@@ -1777,7 +1779,7 @@ export function CaryotypeDiagram({
             const cx = startX + ci * slot + slot / 2;
             const isSex = id === "XY";
             const pair: { label: string; h: number; fill: string }[] = isSex
-              ? sexe === "homme" || trisomie21
+              ? sexe === "homme"
                 ? [
                     { label: "X", h: KARYO_SIZES.X, fill: "#A855F7" },
                     { label: "Y", h: KARYO_SIZES.Y, fill: "#3B82F6" },
@@ -1803,7 +1805,7 @@ export function CaryotypeDiagram({
                   <ChromosomeRod key={k} x={cx - groupW / 2 + k * (w + gap)} y={midY - c.h / 2} h={c.h} w={w} fill={c.fill} />
                 ))}
                 <text x={cx} y={rowTop[ri] + rowMax[ri] + 16} textAnchor="middle" fontSize="12" fontWeight="700" fill="#44403C">
-                  {isSex ? (sexe === "homme" || trisomie21 ? "X  Y" : "X  X") : id}
+                  {isSex ? (sexe === "homme" ? "X  Y" : "X  X") : id}
                 </text>
               </g>
             );
@@ -1858,8 +1860,8 @@ function NestCard({ step, title, text, children }: { step: string; title: string
 export function GenomeEmboitementDiagram() {
   return (
     <DiagramFrame
-      title="Du génome à l'allèle : les poupées russes"
-      caption="Génome → chromosomes → gènes → allèles : chaque élément est contenu dans le précédent."
+      title="Du génome à l'allèle"
+      caption="Le génome est dans les chromosomes, qui portent les gènes. Chaque gène peut exister en plusieurs versions : les allèles."
     >
       <div className="flex flex-wrap items-stretch justify-center gap-2">
         <NestCard step="1" title="Génome" text="tous les gènes, dans le noyau de chaque cellule">

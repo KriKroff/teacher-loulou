@@ -279,7 +279,7 @@ export const resources: Resource[] = [
             {
               id: "gen-i2",
               type: "qcm",
-              question: "Deux chênes viennent du même gland. L'un pousse dans un sol humide, l'autre dans un sol sec. Le premier devient plus grand. Pourquoi ?",
+              question: "Deux chênes ont été obtenus à partir de morceaux du même arbre (boutures). L'un pousse dans un sol humide, l'autre dans un sol sec. Le premier devient plus grand. Pourquoi ?",
               options: [
                 "Ils n'ont pas la même information héréditaire",
                 "L'environnement (l'eau du sol) influence leur croissance",
@@ -287,7 +287,7 @@ export const resources: Resource[] = [
                 "Le second est malade",
               ],
               correctAnswer: "L'environnement (l'eau du sol) influence leur croissance",
-              explanation: "Même gland = même information héréditaire. La différence vient des conditions de vie : l'environnement.",
+              explanation: "Morceaux du même arbre = même information héréditaire. La différence vient des conditions de vie : l'environnement.",
             },
             {
               id: "gen-i3",
@@ -313,7 +313,7 @@ export const resources: Resource[] = [
             {
               id: "gen-i5",
               type: "vrai-faux",
-              question: "Avec le noyau d'une cellule de PEAU de souris blanche, on obtient aussi un souriceau blanc. Cela montre que toutes les cellules contiennent la même information héréditaire.",
+              question: "Avec le noyau d'une cellule de PEAU de souris blanche, on obtient aussi un souriceau blanc. Cela montre que les cellules du corps (à noyau) contiennent toute l'information héréditaire.",
               options: ["Vrai", "Faux"],
               correctAnswer: "Vrai",
               explanation: "Cellule-œuf, muscle ou peau : chaque noyau contient toute l'information héréditaire de l'individu.",
@@ -547,7 +547,7 @@ export const resources: Resource[] = [
             {
               id: "gen-e2",
               type: "qcm",
-              question: "Quelle observation est la plus PRÉCISE pour l'arbre du PTC ?",
+              question: "Arbre du PTC : le grand-père est sensible, sa fille insensible, et l'une de ses petites-filles sensible. Quelle observation est la plus PRÉCISE ?",
               options: [
                 "Ils sont parfois sensibles au PTC.",
                 "Je vois que certaines personnes sont sensibles.",
@@ -586,7 +586,7 @@ export const resources: Resource[] = [
               passage: SCOTT_PASSAGE,
               subQuestions: [
                 {
-                  question: "Dans l'arbre, quel symbole représente John Scott ?",
+                  question: "Dans un arbre généalogique de cette famille, quel symbole représenterait John Scott ?",
                   options: ["un carré colorié", "un carré blanc", "un cercle colorié"],
                   correctAnswer: "un carré colorié",
                   explanation: "C'est un homme (carré) daltonien (colorié).",
@@ -619,7 +619,7 @@ export const resources: Resource[] = [
             {
               id: "gen-e6",
               type: "qcm",
-              question: "D'après le document de John Scott, les fils de Cécile peuvent-ils avoir des enfants daltoniens ?",
+              question: "Dans la famille de John Scott, le daltonisme touche le père de John Scott, John Scott, sa sœur Cécile et les deux fils de Cécile. Les fils de Cécile peuvent-ils avoir des enfants daltoniens ?",
               options: [
                 "Oui, car le daltonisme est un caractère héréditaire qui se transmet de génération en génération dans cette famille",
                 "Non, car le daltonisme s'arrête toujours à la 2ᵉ génération",
@@ -714,7 +714,7 @@ export const resources: Resource[] = [
             {
               id: "gen-e12",
               type: "qcm",
-              question: "On observe un caryotype : 22 paires + deux chromosomes X, et 3 chromosomes n° 21. Il s'agit…",
+              question: "On observe un caryotype : 21 paires normales, 3 chromosomes n° 21 et deux chromosomes X (47 chromosomes en tout). Il s'agit…",
               options: [
                 "d'une fille atteinte de trisomie 21",
                 "d'un garçon atteint de trisomie 21",
