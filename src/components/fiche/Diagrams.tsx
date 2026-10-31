@@ -1620,3 +1620,347 @@ export function TestsIonsDiagram() {
     </DiagramFrame>
   );
 }
+
+// ─── SVT 3e — Génétique ─────────────────────────────────────────────────────
+
+/** Simple side-view mouse. */
+function Mouse({ x, y, fill, scale = 1 }: { x: number; y: number; fill: string; scale?: number }) {
+  const stroke = fill === "#1C1917" ? "#1C1917" : "#78716C";
+  return (
+    <g transform={`translate(${x} ${y}) scale(${scale})`}>
+      <path d="M-26 6 Q-46 10 -50 -4" fill="none" stroke={stroke} strokeWidth="2" strokeLinecap="round" />
+      <ellipse cx={0} cy={0} rx={26} ry={15} fill={fill} stroke={stroke} strokeWidth="1.5" />
+      <circle cx={20} cy={-8} r={10} fill={fill} stroke={stroke} strokeWidth="1.5" />
+      <circle cx={16} cy={-18} r={6} fill={fill} stroke={stroke} strokeWidth="1.5" />
+      <circle cx={24} cy={-9} r={1.8} fill={fill === "#1C1917" ? "#FFF" : "#1C1917"} />
+    </g>
+  );
+}
+
+/** Cell drawn as a circle with an optional nucleus. */
+function Cell({ x, y, r = 20, nucleus, nucleusFill = "#57534E" }: { x: number; y: number; r?: number; nucleus: boolean; nucleusFill?: string }) {
+  return (
+    <g>
+      <circle cx={x} cy={y} r={r} fill="#FEF3C7" stroke="#A8A29E" strokeWidth="1.5" />
+      {nucleus && <circle cx={x} cy={y} r={r * 0.38} fill={nucleusFill} />}
+    </g>
+  );
+}
+
+export function TransfertNoyauDiagram() {
+  return (
+    <DiagramFrame
+      title="L'expérience du transfert de noyau (souris)"
+      caption="Le souriceau a le pelage de la souris qui a donné le NOYAU, pas celui de la souris qui a donné le reste de la cellule."
+    >
+      <svg viewBox="-14 0 534 250" className="mx-auto w-full max-w-2xl" role="img" aria-label="Le noyau d'une cellule de souris blanche est placé dans une cellule-œuf sans noyau de souris noire. La mère porteuse noire donne naissance à un souriceau blanc.">
+        <defs>
+          <marker id="arrTN" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+            <path d="M0 0 L8 4 L0 8 Z" fill="#44403C" />
+          </marker>
+        </defs>
+        {/* Row 1: white mouse */}
+        <Mouse x={55} y={55} fill="#FFFFFF" />
+        <text x={45} y={92} textAnchor="middle" fontSize="12" fontWeight="700" fill="#44403C">souris blanche</text>
+        <line x1={92} y1={50} x2={128} y2={50} stroke="#44403C" strokeWidth="1.8" markerEnd="url(#arrTN)" />
+        <Cell x={155} y={50} nucleus nucleusFill="#E5E7EB" />
+        <circle cx={155} cy={50} r={7.6} fill="none" stroke="#57534E" strokeWidth="1.5" />
+        <text x={155} y={86} textAnchor="middle" fontSize="11" fill="#44403C">on prélève</text>
+        <text x={155} y={99} textAnchor="middle" fontSize="11" fontWeight="700" fill="#B91C1C">le noyau</text>
+        <path d="M178 46 Q215 40 232 90" fill="none" stroke="#B91C1C" strokeWidth="2" strokeDasharray="5 4" markerEnd="url(#arrTN)" />
+
+        {/* Row 2: black mouse */}
+        <Mouse x={55} y={170} fill="#1C1917" />
+        <text x={45} y={207} textAnchor="middle" fontSize="12" fontWeight="700" fill="#44403C">souris noire</text>
+        <line x1={92} y1={165} x2={128} y2={165} stroke="#44403C" strokeWidth="1.8" markerEnd="url(#arrTN)" />
+        <Cell x={155} y={165} nucleus={false} />
+        <text x={155} y={201} textAnchor="middle" fontSize="11" fill="#44403C">cellule-œuf</text>
+        <text x={155} y={214} textAnchor="middle" fontSize="11" fontWeight="700" fill="#44403C">sans noyau</text>
+        <path d="M178 160 Q215 160 232 135" fill="none" stroke="#44403C" strokeWidth="1.8" markerEnd="url(#arrTN)" />
+
+        {/* New egg cell */}
+        <Cell x={258} y={112} r={24} nucleus nucleusFill="#E5E7EB" />
+        <circle cx={258} cy={112} r={9.1} fill="none" stroke="#57534E" strokeWidth="1.5" />
+        <text x={258} y={152} textAnchor="middle" fontSize="11" fontWeight="700" fill="#44403C">nouvelle</text>
+        <text x={258} y={165} textAnchor="middle" fontSize="11" fontWeight="700" fill="#44403C">cellule-œuf</text>
+        <line x1={286} y1={112} x2={330} y2={112} stroke="#44403C" strokeWidth="1.8" markerEnd="url(#arrTN)" />
+
+        {/* Surrogate mother */}
+        <Mouse x={378} y={112} fill="#1C1917" scale={1.1} />
+        <text x={370} y={152} textAnchor="middle" fontSize="11" fill="#44403C">mère porteuse</text>
+        <text x={370} y={165} textAnchor="middle" fontSize="11" fill="#44403C">(noire)</text>
+        <line x1={418} y1={112} x2={448} y2={112} stroke="#44403C" strokeWidth="1.8" markerEnd="url(#arrTN)" />
+
+        {/* Baby */}
+        <Mouse x={482} y={115} fill="#FFFFFF" scale={0.7} />
+        <text x={482} y={145} textAnchor="middle" fontSize="12" fontWeight="800" fill="#B91C1C">souriceau</text>
+        <text x={482} y={159} textAnchor="middle" fontSize="12" fontWeight="800" fill="#B91C1C">BLANC</text>
+
+        <rect x={180} y={222} width={330} height={24} rx={8} fill="#FEF2F2" stroke="#FCA5A5" />
+        <text x={345} y={239} textAnchor="middle" fontSize="12.5" fontWeight="700" fill="#991B1B">
+          L&apos;information héréditaire est dans le noyau.
+        </text>
+      </svg>
+    </DiagramFrame>
+  );
+}
+
+/** One chromosome drawn as two arms joined at the centromere. */
+function ChromosomeRod({
+  x,
+  y,
+  h,
+  w = 9,
+  fill,
+  band,
+}: {
+  x: number;
+  y: number;
+  h: number;
+  w?: number;
+  fill: string;
+  band?: { at: number; color: string };
+}) {
+  const p = Math.round(h * 0.38);
+  const q = h - p - 2;
+  return (
+    <g>
+      <rect x={x} y={y} width={w} height={p} rx={w / 2} fill={fill} />
+      <rect x={x + w * 0.3} y={y + p - 1} width={w * 0.4} height={4} fill={fill} />
+      <rect x={x} y={y + p + 2} width={w} height={q} rx={w / 2} fill={fill} />
+      {band && <rect x={x} y={y + h * band.at} width={w} height={Math.max(3, w * 0.35)} fill={band.color} />}
+    </g>
+  );
+}
+
+const KARYO_SIZES: Record<string, number> = {
+  "1": 62, "2": 60, "3": 52, "4": 50, "5": 48, "6": 46, "7": 43, "8": 40, "9": 39, "10": 38,
+  "11": 38, "12": 37, "13": 31, "14": 30, "15": 29, "16": 27, "17": 25, "18": 23,
+  "19": 18, "20": 19, "21": 13, "22": 14, X: 42, Y: 17,
+};
+
+export function CaryotypeDiagram({
+  sexe = "homme",
+  trisomie21 = false,
+}: {
+  sexe?: "homme" | "femme";
+  trisomie21?: boolean;
+}) {
+  const rows: string[][] = [
+    ["1", "2", "3", "4", "5"],
+    ["6", "7", "8", "9", "10", "11", "12"],
+    ["13", "14", "15", "16", "17", "18"],
+    ["19", "20", "21", "22", "XY"],
+  ];
+  const rowTop = [10, 100, 172, 232];
+  const rowMax = [62, 46, 31, 42];
+  const slot = 62;
+  const total = trisomie21 ? 47 : 46;
+  const title = trisomie21
+    ? sexe === "homme"
+      ? "Caryotype d'un garçon atteint de trisomie 21"
+      : "Caryotype d'une fille atteinte de trisomie 21"
+    : sexe === "homme"
+      ? "Caryotype simplifié d'un homme"
+      : "Caryotype simplifié d'une femme";
+  return (
+    <DiagramFrame
+      title={title}
+      caption={
+        trisomie21
+          ? "3 chromosomes n° 21 au lieu de 2 → 47 chromosomes au total."
+          : "Les chromosomes sont rangés par paires, à peu près du plus grand au plus petit. La dernière paire = chromosomes sexuels."
+      }
+    >
+      <svg viewBox="0 0 460 326" className="mx-auto w-full max-w-lg" role="img" aria-label={`${title} : ${total} chromosomes rangés en paires numérotées de 1 à 22, puis la paire sexuelle.`}>
+        {rows.map((row, ri) => {
+          const startX = (460 - row.length * slot) / 2;
+          return row.map((id, ci) => {
+            const cx = startX + ci * slot + slot / 2;
+            const isSex = id === "XY";
+            const pair: { label: string; h: number; fill: string }[] = isSex
+              ? sexe === "homme"
+                ? [
+                    { label: "X", h: KARYO_SIZES.X, fill: "#A855F7" },
+                    { label: "Y", h: KARYO_SIZES.Y, fill: "#3B82F6" },
+                  ]
+                : [
+                    { label: "X", h: KARYO_SIZES.X, fill: "#A855F7" },
+                    { label: "X", h: KARYO_SIZES.X, fill: "#A855F7" },
+                  ]
+              : Array.from({ length: id === "21" && trisomie21 ? 3 : 2 }, () => ({
+                  label: id,
+                  h: KARYO_SIZES[id],
+                  fill: id === "21" && trisomie21 ? "#EF4444" : "#F59E0B",
+                }));
+            const w = 8;
+            const gap = 3;
+            const groupW = pair.length * w + (pair.length - 1) * gap;
+            const midY = rowTop[ri] + rowMax[ri] / 2;
+            return (
+              <g key={`${ri}-${id}`}>
+                {isSex && <rect x={cx - 24} y={rowTop[ri] - 6} width={48} height={rowMax[ri] + 30} rx={8} fill="#F3E8FF" />}
+                {id === "21" && trisomie21 && <rect x={cx - 20} y={rowTop[ri] - 6} width={40} height={rowMax[ri] + 30} rx={8} fill="#FEE2E2" />}
+                {pair.map((c, k) => (
+                  <ChromosomeRod key={k} x={cx - groupW / 2 + k * (w + gap)} y={midY - c.h / 2} h={c.h} w={w} fill={c.fill} />
+                ))}
+                <text x={cx} y={rowTop[ri] + rowMax[ri] + 16} textAnchor="middle" fontSize="12" fontWeight="700" fill="#44403C">
+                  {isSex ? (sexe === "homme" ? "X  Y" : "X  X") : id}
+                </text>
+              </g>
+            );
+          });
+        })}
+        <text x={230} y={318} textAnchor="middle" fontSize="13" fontWeight="800" fill="#2D2D2D">
+          {trisomie21 ? "47 chromosomes" : "46 chromosomes = 23 paires"}
+        </text>
+      </svg>
+    </DiagramFrame>
+  );
+}
+
+export function PaireChromosomesAllelesDiagram() {
+  return (
+    <DiagramFrame
+      title="Gène et allèles sur une paire de chromosomes"
+      caption="Le gène est au même endroit sur les 2 chromosomes de la paire. Mais il peut exister en versions différentes : les allèles."
+    >
+      <svg viewBox="0 0 440 240" className="mx-auto w-full max-w-md" role="img" aria-label="Une paire de chromosomes. Le gène du facteur Rhésus est au même endroit sur chaque chromosome : allèle Rh+ sur l'un, allèle Rh− sur l'autre.">
+        <ChromosomeRod x={150} y={20} h={190} w={26} fill="#FCD34D" band={{ at: 0.62, color: "#16A34A" }} />
+        <ChromosomeRod x={230} y={20} h={190} w={26} fill="#FCD34D" band={{ at: 0.62, color: "#16A34A" }} />
+        {/* gene label */}
+        <line x1={150} y1={142} x2={95} y2={142} stroke="#16A34A" strokeWidth="2" />
+        <text x={90} y={130} textAnchor="end" fontSize="14" fontWeight="800" fill="#15803D">GÈNE</text>
+        <text x={90} y={147} textAnchor="end" fontSize="12" fill="#44403C">du facteur</text>
+        <text x={90} y={162} textAnchor="end" fontSize="12" fill="#44403C">Rhésus</text>
+        {/* alleles */}
+        <text x={163} y={232} textAnchor="middle" fontSize="15" fontWeight="800" fill="#B91C1C">Rh+</text>
+        <text x={243} y={232} textAnchor="middle" fontSize="15" fontWeight="800" fill="#1D4ED8">Rh−</text>
+        <line x1={256} y1={142} x2={300} y2={142} stroke="#44403C" strokeWidth="2" />
+        <text x={306} y={130} fontSize="14" fontWeight="800" fill="#2D2D2D">2 ALLÈLES</text>
+        <text x={306} y={147} fontSize="12" fill="#44403C">= 2 versions</text>
+        <text x={306} y={162} fontSize="12" fill="#44403C">du même gène</text>
+        <text x={203} y={14} textAnchor="middle" fontSize="12" fontWeight="700" fill="#57534E">une paire de chromosomes</text>
+      </svg>
+    </DiagramFrame>
+  );
+}
+
+function NestCard({ step, title, text, children }: { step: string; title: string; text: string; children: React.ReactNode }) {
+  return (
+    <div className="flex w-[46%] flex-col items-center rounded-xl border-2 border-emerald-200 bg-emerald-50/60 p-2 text-center sm:w-auto sm:flex-1">
+      <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-700">{step}</span>
+      <svg viewBox="0 0 80 70" width="80" height="70" aria-hidden="true">{children}</svg>
+      <span className="text-sm font-extrabold text-warm-900">{title}</span>
+      <span className="text-[11px] leading-snug text-warm-600">{text}</span>
+    </div>
+  );
+}
+
+export function GenomeEmboitementDiagram() {
+  return (
+    <DiagramFrame
+      title="Du génome à l'allèle"
+      caption="Le génome est dans les chromosomes, qui portent les gènes. Chaque gène peut exister en plusieurs versions : les allèles."
+    >
+      <div className="flex flex-wrap items-stretch justify-center gap-2">
+        <NestCard step="1" title="Génome" text="tous les gènes, dans le noyau de chaque cellule">
+          <circle cx={40} cy={35} r={30} fill="#FEF3C7" stroke="#A8A29E" strokeWidth="1.5" />
+          <circle cx={40} cy={35} r={14} fill="#FDE68A" stroke="#A16207" strokeWidth="1.5" />
+          {[[-6, -4], [3, -6], [-2, 4], [6, 3]].map(([dx, dy], i) => (
+            <rect key={i} x={40 + dx} y={35 + dy} width={2.5} height={7} rx={1} fill="#B45309" transform={`rotate(${i * 40} ${40 + dx} ${35 + dy})`} />
+          ))}
+        </NestCard>
+        <NestCard step="2" title="Chromosomes" text="46 chez l'humain, 23 paires">
+          <ChromosomeRod x={26} y={6} h={58} w={11} fill="#F59E0B" />
+          <ChromosomeRod x={43} y={6} h={58} w={11} fill="#F59E0B" />
+        </NestCard>
+        <NestCard step="3" title="Gène" text="un morceau de chromosome → un caractère">
+          <ChromosomeRod x={34} y={6} h={58} w={12} fill="#F59E0B" band={{ at: 0.65, color: "#16A34A" }} />
+          <line x1={46} y1={45} x2={62} y2={45} stroke="#16A34A" strokeWidth="2" />
+          <circle cx={66} cy={45} r={4} fill="#16A34A" />
+        </NestCard>
+        <NestCard step="4" title="Allèles" text="les versions d'un même gène">
+          <ChromosomeRod x={22} y={6} h={58} w={11} fill="#F59E0B" band={{ at: 0.65, color: "#DC2626" }} />
+          <ChromosomeRod x={47} y={6} h={58} w={11} fill="#F59E0B" band={{ at: 0.65, color: "#2563EB" }} />
+        </NestCard>
+      </div>
+    </DiagramFrame>
+  );
+}
+
+type PedPerson = { x: number; y: number; sex: "h" | "f"; on: boolean; label?: string };
+
+function PedSymbol({ p, onColor }: { p: PedPerson; onColor: string }) {
+  const s = 26;
+  const fill = p.on ? onColor : "#FFFFFF";
+  return (
+    <g>
+      {p.sex === "h" ? (
+        <rect x={p.x - s / 2} y={p.y - s / 2} width={s} height={s} fill={fill} stroke="#2D2D2D" strokeWidth="2" />
+      ) : (
+        <circle cx={p.x} cy={p.y} r={s / 2} fill={fill} stroke="#2D2D2D" strokeWidth="2" />
+      )}
+      {p.label && (
+        <text x={p.x} y={p.y + 30} textAnchor="middle" fontSize="11" fill="#44403C">
+          {p.label}
+        </text>
+      )}
+    </g>
+  );
+}
+
+export function ArbrePTCDiagram() {
+  const on = "#7C3AED";
+  const gm: PedPerson = { x: 150, y: 40, sex: "f", on: false, label: "grand-mère" };
+  const gp: PedPerson = { x: 250, y: 40, sex: "h", on: true, label: "grand-père" };
+  const mere: PedPerson = { x: 200, y: 125, sex: "f", on: false, label: "mère" };
+  const pere: PedPerson = { x: 100, y: 125, sex: "h", on: true, label: "père" };
+  const e1: PedPerson = { x: 70, y: 210, sex: "h", on: false, label: "fils" };
+  const e2: PedPerson = { x: 150, y: 210, sex: "f", on: false, label: "fille" };
+  const e3: PedPerson = { x: 230, y: 210, sex: "f", on: true, label: "fille" };
+  const line = { stroke: "#2D2D2D", strokeWidth: 2 };
+  return (
+    <DiagramFrame
+      title="Arbre généalogique : la sensibilité au PTC"
+      caption="Le PTC est une substance au goût amer (comme dans le chou). Certaines personnes le sentent, d'autres non."
+    >
+      <svg viewBox="0 0 460 250" className="mx-auto w-full max-w-lg" role="img" aria-label="Arbre sur 3 générations : grand-mère insensible et grand-père sensible ; leur fille insensible, unie à un homme sensible ; leurs trois enfants : un fils insensible, une fille insensible, une fille sensible.">
+        {/* generation labels */}
+        <text x={8} y={44} fontSize="14" fontWeight="800" fill="#57534E">I</text>
+        <text x={8} y={129} fontSize="14" fontWeight="800" fill="#57534E">II</text>
+        <text x={8} y={214} fontSize="14" fontWeight="800" fill="#57534E">III</text>
+        {/* unions */}
+        <line x1={163} y1={40} x2={237} y2={40} {...line} />
+        <line x1={113} y1={125} x2={187} y2={125} {...line} />
+        {/* descent I → mère */}
+        <line x1={200} y1={40} x2={200} y2={112} {...line} />
+        {/* descent II → children */}
+        <line x1={150} y1={125} x2={150} y2={168} {...line} />
+        <line x1={70} y1={168} x2={230} y2={168} {...line} />
+        <line x1={70} y1={168} x2={70} y2={197} {...line} />
+        <line x1={150} y1={168} x2={150} y2={197} {...line} />
+        <line x1={230} y1={168} x2={230} y2={197} {...line} />
+        {[gm, gp, mere, pere, e1, e2, e3].map((p, i) => (
+          <PedSymbol key={i} p={p} onColor={on} />
+        ))}
+        {/* legend */}
+        <g transform="translate(300 20)">
+          <rect x={0} y={0} width={152} height={176} rx={10} fill="#FAFAF9" stroke="#E7E5E4" />
+          <rect x={12} y={12} width={18} height={18} fill="#FFF" stroke="#2D2D2D" strokeWidth="2" />
+          <text x={38} y={26} fontSize="12" fill="#2D2D2D">homme</text>
+          <circle cx={21} cy={48} r={9} fill="#FFF" stroke="#2D2D2D" strokeWidth="2" />
+          <text x={38} y={52} fontSize="12" fill="#2D2D2D">femme</text>
+          <rect x={12} y={66} width={18} height={18} fill={on} stroke="#2D2D2D" strokeWidth="2" />
+          <text x={38} y={80} fontSize="12" fontWeight="700" fill={on}>sensible au PTC</text>
+          <rect x={12} y={92} width={18} height={18} fill="#FFF" stroke="#2D2D2D" strokeWidth="2" />
+          <text x={38} y={106} fontSize="12" fill="#2D2D2D">insensible</text>
+          <line x1={10} y1={128} x2={32} y2={128} {...line} />
+          <text x={38} y={132} fontSize="12" fill="#2D2D2D">union</text>
+          <path d="M21 146 V156 M12 156 H30 M12 156 V166 M30 156 V166" fill="none" {...line} />
+          <text x={38} y={162} fontSize="12" fill="#2D2D2D">enfants</text>
+        </g>
+      </svg>
+    </DiagramFrame>
+  );
+}

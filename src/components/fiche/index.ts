@@ -6,6 +6,7 @@ export { Schema } from "./Schema";
 export { Tableau } from "./Tableau";
 export { Exemple, Astuce, Erreur, Vocabulaire } from "./Callout";
 export { Glossaire, GlossaireItem } from "./Glossaire";
+export { Details } from "./Details";
 export {
   StateChangesDiagram,
   CircuitComparisonDiagram,
@@ -38,6 +39,11 @@ export {
   NotationNoyauDiagram,
   FormationIonsDiagram,
   TestsIonsDiagram,
+  TransfertNoyauDiagram,
+  CaryotypeDiagram,
+  PaireChromosomesAllelesDiagram,
+  GenomeEmboitementDiagram,
+  ArbrePTCDiagram,
 } from "./Diagrams";
 export { AtomModel } from "@/components/chemistry/AtomModel";
 export type { FicheColor } from "./colors";

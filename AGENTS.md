@@ -88,6 +88,7 @@ All MDX fiches use these components from `src/components/fiche/`:
 | `<Vocabulaire>` | `term`, `children` | Inline vocab highlight |
 | `<Glossaire>` | — | Vocabulary section container |
 | `<GlossaireItem>` | `term` (req) | Row inside `<Glossaire>` |
+| `<Details>` | `title?` | Collapsible "pour aller plus loin" block (closed by default) — leave blank lines around inner markdown |
 
 Colors: `purple`, `blue`, `green`, `orange`, `cyan`, `brown`, `sand`, `rose`, `amber`
 
