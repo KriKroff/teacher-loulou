@@ -1964,3 +1964,146 @@ export function ArbrePTCDiagram() {
     </DiagramFrame>
   );
 }
+
+/** Multi-line SVG label: first line bold title, then body lines. */
+function MapLabel({ x, y, title, lines, color }: { x: number; y: number; title: string; lines: string[]; color: string }) {
+  return (
+    <text x={x} y={y} fontSize="12" fill="#44403C">
+      <tspan x={x} fontSize="14" fontWeight="800" fill={color}>
+        {title}
+      </tspan>
+      {lines.map((l, i) => (
+        <tspan key={i} x={x} dy={15}>
+          {l}
+        </tspan>
+      ))}
+    </text>
+  );
+}
+
+/** Dashed "zoom" lines from a small frame to the next, larger frame. */
+function ZoomLines({ from, to }: { from: [number, number, number, number]; to: [number, number, number] }) {
+  const [fx, fy, fw, fh] = from;
+  const [tx, ty, tw] = to;
+  return (
+    <g stroke="#A8A29E" strokeWidth="1.5" strokeDasharray="4 4" fill="none">
+      <rect x={fx} y={fy} width={fw} height={fh} rx={4} stroke="#DC2626" strokeDasharray="none" strokeWidth="2" />
+      <line x1={fx} y1={fy + fh} x2={tx} y2={ty} />
+      <line x1={fx + fw} y1={fy + fh} x2={tx + tw} y2={ty} />
+    </g>
+  );
+}
+
+const NUCLEUS_RODS: { x: number; y: number; h: number; r: number; fill: string }[] = [
+  { x: 78, y: 545, h: 46, r: -20, fill: "#F59E0B" },
+  { x: 92, y: 548, h: 46, r: -14, fill: "#F59E0B" },
+  { x: 130, y: 520, h: 38, r: 25, fill: "#FB923C" },
+  { x: 143, y: 524, h: 38, r: 31, fill: "#FB923C" },
+  { x: 170, y: 565, h: 32, r: 70, fill: "#FBBF24" },
+  { x: 172, y: 580, h: 32, r: 76, fill: "#FBBF24" },
+  { x: 70, y: 610, h: 28, r: 60, fill: "#FDBA74" },
+  { x: 78, y: 622, h: 28, r: 66, fill: "#FDBA74" },
+  { x: 125, y: 612, h: 24, r: -40, fill: "#A855F7" },
+  { x: 138, y: 612, h: 14, r: -34, fill: "#3B82F6" },
+];
+
+const HELIX_TOP = 815;
+const HELIX_X = 300;
+
+function helixPath(phase: number) {
+  return Array.from({ length: 41 }, (_, i) => {
+    const y = HELIX_TOP + i * 3.5;
+    const x = HELIX_X + 12 * Math.sin(i / 4 + phase);
+    return `${i === 0 ? "M" : "L"}${x.toFixed(1)} ${y.toFixed(1)}`;
+  }).join(" ");
+}
+
+/**
+ * One-page "map" of the chapter vocabulary: zooms from the individual down to
+ * the DNA, placing each glossary word where it belongs.
+ */
+export function CarteGenetiqueDiagram() {
+  return (
+    <DiagramFrame
+      title="La carte du chapitre : où se trouve chaque mot ?"
+      caption="On zoome de plus en plus : individu → cellule → noyau → chromosomes → gène → allèles → ADN."
+    >
+      <svg viewBox="0 0 360 970" className="mx-auto w-full max-w-sm" role="img" aria-label="Schéma en 4 zooms. 1 : un individu et son phénotype. 2 : une cellule avec membrane, cytoplasme et noyau. 3 : le noyau contient les chromosomes, l'ensemble des gènes forme le génome. 4 : une paire de chromosomes, un gène au même endroit sur les deux, avec deux allèles Rh+ et Rh− ; un chromosome est fait d'ADN.">
+        {(
+          [
+            [14, 26, "1"],
+            [14, 262, "2"],
+            [14, 492, "3"],
+            [14, 728, "4"],
+          ] as const
+        ).map(([x, y, n]) => (
+          <g key={n}>
+            <circle cx={x} cy={y - 5} r={11} fill="#065F46" />
+            <text x={x} y={y} textAnchor="middle" fontSize="13" fontWeight="800" fill="#FFFFFF">
+              {n}
+            </text>
+          </g>
+        ))}
+
+        {/* 1 — Individual */}
+        <g fill="#FDE68A" stroke="#78716C" strokeWidth="1.5">
+          <circle cx={100} cy={45} r={20} />
+          <path d="M72 75 Q100 64 128 75 L136 140 L120 140 L118 100 L116 190 L102 190 L100 135 L98 190 L84 190 L82 100 L80 140 L64 140 Z" />
+        </g>
+        <circle cx={93} cy={42} r={2.5} fill="#1D4ED8" />
+        <circle cx={107} cy={42} r={2.5} fill="#1D4ED8" />
+        <path d="M82 36 Q100 14 118 36" fill="none" stroke="#92400E" strokeWidth="5" strokeLinecap="round" />
+        <MapLabel x={200} y={40} title="INDIVIDU" color="#065F46" lines={["Son PHÉNOTYPE =", "ses caractères", "observables (yeux,", "cheveux, groupe", "sanguin…)"]} />
+        <ZoomLines from={[118, 112, 16, 16]} to={[40, 230, 200]} />
+
+        {/* 2 — Cell */}
+        <circle cx={140} cy={330} r={88} fill="#FEF3C7" stroke="#A16207" strokeWidth="4" />
+        <circle cx={140} cy={330} r={32} fill="#FDE68A" stroke="#A16207" strokeWidth="2" />
+        {[[-10, -8, 20], [6, -12, -30], [-4, 6, 60], [10, 4, 10]].map(([dx, dy, r], i) => (
+          <rect key={i} x={140 + dx} y={330 + dy} width={3} height={10} rx={1.5} fill="#B45309" transform={`rotate(${r} ${140 + dx} ${330 + dy})`} />
+        ))}
+        <line x1={222} y1={300} x2={238} y2={290} stroke="#44403C" strokeWidth="1.5" />
+        <MapLabel x={242} y={280} title="Membrane" color="#A16207" lines={["l'enveloppe"]} />
+        <line x1={195} y1={350} x2={238} y2={340} stroke="#44403C" strokeWidth="1.5" />
+        <MapLabel x={242} y={335} title="Cytoplasme" color="#A16207" lines={["l'intérieur"]} />
+        <line x1={160} y1={335} x2={238} y2={392} stroke="#44403C" strokeWidth="1.5" />
+        <MapLabel x={242} y={392} title="NOYAU" color="#B91C1C" lines={["contient l'info", "héréditaire"]} />
+        <ZoomLines from={[124, 314, 32, 32]} to={[30, 470, 220]} />
+
+        {/* 3 — Nucleus */}
+        <circle cx={130} cy={580} r={100} fill="#FFFBEB" stroke="#A16207" strokeWidth="3" />
+        {NUCLEUS_RODS.map((c, i) => (
+          <g key={i} transform={`rotate(${c.r} ${c.x} ${c.y})`}>
+            <ChromosomeRod x={c.x} y={c.y - c.h / 2} h={c.h} w={9} fill={c.fill} />
+          </g>
+        ))}
+        <MapLabel x={240} y={505} title="Chromosomes" color="#B45309" lines={["filaments", "du noyau", "46 = 23 paires", "(XX ou XY)"]} />
+        <MapLabel x={240} y={595} title="GÉNOME" color="#065F46" lines={["tous les gènes", "de tous les", "chromosomes"]} />
+        <MapLabel x={240} y={665} title="Caryotype" color="#57534E" lines={["= les ranger", "par paires"]} />
+        <ZoomLines from={[66, 518, 42, 52]} to={[90, 728, 90]} />
+
+        {/* 4 — Chromosome pair, gene, alleles, DNA */}
+        <ChromosomeRod x={95} y={730} h={200} w={24} fill="#F59E0B" band={{ at: 0.62, color: "#DC2626" }} />
+        <ChromosomeRod x={150} y={730} h={200} w={24} fill="#F59E0B" band={{ at: 0.62, color: "#2563EB" }} />
+        <text x={107} y={952} textAnchor="middle" fontSize="13" fontWeight="800" fill="#DC2626">Rh+</text>
+        <text x={162} y={952} textAnchor="middle" fontSize="13" fontWeight="800" fill="#2563EB">Rh−</text>
+        <MapLabel x={8} y={800} title="GÈNE" color="#15803D" lines={["même place", "sur les 2"]} />
+        <line x1={60} y1={840} x2={93} y2={856} stroke="#16A34A" strokeWidth="2" />
+        <line x1={176} y1={858} x2={196} y2={884} stroke="#44403C" strokeWidth="1.5" />
+        <MapLabel x={190} y={900} title="2 ALLÈLES" color="#7C3AED" lines={["versions", "du gène"]} />
+        {/* DNA zoom */}
+        <rect x={150} y={750} width={24} height={20} rx={4} fill="none" stroke="#DC2626" strokeWidth="2" />
+        <line x1={174} y1={750} x2={HELIX_X - 18} y2={HELIX_TOP} stroke="#A8A29E" strokeWidth="1.5" strokeDasharray="4 4" />
+        <line x1={174} y1={770} x2={HELIX_X - 18} y2={HELIX_TOP + 140} stroke="#A8A29E" strokeWidth="1.5" strokeDasharray="4 4" />
+        {Array.from({ length: 12 }, (_, i) => {
+          const t = (i * 11.5 + 5) / 3.5;
+          const y = HELIX_TOP + i * 11.5 + 5;
+          return <line key={i} x1={HELIX_X + 12 * Math.sin(t / 4)} y1={y} x2={HELIX_X + 12 * Math.sin(t / 4 + Math.PI)} y2={y} stroke="#86EFAC" strokeWidth="2" />;
+        })}
+        <path d={helixPath(0)} fill="none" stroke="#16A34A" strokeWidth="3" />
+        <path d={helixPath(Math.PI)} fill="none" stroke="#0E7490" strokeWidth="3" />
+        <MapLabel x={240} y={745} title="ADN" color="#0E7490" lines={["la molécule", "du chromosome"]} />
+      </svg>
+    </DiagramFrame>
+  );
+}
