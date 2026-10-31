@@ -18,6 +18,8 @@ import path from "path";
 const { getAllResources } = require("../src/data/resources") as typeof import("../src/data/resources");
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const { parseTaggedText, tokenizeTaggedText } = require("../src/lib/tagged-text") as typeof import("../src/lib/tagged-text");
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const { ION_CHARGES } = require("../src/lib/ion") as typeof import("../src/lib/ion");
 
 const ROOT = path.resolve(__dirname, "..");
 const RESOURCES_DIR = path.join(ROOT, "src", "data", "resources");
@@ -113,6 +115,27 @@ for (const r of resources) {
           error(`${where}: sub-question "${sq.question}" correctAnswer is not in options`);
         }
       }
+    }
+    if (q.type === "construire-ion") {
+      const b = q.ionBuilder;
+      if (!b) error(`${where}: construire-ion has no ionBuilder`);
+      else if (b.z < 1 || b.targetElectrons < 0 || b.targetElectrons > b.z + 4) {
+        error(`${where}: construire-ion targetElectrons=${b.targetElectrons} out of range for z=${b.z}`);
+      }
+    }
+    if (q.type === "formule-ion") {
+      const ans = q.correctAnswer;
+      if (!Array.isArray(ans) || ans.length !== 2) {
+        error(`${where}: formule-ion correctAnswer must be [symbol, charge]`);
+      } else {
+        if (!(q.options ?? []).includes(ans[0])) error(`${where}: symbol "${ans[0]}" is not in options`);
+        if (!(ION_CHARGES as readonly string[]).includes(ans[1])) {
+          error(`${where}: charge "${ans[1]}" must be one of ${ION_CHARGES.join(", ")}`);
+        }
+      }
+    }
+    for (const d of q.atomDiagrams ?? []) {
+      if (d.z < 1 || d.electrons < 0) error(`${where}: invalid atomDiagram (z=${d.z}, electrons=${d.electrons})`);
     }
   }
 

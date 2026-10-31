@@ -1,3 +1,5 @@
+import { AtomModel } from "@/components/chemistry/AtomModel";
+
 function DiagramFrame({
   title,
   caption,
@@ -1469,6 +1471,149 @@ export function PhraseMonaDiagram() {
           <div key={i} className={`rounded-lg border-2 px-2 py-1 text-center ${w.color}`}>
             <div className="font-bold text-warm-800">{w.word}</div>
             <div className="text-[11px] font-semibold uppercase tracking-wide text-warm-600">{w.nature}</div>
+          </div>
+        ))}
+      </div>
+    </DiagramFrame>
+  );
+}
+
+// ─── Physique-chimie 3e — L'atome et les ions ───────────────────────────────
+
+const CARBON_NUCLEUS: { x: number; y: number; kind: "p" | "n" }[] = [
+  { x: 0, y: 0, kind: "p" }, { x: 9, y: -4, kind: "n" }, { x: -9, y: 3, kind: "n" },
+  { x: 4, y: 9, kind: "p" }, { x: -4, y: -9, kind: "p" }, { x: 10, y: 6, kind: "p" },
+  { x: -10, y: -6, kind: "n" }, { x: 2, y: -12, kind: "n" }, { x: -2, y: 12, kind: "n" },
+  { x: 13, y: -10, kind: "p" }, { x: -13, y: 10, kind: "p" }, { x: -15, y: -1, kind: "n" },
+];
+
+export function AtomeStructureDiagram() {
+  const cx = 135;
+  const cy = 130;
+  const polar = (r: number, deg: number) => ({
+    x: cx + r * Math.cos((deg * Math.PI) / 180),
+    y: cy + r * Math.sin((deg * Math.PI) / 180),
+  });
+  // 2 electrons on the inner ring, 4 on the outer ring
+  const electrons = [polar(55, -90), polar(55, 90), polar(95, -40), polar(95, 40), polar(95, 140), polar(95, 220)];
+  return (
+    <DiagramFrame
+      title="L'atome de carbone : un noyau + des électrons"
+      caption="Schéma non à l'échelle : en vrai, le noyau serait 100 000 fois plus petit que l'atome !"
+    >
+      <svg viewBox="0 0 440 280" className="mx-auto w-full max-w-lg" role="img" aria-label="Atome de carbone : noyau de 6 protons et 6 neutrons, 6 électrons autour">
+        <circle cx={cx} cy={cy} r={118} fill="#FFF7ED" stroke="#78716C" strokeWidth="2" strokeDasharray="2 6" strokeLinecap="round" />
+        <circle cx={cx} cy={cy} r={55} fill="none" stroke="#D6D3D1" strokeWidth="1.5" />
+        <circle cx={cx} cy={cy} r={95} fill="none" stroke="#D6D3D1" strokeWidth="1.5" />
+        {CARBON_NUCLEUS.map((n, i) => (
+          <circle key={i} cx={cx + n.x * 1.1} cy={cy + n.y * 1.1} r={7} fill={n.kind === "p" ? "#EF4444" : "#3B82F6"} stroke="#fff" strokeWidth="1.5" />
+        ))}
+        {electrons.map((e, i) => (
+          <circle key={i} cx={e.x} cy={e.y} r={6} fill="#1C1917" />
+        ))}
+        {/* labels */}
+        <line x1={cx + 20} y1={cy - 6} x2={268} y2={112} stroke="#44403C" strokeWidth="1.5" />
+        <text x={272} y={110} fontSize="15" fontWeight="800" fill="#B91C1C">Noyau (+)</text>
+        <text x={272} y={128} fontSize="13" fill="#44403C">protons + neutrons</text>
+        <line x1={electrons[2].x + 6} y1={electrons[2].y - 3} x2={268} y2={42} stroke="#44403C" strokeWidth="1.5" />
+        <text x={272} y={40} fontSize="15" fontWeight="800" fill="#1C1917">Électrons (−)</text>
+        <text x={272} y={58} fontSize="13" fill="#44403C">ils bougent autour</text>
+        <text x={272} y={200} fontSize="15" fontWeight="800" fill="#57534E">Du vide partout !</text>
+        <text x={272} y={218} fontSize="13" fill="#44403C">= structure lacunaire</text>
+        {/* legend */}
+        <circle cx={20} cy={270} r={6} fill="#EF4444" />
+        <text x={30} y={274} fontSize="13" fill="#44403C">proton (+)</text>
+        <circle cx={130} cy={270} r={6} fill="#3B82F6" />
+        <text x={140} y={274} fontSize="13" fill="#44403C">neutron (neutre)</text>
+        <circle cx={280} cy={270} r={6} fill="#1C1917" />
+        <text x={290} y={274} fontSize="13" fill="#44403C">électron (−)</text>
+      </svg>
+    </DiagramFrame>
+  );
+}
+
+export function NotationNoyauDiagram() {
+  return (
+    <DiagramFrame title="Lire l'écriture du noyau" caption="Exemple : le carbone 12 → 6 protons et 12 − 6 = 6 neutrons.">
+      <svg viewBox="0 0 420 200" className="mx-auto w-full max-w-md" role="img" aria-label="Notation A en haut à gauche, Z en bas à gauche du symbole">
+        <text x={198} y={135} fontSize="96" fontWeight="800" fill="#2D2D2D" fontFamily="serif">C</text>
+        <text x={186} y={78} fontSize="34" fontWeight="800" fill="#7C3AED" textAnchor="end">12</text>
+        <text x={186} y={150} fontSize="34" fontWeight="800" fill="#0891B2" textAnchor="end">6</text>
+        <line x1={140} y1={66} x2={90} y2={40} stroke="#7C3AED" strokeWidth="2" />
+        <text x={10} y={26} fontSize="15" fontWeight="800" fill="#7C3AED">A = nombre de nucléons</text>
+        <text x={10} y={44} fontSize="12" fill="#44403C">(protons + neutrons)</text>
+        <line x1={160} y1={150} x2={100} y2={175} stroke="#0891B2" strokeWidth="2" />
+        <text x={10} y={180} fontSize="15" fontWeight="800" fill="#0891B2">Z = numéro atomique</text>
+        <text x={10} y={196} fontSize="12" fill="#44403C">(nombre de protons)</text>
+        <line x1={250} y1={100} x2={300} y2={100} stroke="#44403C" strokeWidth="2" />
+        <text x={306} y={96} fontSize="15" fontWeight="800" fill="#2D2D2D">X = symbole</text>
+        <text x={306} y={114} fontSize="12" fill="#44403C">de l&apos;élément</text>
+      </svg>
+    </DiagramFrame>
+  );
+}
+
+function IonArrow({ text, sub }: { text: string; sub: string }) {
+  return (
+    <div className="flex flex-col items-center px-1 text-center">
+      <span className="whitespace-nowrap text-xs font-bold text-warm-700">{text}</span>
+      <span className="text-3xl font-black leading-none text-warm-700">→</span>
+      <span className="whitespace-nowrap text-[11px] text-warm-500">{sub}</span>
+    </div>
+  );
+}
+
+export function FormationIonsDiagram() {
+  return (
+    <DiagramFrame title="Comment se forme un ion ?" caption="Le noyau ne change jamais : seuls les électrons partent ou arrivent.">
+      <div className="space-y-4">
+        <div className="rounded-xl border-2 border-red-200 bg-red-50/60 p-2">
+          <p className="mb-1 text-center text-sm font-extrabold text-red-800">Cation : l&apos;atome PERD des électrons</p>
+          <div className="flex items-center justify-center gap-1 sm:gap-3">
+            <AtomModel z={13} electrons={13} size={120} label="Atome Al (13 e⁻)" />
+            <IonArrow text="perd 3 e⁻" sub="13 − 3 = 10 e⁻" />
+            <AtomModel z={13} electrons={10} size={120} label="Ion Al³⁺ (10 e⁻)" />
+          </div>
+        </div>
+        <div className="rounded-xl border-2 border-sky-200 bg-sky-50/60 p-2">
+          <p className="mb-1 text-center text-sm font-extrabold text-sky-800">Anion : l&apos;atome GAGNE des électrons</p>
+          <div className="flex items-center justify-center gap-1 sm:gap-3">
+            <AtomModel z={17} electrons={17} size={120} label="Atome Cl (17 e⁻)" />
+            <IonArrow text="gagne 1 e⁻" sub="17 + 1 = 18 e⁻" />
+            <AtomModel z={17} electrons={18} size={120} label="Ion Cl⁻ (18 e⁻)" />
+          </div>
+        </div>
+      </div>
+    </DiagramFrame>
+  );
+}
+
+const ION_TESTS: { ion: string; name: string; reagent: string; color: string; result: string; dark?: boolean }[] = [
+  { ion: "Cl⁻", name: "chlorure", reagent: "nitrate d'argent", color: "#F5F5F4", result: "blanc → noircit à la lumière", dark: true },
+  { ion: "Cu²⁺", name: "cuivre II", reagent: "soude", color: "#3B82F6", result: "bleu" },
+  { ion: "Fe²⁺", name: "fer II", reagent: "soude", color: "#4D7C0F", result: "vert" },
+  { ion: "Fe³⁺", name: "fer III", reagent: "soude", color: "#C2410C", result: "rouille" },
+];
+
+export function TestsIonsDiagram() {
+  return (
+    <DiagramFrame title="Les tests d'identification des ions" caption="Quelques gouttes de réactif → un précipité (solide) d'une couleur précise apparaît.">
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+        {ION_TESTS.map((t) => (
+          <div key={t.ion} className="flex flex-col items-center rounded-xl bg-white p-2 text-center">
+            <div className="text-xl font-extrabold text-warm-800">{t.ion}</div>
+            <div className="mb-1 text-xs text-warm-500">ion {t.name}</div>
+            <svg viewBox="0 0 60 130" width="52" height="112" aria-hidden="true">
+              <path d="M10 4 V105 a20 20 0 0 0 40 0 V4" fill="#E0F2FE" fillOpacity="0.5" stroke="#57534E" strokeWidth="3" />
+              <path d="M12 40 V105 a18 18 0 0 0 36 0 V40 Z" fill="#E0F2FE" />
+              {/* precipitate flakes */}
+              <path d="M12 85 Q22 78 30 86 T48 84 V105 a18 18 0 0 1 -36 0 Z" fill={t.color} stroke={t.dark ? "#A8A29E" : "none"} strokeWidth="1.5" />
+              <circle cx="22" cy="70" r="3" fill={t.color} stroke={t.dark ? "#A8A29E" : "none"} />
+              <circle cx="38" cy="62" r="2.5" fill={t.color} stroke={t.dark ? "#A8A29E" : "none"} />
+              <circle cx="30" cy="75" r="2" fill={t.color} stroke={t.dark ? "#A8A29E" : "none"} />
+            </svg>
+            <div className="mt-1 text-[11px] text-warm-600">+ {t.reagent}</div>
+            <div className="text-sm font-bold text-warm-800">{t.result}</div>
           </div>
         ))}
       </div>

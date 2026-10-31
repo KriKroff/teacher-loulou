@@ -120,6 +120,10 @@ To add a new diagram: add an `export function` to `Diagrams.tsx`, re-export from
 | `nature-mots` | `taggedText` with `[mot\|Réponse]` targets, `options[]` (dropdown per target) — "donne la nature des mots soulignés" |
 | `surlignage` | `taggedText` with `[mot]` targets; every word is tappable, `{groupe}` keeps words together |
 | `etude-texte` | `passage`, `subQuestions: {question, options[], correctAnswer, explanation?}[]` — brevet-style linked questions |
+| `construire-ion` | `ionBuilder: {symbol, z, targetElectrons, hideLiveCharge?}` — interactive atom, add/remove electrons to build the ion |
+| `formule-ion` | `options[]` (element symbols), `correctAnswer: [symbol, charge]` with charge in `"3-" "2-" "-" "+" "2+" "3+"` |
+
+Any question can also show atom/ion drawings above its answers with `atomDiagrams: {z, electrons, label?}[]` (nucleus "Z+" + one dot per electron).
 
 ## Content Guidelines (DYS/ADHD)
 
