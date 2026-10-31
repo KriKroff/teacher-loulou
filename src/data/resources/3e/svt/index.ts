@@ -328,41 +328,53 @@ export const resources: Resource[] = [
             },
             {
               id: "gen-i7",
-              type: "ordre",
-              question: "Remets dans l'ordre les étapes pour observer les chromosomes du chironome.",
-              options: [
-                "Détacher la tête de la larve avec une pince fine",
-                "Repérer les glandes salivaires et jeter l'abdomen",
-                "Ajouter une goutte de colorant et attendre 5 minutes",
-                "Recouvrir d'une lamelle",
-                "Observer au microscope",
+              type: "etude-texte",
+              question: "Étude de document : lis la description de cette famille, puis réponds.",
+              passage:
+                "• Grand-père : cheveux gris, arête du nez longue, pâtissier amateur.\n• Son fils (le père) : cheveux châtains, arête du nez longue, teint bronzé, pianiste.\n• La mère : cheveux frisés, nez court retroussé, dessinatrice de BD.\n• Leur fils : cheveux châtains, arête du nez longue, joue au tennis.\n• Leur fille : cheveux blonds frisés, nez court retroussé, fait de la gymnastique.",
+              subQuestions: [
+                {
+                  question: "L'arête du nez longue se retrouve chez…",
+                  options: ["le grand-père, le père et le fils", "la mère et la fille", "personne"],
+                  correctAnswer: "le grand-père, le père et le fils",
+                },
+                {
+                  question: "L'arête du nez longue est donc un caractère…",
+                  options: ["héréditaire", "acquis"],
+                  correctAnswer: "héréditaire",
+                  explanation: "Il se transmet sur 3 générations.",
+                },
+                {
+                  question: "Les cheveux frisés de la fille viennent probablement…",
+                  options: ["de sa mère", "de son grand-père", "du soleil"],
+                  correctAnswer: "de sa mère",
+                },
+                {
+                  question: "« Pianiste » est un caractère…",
+                  options: ["héréditaire", "acquis par l'apprentissage", "acquis par l'environnement"],
+                  correctAnswer: "acquis par l'apprentissage",
+                },
+                {
+                  question: "« Teint bronzé » est un caractère…",
+                  options: ["héréditaire", "acquis par l'apprentissage", "acquis par l'environnement"],
+                  correctAnswer: "acquis par l'environnement",
+                  explanation: "C'est le soleil (l'environnement) qui bronze la peau.",
+                },
               ],
-              correctAnswer: [
-                "Détacher la tête de la larve avec une pince fine",
-                "Repérer les glandes salivaires et jeter l'abdomen",
-                "Ajouter une goutte de colorant et attendre 5 minutes",
-                "Recouvrir d'une lamelle",
-                "Observer au microscope",
-              ],
-              explanation: "Les glandes salivaires restent attachées à la tête : on les colore, on couvre, puis on observe.",
+              explanation: "C'est le document de la p. 184 de ton livre : repère ce qui se retrouve d'une génération à l'autre.",
             },
             {
               id: "gen-i8",
               type: "qcm",
-              question: "Pourquoi utilise-t-on les glandes salivaires de la larve de chironome ?",
-              options: [
-                "Elles n'ont pas de noyau",
-                "Leurs cellules ont des chromosomes géants, faciles à voir",
-                "Elles sont de couleur verte",
-                "Elles n'ont pas d'ADN",
-              ],
-              correctAnswer: "Leurs cellules ont des chromosomes géants, faciles à voir",
-              explanation: "Ces chromosomes géants sont visibles au microscope optique.",
+              question: "On observe des cellules au microscope avec un colorant qui colore l'ADN. Où voit-on les chromosomes colorés ?",
+              options: ["dans le noyau", "dans la membrane", "dans le cytoplasme", "autour de la cellule"],
+              correctAnswer: "dans le noyau",
+              explanation: "Les chromosomes sont des filaments contenus dans le noyau.",
             },
             {
               id: "gen-i9",
               type: "qcm",
-              question: "Le colorant (vert de méthyle acétique) colore l'ADN. Les chromosomes deviennent colorés. On en déduit que…",
+              question: "Un colorant colore l'ADN. Les chromosomes deviennent colorés. On en déduit que…",
               options: [
                 "les chromosomes contiennent de l'ADN, qui porte l'information génétique",
                 "les chromosomes sont dans le cytoplasme",
@@ -697,7 +709,7 @@ export const resources: Resource[] = [
               question: "J'observe que dans le ___ il y a des filaments colorés. Or je sais que le colorant colore l'___. J'en déduis que l'information génétique est portée par les ___.",
               options: ["noyau", "ADN", "chromosomes", "cytoplasme", "membrane"],
               correctAnswer: ["noyau", "ADN", "chromosomes"],
-              explanation: "C'est la conclusion du TP sur le chironome.",
+              explanation: "Observation (le noyau) → connaissance (le colorant colore l'ADN) → conclusion (les chromosomes).",
             },
             {
               id: "gen-e12",
