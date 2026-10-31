@@ -89,7 +89,9 @@ export interface QuizQuestion {
     | "verbe-irregulier"
     | "nature-mots"
     | "surlignage"
-    | "etude-texte";
+    | "etude-texte"
+    | "construire-ion"
+    | "formule-ion";
   options?: string[];
   correctAnswer?: string | string[];
   explanation?: string;
@@ -168,6 +170,25 @@ export interface QuizQuestion {
     correctAnswer: string;
     explanation?: string;
   }[];
+
+  // ── atom drawings (any question type) ──────────────────────────────────────
+  /** Atom / ion models drawn above the answers: nucleus "Z+" and one dot per electron. */
+  atomDiagrams?: { z: number; electrons: number; label?: string }[];
+
+  // ── construire-ion ─────────────────────────────────────────────────────────
+  /**
+   * Interactive atom: starts neutral (z electrons), the student adds/removes
+   * electrons until the requested ion is built.
+   */
+  ionBuilder?: {
+    symbol: string;
+    z: number;
+    targetElectrons: number;
+    /** Hide the live charge/formula (harder: the student must count). */
+    hideLiveCharge?: boolean;
+  };
+  // formule-ion: options = element symbols, correctAnswer = [symbol, charge] with
+  // charge in ION_CHARGES (src/lib/ion.ts), e.g. ["Fe", "3+"] or ["Cl", "-"].
 }
 
 export interface QuizQuestionHistory {

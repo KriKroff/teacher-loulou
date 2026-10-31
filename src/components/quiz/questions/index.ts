@@ -20,3 +20,5 @@ export type { QuestionComponentProps } from "./types";
 export { NatureMotsQuestion } from "./NatureMotsQuestion";
 export { SurlignageQuestion } from "./SurlignageQuestion";
 export { EtudeTexteQuestion } from "./EtudeTexteQuestion";
+export { ConstruireIonQuestion } from "./ConstruireIonQuestion";
+export { FormuleIonQuestion } from "./FormuleIonQuestion";

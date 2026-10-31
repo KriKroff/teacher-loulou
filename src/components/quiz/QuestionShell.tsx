@@ -24,7 +24,10 @@ import {
   NatureMotsQuestion,
   SurlignageQuestion,
   EtudeTexteQuestion,
+  ConstruireIonQuestion,
+  FormuleIonQuestion,
 } from "./questions";
+import { AtomModel } from "@/components/chemistry/AtomModel";
 import type { QuestionComponentProps } from "./questions";
 
 // Question text with ___ highlighted
@@ -69,6 +72,8 @@ const TYPE_BADGES: Partial<Record<QuizQuestion["type"], { label: string; classNa
   "nature-mots": { label: "Donne la nature", className: "bg-rose-100 text-rose-700" },
   surlignage: { label: "Surligne les mots", className: "bg-yellow-100 text-yellow-800" },
   "etude-texte": { label: "Étude de texte", className: "bg-sky-100 text-sky-700" },
+  "construire-ion": { label: "Construis l'ion", className: "bg-orange-100 text-orange-700" },
+  "formule-ion": { label: "Écris la formule", className: "bg-indigo-100 text-indigo-700" },
 };
 
 function QuestionDispatcher(props: QuestionComponentProps) {
@@ -115,6 +120,10 @@ function QuestionDispatcher(props: QuestionComponentProps) {
       return <SurlignageQuestion {...props} />;
     case "etude-texte":
       return <EtudeTexteQuestion {...props} />;
+    case "construire-ion":
+      return <ConstruireIonQuestion {...props} />;
+    case "formule-ion":
+      return <FormuleIonQuestion {...props} />;
     default:
       return null;
   }
@@ -161,6 +170,15 @@ export function QuestionShell({
           ? <QuestionWithBlank text={question.question} />
           : question.question}
       </h2>
+
+      {/* Optional atom / ion drawings, for any question type */}
+      {question.atomDiagrams && question.atomDiagrams.length > 0 && (
+        <div className="mb-5 flex flex-wrap items-start justify-center gap-4">
+          {question.atomDiagrams.map((d, i) => (
+            <AtomModel key={i} z={d.z} electrons={d.electrons} label={d.label} size={150} />
+          ))}
+        </div>
+      )}
 
       {/* Dispatch to the correct question component; key is set by parent (QuizSession) */}
       <QuestionDispatcher
