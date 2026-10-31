@@ -119,8 +119,16 @@ for (const r of resources) {
     if (q.type === "construire-ion") {
       const b = q.ionBuilder;
       if (!b) error(`${where}: construire-ion has no ionBuilder`);
-      else if (b.z < 1 || b.targetElectrons < 0 || b.targetElectrons > b.z + 4) {
+      else if (
+        !Number.isInteger(b.z) ||
+        !Number.isInteger(b.targetElectrons) ||
+        b.z < 1 ||
+        b.targetElectrons < 0 ||
+        b.targetElectrons > b.z + 4
+      ) {
         error(`${where}: construire-ion targetElectrons=${b.targetElectrons} out of range for z=${b.z}`);
+      } else if (b.targetElectrons === b.z) {
+        error(`${where}: construire-ion targetElectrons equals z — the target must be a charged ion`);
       }
     }
     if (q.type === "formule-ion") {
@@ -135,7 +143,7 @@ for (const r of resources) {
       }
     }
     for (const d of q.atomDiagrams ?? []) {
-      if (d.z < 1 || d.electrons < 0) error(`${where}: invalid atomDiagram (z=${d.z}, electrons=${d.electrons})`);
+      if (!Number.isInteger(d.z) || !Number.isInteger(d.electrons) || d.z < 1 || d.electrons < 0) error(`${where}: invalid atomDiagram (z=${d.z}, electrons=${d.electrons})`);
     }
   }
 

@@ -1569,7 +1569,7 @@ export function FormationIonsDiagram() {
       <div className="space-y-4">
         <div className="rounded-xl border-2 border-red-200 bg-red-50/60 p-2">
           <p className="mb-1 text-center text-sm font-extrabold text-red-800">Cation : l&apos;atome PERD des électrons</p>
-          <div className="flex items-center justify-center gap-1 sm:gap-3">
+          <div className="flex flex-wrap items-center justify-center gap-1 sm:gap-3">
             <AtomModel z={13} electrons={13} size={120} label="Atome Al (13 e⁻)" />
             <IonArrow text="perd 3 e⁻" sub="13 − 3 = 10 e⁻" />
             <AtomModel z={13} electrons={10} size={120} label="Ion Al³⁺ (10 e⁻)" />
@@ -1577,7 +1577,7 @@ export function FormationIonsDiagram() {
         </div>
         <div className="rounded-xl border-2 border-sky-200 bg-sky-50/60 p-2">
           <p className="mb-1 text-center text-sm font-extrabold text-sky-800">Anion : l&apos;atome GAGNE des électrons</p>
-          <div className="flex items-center justify-center gap-1 sm:gap-3">
+          <div className="flex flex-wrap items-center justify-center gap-1 sm:gap-3">
             <AtomModel z={17} electrons={17} size={120} label="Atome Cl (17 e⁻)" />
             <IonArrow text="gagne 1 e⁻" sub="17 + 1 = 18 e⁻" />
             <AtomModel z={17} electrons={18} size={120} label="Ion Cl⁻ (18 e⁻)" />

@@ -839,12 +839,12 @@ export const resources: Resource[] = [
               question: "On fait un test : aucun précipité n'apparaît. Que peut-on conclure ?",
               options: [
                 "L'ion recherché est présent",
-                "L'ion recherché n'est pas présent",
+                "L'ion recherché n'est pas détecté",
                 "Il faut ajouter de l'eau",
                 "Le précipité est invisible",
               ],
-              correctAnswer: "L'ion recherché n'est pas présent",
-              explanation: "Pas de précipité = test négatif → l'ion n'est pas dans la solution.",
+              correctAnswer: "L'ion recherché n'est pas détecté",
+              explanation: "Pas de précipité = test négatif → l'ion n'est pas détecté (absent, ou en quantité trop petite).",
             },
           ],
         },
@@ -1253,10 +1253,10 @@ export const resources: Resource[] = [
                   explanation: "Ca²⁺, Mg²⁺ et Na⁺ (charge +).",
                 },
                 {
-                  question: "Quel réactif détecte un des ions de cette eau ?",
+                  question: "Quel réactif détecte les ions chlorure Cl⁻ de cette eau ?",
                   options: ["La soude", "Le nitrate d'argent", "Aucun", "L'eau de chaux"],
                   correctAnswer: "Le nitrate d'argent",
-                  explanation: "Il y a des ions Cl⁻ → précipité blanc avec le nitrate d'argent. Pas de Cu²⁺, Fe²⁺, Fe³⁺ pour la soude.",
+                  explanation: "Cl⁻ + nitrate d'argent → précipité blanc qui noircit. La soude ne détecte pas les ions Cl⁻.",
                 },
                 {
                   question: "Mg²⁺ (Z = 12) possède…",
