@@ -26,19 +26,24 @@ import {
   EtudeTexteQuestion,
   ConstruireIonQuestion,
   FormuleIonQuestion,
+  TraductionQuestion,
+  ConstruirePhraseQuestion,
+  CorrectionErreurQuestion,
+  ExpressionLibreQuestion,
 } from "./questions";
 import { AtomModel } from "@/components/chemistry/AtomModel";
+import { InlineMarkdown } from "./InlineMarkdown";
 import type { QuestionComponentProps } from "./questions";
 
-// Question text with ___ highlighted
+// Question text with ___ highlighted (and inline **bold** / *italic*)
 function QuestionWithBlank({ text }: { text: string }) {
   const parts = text.split("___");
-  if (parts.length === 1) return <>{text}</>;
+  if (parts.length === 1) return <InlineMarkdown text={text} />;
   return (
     <>
       {parts.map((part, i) => (
         <span key={i}>
-          {part}
+          <InlineMarkdown text={part} />
           {i < parts.length - 1 && (
             <span className="inline-block mx-1 min-w-[5rem] rounded bg-amber-100 px-2 py-0.5 font-bold text-amber-800 underline underline-offset-4">
               ___
@@ -74,6 +79,11 @@ const TYPE_BADGES: Partial<Record<QuizQuestion["type"], { label: string; classNa
   "etude-texte": { label: "Étude de texte", className: "bg-sky-100 text-sky-700" },
   "construire-ion": { label: "Construis l'ion", className: "bg-orange-100 text-orange-700" },
   "formule-ion": { label: "Écris la formule", className: "bg-indigo-100 text-indigo-700" },
+  // Language production
+  traduction: { label: "Traduis", className: "bg-sky-100 text-sky-700" },
+  "construire-phrase": { label: "Construis la phrase", className: "bg-orange-100 text-orange-700" },
+  "correction-erreur": { label: "Corrige les erreurs", className: "bg-rose-100 text-rose-700" },
+  "expression-libre": { label: "Écris en anglais", className: "bg-emerald-100 text-emerald-700" },
 };
 
 function QuestionDispatcher(props: QuestionComponentProps) {
@@ -124,6 +134,14 @@ function QuestionDispatcher(props: QuestionComponentProps) {
       return <ConstruireIonQuestion {...props} />;
     case "formule-ion":
       return <FormuleIonQuestion {...props} />;
+    case "traduction":
+      return <TraductionQuestion {...props} />;
+    case "construire-phrase":
+      return <ConstruirePhraseQuestion {...props} />;
+    case "correction-erreur":
+      return <CorrectionErreurQuestion {...props} />;
+    case "expression-libre":
+      return <ExpressionLibreQuestion {...props} />;
     default:
       return null;
   }
@@ -168,7 +186,7 @@ export function QuestionShell({
       <h2 className="mb-5 text-lg font-semibold text-warm-800">
         {question.type === "texte-a-trous"
           ? <QuestionWithBlank text={question.question} />
-          : question.question}
+          : <InlineMarkdown text={question.question} />}
       </h2>
 
       {/* Optional atom / ion drawings, for any question type */}
@@ -200,7 +218,7 @@ export function QuestionShell({
       )}
       {showHint && !showFeedback && question.hint && (
         <div className="mt-2 rounded-xl bg-amber-50 border border-amber-200 px-4 py-3 text-sm text-amber-800">
-          💡 {question.hint}
+          💡 <InlineMarkdown text={question.hint} />
         </div>
       )}
 
@@ -213,7 +231,7 @@ export function QuestionShell({
           )}>
             {isCorrect ? "✅ Bonne réponse !" : "❌ Ce n'est pas ça..."}
             {question.explanation && (
-              <p className="mt-1 opacity-80">{question.explanation}</p>
+              <p className="mt-1 opacity-80"><InlineMarkdown text={question.explanation} /></p>
             )}
           </div>
           <button

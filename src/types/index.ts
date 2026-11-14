@@ -91,7 +91,12 @@ export interface QuizQuestion {
     | "surlignage"
     | "etude-texte"
     | "construire-ion"
-    | "formule-ion";
+    | "formule-ion"
+    // Language production types (typed answers)
+    | "traduction"
+    | "construire-phrase"
+    | "correction-erreur"
+    | "expression-libre";
   options?: string[];
   correctAnswer?: string | string[];
   explanation?: string;
@@ -189,6 +194,49 @@ export interface QuizQuestion {
   };
   // formule-ion: options = element symbols, correctAnswer = [symbol, charge] with
   // charge in ION_CHARGES (src/lib/ion.ts), e.g. ["Fe", "3+"] or ["Cl", "-"].
+
+  // ── traduction / construire-phrase (shared) ────────────────────────────────
+  /** Sentence to translate or build, shown in a card above the answer area (usually French). */
+  sourceText?: string;
+
+  // ── traduction ─────────────────────────────────────────────────────────────
+  /**
+   * Accepted typed answers. The first one is the model answer shown after
+   * submitting. Matching ignores case, final punctuation, extra spaces, curly
+   * apostrophes, common contractions (can't = cannot) and UK/US spellings.
+   */
+  acceptedAnswers?: string[];
+  /**
+   * Key fragments checked one by one in the feedback (✓/✗ list) and
+   * highlighted in the model answer, e.g. ["succeeded in", "hacking", "Mr Rooney's"].
+   * Each entry may list alternatives separated by "|".
+   */
+  keyChunks?: string[];
+
+  // ── construire-phrase ──────────────────────────────────────────────────────
+  /**
+   * Word tiles shown shuffled (correct tiles + distractors). The student taps
+   * tiles to build the sentence. correctAnswer = string[] (tiles in order).
+   */
+  tiles?: string[];
+  /** Other accepted tile orders (each a full ordered list). */
+  acceptedOrders?: string[][];
+
+  // ── correction-erreur ──────────────────────────────────────────────────────
+  // taggedText with [faux|correction] targets: the student taps the wrong
+  // words, then types the correction of each one. "[a|-]" = word to delete.
+  // A correction may contain several words ("[up|up with]").
+
+  // ── expression-libre ───────────────────────────────────────────────────────
+  /**
+   * Words the answer must contain (whole-word, case-insensitive). Each entry
+   * may list alternatives separated by "|" (e.g. "convince|convinces|convinced").
+   */
+  requiredWords?: string[];
+  /** Minimum number of words in the answer. */
+  minWords?: number;
+  /** Example of a good answer, shown after submitting. */
+  modelAnswer?: string;
 }
 
 export interface QuizQuestionHistory {

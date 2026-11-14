@@ -4,6 +4,7 @@ import { useState } from "react";
 import { CheckCircle2, XCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { QuestionComponentProps } from "./types";
+import { InlineMarkdown } from "@/components/quiz/InlineMarkdown";
 
 /**
  * "Étude de texte" — a short passage followed by several linked sub-questions,
@@ -25,7 +26,7 @@ export function EtudeTexteQuestion({ question, onAnswer, showFeedback }: Questio
     <div className="space-y-4">
       {question.passage && (
         <blockquote className="whitespace-pre-line rounded-xl border-l-4 border-accent-400 bg-warm-50 px-4 py-3 text-base italic leading-relaxed text-warm-800">
-          {question.passage}
+          <InlineMarkdown text={question.passage} />
         </blockquote>
       )}
 
@@ -38,7 +39,7 @@ export function EtudeTexteQuestion({ question, onAnswer, showFeedback }: Questio
                 <span className="mr-1.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-accent-100 text-xs font-bold text-accent-700">
                   {String.fromCharCode(97 + i)}
                 </span>
-                {sq.question}
+                <InlineMarkdown text={sq.question} />
               </p>
               <div className="grid gap-2 sm:grid-cols-2">
                 {sq.options.map((opt) => {
@@ -68,13 +69,13 @@ export function EtudeTexteQuestion({ question, onAnswer, showFeedback }: Questio
                     >
                       {showFeedback && isCorrect && <CheckCircle2 className="h-4 w-4 shrink-0 text-success-500" />}
                       {showFeedback && isSelected && !isCorrect && <XCircle className="h-4 w-4 shrink-0 text-red-500" />}
-                      <span>{opt}</span>
+                      <span><InlineMarkdown text={opt} /></span>
                     </button>
                   );
                 })}
               </div>
               {showFeedback && sq.explanation && (
-                <p className="text-xs text-warm-600">💬 {sq.explanation}</p>
+                <p className="text-xs text-warm-600">💬 <InlineMarkdown text={sq.explanation} /></p>
               )}
             </li>
           );

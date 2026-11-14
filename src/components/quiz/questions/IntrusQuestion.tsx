@@ -4,6 +4,7 @@ import { useState } from "react";
 import { CheckCircle2, XCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { QuestionComponentProps } from "./types";
+import { InlineMarkdown } from "@/components/quiz/InlineMarkdown";
 
 export function IntrusQuestion({ question, onAnswer, showFeedback }: QuestionComponentProps) {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
@@ -47,7 +48,7 @@ export function IntrusQuestion({ question, onAnswer, showFeedback }: QuestionCom
             >
               {showFeedback && isCorrect && <CheckCircle2 className="h-4 w-4 shrink-0 text-success-500" />}
               {showFeedback && isSelected && !isCorrect && <XCircle className="h-4 w-4 shrink-0 text-red-500" />}
-              {option}
+              <InlineMarkdown text={option} />
             </button>
           );
         })}

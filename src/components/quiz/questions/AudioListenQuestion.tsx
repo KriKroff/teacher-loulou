@@ -6,6 +6,7 @@ import { CheckCircle2, XCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { assetPath } from "@/lib/asset-path";
 import type { QuestionComponentProps } from "./types";
+import { InlineMarkdown } from "@/components/quiz/InlineMarkdown";
 
 export function AudioListenQuestion({
   question,
@@ -151,7 +152,7 @@ export function AudioListenQuestion({
               {showFeedback && isSelected && !isCorrect && (
                 <XCircle className="h-5 w-5 shrink-0 text-red-500" />
               )}
-              <span>{option}</span>
+              <span><InlineMarkdown text={option} /></span>
             </button>
           );
         })}

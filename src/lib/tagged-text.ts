@@ -33,22 +33,35 @@ export function parseTaggedText(source: string): TaggedSegment[] {
 
 export type WordToken =
   | { kind: "space"; text: string }
-  | { kind: "word"; id: number; text: string; isTarget: boolean };
+  | { kind: "word"; id: number; text: string; isTarget: boolean; answer?: string };
 
 // A word = letters/digits/hyphens, keeping a trailing elided apostrophe (l', qu', s')
 const WORD = /[\p{L}\p{N}-]+['’]?/gu;
+// English: apostrophes inside the word (don't, Rooney's) stay in one token
+const WORD_EN = /[\p{L}\p{N}]+(?:['’-][\p{L}\p{N}]+)*['’]?/gu;
 
-/** Splits tagged text into clickable word tokens (for "surlignage"). */
-export function tokenizeTaggedText(source: string): WordToken[] {
+/**
+ * Splits tagged text into clickable word tokens (for "surlignage" and
+ * "correction-erreur"). `lang: "en"` keeps English contractions and
+ * genitives (don't, Rooney's) as single words.
+ */
+export function tokenizeTaggedText(source: string, opts: { lang?: "fr" | "en" } = {}): WordToken[] {
+  const wordRe = opts.lang === "en" ? WORD_EN : WORD;
   const tokens: WordToken[] = [];
   let id = 0;
   for (const seg of parseTaggedText(source)) {
     if (seg.kind !== "text") {
-      tokens.push({ kind: "word", id: id++, text: seg.text, isTarget: seg.kind === "target" });
+      tokens.push({
+        kind: "word",
+        id: id++,
+        text: seg.text,
+        isTarget: seg.kind === "target",
+        ...(seg.kind === "target" && seg.answer !== undefined ? { answer: seg.answer } : {}),
+      });
       continue;
     }
     let last = 0;
-    for (const match of seg.text.matchAll(WORD)) {
+    for (const match of seg.text.matchAll(wordRe)) {
       const index = match.index ?? 0;
       if (index > last) tokens.push({ kind: "space", text: seg.text.slice(last, index) });
       tokens.push({ kind: "word", id: id++, text: match[0], isTarget: false });
