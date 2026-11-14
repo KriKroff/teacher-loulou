@@ -3461,4 +3461,1205 @@ export const resources: Resource[] = [
       ],
     },
   },
+  {
+    "level": "3e",
+    "subject": "francais",
+    "chapter": "Étude de la langue — Révisions des exercices 4 à 9",
+    "createdAt": "2026-11-14T18:00:00Z",
+    "updatedAt": "2026-11-14T19:00:00Z",
+    "slug": "francais-etude-langue-fiche",
+    "title": "Étude de la langue — Objectif contrôle",
+    "description": "Exercices 4 à 9 : participes, propositions, accords sujet-verbe, COD et COI, nature des mots et des groupes. Méthodes, exemples et entraînement final corrigé.",
+    "type": "fiche",
+    "tags": [
+      "étude de la langue",
+      "grammaire",
+      "participe passé",
+      "propositions",
+      "accord sujet-verbe",
+      "COD",
+      "COI",
+      "fiche",
+      "nature des mots",
+      "groupes de mots",
+      "proposition relative"
+    ],
+    "relatedResourceSlug": "francais-etude-langue-quiz",
+    "mdxPath": "3e/francais/fiches/francais-etude-langue-fiche.mdx"
+  },
+  {
+    "level": "3e",
+    "subject": "francais",
+    "chapter": "Étude de la langue — Révisions des exercices 4 à 9",
+    "createdAt": "2026-11-14T18:00:00Z",
+    "updatedAt": "2026-11-14T19:00:00Z",
+    "slug": "francais-etude-langue-quiz",
+    "title": "Quiz — Étude de la langue",
+    "description": "75 questions en trois niveaux pour préparer les exercices 4 à 9 : surlignage, analyse, conjugaison à saisir, COD et COI, nature des mots et des groupes.",
+    "type": "quiz",
+    "tags": [
+      "étude de la langue",
+      "grammaire",
+      "participe passé",
+      "propositions",
+      "accord sujet-verbe",
+      "COD",
+      "COI",
+      "quiz",
+      "nature des mots",
+      "groupes de mots",
+      "proposition relative"
+    ],
+    "relatedResourceSlug": "francais-etude-langue-fiche",
+    "quizData": {
+      "title": "Étude de la langue — Exercices 4 à 9",
+      "description": "Une session de 10 questions : repère en vert, applique en jaune, analyse en rouge. Les phrases sont des entraînements créés à partir des notions du manuel.",
+      "passingScore": 60,
+      "sessionSize": 10,
+      "levels": [
+        {
+          "id": "facile",
+          "name": "Facile",
+          "emoji": "🟢",
+          "description": "Repérer les participes, les verbes, les sujets et les compléments. Identifier la nature des mots et des groupes.",
+          "questions": [
+            {
+              "id": "edl-f01",
+              "type": "surlignage",
+              "question": "Ex. 4 — Surligne tous les participes passés.",
+              "explanation": "ouvertes qualifie fenêtres ; fermé entre dans le passé composé avons fermé. « laissaient » est une forme de l’imparfait, pas un participe passé.",
+              "taggedText": "Les fenêtres [ouvertes] laissaient entrer le vent ; nous avons [fermé] les volets."
+            },
+            {
+              "id": "edl-f02",
+              "type": "nature-mots",
+              "question": "Ex. 4 — Précise l’emploi des participes passés soulignés.",
+              "explanation": "pliée qualifie lettre. Dans a rangé, le participe passé rangé est associé à l’auxiliaire avoir au présent.",
+              "taggedText": "La lettre [pliée|Participe passé employé comme adjectif] est dans le tiroir. Léa [a rangé|Participe passé dans un temps composé] ses affaires.",
+              "options": [
+                "Participe passé employé comme adjectif",
+                "Participe passé dans un temps composé"
+              ]
+            },
+            {
+              "id": "edl-f03",
+              "type": "qcm",
+              "question": "Ex. 4 — Dans « Surpris, les enfants ont ri », quel nom « surpris » qualifie-t-il ?",
+              "explanation": "Surpris est employé comme adjectif et qualifie les enfants, masculin pluriel.",
+              "options": [
+                "ont",
+                "ri",
+                "enfants",
+                "Aucun : il fait partie d’un temps composé"
+              ],
+              "correctAnswer": "enfants"
+            },
+            {
+              "id": "edl-f04",
+              "type": "qcm",
+              "question": "Ex. 4 — Quel est le temps de « nous avions terminé » ?",
+              "explanation": "avions = auxiliaire avoir à l’imparfait ; terminé = participe passé. L’ensemble forme le plus-que-parfait.",
+              "options": [
+                "Passé composé",
+                "Futur antérieur",
+                "Plus-que-parfait",
+                "Imparfait"
+              ],
+              "correctAnswer": "Plus-que-parfait"
+            },
+            {
+              "id": "edl-f05",
+              "type": "surlignage",
+              "question": "Ex. 5 — Surligne les formes verbales conjuguées. Un temps composé forme un seul groupe.",
+              "explanation": "a fini est une seule forme verbale au passé composé ; range est au présent. On trouve deux verbes conjugués et deux propositions.",
+              "taggedText": "Elle [a fini] son travail et elle [range] son bureau."
+            },
+            {
+              "id": "edl-f06",
+              "type": "nature-mots",
+              "question": "Ex. 5 — Classe les conjonctions soulignées.",
+              "explanation": "parce que introduit une subordonnée de cause ; mais coordonne les deux propositions de même niveau.",
+              "taggedText": "Je souris [parce que|Conjonction de subordination] tu arrives, [mais|Conjonction de coordination] je reste assise.",
+              "options": [
+                "Conjonction de coordination",
+                "Conjonction de subordination"
+              ]
+            },
+            {
+              "id": "edl-f07",
+              "type": "qcm",
+              "question": "Ex. 5 — Quel découpage convient à « Quand tu arrives, je souris » ?",
+              "explanation": "arrives et souris sont les deux verbes conjugués. Quand tu arrives forme la subordonnée ; je souris forme la principale.",
+              "options": [
+                "[Quand tu] [arrives, je souris].",
+                "[Quand tu arrives, je souris].",
+                "[Quand tu arrives], [je souris]."
+              ],
+              "correctAnswer": "[Quand tu arrives], [je souris]."
+            },
+            {
+              "id": "edl-f08",
+              "type": "qcm",
+              "question": "Ex. 5 — Combien de verbes conjugués contient « Elle veut partir, mais elle attend » ?",
+              "explanation": "veut et attend sont conjugués. partir est à l’infinitif : il n’ajoute pas un verbe conjugué.",
+              "options": [
+                "1",
+                "4",
+                "3",
+                "2"
+              ],
+              "correctAnswer": "2"
+            },
+            {
+              "id": "edl-f09",
+              "type": "qcm",
+              "question": "Ex. 6 — Quel est le sujet de « parlent » dans « Les élèves nous parlent » ?",
+              "explanation": "Qui est-ce qui parle ? Les élèves. nous est un complément du verbe.",
+              "options": [
+                "Les élèves nous",
+                "Les élèves",
+                "nous",
+                "parlent"
+              ],
+              "correctAnswer": "Les élèves"
+            },
+            {
+              "id": "edl-f10",
+              "type": "conjugaison",
+              "question": "Ex. 6 — Conjugue au présent : « Les danseuses nous (regarder). »",
+              "explanation": "Le sujet est les danseuses, que l’on remplace par elles : elles regardent. nous est COD.",
+              "options": [
+                "Les danseuses nous…"
+              ],
+              "correctAnswer": [
+                "regardent"
+              ]
+            },
+            {
+              "id": "edl-f11",
+              "type": "conjugaison",
+              "question": "Ex. 6 — Conjugue au présent : « Je leur (raconter) une histoire. »",
+              "explanation": "Le sujet est je, pas leur. Raconter est du premier groupe : je raconte.",
+              "options": [
+                "Je leur…"
+              ],
+              "correctAnswer": [
+                "raconte"
+              ]
+            },
+            {
+              "id": "edl-f12",
+              "type": "completion-tableau",
+              "question": "Ex. 6 — Écris chaque verbe à l’imparfait.",
+              "explanation": "À l’imparfait : -ais, -ais, -ait, -ions, -iez, -aient. Attention au radical finiss- : nous finissions.",
+              "table": {
+                "headers": [
+                  "Sujet",
+                  "Infinitif",
+                  "Forme à écrire"
+                ],
+                "rows": [
+                  [
+                    {
+                      "value": "elles"
+                    },
+                    {
+                      "value": "chanter"
+                    },
+                    {
+                      "blank": true,
+                      "correctAnswer": "chantaient"
+                    }
+                  ],
+                  [
+                    {
+                      "value": "nous"
+                    },
+                    {
+                      "value": "finir"
+                    },
+                    {
+                      "blank": true,
+                      "correctAnswer": "finissions"
+                    }
+                  ],
+                  [
+                    {
+                      "value": "tu"
+                    },
+                    {
+                      "value": "prendre"
+                    },
+                    {
+                      "blank": true,
+                      "correctAnswer": "prenais"
+                    }
+                  ]
+                ]
+              }
+            },
+            {
+              "id": "edl-f13",
+              "type": "association",
+              "question": "Ex. 7 — Associe chaque verbe à sa construction dans ces exemples.",
+              "explanation": "apprécier se construit ici avec un COD ; parler avec un COI ; apporter avec un COD et un COI.",
+              "pairs": [
+                {
+                  "left": "apprécier",
+                  "right": "quelque chose : apprécier ce roman"
+                },
+                {
+                  "left": "parler",
+                  "right": "à quelqu’un : parler à Léa"
+                },
+                {
+                  "left": "apporter",
+                  "right": "quelque chose à quelqu’un : apporter un livre à Léa"
+                }
+              ]
+            },
+            {
+              "id": "edl-f14",
+              "type": "qcm",
+              "question": "Ex. 7 — Quelle phrase contient un COD et un COI du verbe « apporter » ?",
+              "explanation": "Elle apporte quoi ? un livre, COD. À qui ? à sa sœur, COI.",
+              "options": [
+                "Elle apporte un livre.",
+                "Elle est très heureuse.",
+                "Elle apporte un livre à sa sœur.",
+                "Elle marche avec sa sœur."
+              ],
+              "correctAnswer": "Elle apporte un livre à sa sœur."
+            },
+            {
+              "id": "edl-f15",
+              "type": "qcm",
+              "question": "Ex. 7 — Dans « Je crains l’orage », quelle est la fonction de « l’orage » ?",
+              "explanation": "Craindre quelque chose : je crains quoi ? l’orage. Le complément se rattache au verbe sans préposition.",
+              "options": [
+                "Complément de lieu",
+                "COD de crains",
+                "Sujet de crains",
+                "COI de crains"
+              ],
+              "correctAnswer": "COD de crains"
+            },
+            {
+              "id": "edl-f16",
+              "type": "qcm",
+              "question": "Ex. 7 — Dans « Il pardonne à son ami », quel est le COI ?",
+              "explanation": "Pardonner à quelqu’un : il pardonne à qui ? à son ami. On relève le groupe complet, préposition comprise.",
+              "options": [
+                "pardonne",
+                "son ami, sans à",
+                "Il",
+                "à son ami"
+              ],
+              "correctAnswer": "à son ami"
+            },
+            {
+              "id": "edl-f17",
+              "type": "surlignage",
+              "question": "Ex. 8 — Surligne le COD complet du verbe « admire ».",
+              "explanation": "Louise admire quoi ? cette grande fresque. Le COD comprend le déterminant, l’adjectif et le nom.",
+              "taggedText": "Louise admire [cette grande fresque]."
+            },
+            {
+              "id": "edl-f18",
+              "type": "nature-mots",
+              "question": "Ex. 8 — Indique la fonction des deux compléments soulignés.",
+              "explanation": "Elle offre quoi ? des fleurs, COD. À qui ? à sa mère, COI.",
+              "taggedText": "Elle offre [des fleurs|COD] [à sa mère|COI].",
+              "options": [
+                "COD",
+                "COI"
+              ]
+            },
+            {
+              "id": "edl-f19",
+              "type": "qcm",
+              "question": "Ex. 8 — Dans « Je lui téléphone », quelle est la fonction de « lui » ?",
+              "explanation": "Je téléphone à quelqu’un. lui remplace un groupe introduit par à ; il reste COI même si la préposition n’est plus visible.",
+              "options": [
+                "COD de téléphone",
+                "Adjectif",
+                "Sujet de téléphone",
+                "COI de téléphone"
+              ],
+              "correctAnswer": "COI de téléphone"
+            },
+            {
+              "id": "edl-f20",
+              "type": "qcm",
+              "question": "Ex. 8 — Dans « Elle affirme qu’elle reviendra », quel est le COD de « affirme » ?",
+              "explanation": "Elle affirme quoi ? qu’elle reviendra. Une proposition subordonnée entière peut être COD.",
+              "options": [
+                "qu’elle reviendra",
+                "Elle",
+                "elle reviendra, sans qu’",
+                "Aucun : un COD est toujours un nom"
+              ],
+              "correctAnswer": "qu’elle reviendra"
+            },
+            {
+              "id": "edl-f21",
+              "type": "nature-mots",
+              "question": "Ex. 9 — Donne la nature de chaque mot souligné.",
+              "taggedText": "[Très|Adverbe] discrète, Inès [lui|Pronom personnel] parle [dans|Préposition] la cour.",
+              "options": [
+                "Adverbe",
+                "Pronom personnel",
+                "Préposition",
+                "Nom commun"
+              ],
+              "explanation": "Très est un adverbe de degré qui modifie discrète ; lui est un pronom personnel ; dans est une préposition qui introduit la cour."
+            },
+            {
+              "id": "edl-f22",
+              "type": "qcm",
+              "question": "Ex. 9 — Quelle est la nature de « blessés » dans « Les blessés attendent le médecin » ?",
+              "options": [
+                "Adjectif qualificatif",
+                "Pronom personnel",
+                "Adverbe",
+                "Nom commun"
+              ],
+              "correctAnswer": "Nom commun",
+              "explanation": "Les blessés désigne des personnes. blessés est ici un nom commun, issu d’un adjectif employé comme nom. Dans « les enfants blessés », il serait adjectif."
+            },
+            {
+              "id": "edl-f23",
+              "type": "qcm",
+              "question": "Ex. 9 — Quelle est la nature de « où elle travaille » dans « Voici la salle où elle travaille » ?",
+              "options": [
+                "Groupe nominal",
+                "Proposition subordonnée relative",
+                "Préposition",
+                "Pronom personnel"
+              ],
+              "correctAnswer": "Proposition subordonnée relative",
+              "explanation": "Toute l’expression contient un verbe conjugué (travaille) et est introduite par le pronom relatif où. Elle précise le nom salle."
+            },
+            {
+              "id": "edl-f24",
+              "type": "qcm",
+              "question": "Ex. 9 — Quelle est la forme du verbe « espérant » dans « Espérant une réponse, elle attend » ?",
+              "options": [
+                "Participe présent",
+                "Gérondif",
+                "Passé simple",
+                "Participe passé"
+              ],
+              "correctAnswer": "Participe présent",
+              "explanation": "espérant est le participe présent du verbe espérer. Le gérondif aurait la forme en espérant, avec en."
+            },
+            {
+              "id": "edl-f25",
+              "type": "qcm",
+              "question": "Ex. 9 — Quelle réponse donne la nature de « à sa voisine » dans « Elle parle à sa voisine » ?",
+              "options": [
+                "Groupe nominal prépositionnel",
+                "Complément de lieu",
+                "Sujet de parle",
+                "COI de parle"
+              ],
+              "correctAnswer": "Groupe nominal prépositionnel",
+              "explanation": "La nature décrit le groupe : préposition à + groupe nominal sa voisine. COI de parle est sa fonction ; la question demande ici sa nature."
+            }
+          ]
+        },
+        {
+          "id": "intermediaire",
+          "name": "Intermédiaire",
+          "emoji": "🟡",
+          "description": "Appliquer les méthodes malgré les pronoms, les sujets éloignés et les subordonnées. Identifier la nature des mots et des groupes.",
+          "questions": [
+            {
+              "id": "edl-i01",
+              "type": "nature-mots",
+              "question": "Ex. 4 — Analyse l’emploi des deux participes passés soulignés.",
+              "explanation": "Rassurée qualifie Inès ; retrouvé entre dans le plus-que-parfait avait retrouvé, avec avoir à l’imparfait.",
+              "taggedText": "[Rassurée|Participe passé employé comme adjectif], Inès [avait retrouvé|Participe passé dans un temps composé] son sac.",
+              "options": [
+                "Participe passé employé comme adjectif",
+                "Participe passé dans un temps composé"
+              ]
+            },
+            {
+              "id": "edl-i02",
+              "type": "surlignage",
+              "question": "Ex. 4 — Surligne seulement les participes passés employés comme adjectifs.",
+              "explanation": "assis qualifie spectateurs ; épuisées qualifie danseuses. applaudi fait partie du passé composé ont applaudi : on ne le sélectionne pas.",
+              "taggedText": "Les spectateurs [assis] ont applaudi les danseuses [épuisées]."
+            },
+            {
+              "id": "edl-i03",
+              "type": "qcm",
+              "question": "Ex. 4 — Quelle analyse de « écrites » est complète dans « Ces lettres écrites hier ont disparu » ?",
+              "explanation": "écrites qualifie le nom lettres. ont disparu est le temps composé ; son participe passé est disparu.",
+              "options": [
+                "Participe passé du temps composé ont disparu",
+                "Verbe conjugué à l’imparfait, sujet lettres",
+                "Participe passé employé comme adjectif, qui qualifie lettres",
+                "Adjectif qui qualifie hier"
+              ],
+              "correctAnswer": "Participe passé employé comme adjectif, qui qualifie lettres"
+            },
+            {
+              "id": "edl-i04",
+              "type": "completion-tableau",
+              "question": "Ex. 4 — Retrouve le temps de chaque forme verbale.",
+              "explanation": "Le temps de l’auxiliaire donne celui du temps composé : présent → passé composé ; imparfait → plus-que-parfait ; futur → futur antérieur.",
+              "table": {
+                "headers": [
+                  "Forme verbale",
+                  "Temps à écrire"
+                ],
+                "rows": [
+                  [
+                    {
+                      "value": "elle a compris"
+                    },
+                    {
+                      "blank": true,
+                      "correctAnswer": "passé composé"
+                    }
+                  ],
+                  [
+                    {
+                      "value": "elle avait compris"
+                    },
+                    {
+                      "blank": true,
+                      "correctAnswer": "plus-que-parfait"
+                    }
+                  ],
+                  [
+                    {
+                      "value": "elle aura compris"
+                    },
+                    {
+                      "blank": true,
+                      "correctAnswer": "futur antérieur"
+                    }
+                  ]
+                ]
+              }
+            },
+            {
+              "id": "edl-i05",
+              "type": "surlignage",
+              "question": "Ex. 5 — Surligne les conjonctions de subordination, en entier.",
+              "explanation": "Bien que et parce que sont deux locutions conjonctives de subordination. Chaque groupe doit être sélectionné en entier.",
+              "taggedText": "[Bien que] le ciel soit clair, je prends un parapluie [parce que] la météo annonce un orage."
+            },
+            {
+              "id": "edl-i06",
+              "type": "qcm",
+              "question": "Ex. 5 — Quel découpage convient à « Il a fermé la porte, car il pensait que le vent se levait » ?",
+              "explanation": "a fermé compte pour une seule forme verbale. car coordonne ; que introduit une subordonnée COD de pensait, intégrée à la seconde partie.",
+              "options": [
+                "[Il a fermé la porte, car il pensait] [que le vent se levait].",
+                "[Il a fermé la porte], car [il pensait [que le vent se levait]].",
+                "[Il a] [fermé la porte], car [il pensait que le vent se levait]."
+              ],
+              "correctAnswer": "[Il a fermé la porte], car [il pensait [que le vent se levait]]."
+            },
+            {
+              "id": "edl-i07",
+              "type": "nature-mots",
+              "question": "Ex. 5 — Distingue les deux emplois de « que ».",
+              "explanation": "Le premier que introduit le contenu de la pensée. Le second reprend roman : tu lis ce roman ; il est pronom relatif COD de lis.",
+              "taggedText": "Je crois [que|Conjonction de subordination] le roman [que|Pronom relatif] tu lis te plaira.",
+              "options": [
+                "Conjonction de subordination",
+                "Pronom relatif"
+              ]
+            },
+            {
+              "id": "edl-i08",
+              "type": "qcm",
+              "question": "Ex. 5 — Combien de propositions contient « Elle avait fini son devoir et elle espérait que son amie viendrait » ?",
+              "explanation": "Les trois formes verbales sont avait fini, espérait et viendrait. Le temps composé avait fini ne se coupe pas en deux.",
+              "options": [
+                "2",
+                "4",
+                "5",
+                "3"
+              ],
+              "correctAnswer": "3"
+            },
+            {
+              "id": "edl-i09",
+              "type": "conjugaison",
+              "question": "Ex. 6 — Au présent, complète : « Les amis qui me (connaître) me (rassurer). »",
+              "explanation": "connaissent a pour sujet qui, reprenant les amis ; rassurent a pour sujet les amis qui me connaissent. Dans les deux cas : ils. me n’est pas sujet.",
+              "options": [
+                "Les amis qui me…",
+                "…me…"
+              ],
+              "correctAnswer": [
+                "connaissent",
+                "rassurent"
+              ]
+            },
+            {
+              "id": "edl-i10",
+              "type": "conjugaison",
+              "question": "Ex. 6 — Au présent, complète : « Les histoires que tu nous (raconter) nous (amuser). »",
+              "explanation": "Sujet de racontes : tu. Sujet d’amusent : les histoires que tu nous racontes, dont le noyau est histoires → elles. Les deux nous sont compléments.",
+              "options": [
+                "tu nous…",
+                "Les histoires… nous…"
+              ],
+              "correctAnswer": [
+                "racontes",
+                "amusent"
+              ]
+            },
+            {
+              "id": "edl-i11",
+              "type": "qcm",
+              "question": "Ex. 6 — Quelle justification est correcte pour « Chacun de mes amis connaît cette chanson » ?",
+              "explanation": "Le sujet complet est Chacun de mes amis ; son noyau est Chacun. Le pluriel du complément mes amis ne commande pas le verbe.",
+              "options": [
+                "chanson est singulier et commande l’accord.",
+                "amis est pluriel, donc le verbe doit être au pluriel.",
+                "Le sujet a pour noyau Chacun, singulier : il connaît.",
+                "mes est le sujet du verbe."
+              ],
+              "correctAnswer": "Le sujet a pour noyau Chacun, singulier : il connaît."
+            },
+            {
+              "id": "edl-i12",
+              "type": "conjugaison",
+              "question": "Ex. 6 — Écris « nous écrire » au futur, puis au conditionnel présent.",
+              "explanation": "Le futur utilise ici écrir- + -ons ; le conditionnel, écrir- + -ions. Le i distingue écririons d’écrirons.",
+              "options": [
+                "Futur : nous…",
+                "Conditionnel présent : nous…"
+              ],
+              "correctAnswer": [
+                "écrirons",
+                "écririons"
+              ]
+            },
+            {
+              "id": "edl-i13",
+              "type": "association",
+              "question": "Ex. 7 — Associe les phrases à la construction du verbe.",
+              "explanation": "Reconstruire le verbe à l’infinitif permet de voir la préposition : semer quelque chose ; penser à quelqu’un ; apporter quelque chose à quelqu’un.",
+              "pairs": [
+                {
+                  "left": "Elle sème des graines.",
+                  "right": "Semer quelque chose → COD"
+                },
+                {
+                  "left": "Elle pense à son amie.",
+                  "right": "Penser à quelqu’un → COI"
+                },
+                {
+                  "left": "Elle apporte des graines à Paul.",
+                  "right": "Apporter quelque chose à quelqu’un → COD + COI"
+                }
+              ]
+            },
+            {
+              "id": "edl-i14",
+              "type": "nature-mots",
+              "question": "Ex. 7 — Analyse les compléments de « pardonne ».",
+              "explanation": "Pardonner quelque chose à quelqu’un : cette maladresse est COD ; à mon frère est COI. C’est le même verbe avec deux compléments.",
+              "taggedText": "Je pardonne [cette maladresse|COD] [à mon frère|COI].",
+              "options": [
+                "COD",
+                "COI"
+              ]
+            },
+            {
+              "id": "edl-i15",
+              "type": "qcm",
+              "question": "Ex. 7 — Quelle phrase emploie correctement « apprécier » avec un COD ?",
+              "explanation": "On apprécie quelque chose, sans préposition. « ce spectacle » est COD d’apprécie.",
+              "options": [
+                "J’apprécie de ce spectacle.",
+                "J’apprécie à ce spectacle.",
+                "J’apprécie ce spectacle."
+              ],
+              "correctAnswer": "J’apprécie ce spectacle."
+            },
+            {
+              "id": "edl-i16",
+              "type": "qcm",
+              "question": "Ex. 7 — Dans « Léa apporte un cadeau à sa cousine », quels pronoms remplacent les deux compléments ?",
+              "explanation": "le remplace un cadeau (COD) ; lui remplace à sa cousine (COI). L’ordre correct est le lui apporte.",
+              "options": [
+                "Léa lui le apporte.",
+                "Léa le lui apporte.",
+                "Léa la leur apporte.",
+                "Léa lui apporte à elle."
+              ],
+              "correctAnswer": "Léa le lui apporte."
+            },
+            {
+              "id": "edl-i17",
+              "type": "nature-mots",
+              "question": "Ex. 8 — Analyse les pronoms compléments.",
+              "explanation": "Prêter quelque chose à quelqu’un : les remplace les choses prêtées, COD ; leur remplace les personnes destinataires, COI.",
+              "taggedText": "Tu [les|COD] [leur|COI] prêtes pour la soirée.",
+              "options": [
+                "COD",
+                "COI"
+              ]
+            },
+            {
+              "id": "edl-i18",
+              "type": "qcm",
+              "question": "Ex. 8 — Dans « Elle mange du pain », quelle analyse est correcte ?",
+              "explanation": "Elle mange quoi ? du pain. La présence de du n’impose pas un COI : il introduit ici une quantité non comptée et fait partie du groupe COD.",
+              "options": [
+                "du pain est un complément de lieu.",
+                "pain est sujet du verbe mange.",
+                "du pain est COD ; du est un article partitif.",
+                "du pain est COI parce qu’il commence par du."
+              ],
+              "correctAnswer": "du pain est COD ; du est un article partitif."
+            },
+            {
+              "id": "edl-i19",
+              "type": "surlignage",
+              "question": "Ex. 8 — Surligne le COD de « promet », en entier.",
+              "explanation": "Elle promet quoi ? qu’elle reviendra demain. Toute la proposition est COD de promet. lui est COI : elle promet à quelqu’un.",
+              "taggedText": "Elle lui promet [qu’elle reviendra demain]."
+            },
+            {
+              "id": "edl-i20",
+              "type": "qcm",
+              "question": "Ex. 8 — Dans « Il lui parle de son voyage », quelle analyse convient ?",
+              "explanation": "Parler à quelqu’un de quelque chose : lui remplace à quelqu’un ; de son voyage est l’autre COI. Une personne peut être COD ou COI, comme une chose.",
+              "options": [
+                "Il est COI et lui est sujet.",
+                "lui est COD et de son voyage est COI.",
+                "de son voyage est COD car c’est une chose.",
+                "lui et de son voyage sont deux COI de parle."
+              ],
+              "correctAnswer": "lui et de son voyage sont deux COI de parle."
+            },
+            {
+              "id": "edl-i21",
+              "type": "nature-mots",
+              "question": "Ex. 9 — Donne la nature des expressions soulignées.",
+              "taggedText": "Elle vient [souvent|Adverbe] [avec son frère|Groupe nominal prépositionnel] dans la maison [où nous habitons|Proposition subordonnée relative].",
+              "options": [
+                "Adverbe",
+                "Groupe nominal prépositionnel",
+                "Proposition subordonnée relative",
+                "Pronom relatif"
+              ],
+              "explanation": "souvent est un adverbe de fréquence. avec son frère est un groupe nominal introduit par une préposition. où nous habitons est une proposition entière, pas seulement le pronom relatif où."
+            },
+            {
+              "id": "edl-i22",
+              "type": "nature-mots",
+              "question": "Ex. 9 — Le même mot a-t-il toujours la même nature ?",
+              "taggedText": "Les enfants [malades|Adjectif qualificatif] se reposent ; le médecin soigne les [malades|Nom commun].",
+              "options": [
+                "Nom commun",
+                "Adjectif qualificatif",
+                "Adverbe"
+              ],
+              "explanation": "Dans les enfants malades, malades qualifie le nom enfants : adjectif. Dans les malades, il désigne les personnes : nom commun (adjectif substantivé)."
+            },
+            {
+              "id": "edl-i23",
+              "type": "nature-mots",
+              "question": "Ex. 9 — Distingue les trois formes verbales soulignées.",
+              "taggedText": "[Fatiguée|Participe passé employé comme adjectif], Léa [souriait|Verbe conjugué à l’imparfait] en [observant|Participe présent] le jardin.",
+              "options": [
+                "Participe passé employé comme adjectif",
+                "Verbe conjugué à l’imparfait",
+                "Participe présent"
+              ],
+              "explanation": "Fatiguée qualifie Léa. souriait est un verbe conjugué à l’imparfait ; observant seul est un participe présent. C’est l’ensemble en observant qui forme un gérondif."
+            },
+            {
+              "id": "edl-i24",
+              "type": "qcm",
+              "question": "Ex. 9 — Dans « Elle s’occupe de ses fleurs », quelle est la nature de « de ses fleurs » ?",
+              "options": [
+                "Groupe nominal prépositionnel",
+                "COI de s’occupe",
+                "Proposition subordonnée relative",
+                "Adverbe"
+              ],
+              "correctAnswer": "Groupe nominal prépositionnel",
+              "explanation": "de est une préposition, suivie du groupe nominal ses fleurs. COI de s’occupe est la fonction de l’ensemble ; sa nature est groupe nominal prépositionnel."
+            },
+            {
+              "id": "edl-i25",
+              "type": "surlignage",
+              "question": "Ex. 9 — Surligne tous les adverbes.",
+              "taggedText": "[Très] calme, elle écoute [attentivement] les enfants qui parlent [souvent].",
+              "explanation": "Très précise le degré de l’adjectif calme ; attentivement modifie écoute ; souvent indique la fréquence de parlent. calme est un adjectif et qui un pronom relatif."
+            }
+          ]
+        },
+        {
+          "id": "expert",
+          "name": "Expert",
+          "emoji": "🔴",
+          "description": "Analyser des phrases complexes, justifier les accords et distinguer les fonctions en contexte. Identifier la nature des mots et des groupes.",
+          "questions": [
+            {
+              "id": "edl-e01",
+              "type": "etude-texte",
+              "question": "Ex. 4 — Analyse les participes dans ce court passage.",
+              "explanation": "Le nom qualifié et la présence d’un auxiliaire permettent de distinguer les deux emplois.",
+              "passage": "Surprises par le bruit, les voisines avaient refermé les fenêtres ouvertes.",
+              "subQuestions": [
+                {
+                  "question": "Quel mot « Surprises » qualifie-t-il ?",
+                  "options": [
+                    "fenêtres",
+                    "bruit",
+                    "voisines"
+                  ],
+                  "correctAnswer": "voisines",
+                  "explanation": "Surprises qualifie voisines, féminin pluriel."
+                },
+                {
+                  "question": "Quel participe entre dans un temps composé ?",
+                  "options": [
+                    "refermé",
+                    "ouvertes",
+                    "Surprises"
+                  ],
+                  "correctAnswer": "refermé",
+                  "explanation": "avaient refermé est au plus-que-parfait ; Surprises et ouvertes sont employés comme adjectifs."
+                },
+                {
+                  "question": "Quel nom « ouvertes » qualifie-t-il ?",
+                  "options": [
+                    "bruit",
+                    "fenêtres",
+                    "voisines"
+                  ],
+                  "correctAnswer": "fenêtres"
+                }
+              ]
+            },
+            {
+              "id": "edl-e02",
+              "type": "surlignage",
+              "question": "Ex. 4 — Surligne tous les participes passés ; laisse les autres formes verbales.",
+              "explanation": "perdus qualifie promeneurs ; suivi entre dans le plus-que-parfait avaient suivi ; caché qualifie sentier. cherchaient est à l’imparfait.",
+              "taggedText": "Les promeneurs [perdus] avaient [suivi] un sentier [caché] et cherchaient un abri."
+            },
+            {
+              "id": "edl-e03",
+              "type": "nature-mots",
+              "question": "Ex. 4 — Classe chaque groupe souligné selon l’emploi de son participe passé.",
+              "explanation": "arrivés est associé à être au présent pour former le passé composé ; découvert à avoir au présent. ravis est employé comme adjectif et qualifie enfants, repris par ils.",
+              "taggedText": "Les enfants [sont arrivés|Participe passé dans un temps composé] ; [ravis|Participe passé employé comme adjectif], ils [ont découvert|Participe passé dans un temps composé] le jardin.",
+              "options": [
+                "Participe passé employé comme adjectif",
+                "Participe passé dans un temps composé"
+              ]
+            },
+            {
+              "id": "edl-e04",
+              "type": "completion-tableau",
+              "question": "Ex. 4 — Identifie les temps composés : écris leur nom complet.",
+              "explanation": "eûmes est au passé simple → passé antérieur ; aurions est au conditionnel présent → conditionnel passé ; avions est à l’imparfait → plus-que-parfait. Chaque groupe contient un seul verbe conjugué à un temps composé.",
+              "table": {
+                "headers": [
+                  "Forme verbale",
+                  "Temps à écrire"
+                ],
+                "rows": [
+                  [
+                    {
+                      "value": "nous eûmes fini"
+                    },
+                    {
+                      "blank": true,
+                      "correctAnswer": "passé antérieur"
+                    }
+                  ],
+                  [
+                    {
+                      "value": "nous aurions fini"
+                    },
+                    {
+                      "blank": true,
+                      "correctAnswer": "conditionnel passé"
+                    }
+                  ],
+                  [
+                    {
+                      "value": "nous avions fini"
+                    },
+                    {
+                      "blank": true,
+                      "correctAnswer": "plus-que-parfait"
+                    }
+                  ]
+                ]
+              }
+            },
+            {
+              "id": "edl-e05",
+              "type": "etude-texte",
+              "question": "Ex. 5 — Analyse la structure de cette phrase.",
+              "explanation": "Repère les trois formes verbales avant de nommer les liens.",
+              "passage": "Bien que la nuit soit tombée, elle poursuit sa route, car elle connaît le chemin.",
+              "subQuestions": [
+                {
+                  "question": "Quelles sont les trois formes verbales conjuguées ?",
+                  "options": [
+                    "tombée / route / chemin",
+                    "soit / tombée / poursuit / connaît",
+                    "soit tombée / poursuit / connaît"
+                  ],
+                  "correctAnswer": "soit tombée / poursuit / connaît",
+                  "explanation": "soit tombée est une seule forme verbale à un temps composé."
+                },
+                {
+                  "question": "Quelle est la nature de « Bien que » ?",
+                  "options": [
+                    "Conjonction de subordination",
+                    "Pronom relatif",
+                    "Conjonction de coordination"
+                  ],
+                  "correctAnswer": "Conjonction de subordination"
+                },
+                {
+                  "question": "Quelle est la nature de « car » ?",
+                  "options": [
+                    "Conjonction de subordination",
+                    "Préposition",
+                    "Conjonction de coordination"
+                  ],
+                  "correctAnswer": "Conjonction de coordination"
+                }
+              ]
+            },
+            {
+              "id": "edl-e06",
+              "type": "qcm",
+              "question": "Ex. 5 — Quel découpage respecte les subordonnées imbriquées ?",
+              "explanation": "Les verbes sont pense, sais, viendra. que tu sais qu’il viendra est COD de pense ; qu’il viendra est COD de sais. Les deux que sont des conjonctions de subordination.",
+              "options": [
+                "[Je pense [que tu sais [qu’il viendra]]].",
+                "[Je pense] [que tu] [sais] [qu’il viendra].",
+                "[Je pense que] [tu sais qu’il] [viendra]."
+              ],
+              "correctAnswer": "[Je pense [que tu sais [qu’il viendra]]]."
+            },
+            {
+              "id": "edl-e07",
+              "type": "surlignage",
+              "question": "Ex. 5 — Surligne seulement les conjonctions de subordination.",
+              "explanation": "Le premier que introduit le contenu de sais ; parce que introduit la cause. Le que de « le livre que tu lis » reprend livre : c’est un pronom relatif COD de lis.",
+              "taggedText": "Je sais [que] le livre que tu lis te plaît [parce que] tu me le dis."
+            },
+            {
+              "id": "edl-e08",
+              "type": "qcm",
+              "question": "Ex. 5 — Quel découpage convient à « Il ouvre la fenêtre ; il constate que la pluie a cessé » ?",
+              "explanation": "ouvre, constate et a cessé sont les trois verbes conjugués. Le point-virgule juxtapose ; que introduit une subordonnée COD de constate.",
+              "options": [
+                "[Il ouvre la fenêtre] ; [il constate [que la pluie a cessé]].",
+                "[Il ouvre] [la fenêtre] ; [il constate que] [la pluie a cessé].",
+                "[Il ouvre la fenêtre ; il constate que la pluie] [a] [cessé]."
+              ],
+              "correctAnswer": "[Il ouvre la fenêtre] ; [il constate [que la pluie a cessé]]."
+            },
+            {
+              "id": "edl-e09",
+              "type": "conjugaison",
+              "question": "Ex. 6 — Au présent, complète : « Chaque élève, malgré les bruits du couloir, (rester) concentré et (finir) son travail. »",
+              "explanation": "Le sujet des deux verbes est Chaque élève : il reste, il finit. Le groupe les bruits du couloir ne commande aucun des deux accords.",
+              "options": [
+                "Chaque élève…",
+                "…et…"
+              ],
+              "correctAnswer": [
+                "reste",
+                "finit"
+              ]
+            },
+            {
+              "id": "edl-e10",
+              "type": "conjugaison",
+              "question": "Ex. 6 — Au présent, complète : « C’est moi qui (apporter) les livres et c’est toi qui les (ranger). »",
+              "explanation": "qui reprend moi → j’apporte ; puis toi → tu ranges. les est COD de ranges, pas son sujet.",
+              "options": [
+                "moi qui…",
+                "toi qui les…"
+              ],
+              "correctAnswer": [
+                "apporte",
+                "ranges"
+              ]
+            },
+            {
+              "id": "edl-e11",
+              "type": "conjugaison",
+              "question": "Ex. 6 — À l’imparfait, complète : « Les élèves que je (voir) au fond me (sembler) attentifs. »",
+              "explanation": "Sujet de voyais : je. Sujet de semblaient : Les élèves que je voyais au fond → ils. me est complément. Le nom élèves ne commande pas le premier verbe.",
+              "options": [
+                "je…",
+                "Les élèves… me…"
+              ],
+              "correctAnswer": [
+                "voyais",
+                "semblaient"
+              ]
+            },
+            {
+              "id": "edl-e12",
+              "type": "conjugaison",
+              "question": "Ex. 6 — Au présent, complète : « Les histoires dont se (souvenir) ma sœur nous (faire) rire. »",
+              "explanation": "Sujet inversé de se souvient : ma sœur → elle. Sujet de font : Les histoires dont se souvient ma sœur → elles. nous est COD de font dans cette construction.",
+              "options": [
+                "se… ma sœur",
+                "Les histoires… nous…"
+              ],
+              "correctAnswer": [
+                "souvient",
+                "font"
+              ]
+            },
+            {
+              "id": "edl-e13",
+              "type": "association",
+              "question": "Ex. 7 — Associe chaque exemple à la construction exacte du verbe.",
+              "explanation": "Le COD de craindre peut être une proposition. Pour pardonner et apporter, repère ce qui est pardonné ou apporté, puis la personne introduite par à.",
+              "pairs": [
+                {
+                  "left": "Le jardinier sème des carottes.",
+                  "right": "semer quelque chose → COD"
+                },
+                {
+                  "left": "Elle craint que la pluie arrive.",
+                  "right": "craindre quelque chose → COD, ici une proposition"
+                },
+                {
+                  "left": "Il pardonne son retard à Léa.",
+                  "right": "pardonner quelque chose à quelqu’un → COD + COI"
+                },
+                {
+                  "left": "Elle apporte ses notes à sa voisine.",
+                  "right": "apporter quelque chose à quelqu’un → COD + COI"
+                }
+              ]
+            },
+            {
+              "id": "edl-e14",
+              "type": "nature-mots",
+              "question": "Ex. 7 — Dans cette phrase, analyse uniquement les compléments de « apporte ».",
+              "explanation": "Apporter quelque chose à quelqu’un : les reprend les objets apportés, COD ; lui reprend leur destinataire, COI. La position devant le verbe ne transforme pas leur fonction.",
+              "taggedText": "Elle [les|COD] [lui|COI] apporte avant de repartir.",
+              "options": [
+                "COD",
+                "COI"
+              ]
+            },
+            {
+              "id": "edl-e15",
+              "type": "qcm",
+              "question": "Ex. 7 — Quelle justification est correcte dans « Je lui pardonne cette erreur » ?",
+              "explanation": "Je pardonne quoi ? cette erreur. À qui ? à la personne représentée par lui. Reconstitue pardonner quelque chose à quelqu’un.",
+              "options": [
+                "cette erreur est COI parce qu’on pardonne à quelqu’un.",
+                "lui est COD parce qu’aucune préposition n’est écrite.",
+                "cette erreur est COD et lui est COI de pardonne.",
+                "Je et lui sont les deux sujets de pardonne."
+              ],
+              "correctAnswer": "cette erreur est COD et lui est COI de pardonne."
+            },
+            {
+              "id": "edl-e16",
+              "type": "ordre",
+              "question": "Ex. 7 — Remets dans l’ordre la méthode pour écrire une phrase avec COD et COI.",
+              "explanation": "Pars de la construction du verbe ; repère ensuite chaque complément complet, puis vérifie sa fonction dans la phrase.",
+              "options": [
+                "Vérifier : COD sans préposition, COI dans la construction avec préposition.",
+                "Écrire une phrase complète avec ces deux compléments.",
+                "Choisir la construction : apporter quelque chose à quelqu’un.",
+                "Repérer ce qui est apporté et à qui."
+              ],
+              "correctAnswer": [
+                "Choisir la construction : apporter quelque chose à quelqu’un.",
+                "Écrire une phrase complète avec ces deux compléments.",
+                "Repérer ce qui est apporté et à qui.",
+                "Vérifier : COD sans préposition, COI dans la construction avec préposition."
+              ]
+            },
+            {
+              "id": "edl-e17",
+              "type": "nature-mots",
+              "question": "Ex. 8 — Analyse les compléments d’objet soulignés, sans confondre fonction et nature.",
+              "explanation": "lui est un pronom personnel COI d’explique (à qui ?). que ses amies arriveront demain est une proposition subordonnée COD d’explique (quoi ?).",
+              "taggedText": "Je [lui|COI] explique [que ses amies arriveront demain|COD].",
+              "options": [
+                "COD",
+                "COI"
+              ]
+            },
+            {
+              "id": "edl-e18",
+              "type": "surlignage",
+              "question": "Ex. 8 — Surligne tous les COD des verbes conjugués de la phrase.",
+              "explanation": "que reprend le garçon : je rencontre ce garçon → COD de rencontre. me = à moi → COI de raconte. son voyage est COD de raconte.",
+              "taggedText": "Le garçon [que] je rencontre me raconte [son voyage]."
+            },
+            {
+              "id": "edl-e19",
+              "type": "qcm",
+              "question": "Ex. 8 — Dans « Elle pense à son examen et range ses livres sur le bureau », quels sont les compléments d’objet ?",
+              "explanation": "Penser à quelque chose : COI. Ranger quelque chose : COD. sur le bureau indique un lieu ; ce groupe n’est pas un complément d’objet.",
+              "options": [
+                "son examen : COD de pense ; ses livres : COI de range.",
+                "à son examen et sur le bureau : deux COI.",
+                "ses livres et sur le bureau : deux COD de range.",
+                "à son examen : COI de pense ; ses livres : COD de range."
+              ],
+              "correctAnswer": "à son examen : COI de pense ; ses livres : COD de range."
+            },
+            {
+              "id": "edl-e20",
+              "type": "etude-texte",
+              "question": "Ex. 8 — Analyse les fonctions dans ce court passage.",
+              "explanation": "Il faut distinguer les compléments de chaque verbe, même quand une subordonnée entière est COD.",
+              "passage": "Les lettres que tu lui as envoyées lui rappellent que tu reviendras.",
+              "subQuestions": [
+                {
+                  "question": "Quelle est la fonction du premier « lui » ?",
+                  "options": [
+                    "Sujet de rappellent",
+                    "COD de as envoyées",
+                    "COI de as envoyées"
+                  ],
+                  "correctAnswer": "COI de as envoyées",
+                  "explanation": "Tu as envoyé les lettres à quelqu’un : lui représente ce destinataire."
+                },
+                {
+                  "question": "Quelle est la fonction de « que » dans « que tu lui as envoyées » ?",
+                  "options": [
+                    "Conjonction sans fonction dans la subordonnée",
+                    "Sujet de rappellent",
+                    "Pronom relatif COD de as envoyées"
+                  ],
+                  "correctAnswer": "Pronom relatif COD de as envoyées",
+                  "explanation": "que reprend lettres : tu lui as envoyé les lettres."
+                },
+                {
+                  "question": "Quel est le COD de « rappellent » ?",
+                  "options": [
+                    "Les lettres",
+                    "Le second lui",
+                    "que tu reviendras"
+                  ],
+                  "correctAnswer": "que tu reviendras",
+                  "explanation": "Les lettres rappellent quoi ? que tu reviendras. Le second lui est COI de rappellent ; Les lettres que tu lui as envoyées est sujet."
+                }
+              ]
+            },
+            {
+              "id": "edl-e21",
+              "type": "etude-texte",
+              "question": "Ex. 9 — Analyse la nature des expressions en contexte.",
+              "passage": "Les blessés attendaient dans une salle où le médecin les examinait, espérant une guérison très rapide.",
+              "subQuestions": [
+                {
+                  "question": "Quelle est la nature de blessés ?",
+                  "options": [
+                    "Nom commun",
+                    "Adjectif qualificatif",
+                    "Participe présent"
+                  ],
+                  "correctAnswer": "Nom commun",
+                  "explanation": "Le mot désigne des personnes et constitue le noyau du groupe les blessés."
+                },
+                {
+                  "question": "Quelle est la nature de où le médecin les examinait ?",
+                  "options": [
+                    "Groupe nominal prépositionnel",
+                    "Proposition subordonnée relative",
+                    "Pronom relatif"
+                  ],
+                  "correctAnswer": "Proposition subordonnée relative",
+                  "explanation": "La question porte sur tout le groupe, qui contient le verbe examinait. où seul est un pronom relatif."
+                },
+                {
+                  "question": "Quelle est la nature de espérant ?",
+                  "options": [
+                    "Adverbe",
+                    "Gérondif",
+                    "Verbe au participe présent"
+                  ],
+                  "correctAnswer": "Verbe au participe présent",
+                  "explanation": "Il n’y a pas en : espérant est un participe présent, pas un gérondif."
+                }
+              ],
+              "explanation": "Observe l’emploi du mot et les limites exactes de l’expression demandée. Ne donne pas la nature d’un seul mot pour toute une proposition."
+            },
+            {
+              "id": "edl-e22",
+              "type": "nature-mots",
+              "question": "Ex. 9 — Distingue la nature du mot introducteur et celle de la proposition entière.",
+              "taggedText": "Le village [où|Pronom relatif] nous vivons est proche de la forêt [où nous marchons|Proposition subordonnée relative].",
+              "options": [
+                "Pronom relatif",
+                "Proposition subordonnée relative",
+                "Adverbe",
+                "Groupe nominal prépositionnel"
+              ],
+              "explanation": "où seul est un pronom relatif qui reprend village. où nous marchons est une proposition subordonnée relative qui précise forêt : il faut analyser l’expression entière."
+            },
+            {
+              "id": "edl-e23",
+              "type": "qcm",
+              "question": "Ex. 9 — Quelle analyse de « d’une histoire ancienne » est complète dans « Il se souvient d’une histoire ancienne » ?",
+              "options": [
+                "Nature : COI ; fonction : groupe nominal prépositionnel.",
+                "Nature : proposition relative ; fonction : sujet.",
+                "Nature : groupe nominal prépositionnel ; fonction : COI de se souvient.",
+                "Nature : groupe nominal prépositionnel ; fonction : COD de se souvient."
+              ],
+              "correctAnswer": "Nature : groupe nominal prépositionnel ; fonction : COI de se souvient.",
+              "explanation": "La nature décrit la structure de + groupe nominal une histoire ancienne. La fonction vient de la construction se souvenir de quelque chose : COI."
+            },
+            {
+              "id": "edl-e24",
+              "type": "nature-mots",
+              "question": "Ex. 9 — Distingue les formes soulignées, en respectant les limites des groupes.",
+              "taggedText": "[S’occupant|Participe présent] du jardin, elle chantait. Elle se détendait [en s’occupant|Gérondif] des fleurs.",
+              "options": [
+                "Participe présent",
+                "Gérondif",
+                "Participe passé",
+                "Verbe conjugué"
+              ],
+              "explanation": "S’occupant seul est un participe présent du verbe pronominal s’occuper. en s’occupant est un gérondif : en + participe présent. Les deux formes sont invariables."
+            },
+            {
+              "id": "edl-e25",
+              "type": "qcm",
+              "question": "Ex. 9 — On demande la nature de « lui » dans « Le médecin lui répond souvent ». Quelle réponse convient ?",
+              "options": [
+                "Pronom personnel ; sa fonction est COI de répond.",
+                "COI ; c’est sa nature.",
+                "Déterminant possessif, car il précède le verbe.",
+                "Adverbe, car il modifie répond."
+              ],
+              "correctAnswer": "Pronom personnel ; sa fonction est COI de répond.",
+              "explanation": "Pronom personnel est la nature de lui. COI est sa fonction : répondre à quelqu’un. souvent, et non lui, est un adverbe de fréquence."
+            }
+          ]
+        }
+      ]
+    }
+  },
 ];

@@ -46,7 +46,7 @@ export function ConjugaisonQuestion({ question, onAnswer, showFeedback }: Questi
   return (
     <div className="space-y-3">
       <p className="text-xs text-warm-500">
-        Tape la/les forme(s) au subjonctif. Accents acceptés selon l&apos;orthographe attendue.
+        Écris les formes verbales demandées. Respecte les accents de la conjugaison.
       </p>
       <div className="space-y-2">
         {fieldLabels.map((label, index) => {
