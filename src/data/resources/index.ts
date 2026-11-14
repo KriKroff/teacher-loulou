@@ -11,6 +11,7 @@ import { resources as anglais4e } from "./4e/anglais";
 import { resources as francais3e } from "./3e/francais";
 import { resources as physiqueChimie3e } from "./3e/physique-chimie";
 import { resources as svt3e } from "./3e/svt";
+import { resources as anglais3e } from "./3e/anglais";
 
 // Master resource list
 const allResources: Resource[] = [
@@ -24,6 +25,7 @@ const allResources: Resource[] = [
   ...francais3e,
   ...physiqueChimie3e,
   ...svt3e,
+  ...anglais3e,
 ];
 
 export function getAllResources(): Resource[] {
