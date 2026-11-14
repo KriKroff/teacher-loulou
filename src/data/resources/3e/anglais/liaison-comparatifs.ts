@@ -13,7 +13,7 @@ export const resources: Resource[] = [
     subject: "anglais",
     chapter: CHAPTER,
     createdAt: "2026-11-14T12:00:00Z",
-    updatedAt: "2026-11-14T12:00:00Z",
+    updatedAt: "2026-11-14T17:00:00Z",
     tags: ["anglais", "although", "whereas", "adverbes", "comparatifs", "fiche"],
     relatedResourceSlug: "anglais-liaison-comparatifs-quiz",
     mdxPath: "3e/anglais/fiches/anglais-liaison-comparatifs-fiche.mdx",
@@ -28,7 +28,7 @@ export const resources: Resource[] = [
     subject: "anglais",
     chapter: CHAPTER,
     createdAt: "2026-11-14T12:00:00Z",
-    updatedAt: "2026-11-14T12:00:00Z",
+    updatedAt: "2026-11-14T17:00:00Z",
     tags: ["anglais", "although", "whereas", "adverbes", "comparatifs", "quiz"],
     relatedResourceSlug: "anglais-liaison-comparatifs-fiche",
     quizData: {
@@ -87,7 +87,7 @@ export const resources: Resource[] = [
               question: "Vrai ou faux : « although » veut dire « alors que » (contraste entre deux personnes).",
               correctAnswer: "Faux",
               explanation:
-                "Although = bien que / même si. C'est whereas qui veut dire alors que / tandis que. Attention, c'était inversé dans ton cahier !",
+                "Although = bien que / même si. C'est whereas qui veut dire alors que / tandis que. Ne les inverse pas !",
             },
             {
               id: "lc-f6",
@@ -306,7 +306,7 @@ export const resources: Resource[] = [
             {
               id: "lc-i5",
               type: "correction-erreur",
-              question: "Trouve l'erreur de copie (1 erreur) et corrige-la.",
+              question: "Trouve l'erreur (1 erreur) et corrige-la.",
               taggedText: "Ferris lies [in other to|in order to] skip class.",
               explanation: "On écrit in order to (order = ordre), pas « in other to ».",
             },
@@ -511,7 +511,7 @@ export const resources: Resource[] = [
           id: "expert",
           name: "Expert",
           emoji: "🔴",
-          description: "Produire tes propres phrases, sans aide, comme au contrôle.",
+          description: "Produire tes propres phrases, sans aide.",
           questions: [
             {
               id: "lc-e1",
@@ -574,7 +574,7 @@ export const resources: Resource[] = [
               ],
               keyChunks: ["cannot|can't", "put up with", "behaviour", "anymore|any more|any longer"],
               explanation:
-                "put up with = supporter (verbe à particule, un bloc). Ne … plus = not … anymore. Behaviour est indénombrable : pas de a.",
+                "put up with = supporter (verbe à particule, un bloc). Ne … plus = not … anymore. Behaviour : pas de a.",
             },
             {
               id: "lc-e5",
