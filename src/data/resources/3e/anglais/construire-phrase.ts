@@ -1,7 +1,8 @@
 import type { Resource } from "@/types";
 
 const CHAPTER = "Grammaire — Construire sa phrase : to, -ing, want sb to, génitif";
-const DATE = "2026-11-14T15:00:00Z";
+const CREATED = "2026-11-14T15:00:00Z";
+const UPDATED = "2026-11-14T17:00:00Z";
 
 /**
  * Expands "{a|b}" alternatives into every combination.
@@ -21,13 +22,13 @@ export const resources: Resource[] = [
     slug: "anglais-construire-phrase-fiche",
     title: "Construire sa phrase en anglais",
     description:
-      "TO + verbe ou préposition + -ING, « vouloir que » (want someone to), his / her, le génitif 's, le but, les indénombrables et les phrasal verbs.",
+      "TO + verbe ou préposition + -ING, « vouloir que » (want someone to), his / her et le génitif 's. En bref : le but et les phrasal verbs.",
     type: "fiche",
     level: "3e",
     subject: "anglais",
     chapter: CHAPTER,
-    createdAt: DATE,
-    updatedAt: DATE,
+    createdAt: CREATED,
+    updatedAt: UPDATED,
     tags: ["grammaire", "manage to", "succeed in", "-ing", "want someone to", "génitif", "possessifs", "fiche"],
     relatedResourceSlug: "anglais-construire-phrase-quiz",
     mdxPath: "3e/anglais/fiches/anglais-construire-phrase-fiche.mdx",
@@ -43,13 +44,13 @@ export const resources: Resource[] = [
     level: "3e",
     subject: "anglais",
     chapter: CHAPTER,
-    createdAt: DATE,
-    updatedAt: DATE,
+    createdAt: CREATED,
+    updatedAt: UPDATED,
     tags: ["grammaire", "manage to", "succeed in", "-ing", "want someone to", "génitif", "possessifs", "quiz"],
     relatedResourceSlug: "anglais-construire-phrase-fiche",
     quizData: {
       title: "Construire sa phrase en anglais",
-      description: "Choisis ton niveau. En Expert, tu écris toi-même les phrases, comme au contrôle !",
+      description: "Choisis ton niveau. En Expert, tu écris toi-même les phrases !",
       passingScore: 60,
       sessionSize: 10,
       levels: [
@@ -94,24 +95,23 @@ export const resources: Resource[] = [
                 { id: "cp-f3-3", label: "decide" },
                 { id: "cp-f3-8", label: "care" },
                 { id: "cp-f3-4", label: "hope" },
-                { id: "cp-f3-9", label: "be good" },
                 { id: "cp-f3-5", label: "need" },
-                { id: "cp-f3-10", label: "be interested" },
+                { id: "cp-f3-10", label: "try" },
               ],
               categories: [
                 {
                   id: "to",
                   label: "… TO + base verbale",
-                  correctItemIds: ["cp-f3-1", "cp-f3-2", "cp-f3-3", "cp-f3-4", "cp-f3-5"],
+                  correctItemIds: ["cp-f3-1", "cp-f3-2", "cp-f3-3", "cp-f3-4", "cp-f3-5", "cp-f3-10"],
                 },
                 {
                   id: "ing",
                   label: "… préposition + V-ING",
-                  correctItemIds: ["cp-f3-6", "cp-f3-7", "cp-f3-8", "cp-f3-9", "cp-f3-10"],
+                  correctItemIds: ["cp-f3-6", "cp-f3-7", "cp-f3-8"],
                 },
               ],
               explanation:
-                "manage to, want to, decide to, hope to, need to + base verbale. Mais succeed IN, dream ABOUT, care ABOUT, be good AT, be interested IN + verbe en -ING (après une préposition, -ING est la seule solution).",
+                "manage to, want to, decide to, hope to, need to, try to + base verbale. Mais succeed IN, dream ABOUT, care ABOUT + verbe en -ING (après une préposition, -ING est la seule solution).",
             },
             {
               id: "cp-f4",
@@ -143,12 +143,12 @@ export const resources: Resource[] = [
                 { left: "réussir à", right: "manage to" },
                 { left: "rêver de", right: "dream about" },
                 { left: "se soucier de", right: "care about" },
-                { left: "être doué pour", right: "be good at" },
-                { left: "s'intéresser à", right: "be interested in" },
-                { left: "au lieu de", right: "instead of" },
+                { left: "échouer à", right: "fail at" },
+                { left: "essayer de", right: "try to" },
+                { left: "sans", right: "without" },
               ],
               explanation:
-                "Apprends le verbe AVEC son petit mot. Après to : base verbale (manage to hack). Après about, at, in, of : -ING (dream about having, be good at pretending, instead of going).",
+                "Apprends le verbe AVEC son petit mot. Après to : base verbale (manage to hack, try to hack). Après une préposition (about, at, without…) : -ING (dream about having, fail at convincing, without saying).",
             },
             {
               id: "cp-f7",
@@ -166,7 +166,7 @@ export const resources: Resource[] = [
               options: ["him", "he", "his", "her"],
               correctAnswer: "him",
               explanation:
-                "Après want, on met le pronom COMPLÉMENT : him (pas he, qui est sujet). Cameron est un garçon → him.",
+                "Après want : him / her / them, jamais he / she / they. Cameron est un garçon → wants him to come over (veut qu'il vienne).",
             },
             {
               id: "cp-f9",
@@ -189,7 +189,7 @@ export const resources: Resource[] = [
               options: ["the Dean's computer", "the computer of the Dean", "the Dean computer", "the computer's Dean"],
               correctAnswer: "the Dean's computer",
               explanation:
-                "Génitif : POSSESSEUR + 's + CHOSE → the Dean's computer. Pour une personne, on n'utilise pas « of ».",
+                "Génitif : un possesseur → POSSESSEUR + 's + CHOSE → the Dean's computer. Jamais « the computer of the Dean » pour une personne.",
             },
             {
               id: "cp-f11",
@@ -198,7 +198,7 @@ export const resources: Resource[] = [
                 "Vrai ou faux ? Dans « her parents' behaviour », on met seulement une apostrophe après le s parce que parents est un pluriel en -s.",
               correctAnswer: "Vrai",
               explanation:
-                "Pluriel en -s → on ajoute seulement ' : her parents' behaviour (le comportement de ses parents). « parents's » est une faute.",
+                "Plusieurs possesseurs (pluriel en -s) → ' seul : her parents' behaviour (le comportement de ses parents). Un seul possesseur → 's, même si le mot finit par s (Ferris's school).",
             },
             {
               id: "cp-f12",
@@ -212,11 +212,11 @@ export const resources: Resource[] = [
             {
               id: "cp-f13",
               type: "intrus",
-              question: "Trouve l'intrus : le seul nom DÉNOMBRABLE (qui peut prendre a et -s).",
-              options: ["behaviour", "advice", "homework", "information", "liar"],
-              correctAnswer: "liar",
+              question: "Trouve l'intrus : quel verbe se construit avec TO + base verbale (et pas avec une préposition + -ING) ?",
+              options: ["succeed in", "dream about", "care about", "manage"],
+              correctAnswer: "manage",
               explanation:
-                "behaviour, advice, homework et information sont indénombrables : jamais de a, jamais de -s. Mais on peut dire a liar, two liars (un menteur, deux menteurs).",
+                "manage TO + base verbale (managed to hack). Les autres sont suivis d'une préposition, donc -ING : succeed in hacking, dream about having, care about being.",
             },
             {
               id: "cp-f14",
@@ -263,11 +263,11 @@ export const resources: Resource[] = [
             {
               id: "cp-f18",
               type: "qcm",
-              question: "Comment dit-on « Ferris est un menteur » ?",
-              options: ["Ferris is a liar.", "Ferris is lying.", "Ferris is a lie.", "Ferris is a lying."],
-              correctAnswer: "Ferris is a liar.",
+              question: "Comment dit-on « l'école de Ferris » ?",
+              options: ["Ferris's school", "the school of Ferris", "Ferris school", "Ferris' s school"],
+              correctAnswer: "Ferris's school",
               explanation:
-                "un menteur = a liar (nom de personne). Ferris is lying = il est en train de mentir (verbe). A lie = un mensonge.",
+                "Un seul possesseur → 's, même si le mot finit déjà par s : Ferris's school. Jamais « the school of Ferris » pour une personne.",
             },
             {
               id: "cp-f19",
@@ -339,33 +339,31 @@ export const resources: Resource[] = [
             {
               id: "cp-i2",
               type: "tri-categories",
-              question: "Range ces noms : dénombrable (a / -s possible) ou indénombrable (jamais de a, jamais de -s) ?",
+              question: "Range chaque groupe : un seul possesseur ('s) ou plusieurs possesseurs (pluriel en -s → ' seul) ?",
               items: [
-                { id: "cp-i2-1", label: "behaviour" },
-                { id: "cp-i2-6", label: "liar" },
-                { id: "cp-i2-2", label: "advice" },
-                { id: "cp-i2-7", label: "trick" },
-                { id: "cp-i2-3", label: "homework" },
-                { id: "cp-i2-8", label: "computer" },
-                { id: "cp-i2-4", label: "information" },
-                { id: "cp-i2-9", label: "sister" },
-                { id: "cp-i2-5", label: "news" },
-                { id: "cp-i2-10", label: "lie" },
+                { id: "cp-i2-1", label: "the Dean ___ computer" },
+                { id: "cp-i2-2", label: "Ferris ___ school" },
+                { id: "cp-i2-3", label: "Mr Rooney ___ office" },
+                { id: "cp-i2-4", label: "Jeanie ___ brother" },
+                { id: "cp-i2-5", label: "her parents ___ behaviour" },
+                { id: "cp-i2-6", label: "the students ___ teacher" },
+                { id: "cp-i2-7", label: "my friends ___ house" },
+                { id: "cp-i2-8", label: "the boys ___ room" },
               ],
               categories: [
                 {
-                  id: "count",
-                  label: "Dénombrable (a liar, two liars)",
-                  correctItemIds: ["cp-i2-6", "cp-i2-7", "cp-i2-8", "cp-i2-9", "cp-i2-10"],
+                  id: "one",
+                  label: "Un seul possesseur → 's",
+                  correctItemIds: ["cp-i2-1", "cp-i2-2", "cp-i2-3", "cp-i2-4"],
                 },
                 {
-                  id: "uncount",
-                  label: "Indénombrable (bad behaviour)",
-                  correctItemIds: ["cp-i2-1", "cp-i2-2", "cp-i2-3", "cp-i2-4", "cp-i2-5"],
+                  id: "many",
+                  label: "Pluriel en -s → '",
+                  correctItemIds: ["cp-i2-5", "cp-i2-6", "cp-i2-7", "cp-i2-8"],
                 },
               ],
               explanation:
-                "behaviour (comportement), advice (conseils), homework (devoirs), information, news (nouvelles) sont indénombrables : « a bad behaviour » est faux, on dit « bad behaviour ». Liar, trick, computer, sister, lie se comptent.",
+                "Un seul possesseur → 's, toujours : the Dean's, Ferris's, Mr Rooney's, Jeanie's. Plusieurs possesseurs (pluriel en -s) → ' seul : her parents', the students', my friends', the boys'.",
             },
             {
               id: "cp-i3",
@@ -409,7 +407,7 @@ export const resources: Resource[] = [
               keyChunks: ["wants her parents", "to believe her"],
               hint: "Pas de that ! Jeanie est une fille : « ses » → ? et « la » → ?",
               explanation:
-                "WANT + quelqu'un + TO + base verbale : wants her parents to believe. Les parents de Jeanie → her parents. « la » (Jeanie) = pronom complément → her.",
+                "WANT + quelqu'un + TO + base verbale : wants her parents to believe. Les parents de Jeanie → her parents. « la » (Jeanie) → her (pas she).",
             },
             {
               id: "cp-i7",
@@ -433,7 +431,7 @@ export const resources: Resource[] = [
               question: "Trouve les 2 erreurs et corrige-les.",
               taggedText: "Rooney can't put [up|up with] Ferris's [behaviours|behaviour] anymore.",
               explanation:
-                "put up with = supporter : le phrasal verb s'écrit en entier. Behaviour est indénombrable : jamais de -s.",
+                "put up with = supporter : le phrasal verb s'écrit en entier. Behaviour ne prend jamais de -s.",
             },
             {
               id: "cp-i10",
@@ -471,7 +469,7 @@ export const resources: Resource[] = [
               tiles: ["Jeanie", "can't", "put", "up", "with", "her", "brother's", "behaviour", "his", "a", "of", "the"],
               correctAnswer: ["Jeanie", "can't", "put", "up", "with", "her", "brother's", "behaviour"],
               explanation:
-                "supporter = put up with (en bloc). Le frère de Jeanie → her brother. Génitif : her brother's behaviour. Behaviour est indénombrable : pas de a.",
+                "supporter = put up with (en bloc). Le frère de Jeanie → her brother. Génitif : her brother's behaviour. Behaviour : jamais de a.",
             },
             {
               id: "cp-i14",
@@ -512,13 +510,13 @@ export const resources: Resource[] = [
               question: "Pourquoi écrit-on « her parents' behaviour » avec l'apostrophe APRÈS le s ?",
               options: [
                 "Parce que parents est un pluriel en -s : on ajoute seulement '.",
-                "Parce que behaviour est indénombrable.",
+                "Parce que behaviour est au singulier.",
                 "Parce que c'est la contraction de « is ».",
                 "Parce que Jeanie est une fille.",
               ],
               correctAnswer: "Parce que parents est un pluriel en -s : on ajoute seulement '.",
               explanation:
-                "Génitif : un possesseur → 's (the Dean's, Ferris's). Pluriel en -s → ' seulement (her parents'). Pluriel irrégulier → 's (the children's).",
+                "Génitif : un possesseur → 's, même si le mot finit par s (the Dean's, Ferris's). Plusieurs possesseurs (pluriel en -s) → ' seul (her parents').",
             },
             {
               id: "cp-i18",
@@ -542,20 +540,20 @@ export const resources: Resource[] = [
               type: "qcm-multiple",
               question: "Coche les 3 phrases correctes.",
               options: [
-                "There is no light in Cameron's room.",
-                "There is not light in Cameron's room.",
-                "I have a lot of homework.",
-                "I have a lot of homeworks.",
+                "Ferris managed to skip class.",
+                "Ferris managed to skipping class.",
+                "Jeanie wants her parents to see the truth.",
+                "Jeanie wants that her parents see the truth.",
                 "Jeanie is the only one who sees clearly.",
                 "Jeanie is the only one which see clearly.",
               ],
               correctAnswer: [
-                "There is no light in Cameron's room.",
-                "I have a lot of homework.",
+                "Ferris managed to skip class.",
+                "Jeanie wants her parents to see the truth.",
                 "Jeanie is the only one who sees clearly.",
               ],
               explanation:
-                "« pas de + nom » = no + nom. Homework est indénombrable : pas de -s. Pour une personne : the only one WHO, et le verbe s'accorde (sees).",
+                "manage TO + base verbale (jamais to + -ing). « vouloir que » = want + quelqu'un + TO, jamais want that. Pour une personne : the only one WHO, et le verbe s'accorde (sees).",
             },
             {
               id: "cp-i20",
@@ -576,13 +574,13 @@ export const resources: Resource[] = [
         },
 
         // ════════════════════════════════════════════════════════════════════
-        // 🔴 EXPERT — produire sans indice, comme au contrôle
+        // 🔴 EXPERT — produire sans indice
         // ════════════════════════════════════════════════════════════════════
         {
           id: "expert",
           name: "Expert",
           emoji: "🔴",
-          description: "J'écris moi-même les phrases, sans indice : traductions du contrôle, corrections, expression libre.",
+          description: "J'écris moi-même les phrases, sans indice : traductions, corrections, expression libre.",
           questions: [
             {
               id: "cp-e1",
@@ -638,7 +636,7 @@ export const resources: Resource[] = [
               acceptedAnswers: expand("Jeanie is frustrated {at|by|with} her parents' behaviour."),
               keyChunks: ["her parents' behaviour"],
               explanation:
-                "Les parents de Jeanie → her parents. Génitif avec un pluriel en -s : apostrophe seule → her parents' behaviour. Behaviour est indénombrable : pas de a, pas de -s.",
+                "Les parents de Jeanie → her parents. Plusieurs possesseurs (pluriel en -s) → ' seul : her parents' behaviour.",
             },
             {
               id: "cp-e6",
@@ -815,7 +813,7 @@ export const resources: Resource[] = [
                   question: "Quel nom du texte est INDÉNOMBRABLE (jamais de a, jamais de -s) ?",
                   options: ["behaviour", "parents", "sister", "bed"],
                   correctAnswer: "behaviour",
-                  explanation: "behaviour est indénombrable : on ne dit jamais « a behaviour ».",
+                  explanation: "On ne dit jamais « a behaviour » : behaviour ne prend pas de a.",
                 },
               ],
               explanation:
@@ -825,7 +823,7 @@ export const resources: Resource[] = [
               id: "cp-e17",
               type: "qcm",
               question:
-                "Question du contrôle : « Quelle différence entre manage et succeed ? Expliquez la règle. » Choisis la réponse complète.",
+                "« Quelle différence entre manage et succeed ? Expliquez la règle. » Choisis la réponse complète.",
               options: [
                 "MANAGE est suivi de TO + base verbale (managed to hack) ; SUCCEED est suivi de la préposition IN, et le verbe qui suit prend -ING (succeeded in hacking).",
                 "Avec succeed, on met le verbe au participe passé en -ing.",
