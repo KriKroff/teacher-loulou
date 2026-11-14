@@ -676,7 +676,7 @@ export const resources: Resource[] = [
     updatedAt: "2026-11-14T14:00:00Z",
     tags: ["vocabulaire", "ferris bueller", "faux amis", "weather", "fiche"],
     relatedResourceSlug: "anglais-vocabulaire-ferris-quiz",
-    mdxPath: "3e/anglais/fiches/anglais-vocabulaire-ferris-fiche.mdx",
+    mdxPath: "3e/anglais/fiches/anglais-vocabulaire-fiche.mdx",
   },
   {
     slug: "anglais-vocabulaire-ferris-quiz",

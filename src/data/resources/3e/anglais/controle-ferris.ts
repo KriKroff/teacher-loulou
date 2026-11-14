@@ -1,15 +1,15 @@
 import type { Resource } from "@/types";
 
-const CHAPTER = "Objectif contrôle — Ferris Bueller (test n°2)";
+const CHAPTER = "Objectif contrôle n°2 — Ferris Bueller";
 const DATE = "2026-11-14T16:00:00Z";
 
 export const resources: Resource[] = [
   // ── Fiche ──────────────────────────────────────────────────────────────────
   {
     slug: "anglais-controle-ferris-fiche",
-    title: "Objectif contrôle : Ferris Bueller",
+    title: "Objectif contrôle n°2 : Ferris Bueller",
     description:
-      "La fiche à relire avant lundi : mon contrôle n°1 corrigé, les règles qui rapportent des points, le vocabulaire et les 2 derniers cours.",
+      "La fiche à relire avant lundi : les 4 règles qui rapportent des points, les cours du 4 et du 13 novembre, le vocabulaire indispensable et la checklist.",
     type: "fiche",
     level: "3e",
     subject: "anglais",
@@ -48,7 +48,7 @@ export const resources: Resource[] = [
           id: "facile",
           name: "Facile",
           emoji: "🟢",
-          description: "Je revois les erreurs du contrôle n°1 et je reconnais les bonnes formes.",
+          description: "Je reconnais les bonnes formes : vocabulaire, to / -ing, his / her, although / whereas.",
           questions: [
             {
               id: "cf-f1",
@@ -72,7 +72,7 @@ export const resources: Resource[] = [
                 { left: "behaviour", right: "le comportement" },
               ],
               explanation:
-                "Ce sont des mots du contrôle n°1 et du cahier. *Behaviour* est indénombrable : jamais de *a* devant.",
+                "Des mots clés de la séquence. Attention : on dit *bad behaviour*, sans *a*.",
             },
             {
               id: "cf-f3",
@@ -96,7 +96,7 @@ export const resources: Resource[] = [
               options: ["with", "to", "at", "of"],
               correctAnswer: "with",
               explanation:
-                "Le phrasal verb est un bloc : **put up with** = supporter, tolérer. Au contrôle n°1, le *with* manquait.",
+                "Le phrasal verb est un bloc : **put up with** = supporter, tolérer. Sans *with*, il ne veut plus rien dire.",
             },
             {
               id: "cf-f5",
@@ -166,7 +166,7 @@ export const resources: Resource[] = [
               options: ["bad behaviour", "a bad behaviour", "bad behaviours", "a bad behave"],
               correctAnswer: "bad behaviour",
               explanation:
-                "*behaviour* est **indénombrable** : pas de *a*, pas de *-s*. Pareil pour *advice*, *information*, *homework*, *news*.",
+                "*behaviour* ne prend **jamais de *a*** ni de *-s* : *bad behaviour*.",
             },
             {
               id: "cf-f12",
@@ -183,7 +183,7 @@ export const resources: Resource[] = [
               question: "« although » veut dire « alors que ».",
               correctAnswer: "Faux",
               explanation:
-                "Faux (c'était inversé dans le cahier) : **although = bien que, même si** ; **whereas = alors que, tandis que**.",
+                "Faux : **although = bien que, même si** ; **whereas = alors que, tandis que**.",
             },
             {
               id: "cf-f14",
@@ -231,7 +231,7 @@ export const resources: Resource[] = [
               id: "cf-f18",
               type: "correction-erreur",
               question:
-                "Au contrôle n°1, j'ai traduit « Jeanie veut que ses parents réalisent que Ferris est un menteur » comme ça. Trouve les 3 erreurs et corrige-les.",
+                "« Jeanie veut que ses parents réalisent que Ferris est un menteur. » Trouve les 3 erreurs et corrige-les.",
               taggedText: "Jeanie wants [his|her] parents [realise|to realise] that Ferris is [lying|a liar].",
               explanation:
                 "✅ *Jeanie wants her parents to realise that Ferris is a liar.* Jeanie = une fille → **her** ; vouloir que → want + qqn + **TO** + BV ; un menteur = **a liar** (nom).",
@@ -539,11 +539,11 @@ export const resources: Resource[] = [
             {
               id: "cf-i20",
               type: "intrus",
-              question: "Trouve l'intrus : quel nom est dénombrable (on peut dire « a … ») ?",
-              options: ["behaviour", "advice", "homework", "computer"],
-              correctAnswer: "computer",
+              question: "Trouve l'intrus : quel mot ne veut PAS dire « se détendre / se calmer » ?",
+              options: ["relax", "calm down", "take it easy", "uptight"],
+              correctAnswer: "uptight",
               explanation:
-                "*a computer* ✅. Mais *behaviour*, *advice*, *homework* sont **indénombrables** : jamais de *a*, jamais de *-s*.",
+                "*uptight* = tendu, coincé : c'est le contraire ! *relax*, *calm down*, *take it easy* (et *blow off some steam*, se défouler) veulent dire se détendre.",
             },
           ],
         },
@@ -683,7 +683,7 @@ export const resources: Resource[] = [
               question: "« Jeanie est frustrée par le comportement de ses parents. » Trouve les 3 erreurs et corrige-les.",
               taggedText: "Jeanie is frustrated at [his|her] [parents's|parents'] [behaviours|behaviour].",
               explanation:
-                "Jeanie → **her**. *parents* finit par -s → **parents'**. *behaviour* est indénombrable → pas de -s.",
+                "Jeanie → **her**. *parents* est un pluriel en -s → **parents'**. *behaviour* ne prend jamais de -s.",
             },
             {
               id: "cf-e11",
@@ -718,7 +718,7 @@ export const resources: Resource[] = [
             {
               id: "cf-e14",
               type: "qcm",
-              question: "Contrôle A.2 : « Quelle différence entre manage et succeed ? Expliquez la règle. » Quelle réponse obtient tous les points ?",
+              question: "« Quelle différence entre manage et succeed ? Expliquez la règle. » Quelle réponse obtient tous les points ?",
               options: [
                 "Manage est suivi de TO + base verbale, alors que succeed est suivi de la préposition IN : le verbe qui suit prend donc -ING.",
                 "Manage est suivi de TO + V-ING, alors que succeed est suivi de IN + base verbale.",

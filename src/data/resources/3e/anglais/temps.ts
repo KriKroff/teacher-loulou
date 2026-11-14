@@ -13,7 +13,7 @@ export const resources: Resource[] = [
     subject: "anglais",
     chapter: CHAPTER,
     createdAt: "2026-11-14T13:00:00Z",
-    updatedAt: "2026-11-14T13:00:00Z",
+    updatedAt: "2026-11-14T17:00:00Z",
     tags: ["temps", "présent simple", "prétérit", "present perfect", "conditionnel", "grammaire", "fiche"],
     relatedResourceSlug: "anglais-temps-quiz",
     mdxPath: "3e/anglais/fiches/anglais-temps-fiche.mdx",
@@ -28,12 +28,12 @@ export const resources: Resource[] = [
     subject: "anglais",
     chapter: CHAPTER,
     createdAt: "2026-11-14T13:00:00Z",
-    updatedAt: "2026-11-14T13:00:00Z",
+    updatedAt: "2026-11-14T17:00:00Z",
     tags: ["temps", "prétérit", "present perfect", "conjugaison", "quiz"],
     relatedResourceSlug: "anglais-temps-fiche",
     quizData: {
       title: "Les temps essentiels en anglais",
-      description: "Choisis ton niveau : 🟢 reconnaître, 🟡 conjuguer, 🔴 traduire et écrire comme au contrôle.",
+      description: "Choisis ton niveau : 🟢 reconnaître, 🟡 conjuguer, 🔴 traduire et écrire.",
       passingScore: 60,
       sessionSize: 10,
       levels: [
@@ -416,7 +416,7 @@ export const resources: Resource[] = [
               question: "Trouve l'erreur (1) et corrige-la.",
               taggedText: "Ferris [give|gives] Cameron a call.",
               explanation:
-                "Ferris = **he** → présent simple avec **-s** : *gives*. (C'était une erreur de ton cahier !)",
+                "Ferris = **he** → présent simple avec **-s** : *gives*.",
             },
             {
               id: "tps-i-13",
@@ -523,7 +523,7 @@ export const resources: Resource[] = [
           id: "expert",
           name: "Expert",
           emoji: "🔴",
-          description: "Comme au contrôle : traduire, corriger et écrire sans aide.",
+          description: "Traduire, corriger et écrire sans aide.",
           questions: [
             {
               id: "tps-e-01",
