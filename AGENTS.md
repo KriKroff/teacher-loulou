@@ -123,6 +123,12 @@ To add a new diagram: add an `export function` to `Diagrams.tsx`, re-export from
 | `etude-texte` | `passage`, `subQuestions: {question, options[], correctAnswer, explanation?}[]` — brevet-style linked questions |
 | `construire-ion` | `ionBuilder: {symbol, z, targetElectrons, hideLiveCharge?}` — interactive atom, add/remove electrons to build the ion |
 | `formule-ion` | `options[]` (element symbols), `correctAnswer: [symbol, charge]` with charge in `"3-" "2-" "-" "+" "2+" "3+"` |
+| `traduction` | `sourceText` (FR), `acceptedAnswers[]` (first = model answer), `keyChunks?[]` (alternatives with `\|`, must appear in `acceptedAnswers[0]`) — typed English; ignores case, final punctuation, curly quotes, contractions, UK/US spelling; small typos tolerated outside key chunks |
+| `construire-phrase` | `sourceText`, `tiles[]` (correct words + distractors, duplicates allowed), `correctAnswer: string[]` (tiles in order), `acceptedOrders?: string[][]` |
+| `correction-erreur` | `taggedText` with `[faux\|correction]` targets (`[a\|-]` = delete, alternatives `[faux\|corr1\|corr2]`) — student taps wrong words and types the fix; say how many errors in `question` |
+| `expression-libre` | `requiredWords[]` (alternatives with `\|`), `minWords`, `modelAnswer` (must contain the required words) — free sentence checked by LanguageTool (falls back to required words + length offline); 2–3 per quiz max |
+
+Text fields (`question`, `hint`, `explanation`, options, `sourceText`, `passage`…) accept inline `**bold**` and `*italic*` (display only).
 
 Any question can also show atom/ion drawings above its answers with `atomDiagrams: {z, electrons, label?}[]` (nucleus "Z+" + one dot per electron).
 

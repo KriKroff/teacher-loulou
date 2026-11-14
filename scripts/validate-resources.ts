@@ -8,6 +8,8 @@
  *   - Every fiche/cours resource has mdxPath defined and the file exists (strict)
  *   - Leveled quiz levels have ≥ 15 questions each (warning — does not fail build)
  *   - Flat quiz questions array has ≥ 15 questions (warning)
+ *   - Language production types (traduction, construire-phrase,
+ *     correction-erreur, expression-libre): answer data is consistent (strict)
  */
 
 import fs from "fs";
@@ -20,6 +22,26 @@ const { getAllResources } = require("../src/data/resources") as typeof import(".
 const { parseTaggedText, tokenizeTaggedText } = require("../src/lib/tagged-text") as typeof import("../src/lib/tagged-text");
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const { ION_CHARGES } = require("../src/lib/ion") as typeof import("../src/lib/ion");
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const { normalizeEnglish, chunkPresent, requiredWordPresent, countWords } = require("../src/lib/english-answer") as typeof import("../src/lib/english-answer");
+
+/** Counts occurrences of each string (trimmed). */
+function multiset(items: string[]): Map<string, number> {
+  const m = new Map<string, number>();
+  for (const it of items) m.set(it.trim(), (m.get(it.trim()) ?? 0) + 1);
+  return m;
+}
+/** Tiles of `order` missing from `tiles` (respecting duplicates). */
+function missingTiles(order: string[], tiles: string[]): string[] {
+  const available = multiset(tiles);
+  const missing: string[] = [];
+  for (const t of order) {
+    const n = available.get(t.trim()) ?? 0;
+    if (n === 0) missing.push(t);
+    else available.set(t.trim(), n - 1);
+  }
+  return missing;
+}
 
 const ROOT = path.resolve(__dirname, "..");
 const RESOURCES_DIR = path.join(ROOT, "src", "data", "resources");
@@ -139,6 +161,66 @@ for (const r of resources) {
         if (!(q.options ?? []).includes(ans[0])) error(`${where}: symbol "${ans[0]}" is not in options`);
         if (!(ION_CHARGES as readonly string[]).includes(ans[1])) {
           error(`${where}: charge "${ans[1]}" must be one of ${ION_CHARGES.join(", ")}`);
+        }
+      }
+    }
+    if (q.type === "traduction") {
+      const accepted = q.acceptedAnswers ?? [];
+      if (!q.sourceText?.trim()) error(`${where}: traduction has no sourceText`);
+      if (accepted.length === 0 || accepted.some((a) => !normalizeEnglish(a))) {
+        error(`${where}: traduction needs non-empty acceptedAnswers`);
+      } else {
+        for (const chunk of q.keyChunks ?? []) {
+          if (!chunkPresent(accepted[0], chunk)) {
+            error(`${where}: keyChunk "${chunk}" is not in acceptedAnswers[0] "${accepted[0]}"`);
+          }
+        }
+      }
+    }
+    if (q.type === "construire-phrase") {
+      const tiles = q.tiles ?? [];
+      if (!q.sourceText?.trim()) warn(`${where}: construire-phrase has no sourceText`);
+      if (!Array.isArray(q.correctAnswer) || q.correctAnswer.length === 0) {
+        error(`${where}: construire-phrase correctAnswer must be a non-empty string[] (tiles in order)`);
+      } else {
+        const orders = [q.correctAnswer, ...(q.acceptedOrders ?? [])];
+        orders.forEach((order, k) => {
+          const name = k === 0 ? "correctAnswer" : `acceptedOrders[${k - 1}]`;
+          if (!Array.isArray(order) || order.length === 0) {
+            error(`${where}: ${name} must be a non-empty string[]`);
+            return;
+          }
+          const missing = missingTiles(order, tiles);
+          if (missing.length > 0) error(`${where}: ${name} uses tiles not in tiles: ${missing.map((t) => `"${t}"`).join(", ")}`);
+        });
+        if (tiles.length <= q.correctAnswer.length) warn(`${where}: construire-phrase has no distractor tile`);
+      }
+    }
+    if (q.type === "correction-erreur") {
+      const targets = parseTaggedText(q.taggedText ?? "").filter((seg) => seg.kind === "target");
+      if (targets.length === 0) error(`${where}: correction-erreur has no [faux|correction] target`);
+      for (const t of targets) {
+        if (t.kind !== "target") continue;
+        const alts = (t.answer ?? "").split("|").map((a) => a.trim());
+        if (!t.answer) {
+          error(`${where}: target "[${t.text}]" has no correction (write [${t.text}|correction], or [${t.text}|-] to delete)`);
+        } else if (alts.some((a) => a === "")) {
+          error(`${where}: target "[${t.text}|${t.answer}]" has an empty alternative (use "-" to mean "delete the word")`);
+        } else if (alts.some((a) => a !== "-" && normalizeEnglish(a) === normalizeEnglish(t.text))) {
+          error(`${where}: target "[${t.text}|${t.answer}]" — a correction is identical to the wrong word`);
+        }
+      }
+    }
+    if (q.type === "expression-libre") {
+      const model = q.modelAnswer ?? "";
+      if (!model.trim()) {
+        error(`${where}: expression-libre has no modelAnswer`);
+      } else {
+        for (const w of q.requiredWords ?? []) {
+          if (!requiredWordPresent(model, w)) error(`${where}: modelAnswer does not contain required word "${w}"`);
+        }
+        if (q.minWords !== undefined && countWords(model) < q.minWords) {
+          error(`${where}: modelAnswer has ${countWords(model)} words (< minWords=${q.minWords})`);
         }
       }
     }

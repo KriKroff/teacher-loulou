@@ -22,3 +22,7 @@ export { SurlignageQuestion } from "./SurlignageQuestion";
 export { EtudeTexteQuestion } from "./EtudeTexteQuestion";
 export { ConstruireIonQuestion } from "./ConstruireIonQuestion";
 export { FormuleIonQuestion } from "./FormuleIonQuestion";
+export { TraductionQuestion } from "./TraductionQuestion";
+export { ConstruirePhraseQuestion } from "./ConstruirePhraseQuestion";
+export { CorrectionErreurQuestion } from "./CorrectionErreurQuestion";
+export { ExpressionLibreQuestion } from "./ExpressionLibreQuestion";

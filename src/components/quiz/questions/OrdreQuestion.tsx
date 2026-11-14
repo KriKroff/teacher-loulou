@@ -21,6 +21,7 @@ import { CSS } from "@dnd-kit/utilities";
 import { CheckCircle2, XCircle, GripVertical } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { QuestionComponentProps } from "./types";
+import { InlineMarkdown } from "@/components/quiz/InlineMarkdown";
 
 function shuffle<T>(arr: T[]): T[] {
   const copy = [...arr];
@@ -45,7 +46,7 @@ function SortableItem({ id, label, disabled }: { id: string; label: string; disa
       {...(!disabled ? { ...attributes, ...listeners } : {})}
     >
       {!disabled && <GripVertical className="h-4 w-4 shrink-0 text-warm-400" />}
-      <span>{label}</span>
+      <span><InlineMarkdown text={label} /></span>
     </div>
   );
 }

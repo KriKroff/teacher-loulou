@@ -5,13 +5,16 @@ import { CheckCircle2, XCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { QuestionComponentProps } from "./types";
 
-/** Normalize accent and case for comparison */
+/** Normalize accents, case and curly quotes for comparison */
 function normalize(str: string): string {
   return str
     .trim()
     .toLowerCase()
     .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "");
+    .replace(/[̀-ͯ]/g, "")
+    // iOS keyboards type curly apostrophes / quotes
+    .replace(/[\u2018\u2019\u201B\u02BC\u2032]/g, "'")
+    .replace(/[\u201C\u201D\u201E]/g, '"');
 }
 
 export function CompletionTableauQuestion({

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { QuestionComponentProps } from "./types";
+import { InlineMarkdown } from "@/components/quiz/InlineMarkdown";
 
 export function QcmMultipleQuestion({ question, onAnswer, showFeedback }: QuestionComponentProps) {
   const [multiSelected, setMultiSelected] = useState<Set<string>>(new Set());
@@ -67,7 +68,7 @@ export function QcmMultipleQuestion({ question, onAnswer, showFeedback }: Questi
                 <CheckCircle2 className="h-3.5 w-3.5 text-white" />
               )}
             </div>
-            <span>{option}</span>
+            <span><InlineMarkdown text={option} /></span>
           </button>
         );
       })}
