@@ -10,6 +10,7 @@ function normalize(str: string): string {
   return str
     .trim()
     .toLowerCase()
+    .replace(/\s+/g, " ")
     .normalize("NFD")
     .replace(/[̀-ͯ]/g, "")
     // iOS keyboards type curly apostrophes / quotes
