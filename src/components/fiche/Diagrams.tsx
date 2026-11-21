@@ -2107,3 +2107,260 @@ export function CarteGenetiqueDiagram() {
     </DiagramFrame>
   );
 }
+
+// ── Technologie 3e — L'évolution des objets techniques ───────────────────────
+
+interface LigneeData {
+  name: string;
+  /** Short (≤ 32 characters) so it fits on one line at phone width. */
+  principe: string;
+  objets: string[];
+}
+
+/** Greedy wrap of "a → b → c" chains so each line stays readable at phone width. */
+function wrapChain(items: string[], maxChars: number): string[] {
+  const lines: string[] = [];
+  let cur = "";
+  items.forEach((item, i) => {
+    const piece = i === 0 ? item : `→ ${item}`;
+    if (cur && (cur + " " + piece).length > maxChars) {
+      lines.push(cur);
+      cur = piece;
+    } else {
+      cur = cur ? `${cur} ${piece}` : piece;
+    }
+  });
+  if (cur) lines.push(cur);
+  return lines;
+}
+
+/** Family box on top, one lineage per row below, joined by a trunk (mobile-first, readable at phone width). */
+function FamilleLigneesTree({
+  famille,
+  fonction,
+  lignees,
+}: {
+  famille: string;
+  fonction: string;
+  lignees: LigneeData[];
+}) {
+  const top = 104;
+  const gap = 14;
+  const trunkX = 18;
+  const rows = lignees.map((l) => ({ ...l, lines: wrapChain(l.objets, 24) }));
+  const heights = rows.map((r) => 58 + r.lines.length * 20);
+  const ys = heights.map((_, i) => top + heights.slice(0, i).reduce((a, h) => a + h + gap, 0));
+  const height = ys[ys.length - 1] + heights[heights.length - 1] + 4;
+  return (
+    <svg
+      viewBox={`0 0 320 ${height}`}
+      className="mx-auto w-full max-w-sm"
+      role="img"
+      aria-label={`Famille « ${famille} » (fonction d'usage : ${fonction}). ${lignees
+        .map((l) => `Lignée ${l.name} (${l.principe}) : ${l.objets.join(", puis ")}`)
+        .join(". ")}.`}
+    >
+      <defs>
+        <marker id="arrow-lignee" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 Z" fill="#57534E" />
+        </marker>
+      </defs>
+      <rect x={2} y={2} width={316} height={78} rx={14} fill="#DBEAFE" stroke="#2563EB" strokeWidth="2" />
+      <text x={160} y={28} textAnchor="middle" fontSize="16" fontWeight="800" fill="#1E3A8A">
+        FAMILLE : {famille}
+      </text>
+      <text x={160} y={50} textAnchor="middle" fontSize="13" fill="#1E3A8A">
+        Fonction d&apos;usage :
+      </text>
+      <text x={160} y={68} textAnchor="middle" fontSize="13" fontWeight="700" fill="#1E3A8A">
+        {fonction}
+      </text>
+      <line x1={trunkX} y1={80} x2={trunkX} y2={ys[ys.length - 1] + 22} stroke="#57534E" strokeWidth="2" />
+      {rows.map((l, i) => {
+        const y = ys[i];
+        return (
+          <g key={l.name}>
+            <path d={`M${trunkX} ${y + 22} L36 ${y + 22}`} stroke="#57534E" strokeWidth="2" markerEnd="url(#arrow-lignee)" />
+            <rect x={38} y={y} width={280} height={heights[i]} rx={12} fill="#ECFDF5" stroke="#059669" strokeWidth="2" />
+            <text x={50} y={y + 22} fontSize="15" fontWeight="800" fill="#065F46">
+              Lignée : {l.name}
+            </text>
+            <text x={50} y={y + 42} fontSize="12.5" fontStyle="italic" fill="#44403C">
+              {l.principe}
+            </text>
+            {l.lines.map((line, k) => (
+              <text key={k} x={50} y={y + 64 + k * 20} fontSize="14" fontWeight="600" fill="#1C1917">
+                {line}
+              </text>
+            ))}
+          </g>
+        );
+      })}
+    </svg>
+  );
+}
+
+export function FamilleEclairageDiagram() {
+  return (
+    <DiagramFrame
+      title="Une famille, quatre lignées : les objets d'éclairage"
+      caption="Changer de principe technique = rupture technologique = naissance d'une nouvelle lignée."
+    >
+      <FamilleLigneesTree
+        famille="l'éclairage"
+        fonction="éclairer, produire de la lumière"
+        lignees={[
+          { name: "combustion", principe: "une flamme", objets: ["Bougie", "lampe à pétrole", "bec de gaz"] },
+          { name: "incandescence", principe: "filament chauffé par le courant", objets: ["Ampoule classique", "halogène"] },
+          { name: "fluorescence", principe: "décharge électrique dans un gaz", objets: ["Tube néon", "fluocompacte"] },
+          { name: "LED", principe: "électroluminescence", objets: ["Ampoule LED", "ruban LED"] },
+        ]}
+      />
+    </DiagramFrame>
+  );
+}
+
+export function FamilleCommunicationDiagram() {
+  return (
+    <DiagramFrame
+      title="Autre exemple : la famille « communiquer à distance »"
+      caption="Même besoin (communiquer à distance), deux principes techniques : le fil ou les ondes radio."
+    >
+      <FamilleLigneesTree
+        famille="communiquer"
+        fonction="communiquer à distance"
+        lignees={[
+          { name: "filaire", principe: "signal électrique dans un fil", objets: ["Télégraphe (1837)", "téléphone fixe (1876)", "fax (1966)"] },
+          { name: "sans fil", principe: "ondes radio (réseau mobile)", objets: ["Téléphone mobile (1983)", "smartphone (2007)"] },
+        ]}
+      />
+    </DiagramFrame>
+  );
+}
+
+type FriseKind = "rupture" | "innovation" | "repere";
+
+const FRISE_COLORS: Record<FriseKind, string> = {
+  rupture: "#C2410C",
+  innovation: "#1D4ED8",
+  repere: "#57534E",
+};
+
+/** Vertical timeline (reads top → bottom on a phone). */
+function FriseVerticale({
+  start,
+  end,
+  step,
+  events,
+}: {
+  start: number;
+  end: number;
+  step: number;
+  events: { year: number; label: string; kind: FriseKind }[];
+}) {
+  const scale = 3.6;
+  const y0 = 20;
+  const yOf = (year: number) => y0 + (year - start) * scale;
+  const height = yOf(end) + 30;
+  const ticks: number[] = [];
+  for (let t = start; t <= end; t += step) ticks.push(t);
+  return (
+    <svg
+      viewBox={`0 0 320 ${height}`}
+      className="mx-auto w-full max-w-md"
+      role="img"
+      aria-label={events.map((e) => `${e.year} : ${e.label} (${e.kind})`).join(". ")}
+    >
+      <line x1={70} y1={y0 - 8} x2={70} y2={yOf(end) + 14} stroke="#57534E" strokeWidth="3" />
+      <path d={`M63 ${yOf(end) + 10} L70 ${yOf(end) + 24} L77 ${yOf(end) + 10} Z`} fill="#57534E" />
+      {ticks.map((t) => {
+        const major = t % 50 === 0;
+        return (
+          <g key={t}>
+            <line x1={major ? 60 : 64} y1={yOf(t)} x2={major ? 80 : 76} y2={yOf(t)} stroke="#57534E" strokeWidth={major ? 2.5 : 1.2} />
+            {major && (
+              <text x={52} y={yOf(t) + 5} textAnchor="end" fontSize="14" fontWeight="800" fill="#44403C">
+                {t}
+              </text>
+            )}
+          </g>
+        );
+      })}
+      {events.map((e) => {
+        const y = yOf(e.year);
+        const color = FRISE_COLORS[e.kind];
+        const tag = e.kind === "rupture" ? "RUPTURE" : e.kind === "innovation" ? "Innovation" : "Repère";
+        return (
+          <g key={e.year + e.label}>
+            <circle cx={70} cy={y} r={7} fill={color} stroke="#FFFFFF" strokeWidth="2" />
+            <line x1={78} y1={y} x2={96} y2={y} stroke={color} strokeWidth="1.5" strokeDasharray="3 2" />
+            <text x={100} y={y - 3} fontSize="14" fontWeight="800" fill={color}>
+              {e.year} · {tag}
+            </text>
+            <text x={100} y={y + 14} fontSize="13.5" fill="#1C1917">
+              {e.label}
+            </text>
+          </g>
+        );
+      })}
+    </svg>
+  );
+}
+
+function FriseLegende() {
+  return (
+    <div className="mt-2 flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs text-warm-700">
+      <span><span className="font-bold" style={{ color: FRISE_COLORS.rupture }}>●</span> <b>Rupture</b> : nouveau principe technique, nouvelle lignée</span>
+      <span><span className="font-bold" style={{ color: FRISE_COLORS.innovation }}>●</span> <b>Innovation</b> : amélioration dans une lignée existante</span>
+      <span><span className="font-bold" style={{ color: FRISE_COLORS.repere }}>●</span> <b>Repère</b> historique</span>
+    </div>
+  );
+}
+
+export function FriseEclairageDiagram() {
+  return (
+    <DiagramFrame title="La frise de l'éclairage (1850 → 2020)" caption="2012 : l'Union européenne interdit la vente des ampoules classiques.">
+      <FriseVerticale
+        start={1850}
+        end={2020}
+        step={10}
+        events={[
+          { year: 1853, label: "Lampe à pétrole", kind: "repere" },
+          { year: 1879, label: "Ampoule d'Edison", kind: "rupture" },
+          { year: 1938, label: "Tube fluorescent", kind: "rupture" },
+          { year: 1959, label: "Lampe halogène", kind: "innovation" },
+          { year: 1980, label: "Lampe fluocompacte", kind: "innovation" },
+          { year: 1993, label: "LED blanche", kind: "rupture" },
+          { year: 2012, label: "Fin des ampoules classiques", kind: "repere" },
+        ]}
+      />
+      <FriseLegende />
+    </DiagramFrame>
+  );
+}
+
+export function DeveloppementDurableDiagram() {
+  return (
+    <DiagramFrame
+      title="Les 3 piliers du développement durable"
+      caption="Un objet est « durable » quand il respecte les trois en même temps."
+    >
+      <svg viewBox="0 0 360 310" className="mx-auto w-full max-w-sm" role="img" aria-label="Trois cercles qui se croisent : social, économique, environnemental. Social et économique : équitable. Social et environnemental : vivable. Économique et environnemental : viable. Au centre : durable.">
+        <circle cx={130} cy={115} r={88} fill="#FDE68A" fillOpacity="0.55" stroke="#B45309" strokeWidth="2" />
+        <circle cx={230} cy={115} r={88} fill="#BBF7D0" fillOpacity="0.55" stroke="#15803D" strokeWidth="2" />
+        <circle cx={180} cy={198} r={88} fill="#86EFAC" fillOpacity="0.55" stroke="#166534" strokeWidth="2" />
+        <text x={92} y={78} textAnchor="middle" fontSize="13.5" fontWeight="800" fill="#92400E">SOCIAL</text>
+        <text x={92} y={95} textAnchor="middle" fontSize="10.5" fill="#44403C">les personnes</text>
+        <text x={268} y={78} textAnchor="middle" fontSize="13.5" fontWeight="800" fill="#166534">ÉCONOMIQUE</text>
+        <text x={268} y={95} textAnchor="middle" fontSize="10.5" fill="#44403C">l&apos;argent</text>
+        <text x={180} y={262} textAnchor="middle" fontSize="13.5" fontWeight="800" fill="#14532D">ENVIRONNEMENTAL</text>
+        <text x={180} y={278} textAnchor="middle" fontSize="10.5" fill="#44403C">la planète</text>
+        <text x={180} y={92} textAnchor="middle" fontSize="11.5" fontWeight="700" fill="#1C1917">équitable</text>
+        <text x={118} y={180} textAnchor="middle" fontSize="11.5" fontWeight="700" fill="#1C1917">vivable</text>
+        <text x={242} y={180} textAnchor="middle" fontSize="11.5" fontWeight="700" fill="#1C1917">viable</text>
+        <rect x={146} y={128} width={68} height={24} rx={12} fill="#065F46" />
+        <text x={180} y={145} textAnchor="middle" fontSize="12" fontWeight="800" fill="#FFFFFF">DURABLE</text>
+      </svg>
+    </DiagramFrame>
+  );
+}

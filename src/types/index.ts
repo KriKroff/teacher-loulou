@@ -96,7 +96,11 @@ export interface QuizQuestion {
     | "traduction"
     | "construire-phrase"
     | "correction-erreur"
-    | "expression-libre";
+    | "expression-libre"
+    // Reasoning / argumentation types
+    | "frise"
+    | "vrai-faux-justifie"
+    | "argumentaire";
   options?: string[];
   correctAnswer?: string | string[];
   explanation?: string;
@@ -237,6 +241,36 @@ export interface QuizQuestion {
   minWords?: number;
   /** Example of a good answer, shown after submitting. */
   modelAnswer?: string;
+
+  // ── frise ──────────────────────────────────────────────────────────────────
+  /**
+   * Graduated vertical timeline. The student places each event on a
+   * graduation; it is right when it is on the graduation nearest its year
+   * (|year − graduation| ≤ step/2). Only multiples of majorStep
+   * show their year (e.g. 1850, 1900, 1950).
+   */
+  frise?: {
+    start: number;
+    end: number;
+    /** Years between two graduations (default 10). */
+    step?: number;
+    /** Years between two labelled graduations (default 50). */
+    majorStep?: number;
+    events: { id: string; label: string; year: number }[];
+  };
+
+  // ── vrai-faux-justifie ─────────────────────────────────────────────────────
+  // correctAnswer = "Vrai" | "Faux"
+  /** Candidate justifications / corrections (shown after Vrai/Faux is chosen). */
+  justifications?: string[];
+  /** The right one — must be in justifications. */
+  correctJustification?: string;
+
+  // ── argumentaire ───────────────────────────────────────────────────────────
+  /** Steps of the argument, in order (e.g. pour / contre / conclusion). */
+  argumentSlots?: { id: string; label: string; prefix?: string; acceptedCardIds: string[] }[];
+  /** Sentence bank: right answers + traps. `why` explains a trap after validation. */
+  argumentCards?: { id: string; label: string; why?: string }[];
 }
 
 export interface QuizQuestionHistory {

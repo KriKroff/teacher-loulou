@@ -28,7 +28,7 @@ Learning website for French middle/high school students with dyslexia, dysphonia
 
 3. Run `npm run validate-resources` to verify.
 
-Subjects: `espagnol`, `francais`, `histoire-geo`, `physique-chimie`, `svt`
+Subjects: `anglais`, `espagnol`, `francais`, `histoire-geo`, `mathematiques`, `physique-chimie`, `svt`, `technologie`
 
 Levels: `4e` and `3e` (replace `4e` in paths/`level` accordingly). A new level folder must be imported in `src/data/resources/index.ts` and listed in `src/components/home/LevelGrid.tsx`.
 
@@ -127,6 +127,9 @@ To add a new diagram: add an `export function` to `Diagrams.tsx`, re-export from
 | `construire-phrase` | `sourceText`, `tiles[]` (correct words + distractors, duplicates allowed), `correctAnswer: string[]` (tiles in order), `acceptedOrders?: string[][]` |
 | `correction-erreur` | `taggedText` with `[faux\|correction]` targets (`[a\|-]` = delete, alternatives `[faux\|corr1\|corr2]`) — student taps wrong words and types the fix; say how many errors in `question` |
 | `expression-libre` | `requiredWords[]` (alternatives with `\|`), `minWords`, `modelAnswer` (must contain the required words) — free sentence checked by LanguageTool (falls back to required words + length offline); 2–3 per quiz max |
+| `frise` | `frise: {start, end, step?, majorStep?, events: {id,label,year}[]}` — vertical graduated timeline; tap an event then its graduation; right when on the nearest graduation (±step/2); only `majorStep` years are labelled |
+| `vrai-faux-justifie` | `correctAnswer: "Vrai" \| "Faux"`, `justifications[]`, `correctJustification` — Vrai/Faux then pick the justification; both must be right |
+| `argumentaire` | `argumentSlots: {id,label,prefix?,acceptedCardIds[]}[]`, `argumentCards: {id,label,why?}[]` — fill each step (pour / contre / conclusion) from a sentence bank with traps; `why` explains a trap |
 
 Text fields (`question`, `hint`, `explanation`, options, `sourceText`, `passage`…) accept inline `**bold**` and `*italic*` (display only).
 

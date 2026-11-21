@@ -26,3 +26,6 @@ export { TraductionQuestion } from "./TraductionQuestion";
 export { ConstruirePhraseQuestion } from "./ConstruirePhraseQuestion";
 export { CorrectionErreurQuestion } from "./CorrectionErreurQuestion";
 export { ExpressionLibreQuestion } from "./ExpressionLibreQuestion";
+export { FriseQuestion } from "./FriseQuestion";
+export { VraiFauxJustifieQuestion } from "./VraiFauxJustifieQuestion";
+export { ArgumentaireQuestion } from "./ArgumentaireQuestion";
