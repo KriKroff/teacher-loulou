@@ -23,7 +23,7 @@ So:
 |---|---|---|
 | `DiagramFrame` (`Diagrams.tsx`) | Frame + title + caption around any diagram | Always wrap a diagram in it (the checker finds diagrams through it). |
 | `ConnectedDiagram` + `DiagramNode` (`diagram/ConnectedDiagram.tsx`) | Trees, flows, cause → consequence chains, any boxes-and-arrows | Lay out nodes with CSS; pass `edges={[{from,to,route?,color?,dashed?}]}`. `route: "tree"` (default) = down/across/down org-chart lines, `"straight"` = direct. Arrows are recomputed on resize, so the same diagram can be 2 columns on phones and 4 on computers. |
-| `Frise` (`diagram/Frise.tsx`) | Horizontal timelines | `start`, `end`, `step` (10), `majorStep` (50), `events: {year,label,kind?}` with kind `rupture` / `innovation` / `repere` / `neutre`. Labels are measured and spread on rows so they never overlap; below 560 px it switches to numbered markers + a list. |
+| `Frise` (`diagram/Frise.tsx`) | Horizontal timelines | `start`, `end`, `step` (10), `majorStep` (50), `events: {year,label,kind?}` with kind `rupture` / `innovation` / `repere` / `neutre`. Every event shows its year and name next to its point (labels measured and spread on rows above/below, never overlapping). It keeps a normal size (≥ 720 px) and scrolls sideways on phones, with a hint — never shrink it, never replace names by numbered references (teacher's request). |
 
 Examples: `diagram/TechnologieDiagrams.tsx` (tree with 4 lineages, 2-lineage tree, timeline, Venn with labels outside the circles).
 
@@ -31,7 +31,7 @@ Examples: `diagram/TechnologieDiagrams.tsx` (tree with 4 lineages, 2-lineage tre
 
 - **Tree (famille → lignées, classification)**: parent `DiagramNode` centred (`mx-auto max-w-sm`), children in `grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-10`, one edge per child. Keep the tree shape on phones (2 × 2 with the trunk going down the gap) — a one-column "folder" list was rejected by the teacher.
 - **Process / cycle**: `grid` of steps with `route: "straight"` edges; on phones prefer top → bottom, on `sm:` left → right.
-- **Timeline**: always horizontal (`Frise`), as in school documents — never vertical.
+- **Timeline**: always horizontal (`Frise`), as in school documents — never vertical, all information visible at rest.
 - **Venn / overlapping shapes**: draw the shapes in SVG with no text inside; put names in HTML around the drawing (left/right aligned so they cannot collide) and list the intersections underneath.
 - **Comparison (A vs B)**: two cards in `grid sm:grid-cols-2`, never a wide table inside the frame.
 
@@ -40,7 +40,8 @@ Examples: `diagram/TechnologieDiagrams.tsx` (tree with 4 lineages, 2-lineage tre
 - Minimum rendered text: **12 px** for content, 11 px only for small caps tags ("LIGNÉE"). The checker flags < 11 px.
 - Assume a frame content width of **~210 px at 320 px screens, ~250 px at 360, ~280 px at 390**. Two columns at 320 px leave ~90 px per card: prefer short words, one object per line (`Bougie ↓ lampe à pétrole`).
 - Hyphenation: never on multi-word lines (hard for DYS readers). Allowed on a line that is a single long word (`hyphens-auto` only when the text has no space) and with a soft hyphen `­` in very long words (`électro­luminescence`).
-- No horizontal scrolling inside a fiche diagram (quiz widgets may scroll, with a visible hint).
+- No horizontal scrolling inside a fiche diagram, **except timelines** (`Frise`), which keep a readable size and scroll sideways with a visible hint.
+- Interactivity may only *add* help (highlight, guided steps); never hide information the student must learn.
 - Colours carry meaning consistently (rupture = orange-700, innovation = blue-700, repère = stone-600 …) and always come with a text label or legend.
 - Follow the teacher's document: same shapes (tree, frise), same words (verbatim vocabulary), same order.
 
