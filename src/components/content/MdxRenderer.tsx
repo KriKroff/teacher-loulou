@@ -4,6 +4,7 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import * as ficheComponents from "@/components/fiche";
 import { rehypeSyllabify } from "@/lib/rehype-syllabify";
+import { ResponsiveTable } from "./ResponsiveTable";
 
 const markdownComponents = {
   h1: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
@@ -43,19 +44,19 @@ const markdownComponents = {
     />
   ),
   hr: () => <hr className="my-6 border-warm-200" />,
-  table: (props: React.TableHTMLAttributes<HTMLTableElement>) => (
-    <div className="my-4 overflow-x-auto rounded-lg border border-warm-200 bg-white/80">
-      <table className="w-full border-collapse text-sm" {...props} />
-    </div>
+  // Tables stay tables on phones: compact cells, sideways scroll inside their frame
+  // when needed, pinned header column/row (see ResponsiveTable).
+  table: ({ children }: React.TableHTMLAttributes<HTMLTableElement>) => (
+    <ResponsiveTable>{children}</ResponsiveTable>
   ),
   th: (props: React.ThHTMLAttributes<HTMLTableCellElement>) => (
     <th
-      className="border border-warm-200 bg-warm-100 px-3 py-2 text-left font-bold text-warm-800"
+      className="border border-warm-200 bg-warm-100 px-2 py-1.5 text-left font-bold text-warm-800 sm:px-3 sm:py-2"
       {...props}
     />
   ),
   td: (props: React.TdHTMLAttributes<HTMLTableCellElement>) => (
-    <td className="border border-warm-200 px-3 py-2 text-warm-800" {...props} />
+    <td className="border border-warm-200 px-2 py-1.5 text-warm-800 sm:px-3 sm:py-2" {...props} />
   ),
   strong: (props: React.HTMLAttributes<HTMLElement>) => (
     <strong className="font-bold text-warm-900" {...props} />
@@ -83,7 +84,7 @@ interface Props {
 
 export function MdxRenderer({ source }: Props) {
   return (
-    <article className="dys-content rounded-2xl border border-warm-200 bg-white/80 p-5 sm:p-8">
+    <article className="dys-content py-1 sm:rounded-2xl sm:border sm:border-warm-200 sm:bg-white/80 sm:p-8">
       <MDXRemote
         source={source}
         components={{ ...markdownComponents, ...ficheComponents }}

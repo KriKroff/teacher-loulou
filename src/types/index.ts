@@ -304,13 +304,15 @@ export interface AccessibilitySettings {
   sounds: boolean;      // quiz sound effects via Web Audio API (default false — can distract ADHD)
   vibration: boolean;   // haptic feedback on mobile (default true)
   confetti: boolean;    // confetti animation on quiz success (default true)
+  /** Set once the old default spacing (0.05em / 0.1em) has been migrated to the new one (0 / 0). */
+  spacingV2?: boolean;
 }
 
 export const DEFAULT_ACCESSIBILITY_SETTINGS: AccessibilitySettings = {
   font: "default",
   fontSize: 1,
-  letterSpacing: 0.05,
-  wordSpacing: 0.1,
+  letterSpacing: 0,
+  wordSpacing: 0,
   lineHeight: 1.8,
   readingRuler: false,
   highContrast: false,
@@ -318,6 +320,7 @@ export const DEFAULT_ACCESSIBILITY_SETTINGS: AccessibilitySettings = {
   sounds: false,
   vibration: true,
   confetti: true,
+  spacingV2: true,
 };
 
 // Display names for UI

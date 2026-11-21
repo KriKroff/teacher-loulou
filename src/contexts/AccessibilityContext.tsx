@@ -38,6 +38,19 @@ export function AccessibilityProvider({ children }: { children: ReactNode }) {
     setSettings(DEFAULT_ACCESSIBILITY_SETTINGS);
   };
 
+  // One-time migration: saved settings that still carry the old default
+  // spacing (0.05em letters / 0.1em words) move to the new default (0 / 0).
+  // A spacing the student chose on purpose (any other value) is kept.
+  useEffect(() => {
+    if (settings.spacingV2) return;
+    const oldDefault = settings.letterSpacing === 0.05 && settings.wordSpacing === 0.1;
+    setSettings((prev) => ({
+      ...prev,
+      ...(oldDefault ? { letterSpacing: 0, wordSpacing: 0 } : {}),
+      spacingV2: true,
+    }));
+  }, [settings, setSettings]);
+
   // Apply settings as CSS custom properties on <html>
   useEffect(() => {
     const root = document.documentElement;

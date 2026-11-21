@@ -81,7 +81,7 @@ All MDX fiches use these components from `src/components/fiche/`:
 | `<Definition>` | `term` (req) | Vocabulary definition block |
 | `<Formule>` | — | Formula highlight box |
 | `<Schema>` | `src`, `alt`, `caption?` | Image with caption (`assetPath` handled automatically) |
-| `<Tableau>` | — | Styled table wrapper for raw `<thead>/<tr>` JSX only — never wrap a markdown table (already styled; nesting breaks hydration) |
+| `<Tableau>` | `caption?` | Styled table wrapper for raw `<thead>/<tr>` JSX only — never wrap a markdown table (already styled; nesting breaks hydration) |
 | `<Exemple>` | `title?` | Example callout |
 | `<Astuce>` | `title?` | Tip callout |
 | `<Erreur>` | `title?` | Warning callout |
@@ -89,6 +89,8 @@ All MDX fiches use these components from `src/components/fiche/`:
 | `<Glossaire>` | — | Vocabulary section container |
 | `<GlossaireItem>` | `term` (req) | Row inside `<Glossaire>` |
 | `<Details>` | `title?` | Collapsible "pour aller plus loin" block (closed by default) — leave blank lines around inner markdown |
+
+**Tables on phones:** every table (markdown or `<Tableau>`) goes through `ResponsiveTable`: compact cells, and when it is wider than the screen it scrolls sideways *inside its frame* with a hint, its first column stays pinned if it is a narrow header column, and a tall table also pins its header row. Tables stay tables (no card layout): for conjugations the grid is what matters. Keep tables ≤ 4 short columns when possible; check with `npm run check-tables` after a build.
 
 Colors: `purple`, `blue`, `green`, `orange`, `cyan`, `brown`, `sand`, `rose`, `amber`
 
@@ -151,6 +153,7 @@ Any question can also show atom/ion drawings above its answers with `atomDiagram
 **Design (applied globally — don't override in MDX):**
 - Background `#FFF8F0`, text `#2D2D2D` — never pure white/black
 - Font: Lexend / Atkinson Hyperlegible
+- No extra letter/word spacing by default (students can add some in Réglages); fiches are full-width on phones (the card frame starts at `sm`)
 
 ## Atlas (world map module)
 
@@ -169,6 +172,7 @@ npm run build                # Static build → out/ (runs validate-resources fi
 npm run lint                 # ESLint
 npm run build-atlas          # Regenerate Atlas maps (public/atlas/)
 npm run check-diagrams       # Check fiche diagrams at 320→1280 px (after build) — see skill diagram-review
+npm run check-tables         # How fiche tables behave at 360/390 px (after build); --strict fails if a page scrolls sideways
 ```
 
 ## Gotchas
