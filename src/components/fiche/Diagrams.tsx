@@ -1,6 +1,6 @@
 import { AtomModel } from "@/components/chemistry/AtomModel";
 
-function DiagramFrame({
+export function DiagramFrame({
   title,
   caption,
   children,
@@ -10,14 +10,14 @@ function DiagramFrame({
   children: React.ReactNode;
 }) {
   return (
-    <figure className="my-5 rounded-2xl border border-warm-200 bg-gradient-to-br from-white via-orange-50/30 to-cyan-50/40 p-3 sm:p-4">
-      <div className="mb-3 flex items-center justify-between gap-3">
+    <figure className="my-5 rounded-2xl border border-warm-200 bg-gradient-to-br from-white via-orange-50/30 to-cyan-50/40 p-2 sm:p-4">
+      <div className="mb-3 flex items-center justify-between gap-3 px-1 sm:px-0">
         <h3 className="text-sm font-bold text-warm-800 sm:text-base">{title}</h3>
         <span className="rounded-full bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-warm-500">
           Schema
         </span>
       </div>
-      <div className="overflow-hidden rounded-xl bg-white/75 p-2 sm:p-3">{children}</div>
+      <div className="overflow-hidden rounded-xl bg-white/75 p-1.5 sm:p-3">{children}</div>
       {caption && (
         <figcaption className="mt-3 text-center text-xs italic text-warm-500">
           {caption}

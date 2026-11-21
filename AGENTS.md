@@ -28,7 +28,7 @@ Learning website for French middle/high school students with dyslexia, dysphonia
 
 3. Run `npm run validate-resources` to verify.
 
-Subjects: `espagnol`, `francais`, `histoire-geo`, `physique-chimie`, `svt`
+Subjects: `anglais`, `espagnol`, `francais`, `histoire-geo`, `mathematiques`, `physique-chimie`, `svt`, `technologie`
 
 Levels: `4e` and `3e` (replace `4e` in paths/`level` accordingly). A new level folder must be imported in `src/data/resources/index.ts` and listed in `src/components/home/LevelGrid.tsx`.
 
@@ -96,10 +96,13 @@ Colors: `purple`, `blue`, `green`, `orange`, `cyan`, `brown`, `sand`, `rose`, `a
 
 Math: `$...$` inline, `$$...$$` block (KaTeX via remark-math + rehype-katex).
 
-### Built-in SVG Diagrams
+### Diagrams (schémas)
 
-Subject-specific inline diagrams in `src/components/fiche/Diagrams.tsx` — no props needed.
-To add a new diagram: add an `export function` to `Diagrams.tsx`, re-export from `fiche/index.ts`.
+Subject-specific inline diagrams, no props needed: legacy ones in `src/components/fiche/Diagrams.tsx`, new ones in `src/components/fiche/diagram/<Subject>Diagrams.tsx` — re-export from `fiche/index.ts`.
+
+**New diagrams are HTML-first** (skill `fiche-diagrams`): text in HTML (keeps its size, wraps), lines/arrows computed from the boxes. Primitives: `DiagramFrame`, `ConnectedDiagram` + `DiagramNode` (boxes and arrows), `Frise` (horizontal timeline). Never put body text in an SVG `viewBox` — it shrinks to 3–6 px on phones.
+
+Before committing a diagram: `npm run build && npm run check-diagrams -- --only=<slug> --shots=all`, then review the screenshots (skill `diagram-review`).
 
 ## Quiz Question Types
 
@@ -129,6 +132,9 @@ To add a new diagram: add an `export function` to `Diagrams.tsx`, re-export from
 | `construire-phrase` | `sourceText`, `tiles[]` (correct words + distractors, duplicates allowed), `correctAnswer: string[]` (tiles in order), `acceptedOrders?: string[][]` |
 | `correction-erreur` | `taggedText` with `[faux\|correction]` targets (`[a\|-]` = delete, alternatives `[faux\|corr1\|corr2]`) — student taps wrong words and types the fix; say how many errors in `question` |
 | `expression-libre` | `requiredWords[]` (alternatives with `\|`), `minWords`, `modelAnswer` (must contain the required words) — free sentence checked by LanguageTool (falls back to required words + length offline); 2–3 per quiz max |
+| `frise` | `frise: {start, end, step?, majorStep?, events: {id,label,year}[]}` — horizontal graduated timeline (scrolls sideways on phones); tap a numbered event then its graduation; right when on the nearest graduation (±step/2); only `majorStep` years are labelled |
+| `vrai-faux-justifie` | `correctAnswer: "Vrai" \| "Faux"`, `justifications[]`, `correctJustification` — Vrai/Faux then pick the justification; both must be right |
+| `argumentaire` | `argumentSlots: {id,label,prefix?,acceptedCardIds[]}[]`, `argumentCards: {id,label,why?}[]` — fill each step (pour / contre / conclusion) from a sentence bank with traps; `why` explains a trap |
 
 Text fields (`question`, `hint`, `explanation`, options, `sourceText`, `passage`…) accept inline `**bold**` and `*italic*` (display only).
 
@@ -165,6 +171,7 @@ npm run validate-resources   # Validate all resources — run before committing
 npm run build                # Static build → out/ (runs validate-resources first)
 npm run lint                 # ESLint
 npm run build-atlas          # Regenerate Atlas maps (public/atlas/)
+npm run check-diagrams       # Check fiche diagrams at 320→1280 px (after build) — see skill diagram-review
 npm run check-tables         # How fiche tables behave at 360/390 px (after build); --strict fails if a page scrolls sideways
 ```
 
