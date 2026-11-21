@@ -45,6 +45,10 @@ export {
   GenomeEmboitementDiagram,
   ArbrePTCDiagram,
   CarteGenetiqueDiagram,
+  FamilleEclairageDiagram,
+  FamilleCommunicationDiagram,
+  FriseEclairageDiagram,
+  DeveloppementDurableDiagram,
 } from "./Diagrams";
 export { AtomModel } from "@/components/chemistry/AtomModel";
 export type { FicheColor } from "./colors";
