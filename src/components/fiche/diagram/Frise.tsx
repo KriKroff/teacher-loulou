@@ -148,7 +148,7 @@ export function Frise({
                       style={{ left: xOf(t), top: axisTop - (major ? 9 : 5), width: major ? 3 : 1.5, height: major ? 18 : 10 }}
                     />
                     <div
-                      className={`absolute -translate-x-1/2 tabular-nums ${major ? "text-[13px] font-extrabold text-warm-800" : "text-[11px] text-warm-500"}`}
+                      className={`absolute -translate-x-1/2 tabular-nums ${major ? "text-[0.8125rem] font-extrabold text-warm-800" : "text-[0.6875rem] text-warm-500"}`}
                       style={{ left: xOf(t), top: axisTop + 12 }}
                     >
                       {major ? t : ""}
@@ -184,10 +184,10 @@ export function Frise({
                       className="absolute max-w-[170px] text-center leading-tight"
                       style={{ left: p?.left ?? 0, top: p?.top ?? 0, visibility: p ? "visible" : "hidden" }}
                     >
-                      <span className="block text-[13px] font-extrabold" style={{ color }}>
+                      <span className="block text-[0.8125rem] font-extrabold" style={{ color }}>
                         {e.year} {tag}
                       </span>
-                      <span className="block text-[13px] text-warm-900">{e.label}</span>
+                      <span className="block text-[0.8125rem] text-warm-900">{e.label}</span>
                     </div>
                   </div>
                 );

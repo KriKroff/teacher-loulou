@@ -167,7 +167,7 @@ export function FriseQuestion({ question, onAnswer, showFeedback, showHint }: Qu
                           <span
                             key={e.id}
                             className={cn(
-                              "flex h-6 w-6 items-center justify-center rounded-full text-[11px] font-extrabold text-white shadow-sm",
+                              "flex h-6 w-6 items-center justify-center rounded-full text-[0.6875rem] font-extrabold text-white shadow-sm",
                               !showFeedback && "bg-accent-500",
                               showFeedback && (ok ? "bg-success-500" : "bg-red-500")
                             )}
@@ -179,7 +179,7 @@ export function FriseQuestion({ question, onAnswer, showFeedback, showHint }: Qu
                       {missed.map((e) => (
                         <span
                           key={`m-${e.id}`}
-                          className="flex h-6 w-6 items-center justify-center rounded-full border-2 border-dashed border-success-500 bg-success-50 text-[11px] font-extrabold text-success-700"
+                          className="flex h-6 w-6 items-center justify-center rounded-full border-2 border-dashed border-success-500 bg-success-50 text-[0.6875rem] font-extrabold text-success-700"
                         >
                           {e.n}
                         </span>
@@ -202,7 +202,7 @@ export function FriseQuestion({ question, onAnswer, showFeedback, showHint }: Qu
             </div>
           </div>
         </div>
-        <p className="flex items-center justify-center gap-1 border-t border-warm-100 py-1 text-[11px] text-warm-500 lg:hidden">
+        <p className="flex items-center justify-center gap-1 border-t border-warm-100 py-1 text-[0.6875rem] text-warm-500 lg:hidden">
           <MoveHorizontal className="h-3.5 w-3.5" /> Fais glisser la frise pour tout voir
         </p>
       </div>

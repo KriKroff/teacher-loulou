@@ -32,7 +32,7 @@ function FamilleLigneesTree({ famille, fonction, lignees }: { famille: string; f
     >
       <DiagramNode id="famille" className="mx-auto mb-9 max-w-sm rounded-xl border-2 border-blue-500 bg-blue-50 px-3 py-2 text-center">
         <p className="text-base font-extrabold leading-snug text-blue-900">FAMILLE : {famille}</p>
-        <p className="text-[13px] leading-snug text-blue-900">
+        <p className="text-[0.8125rem] leading-snug text-blue-900">
           Fonction d&apos;usage : <b>{fonction}</b>
         </p>
       </DiagramNode>
@@ -43,10 +43,10 @@ function FamilleLigneesTree({ famille, fonction, lignees }: { famille: string; f
             id={l.id}
             className="rounded-xl border-2 border-emerald-500 bg-emerald-50 px-1.5 py-2 text-center [overflow-wrap:break-word] sm:px-2"
           >
-            <p className="text-[11px] font-bold uppercase tracking-wider text-emerald-700">Lignée</p>
+            <p className="text-[0.6875rem] font-bold uppercase tracking-wider text-emerald-700">Lignée</p>
             <p className={`text-sm font-extrabold leading-tight text-emerald-800 ${hyph(l.name)}`}>{l.name}</p>
             <p className="mt-1 text-xs italic leading-snug text-warm-700">{l.principe}</p>
-            <div className="mt-1.5 text-[13px] font-semibold leading-snug text-warm-900">
+            <div className="mt-1.5 text-[0.8125rem] font-semibold leading-snug text-warm-900">
               {l.objets.map((o, i) => (
                 <div key={o} className={hyph(o)}>
                   {i > 0 && (
@@ -143,7 +143,7 @@ const PILIERS = [
 function Pilier({ p, align }: { p: (typeof PILIERS)[number]; align: string }) {
   return (
     <div className={align}>
-      <p className="text-[13px] font-extrabold tracking-wide" style={{ color: p.color }}>
+      <p className="text-[0.8125rem] font-extrabold tracking-wide" style={{ color: p.color }}>
         {p.name}
       </p>
       <p className="text-xs text-warm-700">{p.hint}</p>
@@ -178,7 +178,7 @@ export function DeveloppementDurableDiagram() {
         <div aria-hidden>
           <Pilier p={env} align="text-center" />
         </div>
-        <ul className="mt-3 space-y-1 text-[13px] text-warm-900" aria-hidden>
+        <ul className="mt-3 space-y-1 text-[0.8125rem] text-warm-900" aria-hidden>
           <li>
             <b style={{ color: social.color }}>Social</b> + <b style={{ color: eco.color }}>économique</b> → <b>équitable</b>
           </li>
