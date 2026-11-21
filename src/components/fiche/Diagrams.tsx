@@ -2112,91 +2112,122 @@ export function CarteGenetiqueDiagram() {
 
 interface LigneeData {
   name: string;
-  /** Short (≤ 32 characters) so it fits on one line at phone width. */
   principe: string;
   objets: string[];
 }
 
-/** Greedy wrap of "a → b → c" chains so each line stays readable at phone width. */
-function wrapChain(items: string[], maxChars: number): string[] {
-  const lines: string[] = [];
-  let cur = "";
-  items.forEach((item, i) => {
-    const piece = i === 0 ? item : `→ ${item}`;
-    if (cur && (cur + " " + piece).length > maxChars) {
-      lines.push(cur);
-      cur = piece;
-    } else {
-      cur = cur ? `${cur} ${piece}` : piece;
-    }
-  });
-  if (cur) lines.push(cur);
-  return lines;
+/** Small downward arrow tip for the tree connectors. */
+function ArrowTip() {
+  return (
+    <span
+      aria-hidden
+      className="absolute -bottom-[1px] left-1/2 h-0 w-0 -translate-x-1/2 border-x-[6px] border-t-[8px] border-x-transparent border-t-warm-600"
+    />
+  );
 }
 
-/** Family box on top, one lineage per row below, joined by a trunk (mobile-first, readable at phone width). */
-function FamilleLigneesTree({
-  famille,
-  fonction,
-  lignees,
-}: {
-  famille: string;
-  fonction: string;
-  lignees: LigneeData[];
-}) {
-  const top = 104;
-  const gap = 14;
-  const trunkX = 18;
-  const rows = lignees.map((l) => ({ ...l, lines: wrapChain(l.objets, 24) }));
-  const heights = rows.map((r) => 58 + r.lines.length * 20);
-  const ys = heights.map((_, i) => top + heights.slice(0, i).reduce((a, h) => a + h + gap, 0));
-  const height = ys[ys.length - 1] + heights[heights.length - 1] + 4;
+function LigneeCard({ l, compact }: { l: LigneeData; compact: boolean }) {
+  if (compact) {
+    // Phones: narrow card, no hyphenation (hard for DYS readers), one object per line.
+    return (
+      <div className="flex h-full flex-col items-center rounded-xl border-2 border-emerald-500 bg-emerald-50 px-1.5 py-2 text-center">
+        <p className="text-[10px] font-bold uppercase tracking-wider text-emerald-700">Lignée</p>
+        <p className="text-[13.5px] font-extrabold leading-tight text-emerald-800">{l.name}</p>
+        <p className="mt-1 text-[11px] italic leading-snug text-warm-700">{l.principe}</p>
+        <div className="mt-1.5 text-[12.5px] font-semibold leading-snug text-warm-900">
+          {l.objets.map((o, i) => (
+            <div key={o}>
+              {i > 0 && <div className="text-emerald-700" aria-hidden>↓</div>}
+              {o}
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
   return (
-    <svg
-      viewBox={`0 0 320 ${height}`}
-      className="mx-auto w-full max-w-sm"
+    <div className="flex h-full flex-col rounded-xl border-2 border-emerald-500 bg-emerald-50 px-2.5 py-2 text-center">
+      <p className="text-sm font-extrabold leading-tight text-emerald-800">Lignée : {l.name}</p>
+      <p className="mt-1 text-xs italic leading-snug text-warm-700">Principe : {l.principe}</p>
+      <p className="mt-1.5 text-[13px] font-semibold leading-snug text-warm-900">
+        {l.objets.map((o, i) => (
+          <span key={o}>
+            {i > 0 && <span className="text-emerald-700"> → </span>}
+            {o}
+          </span>
+        ))}
+      </p>
+    </div>
+  );
+}
+
+/**
+ * One row of the tree: a horizontal bar fed by the trunk from above, one arrow
+ * per lineage card. `continues` draws the trunk on through the gap to the next row.
+ */
+function TreeRow({
+  lignees,
+  cols,
+  continues,
+  compact = false,
+}: {
+  lignees: LigneeData[];
+  cols: number;
+  continues: boolean;
+  compact?: boolean;
+}) {
+  const edge = 100 / (2 * cols);
+  return (
+    <div className="relative pt-9">
+      {/* trunk from the element above down to the bar */}
+      <span aria-hidden className="absolute left-1/2 top-0 h-4 w-0.5 -translate-x-1/2 bg-warm-600" />
+      {/* bar */}
+      {cols > 1 && (
+        <span aria-hidden className="absolute top-4 h-0.5 bg-warm-600" style={{ left: `${edge}%`, right: `${edge}%` }} />
+      )}
+      {continues && <span aria-hidden className="absolute bottom-0 left-1/2 top-4 w-0.5 -translate-x-1/2 bg-warm-600" />}
+      <div className="grid gap-3" style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}>
+        {lignees.map((l) => (
+          <div key={l.name} className="relative">
+            <span aria-hidden className="absolute -top-5 left-1/2 h-5 w-0.5 -translate-x-1/2 bg-warm-600">
+              <ArrowTip />
+            </span>
+            <LigneeCard l={l} compact={cols === 2 && compact} />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/** Family → lineages tree, as in the trace écrite. 2 columns on phones, one row on wider screens. */
+function FamilleLigneesTree({ famille, fonction, lignees }: { famille: string; fonction: string; lignees: LigneeData[] }) {
+  const mobileRows: LigneeData[][] = [];
+  for (let i = 0; i < lignees.length; i += 2) mobileRows.push(lignees.slice(i, i + 2));
+  return (
+    <div
       role="img"
       aria-label={`Famille « ${famille} » (fonction d'usage : ${fonction}). ${lignees
-        .map((l) => `Lignée ${l.name} (${l.principe}) : ${l.objets.join(", puis ")}`)
+        .map((l) => `Lignée ${l.name}, principe ${l.principe} : ${l.objets.join(", puis ")}`)
         .join(". ")}.`}
     >
-      <defs>
-        <marker id="arrow-lignee" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-          <path d="M0 0 L10 5 L0 10 Z" fill="#57534E" />
-        </marker>
-      </defs>
-      <rect x={2} y={2} width={316} height={78} rx={14} fill="#DBEAFE" stroke="#2563EB" strokeWidth="2" />
-      <text x={160} y={28} textAnchor="middle" fontSize="16" fontWeight="800" fill="#1E3A8A">
-        FAMILLE : {famille}
-      </text>
-      <text x={160} y={50} textAnchor="middle" fontSize="13" fill="#1E3A8A">
-        Fonction d&apos;usage :
-      </text>
-      <text x={160} y={68} textAnchor="middle" fontSize="13" fontWeight="700" fill="#1E3A8A">
-        {fonction}
-      </text>
-      <line x1={trunkX} y1={80} x2={trunkX} y2={ys[ys.length - 1] + 22} stroke="#57534E" strokeWidth="2" />
-      {rows.map((l, i) => {
-        const y = ys[i];
-        return (
-          <g key={l.name}>
-            <path d={`M${trunkX} ${y + 22} L36 ${y + 22}`} stroke="#57534E" strokeWidth="2" markerEnd="url(#arrow-lignee)" />
-            <rect x={38} y={y} width={280} height={heights[i]} rx={12} fill="#ECFDF5" stroke="#059669" strokeWidth="2" />
-            <text x={50} y={y + 22} fontSize="15" fontWeight="800" fill="#065F46">
-              Lignée : {l.name}
-            </text>
-            <text x={50} y={y + 42} fontSize="12.5" fontStyle="italic" fill="#44403C">
-              {l.principe}
-            </text>
-            {l.lines.map((line, k) => (
-              <text key={k} x={50} y={y + 64 + k * 20} fontSize="14" fontWeight="600" fill="#1C1917">
-                {line}
-              </text>
-            ))}
-          </g>
-        );
-      })}
-    </svg>
+      <div className="mx-auto max-w-xs rounded-xl border-2 border-blue-500 bg-blue-50 px-3 py-2 text-center">
+        <p className="text-base font-extrabold text-blue-900">FAMILLE : {famille}</p>
+        <p className="text-xs text-blue-900">
+          Fonction d&apos;usage : <b>{fonction}</b>
+        </p>
+      </div>
+      {/* phones */}
+      <div className="sm:hidden">
+        {mobileRows.map((row, i) => (
+          <TreeRow key={i} lignees={row} cols={2} continues={i < mobileRows.length - 1} compact />
+        ))}
+      </div>
+      {/* tablets & computers */}
+      <div className="hidden sm:block">
+        <TreeRow lignees={lignees} cols={lignees.length} continues={false} />
+      </div>
+    </div>
   );
 }
 
@@ -2207,13 +2238,13 @@ export function FamilleEclairageDiagram() {
       caption="Changer de principe technique = rupture technologique = naissance d'une nouvelle lignée."
     >
       <FamilleLigneesTree
-        famille="l'éclairage"
+        famille="les objets d'éclairage"
         fonction="éclairer, produire de la lumière"
         lignees={[
           { name: "combustion", principe: "une flamme", objets: ["Bougie", "lampe à pétrole", "bec de gaz"] },
-          { name: "incandescence", principe: "filament chauffé par le courant", objets: ["Ampoule classique", "halogène"] },
+          { name: "incandescence", principe: "filament chauffé par le courant électrique", objets: ["Ampoule classique", "halogène"] },
           { name: "fluorescence", principe: "décharge électrique dans un gaz", objets: ["Tube néon", "fluocompacte"] },
-          { name: "LED", principe: "électroluminescence", objets: ["Ampoule LED", "ruban LED"] },
+          { name: "LED", principe: "électroluminescence d'un semi-conducteur", objets: ["Ampoule LED", "ruban LED"] },
         ]}
       />
     </DiagramFrame>
@@ -2240,98 +2271,174 @@ export function FamilleCommunicationDiagram() {
 
 type FriseKind = "rupture" | "innovation" | "repere";
 
-const FRISE_COLORS: Record<FriseKind, string> = {
-  rupture: "#C2410C",
-  innovation: "#1D4ED8",
-  repere: "#57534E",
+interface FriseEvent {
+  year: number;
+  label: string;
+  kind: FriseKind;
+}
+
+const FRISE_STYLE: Record<FriseKind, { color: string; tag: string; badge: string }> = {
+  rupture: { color: "#C2410C", tag: "RUPTURE", badge: "bg-orange-700" },
+  innovation: { color: "#1D4ED8", tag: "Innovation", badge: "bg-blue-700" },
+  repere: { color: "#57534E", tag: "Repère", badge: "bg-stone-600" },
 };
 
-/** Vertical timeline (reads top → bottom on a phone). */
-function FriseVerticale({
-  start,
-  end,
-  step,
-  events,
-}: {
-  start: number;
-  end: number;
-  step: number;
-  events: { year: number; label: string; kind: FriseKind }[];
-}) {
-  const scale = 3.6;
-  const y0 = 20;
-  const yOf = (year: number) => y0 + (year - start) * scale;
-  const height = yOf(end) + 30;
+/**
+ * Horizontal timeline, as on paper. Wide screens: labels alternate above and
+ * below the axis. Phones: numbered markers on the axis + a readable list below.
+ */
+function FriseHorizontale({ start, end, events }: { start: number; end: number; events: FriseEvent[] }) {
   const ticks: number[] = [];
-  for (let t = start; t <= end; t += step) ticks.push(t);
+  for (let t = start; t <= end; t += 10) ticks.push(t);
+
+  // ── wide layout (course-like): labels alternate above / below, and move to a
+  // second row when they would overlap the previous label on the same side ──
+  const W = 720;
+  const x0 = 30;
+  const x1 = W - 40;
+  const xOf = (y: number) => x0 + ((y - start) / (end - start)) * (x1 - x0);
+  const axisY = 132;
+  const lastRight: Record<string, number[]> = { above: [-Infinity, -Infinity], below: [-Infinity, -Infinity] };
+  const wide = events.map((e, i) => {
+    const side = i % 2 === 0 ? "above" : "below";
+    const x = xOf(e.year);
+    const s = FRISE_STYLE[e.kind];
+    const textW = Math.max(`${e.year} ${s.tag}`.length * 8.2, e.label.length * 7.2);
+    const anchor: "start" | "end" | "middle" = x < 110 ? "start" : x > W - 130 ? "end" : "middle";
+    const left = anchor === "start" ? x - 8 : anchor === "end" ? x + 8 - textW : x - textW / 2;
+    const row = lastRight[side][0] + 10 < left ? 0 : 1;
+    lastRight[side][row] = left + textW;
+    const tagY = side === "above" ? axisY - 62 - row * 42 : axisY + 44 + row * 42;
+    return { e, s, x, anchor, tx: anchor === "start" ? x - 8 : anchor === "end" ? x + 8 : x, tagY, side };
+  });
+
+  // ── phone layout: numbered markers above the axis on two staggered heights ──
+  const w = 340;
+  const m0 = 18;
+  const m1 = w - 26;
+  const mx = (y: number) => m0 + ((y - start) / (end - start)) * (m1 - m0);
+  const mAxis = 62;
+
   return (
-    <svg
-      viewBox={`0 0 320 ${height}`}
-      className="mx-auto w-full max-w-md"
-      role="img"
-      aria-label={events.map((e) => `${e.year} : ${e.label} (${e.kind})`).join(". ")}
-    >
-      <line x1={70} y1={y0 - 8} x2={70} y2={yOf(end) + 14} stroke="#57534E" strokeWidth="3" />
-      <path d={`M63 ${yOf(end) + 10} L70 ${yOf(end) + 24} L77 ${yOf(end) + 10} Z`} fill="#57534E" />
-      {ticks.map((t) => {
-        const major = t % 50 === 0;
-        return (
-          <g key={t}>
-            <line x1={major ? 60 : 64} y1={yOf(t)} x2={major ? 80 : 76} y2={yOf(t)} stroke="#57534E" strokeWidth={major ? 2.5 : 1.2} />
-            {major && (
-              <text x={52} y={yOf(t) + 5} textAnchor="end" fontSize="14" fontWeight="800" fill="#44403C">
-                {t}
-              </text>
-            )}
-          </g>
-        );
-      })}
-      {events.map((e) => {
-        const y = yOf(e.year);
-        const color = FRISE_COLORS[e.kind];
-        const tag = e.kind === "rupture" ? "RUPTURE" : e.kind === "innovation" ? "Innovation" : "Repère";
-        return (
+    <div role="img" aria-label={events.map((e) => `${e.year} : ${e.label} (${FRISE_STYLE[e.kind].tag})`).join(". ")}>
+      {/* wide */}
+      <svg viewBox={`0 0 ${W} 262`} className="hidden w-full sm:block" aria-hidden>
+        <line x1={x0 - 10} y1={axisY} x2={x1 + 22} y2={axisY} stroke="#44403C" strokeWidth="2.5" />
+        <path d={`M${x1 + 22} ${axisY - 6} L${x1 + 34} ${axisY} L${x1 + 22} ${axisY + 6} Z`} fill="#44403C" />
+        {ticks.map((t) => {
+          const major = t % 50 === 0;
+          return (
+            <g key={t}>
+              <line x1={xOf(t)} y1={axisY - (major ? 9 : 5)} x2={xOf(t)} y2={axisY + (major ? 9 : 5)} stroke="#44403C" strokeWidth={major ? 2.5 : 1.3} />
+              {major && (
+                <text x={xOf(t)} y={axisY + 26} textAnchor="middle" fontSize="13" fontWeight="800" fill="#292524">
+                  {t}
+                </text>
+              )}
+            </g>
+          );
+        })}
+        {wide.map(({ e, s, x, anchor, tx, tagY, side }) => (
           <g key={e.year + e.label}>
-            <circle cx={70} cy={y} r={7} fill={color} stroke="#FFFFFF" strokeWidth="2" />
-            <line x1={78} y1={y} x2={96} y2={y} stroke={color} strokeWidth="1.5" strokeDasharray="3 2" />
-            <text x={100} y={y - 3} fontSize="14" fontWeight="800" fill={color}>
-              {e.year} · {tag}
+            <line
+              x1={x}
+              y1={axisY}
+              x2={x}
+              y2={side === "above" ? tagY + 22 : tagY - 16}
+              stroke={s.color}
+              strokeWidth="1.5"
+              strokeDasharray="3 3"
+            />
+            <circle cx={x} cy={axisY} r={7} fill={s.color} stroke="#FFFFFF" strokeWidth="2" />
+            <text x={tx} y={tagY} textAnchor={anchor} fontSize="12.5" fontWeight="800" fill={s.color}>
+              {e.year} {s.tag}
             </text>
-            <text x={100} y={y + 14} fontSize="13.5" fill="#1C1917">
+            <text x={tx} y={tagY + 16} textAnchor={anchor} fontSize="12" fill="#292524">
               {e.label}
             </text>
           </g>
-        );
-      })}
-    </svg>
+        ))}
+      </svg>
+
+      {/* phone */}
+      <div className="sm:hidden">
+        <svg viewBox={`0 0 ${w} 92`} className="w-full" aria-hidden>
+          <line x1={m0 - 8} y1={mAxis} x2={m1 + 12} y2={mAxis} stroke="#44403C" strokeWidth="2.5" />
+          <path d={`M${m1 + 12} ${mAxis - 5} L${m1 + 22} ${mAxis} L${m1 + 12} ${mAxis + 5} Z`} fill="#44403C" />
+          {ticks.map((t) => {
+            const major = t % 50 === 0;
+            return (
+              <g key={t}>
+                <line x1={mx(t)} y1={mAxis - (major ? 7 : 4)} x2={mx(t)} y2={mAxis + (major ? 7 : 4)} stroke="#44403C" strokeWidth={major ? 2.2 : 1.1} />
+                {major && (
+                  <text x={mx(t)} y={mAxis + 24} textAnchor="middle" fontSize="13" fontWeight="800" fill="#292524">
+                    {t}
+                  </text>
+                )}
+              </g>
+            );
+          })}
+          {events.map((e, i) => {
+            const x = mx(e.year);
+            const cy = i % 2 === 0 ? mAxis - 22 : mAxis - 46;
+            const s = FRISE_STYLE[e.kind];
+            return (
+              <g key={e.year + e.label}>
+                <line x1={x} y1={mAxis} x2={x} y2={cy} stroke={s.color} strokeWidth="1.5" />
+                <circle cx={x} cy={mAxis} r={4} fill={s.color} />
+                <circle cx={x} cy={cy} r={10} fill={s.color} />
+                <text x={x} y={cy + 4.5} textAnchor="middle" fontSize="12" fontWeight="800" fill="#FFFFFF">
+                  {i + 1}
+                </text>
+              </g>
+            );
+          })}
+        </svg>
+        <ol className="mt-2 space-y-1.5">
+          {events.map((e, i) => {
+            const s = FRISE_STYLE[e.kind];
+            return (
+              <li key={e.year + e.label} className="flex items-center gap-2 text-sm text-warm-900">
+                <span className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-extrabold text-white ${s.badge}`}>
+                  {i + 1}
+                </span>
+                <span>
+                  <b className="tabular-nums">{e.year}</b>{" "}
+                  <b style={{ color: s.color }}>{s.tag}</b> · {e.label}
+                </span>
+              </li>
+            );
+          })}
+        </ol>
+      </div>
+    </div>
   );
 }
 
 function FriseLegende() {
   return (
-    <div className="mt-2 flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs text-warm-700">
-      <span><span className="font-bold" style={{ color: FRISE_COLORS.rupture }}>●</span> <b>Rupture</b> : nouveau principe technique, nouvelle lignée</span>
-      <span><span className="font-bold" style={{ color: FRISE_COLORS.innovation }}>●</span> <b>Innovation</b> : amélioration dans une lignée existante</span>
-      <span><span className="font-bold" style={{ color: FRISE_COLORS.repere }}>●</span> <b>Repère</b> historique</span>
+    <div className="mt-3 flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs text-warm-700">
+      <span><span className="font-bold" style={{ color: FRISE_STYLE.rupture.color }}>●</span> <b>Rupture</b> : nouveau principe technique, nouvelle lignée</span>
+      <span><span className="font-bold" style={{ color: FRISE_STYLE.innovation.color }}>●</span> <b>Innovation</b> : amélioration dans une lignée existante</span>
+      <span><span className="font-bold" style={{ color: FRISE_STYLE.repere.color }}>●</span> <b>Repère</b> historique</span>
     </div>
   );
 }
 
 export function FriseEclairageDiagram() {
   return (
-    <DiagramFrame title="La frise de l'éclairage (1850 → 2020)" caption="2012 : l'Union européenne interdit la vente des ampoules classiques.">
-      <FriseVerticale
+    <DiagramFrame title="Inventions, innovations et ruptures : la frise de l'éclairage">
+      <FriseHorizontale
         start={1850}
         end={2020}
-        step={10}
         events={[
           { year: 1853, label: "Lampe à pétrole", kind: "repere" },
-          { year: 1879, label: "Ampoule d'Edison", kind: "rupture" },
+          { year: 1879, label: "Ampoule Edison", kind: "rupture" },
           { year: 1938, label: "Tube fluorescent", kind: "rupture" },
-          { year: 1959, label: "Lampe halogène", kind: "innovation" },
-          { year: 1980, label: "Lampe fluocompacte", kind: "innovation" },
+          { year: 1959, label: "Halogène", kind: "innovation" },
+          { year: 1980, label: "Fluocompacte", kind: "innovation" },
           { year: 1993, label: "LED blanche", kind: "rupture" },
-          { year: 2012, label: "Fin des ampoules classiques", kind: "repere" },
+          { year: 2012, label: "Fin ampoules classiques (UE)", kind: "repere" },
         ]}
       />
       <FriseLegende />

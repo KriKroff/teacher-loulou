@@ -244,7 +244,7 @@ export interface QuizQuestion {
 
   // ── frise ──────────────────────────────────────────────────────────────────
   /**
-   * Graduated vertical timeline. The student places each event on a
+   * Graduated horizontal timeline. The student places each event on a
    * graduation; it is right when it is on the graduation nearest its year
    * (|year − graduation| ≤ step/2). Only multiples of majorStep
    * show their year (e.g. 1850, 1900, 1950).
