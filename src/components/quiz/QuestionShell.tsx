@@ -30,6 +30,9 @@ import {
   ConstruirePhraseQuestion,
   CorrectionErreurQuestion,
   ExpressionLibreQuestion,
+  FriseQuestion,
+  VraiFauxJustifieQuestion,
+  ArgumentaireQuestion,
 } from "./questions";
 import { AtomModel } from "@/components/chemistry/AtomModel";
 import { InlineMarkdown } from "./InlineMarkdown";
@@ -84,6 +87,10 @@ const TYPE_BADGES: Partial<Record<QuizQuestion["type"], { label: string; classNa
   "construire-phrase": { label: "Construis la phrase", className: "bg-orange-100 text-orange-700" },
   "correction-erreur": { label: "Corrige les erreurs", className: "bg-rose-100 text-rose-700" },
   "expression-libre": { label: "Écris en anglais", className: "bg-emerald-100 text-emerald-700" },
+  // Reasoning / argumentation
+  frise: { label: "Place sur la frise", className: "bg-orange-100 text-orange-700" },
+  "vrai-faux-justifie": { label: "Vrai ou Faux + justifie", className: "bg-blue-100 text-blue-700" },
+  argumentaire: { label: "Construis ton argumentation", className: "bg-teal-100 text-teal-700" },
 };
 
 function QuestionDispatcher(props: QuestionComponentProps) {
@@ -142,6 +149,12 @@ function QuestionDispatcher(props: QuestionComponentProps) {
       return <CorrectionErreurQuestion {...props} />;
     case "expression-libre":
       return <ExpressionLibreQuestion {...props} />;
+    case "frise":
+      return <FriseQuestion {...props} />;
+    case "vrai-faux-justifie":
+      return <VraiFauxJustifieQuestion {...props} />;
+    case "argumentaire":
+      return <ArgumentaireQuestion {...props} />;
     default:
       return null;
   }

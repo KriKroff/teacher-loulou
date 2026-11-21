@@ -224,6 +224,39 @@ for (const r of resources) {
         }
       }
     }
+    if (q.type === "frise") {
+      const f = q.frise;
+      if (!f || !f.events?.length) {
+        error(`${where}: frise has no events`);
+      } else {
+        const step = f.step ?? 10;
+        const major = f.majorStep ?? 50;
+        if (step <= 0 || f.end <= f.start) error(`${where}: frise needs start < end and step > 0`);
+        if (major % step !== 0) error(`${where}: frise majorStep (${major}) must be a multiple of step (${step})`);
+        if (f.start % step !== 0) error(`${where}: frise start (${f.start}) must be a multiple of step (${step}) so labelled years fall on graduations`);
+        for (const e of f.events) {
+          if (e.year < f.start - step / 2 || e.year > f.end + step / 2) error(`${where}: frise event "${e.label}" (${e.year}) is outside ${f.start}–${f.end}`);
+        }
+        if (new Set(f.events.map((e) => e.id)).size !== f.events.length) error(`${where}: frise event ids must be unique`);
+      }
+    }
+    if (q.type === "vrai-faux-justifie") {
+      if (q.correctAnswer !== "Vrai" && q.correctAnswer !== "Faux") error(`${where}: vrai-faux-justifie correctAnswer must be "Vrai" or "Faux"`);
+      if ((q.justifications ?? []).length < 2) error(`${where}: vrai-faux-justifie needs at least 2 justifications`);
+      if (!q.correctJustification || !(q.justifications ?? []).includes(q.correctJustification)) {
+        error(`${where}: correctJustification is not in justifications`);
+      }
+    }
+    if (q.type === "argumentaire") {
+      const cardIds = new Set((q.argumentCards ?? []).map((c) => c.id));
+      const slots = q.argumentSlots ?? [];
+      if (slots.length === 0) error(`${where}: argumentaire has no argumentSlots`);
+      for (const sl of slots) {
+        if (sl.acceptedCardIds.length === 0) error(`${where}: slot "${sl.id}" accepts no card`);
+        for (const id of sl.acceptedCardIds) if (!cardIds.has(id)) error(`${where}: slot "${sl.id}" accepts unknown card "${id}"`);
+      }
+      if (cardIds.size <= slots.length) warn(`${where}: argumentaire has no trap card`);
+    }
     for (const d of q.atomDiagrams ?? []) {
       if (!Number.isInteger(d.z) || !Number.isInteger(d.electrons) || d.z < 1 || d.electrons < 0) error(`${where}: invalid atomDiagram (z=${d.z}, electrons=${d.electrons})`);
     }

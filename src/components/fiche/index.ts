@@ -46,5 +46,13 @@ export {
   ArbrePTCDiagram,
   CarteGenetiqueDiagram,
 } from "./Diagrams";
+export {
+  FamilleEclairageDiagram,
+  FamilleCommunicationDiagram,
+  FriseEclairageDiagram,
+  DeveloppementDurableDiagram,
+} from "./diagram/TechnologieDiagrams";
+export { ConnectedDiagram, DiagramNode } from "./diagram/ConnectedDiagram";
+export { Frise } from "./diagram/Frise";
 export { AtomModel } from "@/components/chemistry/AtomModel";
 export type { FicheColor } from "./colors";
