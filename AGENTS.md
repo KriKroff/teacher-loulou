@@ -94,10 +94,13 @@ Colors: `purple`, `blue`, `green`, `orange`, `cyan`, `brown`, `sand`, `rose`, `a
 
 Math: `$...$` inline, `$$...$$` block (KaTeX via remark-math + rehype-katex).
 
-### Built-in SVG Diagrams
+### Diagrams (schémas)
 
-Subject-specific inline diagrams in `src/components/fiche/Diagrams.tsx` — no props needed.
-To add a new diagram: add an `export function` to `Diagrams.tsx`, re-export from `fiche/index.ts`.
+Subject-specific inline diagrams, no props needed: legacy ones in `src/components/fiche/Diagrams.tsx`, new ones in `src/components/fiche/diagram/<Subject>Diagrams.tsx` — re-export from `fiche/index.ts`.
+
+**New diagrams are HTML-first** (skill `fiche-diagrams`): text in HTML (keeps its size, wraps), lines/arrows computed from the boxes. Primitives: `DiagramFrame`, `ConnectedDiagram` + `DiagramNode` (boxes and arrows), `Frise` (horizontal timeline). Never put body text in an SVG `viewBox` — it shrinks to 3–6 px on phones.
+
+Before committing a diagram: `npm run build && npm run check-diagrams -- --only=<slug> --shots=all`, then review the screenshots (skill `diagram-review`).
 
 ## Quiz Question Types
 
@@ -165,6 +168,7 @@ npm run validate-resources   # Validate all resources — run before committing
 npm run build                # Static build → out/ (runs validate-resources first)
 npm run lint                 # ESLint
 npm run build-atlas          # Regenerate Atlas maps (public/atlas/)
+npm run check-diagrams       # Check fiche diagrams at 320→1280 px (after build) — see skill diagram-review
 ```
 
 ## Gotchas
